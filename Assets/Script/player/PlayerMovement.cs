@@ -74,6 +74,8 @@ public class PlayerMovement : MonoBehaviour
             worldMove.Normalize();
 
         Vector3 horizontalVelocity = worldMove * moveSpeed;
-        
+
+        characterController.Move(horizontalVelocity * Time.deltaTime);
+
     }
 }
