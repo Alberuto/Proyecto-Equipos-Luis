@@ -1,0 +1,15 @@
+ORIGINAL
+
+E - F - G - C# - F# - D# - G# - D - B - C - A - A# 
+
+RETROGRADO
+
+A# - A - C - B - D - G# - D# - F# - C# - G - F - E
+
+INVERSION
+
+E - D# - C# - G - D - F - C - F# - A - G# - B - A#
+
+INVERSION RETROGRADO
+
+A# - B - G# - A - F# - C - F - D - G - C# - D# - E
