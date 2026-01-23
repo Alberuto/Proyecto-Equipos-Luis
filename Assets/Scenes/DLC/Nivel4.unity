@@ -1197,7 +1197,7 @@ GameObject:
   - component: {fileID: 820593659}
   - component: {fileID: 820593658}
   m_Layer: 5
-  m_Name: PNJ
+  m_Name: Kiko
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1235,7 +1235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersonajeDialogo
   imagenPersonaje: {fileID: 820593659}
-  nombrePersonaje: Cigala
+  nombrePersonaje: Kiko
   estado: Lose
 --- !u!114 &820593659
 MonoBehaviour:
@@ -1288,7 +1288,7 @@ GameObject:
   - component: {fileID: 886010494}
   - component: {fileID: 886010493}
   m_Layer: 5
-  m_Name: PNJ
+  m_Name: Kiko
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1326,7 +1326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersonajeDialogo
   imagenPersonaje: {fileID: 886010494}
-  nombrePersonaje: Cigala
+  nombrePersonaje: Kiko
   estado: Normal
 --- !u!114 &886010494
 MonoBehaviour:
@@ -1863,7 +1863,7 @@ GameObject:
   - component: {fileID: 1476981497}
   - component: {fileID: 1476981496}
   m_Layer: 5
-  m_Name: PNJ
+  m_Name: Kiko
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1901,7 +1901,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersonajeDialogo
   imagenPersonaje: {fileID: 1476981497}
-  nombrePersonaje: Cigala
+  nombrePersonaje: Kiko
   estado: Fury
 --- !u!114 &1476981497
 MonoBehaviour:
@@ -2236,7 +2236,7 @@ GameObject:
   - component: {fileID: 1853641417}
   - component: {fileID: 1853641416}
   m_Layer: 5
-  m_Name: PNJ
+  m_Name: Kiko
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2274,7 +2274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersonajeDialogo
   imagenPersonaje: {fileID: 1853641417}
-  nombrePersonaje: Cigala
+  nombrePersonaje: Kiko
   estado: Win
 --- !u!114 &1853641417
 MonoBehaviour:
