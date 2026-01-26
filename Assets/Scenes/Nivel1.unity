@@ -429,8 +429,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -430.95404, y: -1}
-  m_SizeDelta: {x: 112.092, y: 89.2953}
+  m_AnchoredPosition: {x: -425.41464, y: 144.45401}
+  m_SizeDelta: {x: 123.1708, y: 89.703}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &81067301
 MonoBehaviour:
@@ -476,7 +476,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 886010493}
+      - m_Target: {fileID: 820593658}
         m_TargetAssemblyTypeName: PersonajeDialogo, Assembly-CSharp
         m_MethodName: AnteriorTexto
         m_Mode: 1
@@ -1072,7 +1072,7 @@ GameObject:
   - component: {fileID: 372482096}
   - component: {fileID: 372482095}
   m_Layer: 5
-  m_Name: Linea 1
+  m_Name: Linea 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1144,14 +1144,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1233,8 +1233,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -429.40436, y: -139.64159}
-  m_SizeDelta: {x: 108.9927, y: 88.4241}
+  m_AnchoredPosition: {x: -422.8812, y: 5.2251}
+  m_SizeDelta: {x: 121.337, y: 88.3586}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &513176339
 MonoBehaviour:
@@ -1280,7 +1280,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 886010493}
+      - m_Target: {fileID: 1476981496}
         m_TargetAssemblyTypeName: PersonajeDialogo, Assembly-CSharp
         m_MethodName: SiguienteTexto
         m_Mode: 1
@@ -1630,8 +1630,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -430.954, y: -1}
-  m_SizeDelta: {x: 112.092, y: 89.2953}
+  m_AnchoredPosition: {x: -427.88947, y: 139.169}
+  m_SizeDelta: {x: 113.6318, y: 87.8655}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &564498348
 MonoBehaviour:
@@ -1923,8 +1923,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -429.40436, y: -139.64159}
-  m_SizeDelta: {x: 108.9927, y: 88.4241}
+  m_AnchoredPosition: {x: -423.8276, y: 5.2461}
+  m_SizeDelta: {x: 119.546, y: 88.3689}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &679736192
 MonoBehaviour:
@@ -1970,7 +1970,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 886010493}
+      - m_Target: {fileID: 1853641416}
         m_TargetAssemblyTypeName: PersonajeDialogo, Assembly-CSharp
         m_MethodName: SiguienteTexto
         m_Mode: 1
@@ -2295,8 +2295,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 221.13, y: -287.27}
-  m_SizeDelta: {x: 498.42, y: 29.453}
+  m_AnchoredPosition: {x: -426.75, y: -273.24}
+  m_SizeDelta: {x: 120.5, y: 92.515}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &764744736
 MonoBehaviour:
@@ -2404,7 +2404,7 @@ GameObject:
   - component: {fileID: 773944124}
   - component: {fileID: 773944123}
   m_Layer: 5
-  m_Name: Linea 1
+  m_Name: Linea 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2476,14 +2476,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -2542,7 +2542,7 @@ GameObject:
   - component: {fileID: 820593659}
   - component: {fileID: 820593658}
   m_Layer: 5
-  m_Name: Kiko
+  m_Name: KikoLose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2584,15 +2584,16 @@ MonoBehaviour:
   nombrePersonaje: Kiko
   estado: Lose
   lineas:
-  - "Te vas a enterar cuando se lo diga a la Pantoja, te convertira en un marinero
+  - Te vas a enterar cuando se lo diga a la Pantoja, te convertira en un marinero
     sin luces en menos que canta un gallo. si ya te has enterado de quien soy yo,
     agarrate porque vienen curvas, te espera el todo poderoso (literalmente) cigala
     con varios cientos de monedas con las que esta dispuesto a hacerte languidecer
-    o claudicar por su exceso de generosidad altruista, a este crust\xE1ceo siempre
-    le gusto pagar bien... Suerte en tu camino a la liberacion de Elvis pero te recuerdo
-    que siempre podras volver a empezar como en una escalera musical con retorno,
-    la mia es CDEFGFEDC, acuerdate porque podra ayudarte en tu lucha final y acuerdate
-    de que tus enemigos tambien fueron tus amigos."
+    o claudicar por su exceso de generosidad altruista
+  - "A este crust\xE1ceo siempre le gusto pagar bien... Suerte en tu camino a la
+    liberacion de Elvis pero te recuerdo que siempre podras volver a empezar como
+    en una escalera musical con retorno, la mia es CDEFGFEDC, acuerdate porque podra
+    ayudarte en tu lucha final y acuerdate de que tus enemigos tambien fueron tus
+    amigos."
 --- !u!114 &820593659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2781,7 +2782,7 @@ GameObject:
   - component: {fileID: 886010494}
   - component: {fileID: 886010493}
   m_Layer: 5
-  m_Name: Kiko
+  m_Name: KikoNormal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2823,24 +2824,26 @@ MonoBehaviour:
   nombrePersonaje: Kiko
   estado: Normal
   lineas:
-  - "\xA1Elvis vive!\nDescripci\xF3n\nEn el oscuro y desafinado pueblo de Churriana
-    de la Vega, la m\xFAsica est\xE1 en peligro. El Fari, l\xEDder \nsupremo de la
-    antim\xFAsica, ha secuestrado a Elvis Presley y lo mantiene prisionero en una
-    mazmorra \nflamenca, donde las buler\xEDas amenazan con borrar su legado de rock
-    para siempre.\nPero la resistencia sonora a\xFAn no ha sido derrotada. Con el
-    poder del death metal, el \ndodecafonismo y la m\xFAsica Wagneriana, debes abrirte
+  - "\xA1Elvis vive!\nEn el oscuro y desafinado pueblo de Churriana de la Vega, la
+    m\xFAsica est\xE1 en peligro. El Fari, l\xEDder \nsupremo de la antim\xFAsica,
+    ha secuestrado a Elvis Presley y lo mantiene prisionero en una mazmorra \nflamenca,
+    donde las buler\xEDas amenazan con borrar su legado de rock para siempre.\n"
+  - "Pero la resistencia sonora a\xFAn no ha sido derrotada. Con el poder del death
+    metal, el \ndodecafonismo y la m\xFAsica Wagneriana (cl\xE1sica), debes abrirte
     camino a trav\xE9s de hordas de enemigos \nr\xEDtmicamente cuadrados para liberar
     a Elvis y restaurar el equilibrio musical.\nEl destino de la armon\xEDa est\xE1
     en tus manos."
-  - "Bienvenido a batalla musical, antes de que te atrevas tan si quiera a derrotar
+  - Bienvenido a batalla musical, antes de que te atrevas tan si quiera a derrotar
     a nuestro jefe supremo (El Fary) tendras que demostrar un minimo de ciertas capacidades
     musicales, y yo soy el mayor de DOs de MIs hermanoS (OLe) conmigo aprenderas
-    tu primer conjunto de combinaciones de teclas a las que nuestro maestro es sensible,
-    usaremos para ello la notacion Anglosajona que es la que te acompa\xF1a en el
+    tu primer conjunto de combinaciones de teclas a las que nuestro maestro es sensible.
+  - "Usaremos para ello la notacion Anglosajona que es la que te acompa\xF1a en el
     teclaDO, puede que ya te haya dejado tu primera pista (CEG) con la que poder
     hacer da\xF1o al jefe supremo ya que tus ataques clasicos, metal y dodecaf\xF3nicos
-    seran inservibles ya que es inmune por ser supremo y estar m\xE1s all\xE1 de
-    la farandula. \xBFestas listo para continuar? te dejar\xE9 atacar primero insensato!"
+    seran inservibles ya que es inmune por ser supremo (yo solo lo soy al death metal)
+    y estar m\xE1s all\xE1 de la farandula. \xBFestas listo para continuar? "
+  - "Ahora te dejar\xE9 atacar primero insensato! Preparate para una lucha y para
+    enterarte de como soy Yo de una vez por todas!"
 --- !u!114 &886010494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2915,8 +2918,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -431.5, y: -273.24}
-  m_SizeDelta: {x: 106, y: 92.513}
+  m_AnchoredPosition: {x: -426.12616, y: -128.26888}
+  m_SizeDelta: {x: 116.2635, y: 92.4552}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &913149715
 MonoBehaviour:
@@ -3185,8 +3188,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -431.5, y: -273.24}
-  m_SizeDelta: {x: 106, y: 92.513}
+  m_AnchoredPosition: {x: -425.21417, y: -128.27426}
+  m_SizeDelta: {x: 118.0053, y: 92.4444}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1012415668
 MonoBehaviour:
@@ -3455,8 +3458,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -431.5, y: -273.24}
-  m_SizeDelta: {x: 106, y: 92.513}
+  m_AnchoredPosition: {x: -430.5558, y: -128.71213}
+  m_SizeDelta: {x: 107.4561, y: 91.0318}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1110999950
 MonoBehaviour:
@@ -3725,8 +3728,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -431.5, y: -273.24}
-  m_SizeDelta: {x: 106, y: 92.513}
+  m_AnchoredPosition: {x: -426.01456, y: -129.02882}
+  m_SizeDelta: {x: 116.4767, y: 92.9353}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1166093555
 MonoBehaviour:
@@ -4075,8 +4078,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -430.95404, y: -1}
-  m_SizeDelta: {x: 112.092, y: 89.2953}
+  m_AnchoredPosition: {x: -424.60638, y: 143.76398}
+  m_SizeDelta: {x: 124.7873, y: 89.2291}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1361451104
 MonoBehaviour:
@@ -4122,7 +4125,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 886010493}
+      - m_Target: {fileID: 1476981496}
         m_TargetAssemblyTypeName: PersonajeDialogo, Assembly-CSharp
         m_MethodName: AnteriorTexto
         m_Mode: 1
@@ -4208,8 +4211,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -429.40436, y: -139.64159}
-  m_SizeDelta: {x: 108.9927, y: 88.4241}
+  m_AnchoredPosition: {x: -427.8895, y: 2.7472}
+  m_SizeDelta: {x: 110.49, y: 87.0083}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1377472617
 MonoBehaviour:
@@ -4318,7 +4321,7 @@ GameObject:
   - component: {fileID: 1476981497}
   - component: {fileID: 1476981496}
   m_Layer: 5
-  m_Name: Kiko
+  m_Name: KikoFury
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4364,9 +4367,9 @@ MonoBehaviour:
     es bueno voy a empezar a usar mis ataques mas devastadores y no tendre piedad,
     por fin te demostrare todo mi potencial y podras comprender porque "Asi soy yo"
     respetado por el mundo entero, como la sidra del gaitero! Preparate por que no
-    tendre clemencia maldito insensato! Adelante Vinilos del demonio acabad con el
-    antes de que pueda rescatar a elvis y dejarnos a todos sin flow varados desarmonicamente
-    a merced del dodecafonismo.
+    tendre clemencia maldito insensato!
+  - ' Adelante Vinilos del demonio acabad con el antes de que pueda rescatar a Elvis
+    y dejarnos a todos sin flow varados desarmonicamente a merced del dodecafonismo.'
 --- !u!114 &1476981497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4680,8 +4683,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -430.95404, y: -1}
-  m_SizeDelta: {x: 112.092, y: 89.2953}
+  m_AnchoredPosition: {x: -425.52734, y: 143.80112}
+  m_SizeDelta: {x: 122.9454, y: 89.2395}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1767801525
 MonoBehaviour:
@@ -4727,7 +4730,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 886010493}
+      - m_Target: {fileID: 1853641416}
         m_TargetAssemblyTypeName: PersonajeDialogo, Assembly-CSharp
         m_MethodName: AnteriorTexto
         m_Mode: 1
@@ -4973,7 +4976,7 @@ GameObject:
   - component: {fileID: 1853641417}
   - component: {fileID: 1853641416}
   m_Layer: 5
-  m_Name: Kiko
+  m_Name: KikoWin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5019,11 +5022,10 @@ MonoBehaviour:
     dado Espa\xF1a en los ultimos a\xF1os, eres un ser inmundo vacio de todo conocimiento
     musical e incapaz de superar al menor de los 3 jefes de la discoteque. Siempre
     te quedara la opcion de volver a intentarlo, aunque quizas llegado a este punto
-    deberias de plantearte si quieres seguir perdiendo el tiempo ya que lo que esta
-    por venir ser\xE1 mucho peor, si quieres te dejo una escalera para escapar y
-    no volver y salir definitivamente llamada exit u otra para volver a intentarlo
-    llamada retry aunque prefiero denominarla \"CDEFGFEDC\" que es como que te vas
-    pero vuelves. mu ha ha ha haaaaaaaaa "
+    deberias de plantearte si quieres seguir perdiendo el tiempo "
+  - " Esta por venir mi ira desencadenada y ser\xE1 mucho peor, si quieres te dejo
+    una escalera para escapar y no volver y salir definitivamente denominada \"CDEFGFEDC\"
+    que es como que te vas pero vuelves. mu ha ha ha haaaaaaaaa"
 --- !u!114 &1853641417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5146,14 +5148,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -5211,7 +5213,7 @@ GameObject:
   - component: {fileID: 1931060732}
   - component: {fileID: 1931060731}
   m_Layer: 5
-  m_Name: Linea 1
+  m_Name: Linea 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5283,14 +5285,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -5611,8 +5613,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -429.40436, y: -139.64159}
-  m_SizeDelta: {x: 108.9927, y: 88.4241}
+  m_AnchoredPosition: {x: -423.7118, y: 5.1795}
+  m_SizeDelta: {x: 119.7652, y: 88.8278}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2030658213
 MonoBehaviour:
@@ -5658,7 +5660,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 886010493}
+      - m_Target: {fileID: 820593658}
         m_TargetAssemblyTypeName: PersonajeDialogo, Assembly-CSharp
         m_MethodName: SiguienteTexto
         m_Mode: 1
