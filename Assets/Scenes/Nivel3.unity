@@ -2584,13 +2584,15 @@ MonoBehaviour:
   nombrePersonaje: Fary
   estado: Lose
   lineas:
-  - "El Fari me encomend\xF3 vigilar Elvis. Mazmorras flamencas donde buler\xEDas
-    borran rock. Mi DEF#GAGF#ED puede herirle si eres astuto. Hordas r\xEDtmicamente
-    cuadradas caen ante tu caos dodecaf\xF3nico."
-  - " \xBFDominaste C de Kiko? Ahora ya dominas tambien el D del Cigala. \xA1Ve,
-    insensato a enfretarte a nuestro jefe supremo! pero sino nos haces caso no podras
-    vencerle, nosotros no supimos unirnos y terminamos esclavizados por el, porque
-    sabe que juntos seriamos imparables..."
+  - "\xBFQue demonios ven mis ojos como limones?"
+  - "\xBFHas conseguido derrotarme?"
+  - En realidad, tengo que contarte una cosa......
+  - "Fue el maldito elvis el que nos persuadi\xF3 y nos trajo a los tres aqui con
+    su flow y sus suites de lujo a todo confort para artistas en el septimo cielo"
+  - "Ahora que nos has derrotado uno a uno deberas de mostrar que puedes impedir
+    cerrarnos el tablao, ya que llevamos a\xF1os de fiesta y no queremos acabar NUNCA"
+  - "Si consigues derrotarnos a los tres, cerrar\xE1s el antro rescataras a elvis
+    del after infinito y nosotros nos tendremos que resginar y buscar otro garito"
 --- !u!114 &820593659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2821,15 +2823,15 @@ MonoBehaviour:
   nombrePersonaje: Fary
   estado: Normal
   lineas:
-  - "\xA1Bienvenido al reino del flamenco eterno! Yo soy Cigala, se\xF1or de las
-    monedas y el ritmo profundo y jondo. El Fary me ha encomendado vigilar que nadie
-    libere a ese b\xE1rbaro de Elvis. Mi defensa es impenetrable como las murallas
-    de la Alhambra. Pero t\xFA... pareces diferente. \xBFCrees que puedes conmigo?
-    Te dar\xE9 una oportunidad."
-  - " Escucha mi pista: D F# A . Esa es la combinaci\xF3n que hiere al Fary, si eres
-    digno. El Fary es inmune a todo menos a nuestras pistas y los jodidos dodecafonismos.
-    Yo solo sucumbo ante el poder del Death metal y obviamente del dodecafonismo.
-    \xBFEst\xE1s listo? \xA1Ven, demu\xE9strame tu valor musical, insolente!"
+  - "\xA1YO SOY EL FARI! \xA1INMUNE TOTAL! Riffs Cl\xE1sicos, Death Metal, ... \xA1RID\xCDCULOS!
+    Solo dodecafonismo y las pistas proveidas pueden lastimarme, yo soy el jefe supremo
+    impenetrable. Paquirr\xEDn reggaet\xF3n in\xFAtil, mis sevillanas letales reflejan
+    todo. Cigala un folklorico insensato que me Bebo a diario"
+  - "Churriana de la Vega bajo mi antim\xFAsica. Elvis en mazmorras de buler\xEDas. 
+    Ara\xF1ar\xE1s mi grandeza si llegas lejos y escuchaste bien a mis compa\xF1eros.
+    Leitmotivs wagnerianos, riffs death metal, Lulu, Parsifall.... TODO in\xFAtil.
+    Solo las pistas y los dodecafonismos supremos me hieren. \xA1As\xED soy yo, rey
+    eterno!"
 --- !u!114 &886010494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4216,12 +4218,11 @@ MonoBehaviour:
   nombrePersonaje: Fary
   estado: Fury
   lineas:
-  - "\xA1Monedas asesinas! \xA1Duende m\xE1ximo! \xA1Buler\xEDas del infierno! \xA1Tangos
-    mortales! \xA1Por Fari, por flamenco eterno! maldito \xA1\xA1\xA1DEF#GA!!!"
-  - "Ahora desplegar\xE9 todo mi potencial de generosidad tremenda y te inundare
-    de oros pesados, llenare tus bolsillos de monedas que impediran que te puedas
-    mover con tanta agilidad y desplegare todo mi potencial de ataque altruista sobre
-    t\xED, te vas a enterar de lo que es ser una persona \"Bi\xE9n pag\xE1\"!"
+  - Vaya con el tipo indeleble, al final me has hecho enfurecer y todo. voy a dejar
+    los limones para los gin tonic y voy a soltar toda mi furia contra ti.
+  - "\xA1Limones asesinos al caj\xF3n flamenco!  \xA1Duende m\xE1ximo evocado! \xA1Coplas
+    a la muerte de tu padre del infierno! \xA1Tangos inmortales! \xA1Por Fari, por
+    flamenco eterno! maldito enano, voy a sacar al \xA1Torito Bravo! "
 --- !u!114 &1476981497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4732,13 +4733,10 @@ MonoBehaviour:
   nombrePersonaje: Fary
   estado: Win
   lineas:
-  - "Kiko era el representate del teclaDO (C), yo REsisto (D) cl\xE1sicos. Mis monedas
-    vuelan como balas plata. Paquirr\xEDn invoca reggaet\xF3n flamenco corrupto,
-    yo grito alterando tiempo-espacio. Death Metal atraviesa mi defensa."
-  - " Lulu dodecafonista destruir\xEDa mi comp\xE1s, Parsifal convocar\xEDa coros
-    wagnerianos \xE9picos contra m\xED que junto con Rajm\xE1ninov aplastar\xEDa
-    con romanticismo tard\xEDo, porque no consiguen hacerme mas que disfrutar. Aqui
-    te espero inutil : \xA1\xA1\xA1DEF#GAGF#ED!!!"
+  - No eres digno de mis coplas, seguramente no hayas escuchado los consejos de mis
+    subditos, quizas deberias empezar el juego de nuevo
+  - "Total, ni eres el primero ni ser\xE1s el ultimo en intentarlo, pero al final
+    siempre ganar\xE1 mi torito bravo"
 --- !u!114 &1853641417
 MonoBehaviour:
   m_ObjectHideFlags: 0

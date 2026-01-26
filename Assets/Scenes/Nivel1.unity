@@ -4501,13 +4501,14 @@ MonoBehaviour:
   nombrePersonaje: Kiko
   estado: Fury
   lineas:
-  - Vaya vaya vaya con el pintamonas maldito ##!!CDEFG!## ahora vas a probar lo que
-    es bueno voy a empezar a usar mis ataques mas devastadores y no tendre piedad,
-    por fin te demostrare todo mi potencial y podras comprender porque "Asi soy yo"
-    respetado por el mundo entero, como la sidra del gaitero! Preparate por que no
-    tendre clemencia maldito insensato!
-  - ' Adelante Vinilos del demonio acabad con el antes de que pueda rescatar a Elvis
-    y dejarnos a todos sin flow varados desarmonicamente a merced del dodecafonismo.'
+  - Vaya vaya vaya con el maldito ##!!CDEFG!## ahora vas a probar lo que es bueno
+    voy a empezar a usar mis ataques mas devastadores y no tendre piedad, por fin
+    te demostrare todo mi potencial y podras comprender porque "Asi soy yo" respetado
+    en el mundo entero, como la sidra del gaitero! Preparate por que no tendre clemencia
+    maldito insensato!
+  - ' Adelante Vinilos del pasado presente acabad con el antes de que pueda rescatar
+    a Elvis Pelvis y dejarnos a todos sin flow varados desarmonicamente a merced
+    del dodecafonismo.'
 --- !u!114 &1476981497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5019,13 +5020,14 @@ MonoBehaviour:
   estado: Win
   lineas:
   - "Sabia que eras un ser insignificante e incapaz de derrotar al mejor DJ que ha
-    dado Espa\xF1a en los ultimos a\xF1os, eres un ser inmundo vacio de todo conocimiento
+    dado Espa\xF1a en su historia, eres un ser inmundo vacio de todo conocimiento
     musical e incapaz de superar al menor de los 3 jefes de la discoteque. Siempre
     te quedara la opcion de volver a intentarlo, aunque quizas llegado a este punto
     deberias de plantearte si quieres seguir perdiendo el tiempo "
-  - " Esta por venir mi ira desencadenada y ser\xE1 mucho peor, si quieres te dejo
-    una escalera para escapar y no volver para salir definitivamente denominada \"CDEFGFEDC\"
-    que es como que te vas pero vuelves. mu ha ha ha haaaaaaaaa"
+  - "Ya est\xE1 por venir mi ira desencadenada y ser\xE1 mucho peor, si quieres te
+    dejo una escalera para escapar y no volver para salir definitivamente denominada
+    \"CDEFGFEDC\" que es como que te vas pero vuelves. mu ha ha ha haaaaaaaaa Intentalo
+    de nuevo si te atreves"
 --- !u!114 &1853641417
 MonoBehaviour:
   m_ObjectHideFlags: 0
