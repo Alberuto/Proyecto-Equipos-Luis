@@ -10,20 +10,24 @@ public class VinylCircularOrbit : MonoBehaviour
     public float speed = 40f;
     public bool clockwise = true;
 
+    [Header("MOVIMIENTO CENTRO L→D")]
+    public float centerMoveSpeed = 1f;     // Velocidad izquierda-derecha
+    public float centerMoveDistance = 5f;  // Distancia total recorrido
+
     [Header("Giro del vinilo")]
     public float spinSpeed = 720f;
 
     private float currentAngle;
     private Vector3 initialEuler;
-    private float fixedY;  // ← NUEVO: Y FIJO
+    private float fixedY;
+    private float centerMoveOffset;  // ← NUEVO: offset horizontal del centro
 
     void Start()
     {
         if (orbitCenter == null)
             orbitCenter = transform.parent;
 
-        // FIJA Y DESDE EL PRINCIPIO
-        fixedY = transform.position.y;  // ← AQUÍ
+        fixedY = transform.position.y;
         initialEuler = transform.eulerAngles;
 
         Vector3 initialOffset = transform.position - orbitCenter.position;
@@ -34,13 +38,19 @@ public class VinylCircularOrbit : MonoBehaviour
     {
         if (orbitCenter == null) return;
 
-        // Órbita suave (Y FIJO)
+        // MOVIMIENTO CENTRO Izquierda → Derecha (seno suave)
+        centerMoveOffset = Mathf.Sin(Time.time * centerMoveSpeed) * (centerMoveDistance * 0.5f);
+
+        // POSICIÓN CENTRO DINÁMICA
+        Vector3 dynamicCenter = orbitCenter.position + Vector3.right * centerMoveOffset;
+
+        // Órbita alrededor del centro MÓVIL
         float angleDelta = speed * Mathf.Deg2Rad * Time.deltaTime * (clockwise ? 1f : -1f);
         currentAngle += angleDelta;
 
-        Vector3 targetPos = orbitCenter.position + new Vector3(
+        Vector3 targetPos = dynamicCenter + new Vector3(
             Mathf.Cos(currentAngle) * radius,
-            fixedY,  // ← CAMBIADO: Y FIJO SIEMPRE
+            fixedY,
             Mathf.Sin(currentAngle) * radius
         );
 

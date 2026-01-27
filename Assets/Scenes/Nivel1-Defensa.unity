@@ -137,9 +137,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VinylCircularOrbit
   orbitCenter: {fileID: 577784691}
-  radius: 6
-  speed: 200
+  radius: 7
+  speed: 100
   clockwise: 1
+  centerMoveSpeed: 1
+  centerMoveDistance: 25
   spinSpeed: 1000000
 --- !u!1 &117341019 stripped
 GameObject:
@@ -159,9 +161,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VinylCircularOrbit
   orbitCenter: {fileID: 577784691}
-  radius: 9
-  speed: 350
+  radius: 10
+  speed: 250
   clockwise: 1
+  centerMoveSpeed: 1
+  centerMoveDistance: 25
   spinSpeed: 1000000
 --- !u!1 &160274522
 GameObject:
@@ -225,9 +229,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VinylCircularOrbit
   orbitCenter: {fileID: 577784691}
-  radius: 8
-  speed: 300
+  radius: 9
+  speed: 200
   clockwise: 1
+  centerMoveSpeed: 1
+  centerMoveDistance: 25
   spinSpeed: 1000000
 --- !u!1 &229251947 stripped
 GameObject:
@@ -247,9 +253,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VinylCircularOrbit
   orbitCenter: {fileID: 577784691}
-  radius: 3
-  speed: 50
+  radius: 4
+  speed: 30
   clockwise: 1
+  centerMoveSpeed: 1
+  centerMoveDistance: 25
   spinSpeed: 1000000
 --- !u!1 &281047637
 GameObject:
@@ -351,6 +359,8 @@ MonoBehaviour:
   radius: 2
   speed: 25
   clockwise: 1
+  centerMoveSpeed: 1
+  centerMoveDistance: 25
   spinSpeed: 1000000
 --- !u!1 &536510528
 GameObject:
@@ -639,9 +649,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VinylCircularOrbit
   orbitCenter: {fileID: 577784691}
-  radius: 10
-  speed: 400
+  radius: 12
+  speed: 300
   clockwise: 1
+  centerMoveSpeed: 1
+  centerMoveDistance: 25
   spinSpeed: 1000000
 --- !u!1 &873461403 stripped
 GameObject:
@@ -661,9 +673,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VinylCircularOrbit
   orbitCenter: {fileID: 577784691}
-  radius: 7
-  speed: 250
+  radius: 8
+  speed: 150
   clockwise: 1
+  centerMoveSpeed: 1
+  centerMoveDistance: 25
   spinSpeed: 1000000
 --- !u!1 &1491419627 stripped
 GameObject:
@@ -683,9 +697,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VinylCircularOrbit
   orbitCenter: {fileID: 577784691}
-  radius: 4
-  speed: 100
+  radius: 5
+  speed: 40
   clockwise: 1
+  centerMoveSpeed: 1
+  centerMoveDistance: 25
   spinSpeed: 1000000
 --- !u!1 &1825818496 stripped
 GameObject:
@@ -705,9 +721,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VinylCircularOrbit
   orbitCenter: {fileID: 577784691}
-  radius: 5
-  speed: 150
+  radius: 6
+  speed: 50
   clockwise: 1
+  centerMoveSpeed: 1
+  centerMoveDistance: 25
   spinSpeed: 1000000
 --- !u!1001 &542139655395021918
 PrefabInstance:

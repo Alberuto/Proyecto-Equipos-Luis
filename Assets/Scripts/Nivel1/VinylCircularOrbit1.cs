@@ -10,15 +10,20 @@ public class VinylCircularOrbit1 : MonoBehaviour
     public float speed = 40f;
     public bool clockwise = true;
 
+    [Header("Giro del vinilo")]
+    public float spinSpeed = 720f;
+
     private float currentAngle;
-    private Vector3 initialEuler;  // ← NUEVO: guarda rotación inicial del sprite
+    private Vector3 initialEuler;
+    private float fixedY;  // ← NUEVO: Y FIJO
 
     void Start()
     {
         if (orbitCenter == null)
             orbitCenter = transform.parent;
 
-        // GUARDA ROTACIÓN INICIAL del sprite (¡EVITA FLIP!)
+        // FIJA Y DESDE EL PRINCIPIO
+        fixedY = transform.position.y;  // ← AQUÍ
         initialEuler = transform.eulerAngles;
 
         Vector3 initialOffset = transform.position - orbitCenter.position;
@@ -29,24 +34,21 @@ public class VinylCircularOrbit1 : MonoBehaviour
     {
         if (orbitCenter == null) return;
 
-        // ÓRBITA: solo posición (SIN tocar rotación)
+        // Órbita suave (Y FIJO)
         float angleDelta = speed * Mathf.Deg2Rad * Time.deltaTime * (clockwise ? 1f : -1f);
         currentAngle += angleDelta;
 
         Vector3 targetPos = orbitCenter.position + new Vector3(
             Mathf.Cos(currentAngle) * radius,
-            transform.position.y,
+            fixedY,  // ← CAMBIADO: Y FIJO SIEMPRE
             Mathf.Sin(currentAngle) * radius
         );
 
         transform.position = Vector3.Slerp(transform.position, targetPos, Time.deltaTime * 8f);
 
-        // GIRO COMO DISCO: solo eje Y, rotación LOCAL
-        transform.Rotate(0, 180 * Time.deltaTime, 0, Space.Self);
-
-        // MANTIENE ORIENTACIÓN INICIAL (¡NO FLIP!)
+        // Giro rápido del vinilo
         Vector3 euler = initialEuler;
-        euler.y += 180 * Time.deltaTime;  // Solo suma al Y
+        euler.y += spinSpeed * Time.deltaTime;
         transform.eulerAngles = euler;
     }
 }
