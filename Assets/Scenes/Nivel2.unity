@@ -1825,7 +1825,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &667106792
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2585,13 +2585,13 @@ MonoBehaviour:
   nombrePersonaje: Cigala
   estado: Lose
   lineas:
-  - "El Fari me encomend\xF3 vigilar Elvis. Mazmorras flamencas donde buler\xEDas
-    borran rock. Mi DEF#GAGF#ED puede herirle si eres astuto. Hordas r\xEDtmicamente
-    cuadradas caen ante tu caos dodecaf\xF3nico."
   - " \xBFDominaste C de Kiko? Ahora ya dominas tambien el D del Cigala. \xA1Ve,
     insensato a enfretarte a nuestro jefe supremo! pero sino nos haces caso no podras
     vencerle, nosotros no supimos unirnos y terminamos esclavizados por el, porque
     sabe que juntos seriamos imparables..."
+  - "El Fari me encomend\xF3 vigilar su antro y fracas\xE9. Mazmorras flamencas donde
+    buler\xEDas borran todo rastro del  pop y rock. Mi DEF#GAGF#ED puede herirle
+    si eres astuto. Hordas r\xEDtmicamente cuadradas caen ante el caos dodecaf\xF3nico."
 --- !u!114 &820593659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4354,12 +4354,13 @@ MonoBehaviour:
   nombrePersonaje: Cigala
   estado: Fury
   lineas:
-  - "\xA1Monedas asesinas! \xA1Duende m\xE1ximo! \xA1Buler\xEDas del infierno! \xA1Tangos
-    mortales! \xA1Por Fari, por flamenco eterno! maldito \xA1\xA1\xA1DEF#GA!!!"
   - "Ahora desplegar\xE9 todo mi potencial de generosidad tremenda y te inundare
     de oros pesados, llenare tus bolsillos de monedas que impediran que te puedas
     mover con tanta agilidad y desplegare todo mi potencial de ataque altruista sobre
     t\xED, te vas a enterar de lo que es ser una persona \"Bi\xE9n pag\xE1\"!"
+  - "\xA1Monedas asesinas! \xA1Duende m\xE1ximo! \xA1Buler\xEDas del infierno! \xA1Tangos
+    mortales! \xA1Por el Fari, por el flamenco eterno! ahora sufriras toda mi ira
+    maldito \xA1\xA1\xA1DEF#GA!!!"
 --- !u!114 &1476981497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4885,7 +4886,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1834987710
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5003,13 +5004,14 @@ MonoBehaviour:
   nombrePersonaje: Cigala
   estado: Win
   lineas:
-  - "Kiko era el representate del teclaDO (C), yo REsisto (D) cl\xE1sicos. Mis monedas
-    vuelan como balas plata. Paquirr\xEDn invoca reggaet\xF3n flamenco corrupto,
-    yo grito alterando tiempo-espacio. Death Metal atraviesa mi defensa."
-  - " Lulu dodecafonista destruir\xEDa mi comp\xE1s, Parsifal convocar\xEDa coros
+  - "Lulu dodecafonista destruir\xEDa mi comp\xE1s, Parsifal convocar\xEDa coros
     wagnerianos \xE9picos contra m\xED que junto con Rajm\xE1ninov aplastar\xEDa
     con romanticismo tard\xEDo, porque no consiguen hacerme mas que disfrutar. Aqui
     te espero inutil : \xA1\xA1\xA1DEF#GAGF#ED!!!"
+  - "Kiko era el representate del teclaDO (C), yo REsisto (D) cl\xE1sicos. Mis monedas
+    vuelan como balas de plata. Paquirr\xEDn invoca reggaet\xF3n flamenco corrupto,
+    yo grito alterando tiempo-espacio. Dodecafonismos y Death Metal atraviesan mi
+    defensa. "
 --- !u!114 &1853641417
 MonoBehaviour:
   m_ObjectHideFlags: 0
