@@ -231,6 +231,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveSpeed: 5
   gravity: -9.81
+  verticalVelocity: 0
+  salto: 0
+  jumpHeight: 3
   moveInput: {x: 0, y: 0}
   audioSourceSalto: {fileID: 0}
   audioSourcePasos: {fileID: 0}
@@ -736,7 +739,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 442376811702908760, guid: 394bb1376569b4a48a3c4b99d03823c3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.867
+      value: -1.001
       objectReference: {fileID: 0}
     - target: {fileID: 442376811702908760, guid: 394bb1376569b4a48a3c4b99d03823c3, type: 3}
       propertyPath: m_LocalPosition.z

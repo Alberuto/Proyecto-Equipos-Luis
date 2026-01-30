@@ -35,9 +35,14 @@ public class Animation : MonoBehaviour
     {
         float Z = PlayerMovement.moveInput.y;
         float X = PlayerMovement.moveInput.x;
+        float Y = PlayerMovement.verticalVelocity;
 
         animator.SetFloat("Z", Z);
         animator.SetFloat("X", X);
+        animator.SetFloat("Y", Y);
+        animator.SetBool("salto", PlayerMovement.salto);
+        animator.SetBool("suelo", characterController.isGrounded);
+        animator.SetBool("tiempo", PlayerMovement.inactivo);
     }
 
 }

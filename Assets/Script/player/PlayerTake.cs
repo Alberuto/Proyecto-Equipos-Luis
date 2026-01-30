@@ -20,7 +20,7 @@ public class PlayerTake : MonoBehaviour
     // funcion para cambiar el estado de coger al pulsar el boton(E por ahora)
     private void OnCoger(InputValue value)
     {
-        Debug.LogError("Pulsado boton interactuar");
+        //Debug.LogError("Pulsado boton interactuar");
         if (value.isPressed)
             espera = false;
         if (coger == true)
@@ -38,7 +38,7 @@ public class PlayerTake : MonoBehaviour
     IEnumerator delay()
     {
         yield return new WaitForSeconds(timeDelay);
-        Debug.LogError("Espera " + timeDelay + " segundos");
+        //Debug.LogError("Espera " + timeDelay + " segundos");
         espera = true;
     }
 }
