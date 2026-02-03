@@ -8,17 +8,19 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
-
+    [Header("movimiento jugador")]
     // atributos publicos para configurar la velocidad de movimiento y la gravedad
-    public float moveSpeed = 5f;
+    public float moveSpeed = 8f;
     public float gravity = -9.81f;
     public float verticalVelocity;
+    [Header("parametros salto")]
     // atributo publico para gestionar el salto
     public bool salto;
     public float jumpHeight = 3f;
 
-    public bool inactivo = false;
-    public float timeDelay = 20f;
+    // parametro para cuando esta inactivo el jugador poner una animacion diferente
+    private bool inactivo = false;
+    private float timeDelay = 20f;
 
 
     private CharacterController characterController;

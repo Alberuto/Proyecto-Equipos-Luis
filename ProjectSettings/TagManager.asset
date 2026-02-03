@@ -16,6 +16,9 @@ TagManager:
   - A
   - A#
   - B
+  - ground
+  - mano
+  - enemy
   layers:
   - Default
   - TransparentFX

@@ -42,7 +42,7 @@ public class Animation : MonoBehaviour
         animator.SetFloat("Y", Y);
         animator.SetBool("salto", PlayerMovement.salto);
         animator.SetBool("suelo", characterController.isGrounded);
-        animator.SetBool("tiempo", PlayerMovement.inactivo);
+        //animator.SetBool("tiempo", PlayerMovement.inactivo);
     }
 
 }
