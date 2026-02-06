@@ -6,7 +6,8 @@ public class playerManager : MonoBehaviour
     // Vida del jugador
     public int vida = 100;
     // Tiempo de invulnerabilidad despues de recibir daño
-    private float invulnerableTime = 1.0f;
+    private float invulnerableTime = 10.0f;
+    private bool invulnerable = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,7 +18,10 @@ public class playerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (vida <= 0)
+        {
+            Debug.Log("Jugador ha muerto");
+        }
     }
 
     // Metodo para detectar colisiones con enemigos
@@ -25,9 +29,21 @@ public class playerManager : MonoBehaviour
     {
         if (other.gameObject.CompareTag("enemy"))
         {
-            vida -= 10;
-            Debug.Log("Vida del jugador: " + vida);
-            StartCoroutine(delay());
+            if (invulnerable)
+            {
+                Debug.Log("Jugador es invulnerable, no recibe daño");
+                return;
+            }
+            else
+            {
+                invulnerable = true;
+                vida -= 10;
+                Debug.Log("Vida del jugador: " + vida);
+                Debug.Log("Jugador ha recibido daño de: " + other.name);
+                StopCoroutine("delay");
+                StartCoroutine(delay());
+            }
+                
         }
     }
 
@@ -35,5 +51,7 @@ public class playerManager : MonoBehaviour
     IEnumerator delay()
     {
         yield return new WaitForSeconds(invulnerableTime);
+        invulnerable = false;
+        Debug.Log("Jugador ya no es invulnerable");
     }
 }
