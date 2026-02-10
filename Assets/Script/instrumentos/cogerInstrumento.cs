@@ -1,6 +1,10 @@
+using JetBrains.Annotations;
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 
 // Script para coger y soltar instrumentos
@@ -13,13 +17,15 @@ public class cogerInstrumento : MonoBehaviour
     private tocaDiscosManager tocaDiscos;
     // bolleano para saber si el objeto esta cogido
     private bool cogido = false;
+    // dupes del instrumento (se podria controllar en el gameManager)
+    public int dupeMax = 3;
 
 
     void Start()
     {
-        playerObject = GameObject.FindGameObjectsWithTag("Player")[0];
+        playerObject = GameObject.FindGameObjectWithTag("Player");
         player = playerObject.GetComponent<PlayerTake>();
-        tocaDiscosObject = GameObject.FindGameObjectsWithTag("tocaDiscos")[0];
+        tocaDiscosObject = GameObject.FindGameObjectWithTag("tocaDiscos");
         tocaDiscos = tocaDiscosObject.GetComponent<tocaDiscosManager>();
     }
     private void Update()
@@ -53,6 +59,15 @@ public class cogerInstrumento : MonoBehaviour
                     tocaDiscos.eliminarNota(gameObject);
                 }
                 cogido = true;
+
+
+
+                GameObject[] objs = GameObject.FindGameObjectsWithTag(tag);
+                if (objs.Length < dupeMax)
+                {
+                    Instantiate(this);
+                    Debug.Log(this.name + ": " + objs.Length);
+                }
                 transform.SetParent(other.transform);
                 transform.localPosition = new Vector3(-0.324000001f, 0.171000004f, 0.0810000002f);
                 transform.localEulerAngles = new Vector3(0f, 0f, 69.336f);
