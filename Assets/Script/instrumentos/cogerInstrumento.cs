@@ -8,7 +8,7 @@ public class cogerInstrumento : MonoBehaviour
 {
     // se asignan el toca discos y el player
     private GameObject playerObject;
-    [SerializeField] private PlayerTake player;
+    private PlayerTake player;
     private GameObject tocaDiscosObject;
     private tocaDiscosManager tocaDiscos;
     // bolleano para saber si el objeto esta cogido
@@ -17,10 +17,10 @@ public class cogerInstrumento : MonoBehaviour
 
     void Start()
     {
-        //playerObject = GameObject.FindGameObjectsWithTag("Player")[0];
-        //player = playerObject.GetComponent<PlayerTake>();
+        playerObject = GameObject.FindGameObjectsWithTag("Player")[0];
+        player = playerObject.GetComponent<PlayerTake>();
         tocaDiscosObject = GameObject.FindGameObjectsWithTag("tocaDiscos")[0];
-        tocaDiscos = tocaDiscos.GetComponent<tocaDiscosManager>();
+        tocaDiscos = tocaDiscosObject.GetComponent<tocaDiscosManager>();
     }
     private void Update()
     {
