@@ -19,6 +19,8 @@ TagManager:
   - ground
   - mano
   - enemy
+  - instrumento
+  - tocaDiscos
   layers:
   - Default
   - TransparentFX

@@ -1,4 +1,6 @@
+using NUnit.Framework;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,6 +12,8 @@ public class PlayerTake : MonoBehaviour
     public bool espera = false;
     public bool cogido;
     public float timeDelay = 1f;
+    private GameObject objetoCogido;
+    public bool instrumentoEntregado = false;
 
     private void Update()
     {
@@ -20,7 +24,7 @@ public class PlayerTake : MonoBehaviour
     // funcion para cambiar el estado de coger al pulsar el boton(E por ahora)
     private void OnCoger(InputValue value)
     {
-        //Debug.LogError("Pulsado boton interactuar");
+        //Debug.LogError("Pulsado boton coger");
         if (value.isPressed)
             espera = false;
         if (coger == true)
@@ -30,8 +34,48 @@ public class PlayerTake : MonoBehaviour
         else if (coger == false)
         {
             coger = true;
-            StartCoroutine("delay");
+            StopCoroutine("delay");
+            StartCoroutine(delay());
         }
+    }
+    private void OnInteractuar(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            if (cogido == true)
+            {
+                instrumentoEntregado = true;
+                Debug.Log("Instrumento entregado: " + instrumentoEntregado);
+            }
+        }
+    }
+    public void añadirInstrumento(GameObject objeto)
+    {
+        objetoCogido = objeto;
+    }
+    public void eliminarInstrumento(GameObject objeto)
+    {
+        objetoCogido = objeto;
+    }
+    public GameObject getObjetoCogido()
+    {
+        return objetoCogido;
+    }
+    public bool InstrumentoCogido()
+    {
+        return cogido;
+    }
+    public void SetCoger(bool valor)
+    {
+        coger = valor;
+    }
+    public bool InstrumentoEntregado()
+    {
+        return instrumentoEntregado;
+    }
+    public void SetInstrumentoEntregado(bool valor)
+    {
+        instrumentoEntregado = valor;
     }
 
     // corrutina para esperar un tiempo para coger un objeto, sino coger se pone a false en el script cogerInstrumento la parte de Update

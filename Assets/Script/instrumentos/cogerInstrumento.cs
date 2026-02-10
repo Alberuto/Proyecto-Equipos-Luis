@@ -6,12 +6,22 @@ using UnityEngine.InputSystem;
 // Script para coger y soltar instrumentos
 public class cogerInstrumento : MonoBehaviour
 {
-    // se asignan la mano y el player
+    // se asignan el toca discos y el player
+    private GameObject playerObject;
     [SerializeField] private PlayerTake player;
-    [SerializeField] private GameObject mano;
+    private GameObject tocaDiscosObject;
+    private tocaDiscosManager tocaDiscos;
     // bolleano para saber si el objeto esta cogido
     private bool cogido = false;
 
+
+    void Start()
+    {
+        //playerObject = GameObject.FindGameObjectsWithTag("Player")[0];
+        //player = playerObject.GetComponent<PlayerTake>();
+        tocaDiscosObject = GameObject.FindGameObjectsWithTag("tocaDiscos")[0];
+        tocaDiscos = tocaDiscos.GetComponent<tocaDiscosManager>();
+    }
     private void Update()
     {
         // si ha pasado x tiempo (ajustable desde PlayerTake) desde que se ha pulsado el boton de coger y el objeto no esta cogido, se desactiva la opcion de coger
@@ -33,15 +43,20 @@ public class cogerInstrumento : MonoBehaviour
     {
         if (other.gameObject.CompareTag("mano"))
         {
-            Debug.Log("Colision con la mano");
+            //Debug.Log("Colision con la mano");
+            
             // esta el player.cogido para que no pueda coger varios objetos a la vez
             if (player.coger == true && player.cogido == false)
             {
+                if (tocaDiscos.getNotas().Contains(gameObject))
+                {
+                    tocaDiscos.eliminarNota(gameObject);
+                }
                 cogido = true;
-                transform.SetParent(mano.transform);
+                transform.SetParent(other.transform);
                 transform.localPosition = new Vector3(-0.324000001f, 0.171000004f, 0.0810000002f);
                 transform.localEulerAngles = new Vector3(0f, 0f, 69.336f);
-
+                player.añadirInstrumento(gameObject);
             }
         }
     }
@@ -55,6 +70,7 @@ public class cogerInstrumento : MonoBehaviour
     {
         transform.SetParent(null);
         transform.localEulerAngles = new Vector3(0f, 0f, 0f);
+        player.eliminarInstrumento(gameObject); 
         Debug.Log("Soltar palo");
 
     }
