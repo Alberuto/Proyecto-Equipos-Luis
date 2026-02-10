@@ -234,8 +234,6 @@ MonoBehaviour:
   verticalVelocity: 0
   salto: 0
   jumpHeight: 3
-  inactivo: 0
-  timeDelay: 20
   moveInput: {x: 0, y: 0}
   audioSourceSalto: {fileID: 0}
   audioSourcePasos: {fileID: 0}
@@ -785,6 +783,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7334888202272165671, guid: 394bb1376569b4a48a3c4b99d03823c3, type: 3}
       propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9140441701837000661, guid: 394bb1376569b4a48a3c4b99d03823c3, type: 3}
+      propertyPath: coger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
