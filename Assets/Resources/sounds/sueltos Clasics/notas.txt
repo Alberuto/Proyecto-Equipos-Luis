@@ -1,15 +1,15 @@
-wagner - valkirias: 1 PUNTO DMG
+wagner - valkirias: 2 PUNTO DMG
 
 B - F# - B - D - B
 
-bethoven - 5: 2 P. DMG
+bethoven - 5: 1 P. DMG
 
 G - G - G - D# - F - F - F - D
 
-mozart - serenata nocturna: 2 P. DMG
+mozart - serenata nocturna: 3 P. DMG
 
 G - D - G - D - G - D - G - B  
 
-bizat - carmen: 3 P. DMG
+bizat - carmen: 4 P. DMG
 
 G - D - C - D - G - A - G - F# - G - A

@@ -555,7 +555,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 234310404}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -565,7 +565,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.9917, y: -65.7465}
+  m_AnchoredPosition: {x: 8.991699, y: -65.74649}
   m_SizeDelta: {x: 907.8232, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &234310406
@@ -1060,7 +1060,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Mozart - Nocturno
+  m_text: Mozart - Nocturno (3)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1439,7 +1439,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Beethoven - 5\xAA symphony"
+  m_text: "Beethoven - 5\xAA symphony (1)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1576,7 +1576,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Retrogrado Inversion
+  m_text: Retrogrado Inversion (12)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1914,7 +1914,7 @@ Transform:
   m_GameObject: {fileID: 543361234}
   serializedVersion: 2
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: -8.35, y: 12.35, z: -25.75}
+  m_LocalPosition: {x: -8.1, y: 12.3, z: -26.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2142,7 +2142,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Rolling Stones - Satisfaction
+  m_text: Rolling Stones - Satisfaction (1)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2372,7 +2372,7 @@ GameObject:
   - component: {fileID: 721968714}
   - component: {fileID: 721968713}
   m_Layer: 5
-  m_Name: ButtonAtaque1
+  m_Name: ButtonAtaque2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2395,7 +2395,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.0396, y: 251}
+  m_AnchoredPosition: {x: -2.0396, y: 107}
   m_SizeDelta: {x: 936.8844, y: 115.9106}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &721968713
@@ -3233,12 +3233,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 917536273}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 547.81464, y: 0.00001, z: 1242.6903}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 63.314636, y: -319.5, z: 1242.6903}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1139842775}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &917536276
 AudioSource:
@@ -3367,10 +3367,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 721968712}
-  - {fileID: 1193217919}
-  - {fileID: 1800411396}
   - {fileID: 2003824754}
+  - {fileID: 721968712}
+  - {fileID: 1800411396}
+  - {fileID: 1193217919}
   - {fileID: 790637765}
   m_Father: {fileID: 1139842775}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3474,7 +3474,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Inversion
+  m_text: Inversion (12)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3611,7 +3611,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Original
+  m_text: Original (12)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3722,9 +3722,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 765085147}
-  - {fileID: 1946778148}
-  - {fileID: 234310405}
   - {fileID: 1879027899}
+  - {fileID: 234310405}
+  - {fileID: 1946778148}
   - {fileID: 422634692}
   m_Father: {fileID: 1139842775}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3828,7 +3828,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Black Sabbath - Iron man
+  m_text: Black Sabbath - Iron man (2)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4082,6 +4082,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 917536275}
   - {fileID: 20835065}
   - {fileID: 1081574409}
   - {fileID: 947185389}
@@ -4150,7 +4151,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Led Zeppeling - 7 Nations Army
+  m_text: Led Zeppeling - 7 Nations Army (3)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4243,7 +4244,7 @@ GameObject:
   - component: {fileID: 1193217921}
   - component: {fileID: 1193217920}
   m_Layer: 5
-  m_Name: ButtonAtaque2
+  m_Name: ButtonAtaque4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4266,7 +4267,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.0396, y: 102.54468}
+  m_AnchoredPosition: {x: -2.0396, y: -214}
   m_SizeDelta: {x: 936.8844, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1193217920
@@ -4408,7 +4409,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Deep Purple - Smoke on the water
+  m_text: Deep Purple - Smoke on the water (4)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4666,7 +4667,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Retrogrado
+  m_text: Retrogrado (12)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4803,7 +4804,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Bizat - Carmen
+  m_text: Bizat - Carmen (4)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5017,7 +5018,7 @@ GameObject:
   - component: {fileID: 1879027901}
   - component: {fileID: 1879027900}
   m_Layer: 5
-  m_Name: ButtonAtaque4
+  m_Name: ButtonAtaque2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5040,7 +5041,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.9917, y: -213.78413}
+  m_AnchoredPosition: {x: 8.9917, y: 76}
   m_SizeDelta: {x: 907.8232, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1879027900
@@ -5182,7 +5183,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Wagner - Valkirias
+  m_text: Wagner - Valkirias (2)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5517,7 +5518,7 @@ GameObject:
   - component: {fileID: 1946778150}
   - component: {fileID: 1946778149}
   m_Layer: 5
-  m_Name: ButtonAtaque2
+  m_Name: ButtonAtaque4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5540,7 +5541,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.9917, y: 76.85159}
+  m_AnchoredPosition: {x: 8.9917, y: -212}
   m_SizeDelta: {x: 907.8232, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1946778149
@@ -5638,7 +5639,7 @@ GameObject:
   - component: {fileID: 2003824756}
   - component: {fileID: 2003824755}
   m_Layer: 5
-  m_Name: ButtonAtaque4
+  m_Name: ButtonAtaque1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5661,7 +5662,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.0396, y: -214}
+  m_AnchoredPosition: {x: -2.0396, y: 249}
   m_SizeDelta: {x: 936.8844, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2003824755
@@ -6012,7 +6013,6 @@ SceneRoots:
   - {fileID: 281047640}
   - {fileID: 543361237}
   - {fileID: 525152326}
+  - {fileID: 1139842775}
   - {fileID: 775134319}
   - {fileID: 226314214}
-  - {fileID: 917536275}
-  - {fileID: 1139842775}

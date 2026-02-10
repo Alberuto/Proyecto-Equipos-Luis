@@ -1,15 +1,15 @@
-ORIGINAL
+ORIGINAL (12)
 
 E - F - G - C# - F# - D# - G# - D - B - C - A - A# 
 
-INVERSION
+INVERSION (12)
 
 E - D# - C# - G - D - F - C - F# - A - G# - B - A#
 
-RETROGRADO
+RETROGRADO (12)
 
 A# - A - C - B - D - G# - D# - F# - C# - G - F - E
 
-INVERSION RETROGRADO
+INVERSION RETROGRADO (12)
 
 A# - B - G# - A - F# - C - F - D - G - C# - D# - E
