@@ -5,23 +5,18 @@ public class playerManager : MonoBehaviour
 {
     // Vida del jugador
     public int vida = 100;
+    // variables para animacion
+    public bool recibiendoDaño = false;
+    public bool muerto = false;
+
     // Tiempo de invulnerabilidad despues de recibir daño
+    public int daño = 10;
     private float invulnerableTime = 10.0f;
     private bool invulnerable = false;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (vida <= 0)
-        {
-            Debug.Log("Jugador ha muerto");
-        }
+        muerto = false;
     }
 
     // Metodo para detectar colisiones con enemigos
@@ -36,12 +31,22 @@ public class playerManager : MonoBehaviour
             }
             else
             {
-                invulnerable = true;
-                vida -= 10;
-                Debug.Log("Vida del jugador: " + vida);
-                Debug.Log("Jugador ha recibido daño de: " + other.name);
-                StopCoroutine("delay");
-                StartCoroutine(delay());
+                if (vida <= daño)
+                {
+                    muerto = true;
+                    Debug.Log("Jugador ya ha muerto, no recibe más daño");
+                }
+                else
+                {
+                    invulnerable = true;
+                    recibiendoDaño = true;
+                    vida -= daño;
+                    Debug.Log("Vida del jugador: " + vida);
+                    Debug.Log("Jugador ha recibido daño de: " + other.name);
+                    StopCoroutine("delay");
+                    StartCoroutine(delay());
+                }
+                
             }
                 
         }
@@ -50,6 +55,8 @@ public class playerManager : MonoBehaviour
     // Coroutine para manejar el tiempo de invulnerabilidad
     IEnumerator delay()
     {
+        yield return new WaitForSeconds(2.5f);
+        recibiendoDaño = false;
         yield return new WaitForSeconds(invulnerableTime);
         invulnerable = false;
         Debug.Log("Jugador ya no es invulnerable");

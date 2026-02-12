@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     private CharacterController characterController;
-
+    [SerializeField] public playerManager playerManager; 
     [SerializeField] public Vector2 moveInput;
 
     [SerializeField] private AudioSource audioSourceSalto;
@@ -53,8 +53,16 @@ public class PlayerMovement : MonoBehaviour
     {
         if (characterController == null)
             return;
-        ControlMovimiento();
-        SonidoPasos();
+        if (playerManager.recibiendoDaño || playerManager.muerto)
+        {
+            //Debug.Log("Jugador recibiendo daño o muerto, no se puede mover");
+        }
+        else
+        {
+            ControlMovimiento();
+            SonidoPasos();
+        }
+        
         //Debug.Log("Grounded= " + characterController.isGrounded);
 
         StartCoroutine("delay");

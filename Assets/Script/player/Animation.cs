@@ -9,6 +9,7 @@ public class Animation : MonoBehaviour
     [SerializeField] private PlayerMovement PlayerMovement;
     [SerializeField] private Animator animator;
     [SerializeField] private CharacterController characterController;
+    [SerializeField] private playerManager playerManager;
 
     /*[Tooltip("velocidad maxima utilizada para normalizar el movimiento")]
     private float velocidadMax = 1f;
@@ -43,6 +44,8 @@ public class Animation : MonoBehaviour
         animator.SetBool("salto", PlayerMovement.salto);
         animator.SetBool("suelo", characterController.isGrounded);
         //animator.SetBool("tiempo", PlayerMovement.inactivo);
+        animator.SetBool("daño", playerManager.recibiendoDaño);
+        animator.SetBool("muerto", playerManager.muerto);
     }
 
 }
