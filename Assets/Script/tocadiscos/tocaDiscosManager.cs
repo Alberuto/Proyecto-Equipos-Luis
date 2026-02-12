@@ -8,10 +8,12 @@ public class tocaDiscosManager : MonoBehaviour
     private List<GameObject> notas = new List<GameObject>();
     private GameObject nota;
 
+    
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("mano"))
         {
+            /* poner las notas en tocadiscos mediante collision
             //Debug.Log("Colision con el player");
             PlayerTake player = other.GetComponent<PlayerTake>();
             if (player.InstrumentoEntregado())
@@ -31,6 +33,7 @@ public class tocaDiscosManager : MonoBehaviour
                 player.SetInstrumentoEntregado(false);
                 Debug.Log("nota entregada: " + nota.tag);
             }
+    */
             if (notas.Count >= 1)
             {
                 //suenan las notas
@@ -49,6 +52,18 @@ public class tocaDiscosManager : MonoBehaviour
     public void eliminarNota(GameObject nota)
     {
         notas.Remove(nota);
+    }
+    public void setNota(GameObject obj)
+    {
+        this.nota = obj;
+        añadirNota(nota);
+        foreach (var nota in notas)
+        {
+            nota.transform.SetParent(transform);
+            int index = notas.IndexOf(nota);
+            nota.transform.position = posicionesNotas[index].position;
+            //transform.localEulerAngles = new Vector3(0f, 0f, 69.336f);
+        }
     }
     public List<GameObject> getNotas()
     {

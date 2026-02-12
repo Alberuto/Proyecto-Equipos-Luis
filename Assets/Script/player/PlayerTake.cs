@@ -12,9 +12,18 @@ public class PlayerTake : MonoBehaviour
     public bool espera = false;
     public bool cogido;
     public float timeDelay = 1f;
+    // tocadiscos interaccion
+    private GameObject tocaDiscosObject;
+    private tocaDiscosManager tocaDiscos;
     private GameObject objetoCogido;
     public bool instrumentoEntregado = false;
+    public int dificultad = 12;
 
+    private void Start()
+    {
+        tocaDiscosObject = GameObject.FindGameObjectWithTag("tocaDiscos");
+        tocaDiscos = tocaDiscosObject.GetComponent<tocaDiscosManager>();
+    }
     private void Update()
     {
         // actualizar el estado de si hay un objeto cogido
@@ -24,7 +33,7 @@ public class PlayerTake : MonoBehaviour
     // funcion para cambiar el estado de coger al pulsar el boton(E por ahora)
     private void OnCoger(InputValue value)
     {
-        //Debug.LogError("Pulsado boton coger");
+        //Debug.Log("Pulsado boton coger");
         if (value.isPressed)
             espera = false;
         if (coger == true)
@@ -44,8 +53,26 @@ public class PlayerTake : MonoBehaviour
         {
             if (cogido == true)
             {
-                instrumentoEntregado = true;
-                Debug.Log("Instrumento entregado: " + instrumentoEntregado);
+                // comprobar si se pueden poner mas instrumentos en el tocadiscos
+                if (tocaDiscos.getNotas().Count < dificultad)
+                {
+                    instrumentoEntregado = true;
+                    // Debug.Log("Instrumento entregado: " + instrumentoEntregado);
+
+                    tocaDiscos.setNota(objetoCogido);
+                    eliminarInstrumento();
+                    SetCoger(false);
+                    SetInstrumentoEntregado(false);
+                }
+                else
+                {
+                    Debug.Log("No se pueden entregar mas instrumentos, dificultad alcanzada");
+                }
+            }
+            // comprobar si se han entregado suficientes instrumentos para activar la secuencia de ataque
+            if (tocaDiscos.getNotas().Count >= dificultad && cogido == false)
+            {
+                Debug.Log("activar secuencia de ataque (comprobar si la secuencia esta bien o no)");
             }
         }
     }
@@ -53,9 +80,13 @@ public class PlayerTake : MonoBehaviour
     {
         objetoCogido = objeto;
     }
-    public void eliminarInstrumento(GameObject objeto)
+    public void eliminarInstrumento()
     {
-        objetoCogido = objeto;
+        if (objetoCogido != null)
+        {   
+            objetoCogido = null;
+        }
+        
     }
     public GameObject getObjetoCogido()
     {

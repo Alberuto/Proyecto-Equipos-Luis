@@ -69,15 +69,19 @@ public class cogerInstrumento : MonoBehaviour
                     Debug.Log(this.name + ": " + objs.Length);
                 }
                 transform.SetParent(other.transform);
-                transform.localPosition = new Vector3(-0.324000001f, 0.171000004f, 0.0810000002f);
-                transform.localEulerAngles = new Vector3(0f, 0f, 69.336f);
+                transform.localPosition = new Vector3(0.0130000003f, -0.0160000008f, -0.342999995f);
+                transform.localEulerAngles = new Vector3(0f, 0f, 0f);
                 player.añadirInstrumento(gameObject);
             }
         }
     }
+    // espalda
+    // posicion Vector3(0.0130000003,-0.0160000008,-0.342999995)
+    // rotacion Vector3(0,0,0)
 
-    // position Vector3(-0.324000001,0.171000004,0.0810000002)
-    // rotacion 0, 0, 69.336
+    // posicion y rotacion con respecto a la mano para que el objeto quede bien cogido
+    // position Vector3(-0.324000001,0.171000004,0.0810000002)  new Vector3(-0.324000001f, 0.171000004f, 0.0810000002f);
+    // rotacion 0, 0, 69.336  new Vector3(0f, 0f, 69.336f);
 
 
     // funcion para dejar el objeto en el suelo
@@ -85,8 +89,8 @@ public class cogerInstrumento : MonoBehaviour
     {
         transform.SetParent(null);
         transform.localEulerAngles = new Vector3(0f, 0f, 0f);
-        player.eliminarInstrumento(gameObject); 
-        Debug.Log("Soltar palo");
+        player.eliminarInstrumento(); 
+        Debug.Log("Soltar");
 
     }
 
