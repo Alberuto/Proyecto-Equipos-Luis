@@ -2585,16 +2585,18 @@ MonoBehaviour:
   nombrePersonaje: Kiko
   estado: Lose
   lineas:
-  - Te vas a enterar cuando se lo diga a la Pantoja, te convertira en un marinero
-    sin luces en menos que canta un gallo. si ya te has enterado de quien soy yo,
-    agarrate porque vienen curvas, te espera el todo poderoso (literalmente) cigala
-    con varios cientos de monedas con las que esta dispuesto a hacerte languidecer
-    o claudicar por su exceso de generosidad altruista
+  - 'Te vas a enterar cuando se lo diga a la Pantoja, te convertira en un marinero
+    sin luces en menos que canta un gallo. '
+  - si ya te has enterado de quien soy yo, agarrate porque vienen curvas, te espera
+    el todo poderoso (literalmente) cigala con varios cientos de monedas con las
+    que esta dispuesto a hacerte languidecer o claudicar por su exceso de generosidad
+    altruista
   - "A este crust\xE1ceo siempre le gusto pagar bien... Suerte en tu camino a la
     liberacion de Elvis pero te recuerdo que siempre podras volver a empezar como
-    en una escalera musical con retorno, la mia es CDEFGFEDC, acuerdate porque podra
-    ayudarte en tu lucha final y acuerdate de que tus enemigos tambien fueron tus
-    amigos."
+    en una escalera musical con retorno"
+  - La mia como respresentante apantojaDO es CDEFGFEDC, acuerdate porque podra ayudarte
+    en tu lucha final y de esta manera puede que tus enemigos tambien hayan sido
+    tus amigos en tu lucha contra el mal.
 --- !u!114 &820593659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2831,20 +2833,24 @@ MonoBehaviour:
     donde las buler\xEDas amenazan con borrar su legado de rock para siempre.\n"
   - "Pero la resistencia sonora a\xFAn no ha sido derrotada. Con el poder del death
     metal, el \ndodecafonismo y la m\xFAsica Wagneriana (cl\xE1sica), debes abrirte
-    camino a trav\xE9s de hordas de enemigos \nr\xEDtmicamente cuadrados para liberar
-    a Elvis y restaurar el equilibrio musical.\nEl destino de la armon\xEDa est\xE1
-    en tus manos."
+    camino a trav\xE9s de hordas de ataques enemigos \nr\xEDtmicamente cuadrados
+    para liberar a Elvis y restaurar el equilibrio musical.\nEl destino de la armon\xEDa
+    est\xE1 en tus manos."
   - Bienvenido a batalla musical, antes de que te atrevas tan si quiera a derrotar
     a nuestro jefe supremo (El Fary) tendras que demostrar un minimo de ciertas capacidades
     musicales, y yo soy el mayor de DOs de MIs hermanoS (OLe) conmigo aprenderas
     tu primer conjunto de combinaciones de teclas a las que nuestro maestro es sensible.
   - "Usaremos para ello la notacion Anglosajona que es la que te acompa\xF1a en el
-    teclaDO, puede que ya te haya dejado tu primera pista (CEG) con la que poder
-    hacer da\xF1o al jefe supremo ya que tus ataques clasicos, metal y dodecaf\xF3nicos
-    seran inservibles ya que es inmune por ser supremo (yo solo lo soy al death metal)
-    y estar m\xE1s all\xE1 de la farandula. \xBFestas listo para continuar? "
-  - "Ahora te dejar\xE9 atacar primero insensato! Preparate para una lucha y para
-    enterarte de como soy Yo de una vez por todas!"
+    teclaDO, puede que ya te haya dejado tu primera pista %CEG% con la que poder
+    hacer da\xF1o al jefe supremo ya que tus ataques clasicos y metal seran inservibles
+    ya que es inmune por ser supremo (yo solo lo soy al death metal)  "
+  - "Ahora te dejar\xE9 atacar primero insensato! Preparate para una lucha y preparate
+    para enterarte de como soy Yo de una vez por todas!"
+  - "Tendras que introducir la secuencia correcta si quieres atacar con la maxima
+    efectividad, de lo contrario lo unico que lastimar\xE1s ser\xE1n mis oidos \xBFLo
+    has oido?"
+  - "\xBFQu\xE9 deseas estar m\xE1s all\xE1 de la farandula? Ahora veremos si estas
+    listo para continuar..."
 --- !u!114 &886010494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4501,14 +4507,14 @@ MonoBehaviour:
   nombrePersonaje: Kiko
   estado: Fury
   lineas:
-  - Vaya vaya vaya con el maldito ##!!CDEFG!## ahora vas a probar lo que es bueno
-    voy a empezar a usar mis ataques mas devastadores y no tendre piedad, por fin
-    te demostrare todo mi potencial y podras comprender porque "Asi soy yo" respetado
-    en el mundo entero, como la sidra del gaitero! Preparate por que no tendre clemencia
-    maldito insensato!
-  - ' Adelante Vinilos del pasado presente acabad con el antes de que pueda rescatar
-    a Elvis Pelvis y dejarnos a todos sin flow varados desarmonicamente a merced
-    del dodecafonismo.'
+  - 'Vaya vaya vaya con el maldito %CDEFG% ahora vas a probar lo que es bueno voy
+    a empezar a usar mis ataques mas devastadores y no tendre piedad, '
+  - por fin te demostrare todo mi potencial y podras comprender porque "Asi soy yo"
+    respetado en el mundo entero, como la sidra del gaitero! Preparate por que no
+    tendre clemencia maldito %CDEFG%!
+  - ' Adelante Vinilos de oro del pasado presente acabad con el antes de que pueda
+    rescatar a Elvis Pelvis y dejarnos a todos sin flow varados desarmonicamente
+    a merced del dodecafonismo.'
 --- !u!114 &1476981497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5021,13 +5027,11 @@ MonoBehaviour:
   lineas:
   - "Sabia que eras un ser insignificante e incapaz de derrotar al mejor DJ que ha
     dado Espa\xF1a en su historia, eres un ser inmundo vacio de todo conocimiento
-    musical e incapaz de superar al menor de los 3 jefes de la discoteque. Siempre
-    te quedara la opcion de volver a intentarlo, aunque quizas llegado a este punto
-    deberias de plantearte si quieres seguir perdiendo el tiempo "
-  - "Ya est\xE1 por venir mi ira desencadenada y ser\xE1 mucho peor, si quieres te
-    dejo una escalera para escapar y no volver para salir definitivamente denominada
-    \"CDEFGFEDC\" que es como que te vas pero vuelves. mu ha ha ha haaaaaaaaa Intentalo
-    de nuevo si te atreves"
+    musical e incapaz de superar al menor de los 3 jefes de la discoteque.  "
+  - 'Siempre te quedara la opcion de volver a intentarlo, aunque quizas llegado a
+    este punto deberias de plantearte si quieres seguir perdiendo el tiempo  %CDEFGFEDC% '
+  - Llegados a este punto solo te quedan dos opciones. Sucumbir o volver a intentarlo.
+  - 'La decision esta en tus manos mente %CDEFGFEDC% '
 --- !u!114 &1853641417
 MonoBehaviour:
   m_ObjectHideFlags: 0
