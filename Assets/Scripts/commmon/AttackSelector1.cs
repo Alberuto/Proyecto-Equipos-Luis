@@ -1,9 +1,8 @@
-ï»¿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using TMPro;
 
-public class AttackSelector : MonoBehaviour
+public class AttackSelector1 : MonoBehaviour
 {
     [Header("Paneles Principales")]
     public GameObject panelAtaques;
@@ -12,27 +11,24 @@ public class AttackSelector : MonoBehaviour
     public GameObject panelDodecafonico;
     public GameObject panelPista;
 
-    [Header("Panel Pista")]
-    public TextMeshProUGUI textoPista;
-    public Button btnEmpezarAtaque;
-    public Button btnVolverClasico;    // â† Nuevos botones atajo
-    public Button btnVolverDeathMetal;
-    public Button btnVolverDodeca;
+    [Header("Texto Pista")]
+    public Text textoPista;
 
     [Header("Botones Ataques (3 botones)")]
     public Button btnClasico;
     public Button btnDeathMetal;
     public Button btnDodecafonico;
 
-    [Header("ClÃ¡sico (4 ataques)")]
+    [Header("CORREGIDO: 4 ataques por categoria")]
+    [Header("Clásico (4 ataques + Volver)")]
     public AudioClip[] audioClasico = new AudioClip[4];
     public string[] secuenciasClasico = new string[4];
 
-    [Header("Death Metal (4 ataques)")]
+    [Header("Death Metal (4 ataques + Volver)")]
     public AudioClip[] audioDeathMetal = new AudioClip[4];
     public string[] secuenciasDeathMetal = new string[4];
 
-    [Header("Dodecafonico (4 ataques)")]
+    [Header("Dodecafonico (4 ataques + Volver)")]
     public AudioClip[] audioDodeca = new AudioClip[4];
     public string[] secuenciasDodeca = new string[4];
 
@@ -48,28 +44,20 @@ public class AttackSelector : MonoBehaviour
 
     void SetupButtons()
     {
+        // 3 botones principales OK
         btnClasico.onClick.AddListener(() => ShowPanel(panelClasico));
         btnDeathMetal.onClick.AddListener(() => ShowPanel(panelDeathMetal));
         btnDodecafonico.onClick.AddListener(() => ShowPanel(panelDodecafonico));
 
+        // Cada panel: 4 ataques + 1 Volver = 5 botones
         SetupPanelButtons(panelClasico, audioClasico, secuenciasClasico, SeleccionarAtaqueClasico);
         SetupPanelButtons(panelDeathMetal, audioDeathMetal, secuenciasDeathMetal, SeleccionarAtaqueDeathMetal);
         SetupPanelButtons(panelDodecafonico, audioDodeca, secuenciasDodeca, SeleccionarAtaqueDodeca);
-
-        if (btnEmpezarAtaque != null)
-            btnEmpezarAtaque.onClick.AddListener(OnEmpezarAtaque);
-
-        // â† ATAJOS DEL PANEL PISTA
-        if (btnVolverClasico != null)
-            btnVolverClasico.onClick.AddListener(() => ShowPanel(panelClasico));
-        if (btnVolverDeathMetal != null)
-            btnVolverDeathMetal.onClick.AddListener(() => ShowPanel(panelDeathMetal));
-        if (btnVolverDodeca != null)
-            btnVolverDodeca.onClick.AddListener(() => ShowPanel(panelDodecafonico));
     }
 
     void SetupPanelButtons(GameObject panel, AudioClip[] audios, string[] secuencias, System.Action<int> onAttackSelected)
     {
+        // Primeros 4 botones = ataques [0,1,2,3]
         for (int i = 0; i < 4; i++)
         {
             Button btn = panel.transform.GetChild(i).GetComponent<Button>();
@@ -77,6 +65,7 @@ public class AttackSelector : MonoBehaviour
             btn.onClick.AddListener(() => onAttackSelected(index));
         }
 
+        // Último botón = Volver
         Button btnVolver = panel.transform.GetChild(4).GetComponent<Button>();
         btnVolver.onClick.AddListener(() => ShowPanel(panelAtaques));
     }
@@ -91,36 +80,39 @@ public class AttackSelector : MonoBehaviour
         panel.SetActive(true);
     }
 
-    void SeleccionarAtaqueClasico(int index)
-    {
+    void SeleccionarAtaqueClasico(int index) {
+
         PlayAttack(audioClasico[index], secuenciasClasico[index]);
     }
 
-    void SeleccionarAtaqueDeathMetal(int index)
-    {
+    void SeleccionarAtaqueDeathMetal(int index) {
+
         PlayAttack(audioDeathMetal[index], secuenciasDeathMetal[index]);
     }
 
-    void SeleccionarAtaqueDodeca(int index)
-    {
+    void SeleccionarAtaqueDodeca(int index) {
+
         PlayAttack(audioDodeca[index], secuenciasDodeca[index]);
     }
 
-    void PlayAttack(AudioClip audio, string secuencia)
-    {
+    void PlayAttack(AudioClip audio, string secuencia) {
+
         if (audio != null)
             audioSource.PlayOneShot(audio);
 
         pistaActual = secuencia;
-        if (textoPista != null)
-            textoPista.text = pistaActual;
-
-        ShowPanel(panelPista);
+        textoPista.text = "Pista: " + pistaActual;  //Muestra en panelPista
+        ShowPanel(panelPista);  //Abre panel final
+        Debug.Log("Pista: " + pistaActual);
+        Debug.Log("Ataque: " + secuencia);
     }
-
+    // Llamado por el botón del panel final
     void OnEmpezarAtaque()
     {
         panelPista.SetActive(false);
-        Debug.Log("Â¡A atacar con: " + pistaActual);
+        // Aquí activas tu lógica de entrada de notas / ataque
+        // Ejemplo:
+        // FindObjectOfType<SequenceManager>().StartSequence(pistaActual);
+        Debug.Log("Jugador listo para atacar con secuencia: " + pistaActual);
     }
 }
