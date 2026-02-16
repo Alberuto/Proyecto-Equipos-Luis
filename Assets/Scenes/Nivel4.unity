@@ -806,6 +806,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 729883927}
   - {fileID: 886010492}
   - {fileID: 1910401014}
   - {fileID: 564498347}
@@ -958,6 +959,99 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &729883926
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 729883927}
+  - component: {fileID: 729883930}
+  - component: {fileID: 729883929}
+  - component: {fileID: 729883928}
+  m_Layer: 5
+  m_Name: Fary consejeo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &729883927
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729883926}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 667106792}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -428, y: 246}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &729883928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729883926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69a03c1f335fafd4ba25a4a82ff14ff4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PersonajeDialogo
+  imagenPersonaje: {fileID: 729883929}
+  textoDialogo: {fileID: 0}
+  nombrePersonaje: Fary
+  estado: Normal
+  lineas: []
+--- !u!114 &729883929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729883926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &729883930
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729883926}
+  m_CullTransparentMesh: 1
 --- !u!1 &886010491
 GameObject:
   m_ObjectHideFlags: 0
@@ -971,7 +1065,7 @@ GameObject:
   - component: {fileID: 886010494}
   - component: {fileID: 886010493}
   m_Layer: 5
-  m_Name: FaryNormal
+  m_Name: ElvisNormal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -993,8 +1087,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 56, y: -57}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 500, y: -134}
+  m_SizeDelta: {x: 375, y: 225}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &886010493
 MonoBehaviour:
@@ -1010,14 +1104,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PersonajeDialogo
   imagenPersonaje: {fileID: 886010494}
   textoDialogo: {fileID: 1910401015}
-  nombrePersonaje: Fary
+  nombrePersonaje: Elvis
   estado: Normal
   lineas:
-  - Enhorabuena has conseguido completar el exorcismo con exito...
-  - "...Has desenmascarado a Elvis como un truhan que parasit\xF3 la mente de Kiko,
-    el Cigala y hasta la m\xEDa, la del mismisimo Fary.... "
-  - "...La taberna vuelve a ser un lugar entra\xF1able donde emborracharse felizmente..."
-  - "...Sin tener que aguantarnos ...  Y todo gracias a ti y a tu m\xFAsica ..."
+  - "Enhorabuena has desenmascarado a Elvis como un truhan que parasit\xF3 la mente
+    de Kiko, el Cigala y hasta la m\xEDa, la del mismisimo Fary"
+  - "...pero conseguiste triunfar all\xE1 donde el mal se pronunciaba con resacas
+    terribles .... "
+  - ...y has conseguido completar el exorcismo con exito...
+  - "Ahora la taberna vuelve a ser un lugar entra\xF1able donde emborracharse felizmente..."
+  - ...Sin tener que aguantarnos ...  Y todo gracias a ti y a tu armonia ...
   - "\xA1Gracias por completar este juego!"
   - Esperemos que haya sido de su agrado
   - "\xA1Hasta otra!"
