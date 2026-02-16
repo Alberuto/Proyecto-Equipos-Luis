@@ -8,7 +8,9 @@ public class tocaDiscosManager : MonoBehaviour
     private List<GameObject> notas = new List<GameObject>();
     private GameObject nota;
 
-    
+    private Transform posTocaDiscos;
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("mano"))
@@ -55,15 +57,60 @@ public class tocaDiscosManager : MonoBehaviour
     }
     public void setNota(GameObject obj)
     {
-        this.nota = obj;
+        nota = obj;
         añadirNota(nota);
-        foreach (var nota in notas)
-        {
-            nota.transform.SetParent(transform);
-            int index = notas.IndexOf(nota);
-            nota.transform.position = posicionesNotas[index].position;
-            //transform.localEulerAngles = new Vector3(0f, 0f, 69.336f);
-        }
+        int index = notas.IndexOf(nota);
+        posTocaDiscos = GameObject.Find("toca discos/pos_ (" + index + ")").transform;
+        Debug.Log("pos toca discos: " + posTocaDiscos);
+        nota.transform.SetParent(posTocaDiscos);
+        Debug.Log("Nota " + index + " : " + nota.tag);
+        nota.transform.position = posicionesNotas[index].position;
+        //nota.transform.localEulerAngles = new Vector3(0f, 0f, 69.336f);
+        switch (nota.tag)
+            {
+                case "C":
+                    nota.transform.localEulerAngles = new Vector3(270, 180, 0);
+                    break;
+                case "C#":
+                    nota.transform.localEulerAngles = new Vector3(0, 0, 180);
+                    break;
+                case "D":
+                    nota.transform.localEulerAngles = new Vector3(274.30249f, 18.1386051f, 198.894836f);
+                    break;
+                case "D#":
+                    nota.transform.localEulerAngles = new Vector3(278.107239f, 176.020538f, 76.3567886f);
+                    break;
+                case "E":
+                    nota.transform.localEulerAngles = new Vector3(2.54443765f, 168.32901f, 354.313293f);
+                    break;
+                case "F":
+                    nota.transform.localEulerAngles = new Vector3(356.406097f, 359.665283f, 359.020294f);
+                    break;
+                case "F#":
+                    nota.transform.localEulerAngles = new Vector3(270, 180, 0);
+                    break;
+                case "G":
+                    nota.transform.localEulerAngles = new Vector3(0f, 0f, 0f);
+                    nota.transform.eulerAngles = new Vector3(270, 0, 0);
+                break;
+                case "G#":
+                    nota.transform.localEulerAngles = new Vector3(270, 180, 0);
+                    break;
+                case "A":
+                    nota.transform.localEulerAngles = new Vector3(284.555054f, 165.033829f, 13.669013f);
+                    break;
+                case "A#":
+                    nota.transform.localEulerAngles = new Vector3(310.916504f, 180.148575f, 74.464859f);
+                    break;
+                case "B":
+                    nota.transform.localEulerAngles = new Vector3(270, 180, 0);
+                    break;
+
+            }
+
+        Debug.Log("angulo: " + nota.transform.eulerAngles);
+        Debug.Log("angulo local: " + nota.transform.localEulerAngles);
+
     }
     public List<GameObject> getNotas()
     {
@@ -71,3 +118,19 @@ public class tocaDiscosManager : MonoBehaviour
     }
 
 }
+
+
+/*
+ 1º -0.5, 0.5
+                                                                               2º 0.5, 0.5
+ 
+ 
+ 
+    -0.3, 0.25          -0.1, 0.25           0.1, 0.25           0.3, 0.25
+ 
+    -0.3, 0             -0.1, 0              0.1, 0              0.3, 0
+         
+    -0.3,-0.25          -0.1, -0.25          0.1, -0.25          0.3, -0.25
+                                                                            4º 0.5, -0.5
+ 3º -0.5, -0.5
+ */

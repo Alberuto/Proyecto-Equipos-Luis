@@ -41,7 +41,7 @@ public class cogerInstrumento : MonoBehaviour
         // si el objeto esta cogido y el jugador le da al boton de coger, se suelta el objeto
         if (player.coger == false && cogido == true)
         {
-            soltar();
+            //soltar();
             cogido = false;
             player.cogido = false;
         }
@@ -121,7 +121,7 @@ public class cogerInstrumento : MonoBehaviour
                         transform.localEulerAngles = new Vector3(270, 180, 0);
                         break;
                     case "C#":
-                        transform.localPosition = new Vector3(1.99800003f, -0.76700002f, -1.20799994f);
+                        transform.localPosition = new Vector3(1.37385118f, -0.59594214f, -0.84602809f);
                         transform.localEulerAngles = new Vector3(0, 0, 180);
                         break;
                     case "D":
@@ -181,14 +181,14 @@ public class cogerInstrumento : MonoBehaviour
 
 
     // funcion para dejar el objeto en el suelo
-    public void soltar()
+    /*public void soltar()
     {
         transform.SetParent(null);
         transform.localEulerAngles = new Vector3(0f, 0f, 0f);
         player.eliminarInstrumento(); 
         Debug.Log("Soltar");
 
-    }
+    }*/
 
     // funcion para saber si el objeto esta cogido que ytilizamos en el PlayerTake
     public bool objetoCogido()
