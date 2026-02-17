@@ -60,6 +60,7 @@ public class PlayerTake : MonoBehaviour
                     // Debug.Log("Instrumento entregado: " + instrumentoEntregado);
 
                     tocaDiscos.setNota(objetoCogido);
+                    cogido = false;
                     eliminarInstrumento();
                     SetCoger(false);
                     SetInstrumentoEntregado(false);

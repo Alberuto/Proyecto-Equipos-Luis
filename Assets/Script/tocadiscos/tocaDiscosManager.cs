@@ -8,7 +8,6 @@ public class tocaDiscosManager : MonoBehaviour
     private List<GameObject> notas = new List<GameObject>();
     private GameObject nota;
 
-    private Transform posTocaDiscos;
 
 
     private void OnTriggerEnter(Collider other)
@@ -60,10 +59,14 @@ public class tocaDiscosManager : MonoBehaviour
         nota = obj;
         añadirNota(nota);
         int index = notas.IndexOf(nota);
-        posTocaDiscos = GameObject.Find("toca discos/pos_ (" + index + ")").transform;
-        Debug.Log("pos toca discos: " + posTocaDiscos);
-        nota.transform.SetParent(posTocaDiscos);
-        Debug.Log("Nota " + index + " : " + nota.tag);
+        /*for(int i = 0; i < notas.Count ;i++)
+        {
+            index = i;
+            if (notas[i] == null)
+                notas[i].transform.SetParent(posicionesNotas[i]);
+        }*/
+        nota.transform.SetParent(posicionesNotas[index]);
+        Debug.Log("Nota " + index + " colocada: " + nota.tag);
         nota.transform.position = posicionesNotas[index].position;
         //nota.transform.localEulerAngles = new Vector3(0f, 0f, 69.336f);
         switch (nota.tag)
@@ -72,7 +75,8 @@ public class tocaDiscosManager : MonoBehaviour
                     nota.transform.localEulerAngles = new Vector3(270, 180, 0);
                     break;
                 case "C#":
-                    nota.transform.localEulerAngles = new Vector3(0, 0, 180);
+                    nota.transform.localEulerAngles = new Vector3(0, 90, 180);
+                    nota.transform.eulerAngles = new Vector3(0, 0, 180);
                     break;
                 case "D":
                     nota.transform.localEulerAngles = new Vector3(274.30249f, 18.1386051f, 198.894836f);
@@ -107,11 +111,12 @@ public class tocaDiscosManager : MonoBehaviour
                     break;
 
             }
-
+        Debug.Log("posicion instrumento: " + nota.transform.parent);
         Debug.Log("angulo: " + nota.transform.eulerAngles);
         Debug.Log("angulo local: " + nota.transform.localEulerAngles);
 
     }
+
     public List<GameObject> getNotas()
     {
         return notas;

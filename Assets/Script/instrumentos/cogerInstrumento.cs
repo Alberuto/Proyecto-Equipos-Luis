@@ -39,12 +39,12 @@ public class cogerInstrumento : MonoBehaviour
             player.coger = false;
         }
         // si el objeto esta cogido y el jugador le da al boton de coger, se suelta el objeto
-        if (player.coger == false && cogido == true)
+        /*if (player.coger == false && cogido == true)
         {
-            //soltar();
+            soltar();
             cogido = false;
             player.cogido = false;
-        }
+        }*/
     }
 
     // funcion para detectar la colision con la mano
@@ -57,9 +57,9 @@ public class cogerInstrumento : MonoBehaviour
             // esta el player.cogido para que no pueda coger varios objetos a la vez
             if (player.coger == true && player.cogido == false)
             {
-                if (tocaDiscos.getNotas().Contains(gameObject))
+                if (tocaDiscos.getNotas().Contains(this.gameObject))
                 {
-                    tocaDiscos.eliminarNota(gameObject);
+                    tocaDiscos.eliminarNota(this.gameObject);
                 }
                 cogido = true;
 
@@ -167,7 +167,8 @@ public class cogerInstrumento : MonoBehaviour
 
                 }
                 
-                player.añadirInstrumento(gameObject);
+                player.añadirInstrumento(this.gameObject);
+
             }
         }
     }
@@ -181,14 +182,14 @@ public class cogerInstrumento : MonoBehaviour
 
 
     // funcion para dejar el objeto en el suelo
-    /*public void soltar()
+    public void soltar()
     {
         transform.SetParent(null);
         transform.localEulerAngles = new Vector3(0f, 0f, 0f);
         player.eliminarInstrumento(); 
         Debug.Log("Soltar");
 
-    }*/
+    }
 
     // funcion para saber si el objeto esta cogido que ytilizamos en el PlayerTake
     public bool objetoCogido()
