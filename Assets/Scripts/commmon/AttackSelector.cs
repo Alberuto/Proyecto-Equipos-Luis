@@ -3,8 +3,8 @@ using UnityEngine.UI;
 using System.Collections;
 using TMPro;
 
-public class AttackSelector : MonoBehaviour
-{
+public class AttackSelector : MonoBehaviour { 
+
     [Header("Paneles Principales")]
     public GameObject panelAtaques;
     public GameObject panelClasico;
@@ -15,7 +15,7 @@ public class AttackSelector : MonoBehaviour
     [Header("Panel Pista")]
     public TextMeshProUGUI textoPista;
     public Button btnEmpezarAtaque;
-    public Button btnVolverClasico;    // ← Nuevos botones atajo
+    public Button btnVolverClasico;    //Nuevos botones por si se arrepiente por la dificultad del ataque elegido
     public Button btnVolverDeathMetal;
     public Button btnVolverDodeca;
 
@@ -39,15 +39,12 @@ public class AttackSelector : MonoBehaviour
     private AudioSource audioSource;
     private string pistaActual;
 
-    void Start()
-    {
+    void Start() {
         audioSource = GetComponent<AudioSource>();
         SetupButtons();
         ShowPanel(panelAtaques);
     }
-
-    void SetupButtons()
-    {
+    void SetupButtons() {
         btnClasico.onClick.AddListener(() => ShowPanel(panelClasico));
         btnDeathMetal.onClick.AddListener(() => ShowPanel(panelDeathMetal));
         btnDodecafonico.onClick.AddListener(() => ShowPanel(panelDodecafonico));
@@ -58,8 +55,7 @@ public class AttackSelector : MonoBehaviour
 
         if (btnEmpezarAtaque != null)
             btnEmpezarAtaque.onClick.AddListener(OnEmpezarAtaque);
-
-        // ← ATAJOS DEL PANEL PISTA
+        //ATAJOS DEL PANEL PISTA
         if (btnVolverClasico != null)
             btnVolverClasico.onClick.AddListener(() => ShowPanel(panelClasico));
         if (btnVolverDeathMetal != null)
@@ -67,22 +63,17 @@ public class AttackSelector : MonoBehaviour
         if (btnVolverDodeca != null)
             btnVolverDodeca.onClick.AddListener(() => ShowPanel(panelDodecafonico));
     }
-
-    void SetupPanelButtons(GameObject panel, AudioClip[] audios, string[] secuencias, System.Action<int> onAttackSelected)
-    {
-        for (int i = 0; i < 4; i++)
-        {
+    void SetupPanelButtons(GameObject panel, AudioClip[] audios, string[] secuencias, System.Action<int> onAttackSelected) {
+        for (int i = 0; i < 4; i++) {
             Button btn = panel.transform.GetChild(i).GetComponent<Button>();
             int index = i;
             btn.onClick.AddListener(() => onAttackSelected(index));
         }
-
         Button btnVolver = panel.transform.GetChild(4).GetComponent<Button>();
         btnVolver.onClick.AddListener(() => ShowPanel(panelAtaques));
     }
+    void ShowPanel(GameObject panel) {
 
-    void ShowPanel(GameObject panel)
-    {
         panelAtaques.SetActive(false);
         panelClasico.SetActive(false);
         panelDeathMetal.SetActive(false);
@@ -90,24 +81,16 @@ public class AttackSelector : MonoBehaviour
         panelPista.SetActive(false);
         panel.SetActive(true);
     }
-
-    void SeleccionarAtaqueClasico(int index)
-    {
+    void SeleccionarAtaqueClasico(int index) {
         PlayAttack(audioClasico[index], secuenciasClasico[index]);
     }
-
-    void SeleccionarAtaqueDeathMetal(int index)
-    {
+    void SeleccionarAtaqueDeathMetal(int index) {
         PlayAttack(audioDeathMetal[index], secuenciasDeathMetal[index]);
     }
-
-    void SeleccionarAtaqueDodeca(int index)
-    {
+    void SeleccionarAtaqueDodeca(int index) {
         PlayAttack(audioDodeca[index], secuenciasDodeca[index]);
     }
-
-    void PlayAttack(AudioClip audio, string secuencia)
-    {
+    void PlayAttack(AudioClip audio, string secuencia) {
         if (audio != null)
             audioSource.PlayOneShot(audio);
 
@@ -117,10 +100,14 @@ public class AttackSelector : MonoBehaviour
 
         ShowPanel(panelPista);
     }
+    void OnEmpezarAtaque() {
 
-    void OnEmpezarAtaque()
-    {
         panelPista.SetActive(false);
-        Debug.Log("¡A atacar con: " + pistaActual);
+        Debug.Log("¡A atacar con: " + pistaActual); //pasamos el ataque seleccionado al attack manager donde lo convertirá a lista de notas y lo comparará con las entradas del jugador
+
+        AttackManager attackMgr = FindObjectOfType<AttackManager>();
+        if (attackMgr != null) {
+            attackMgr.IniciarAtaque(pistaActual);
+        }
     }
 }
