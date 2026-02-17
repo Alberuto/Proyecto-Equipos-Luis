@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     private CharacterController characterController;
-    [SerializeField] public playerManager playerManager; 
+    [SerializeField] public PlayerHealth playerManager; 
     [SerializeField] public Vector2 moveInput;
 
     [SerializeField] private AudioSource audioSourceSalto;
@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (characterController == null)
             return;
-        if (playerManager.recibiendoDaño || playerManager.muerto)
+        if (GameManager.instance.recibiendoDaño || GameManager.instance.muerto)
         {
             //Debug.Log("Jugador recibiendo daño o muerto, no se puede mover");
         }

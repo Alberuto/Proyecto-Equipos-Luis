@@ -21,6 +21,9 @@ TagManager:
   - enemy
   - instrumento
   - tocaDiscos
+  - kiko
+  - cigala
+  - fary
   layers:
   - Default
   - TransparentFX

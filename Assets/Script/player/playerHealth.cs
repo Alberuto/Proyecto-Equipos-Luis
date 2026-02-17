@@ -1,0 +1,47 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerHealth : MonoBehaviour
+{
+    // Tiempo de invulnerabilidad despues de recibir daño
+    private float invulnerableTime = 10.0f;
+    private bool invulnerable = false;
+
+    public int dañoKiko = 10;
+    public int dañoCigala = 30;
+    public int dañoFary = 60;
+
+    // Metodo para detectar colisiones con enemigos
+    void OnTriggerEnter(Collider other)
+    {
+        if (invulnerable)
+        {
+            Debug.Log("Jugador es invulnerable, no recibe daño");
+            return;
+        }
+        else if (other.gameObject.CompareTag("kiko"))
+        {
+            GameManager.instance.recibirDaño(dañoKiko);
+
+        }else if (other.gameObject.CompareTag("cigala"))
+        {
+            GameManager.instance.recibirDaño(dañoCigala);
+            
+        }else if (other.gameObject.CompareTag("fary"))
+        {
+            GameManager.instance.recibirDaño(dañoFary);
+        }
+        invulnerable = true;
+        Debug.Log("Jugador ha recibido daño de: " + other.name);
+        StopCoroutine("delay");
+        StartCoroutine(delay());
+    }
+    // Coroutine para manejar el tiempo de invulnerabilidad
+    IEnumerator delay()
+    {
+        yield return new WaitForSeconds(invulnerableTime);
+        invulnerable = false;
+        Debug.Log("Jugador ya no es invulnerable");
+    }
+}
