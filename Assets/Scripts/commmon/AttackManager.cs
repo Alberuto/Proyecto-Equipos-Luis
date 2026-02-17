@@ -1,28 +1,70 @@
-using UnityEngine;
+Ôªøusing System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class AttackManager : MonoBehaviour
-{
+public class AttackManager : MonoBehaviour {
+    
+    [Header("UI")]
+    [SerializeField] private TextMeshProUGUI cronometroText;
+    [SerializeField] private TextMeshProUGUI multiplicadorText;
+
     [Header("Secuencia objetivo")]
     private string secuenciaHeredada = "";
     private List<string> secuenciaObjetivo = new List<string>();
     private List<string> secuenciaJugador = new List<string>();
     private bool ataqueActivo = false;
+    private int intentosExitosos = 0;
+    private float tiempoRestante = 30f;
+    private bool tiempoTerminado = false;
 
     /*[Header("Mapeo de notas")]
     public string[] notasOrden = { "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B" }; Aluncinacion IA*/
 
-    [Header("Feedback")]
+    [Header("Audio")]
+    private AudioSource feedbackAudio;
     public AudioClip sonidoCorrecto;
     public AudioClip sonidoError;
-    private AudioSource feedbackAudio;
+
+    [Header("Combat")]
+    [SerializeField] private CombatManager combatManager;
 
     void Start() {
-        Debug.Log("?? AttackManager INICIADO");
-        Debug.Log("?? AudioSource: " + (GetComponent<AudioSource>() != null));
+        Debug.Log("üé∏ AttackManager INICIADO");
+        Debug.Log("üîä AudioSource: " + (GetComponent<AudioSource>() != null));
         feedbackAudio = GetComponent<AudioSource>();
+        IniciarCronometro();
     }
-    // MÈtodo auxiliar para convertir string de attack selector en List<string> para comparaciÛn
+    void Update() {
+        if (ataqueActivo && !tiempoTerminado) {
+            tiempoRestante -= Time.deltaTime;
+            ActualizarUI();
+
+            if (tiempoRestante <= 0) {
+                FinalizarAtaque();
+            }
+        }
+    }
+    private void ActualizarUI() {
+
+        cronometroText.text = $"Tiempo: {tiempoRestante:F1}s";
+        multiplicadorText.text = $"Da√±o x{intentosExitosos}";
+    }
+    private void FinalizarAtaque() {
+        tiempoTerminado = true;
+        Debug.Log($"‚è∞ Tiempo terminado! Ataques exitosos: {intentosExitosos}");
+        combatManager.FaseAtaqueTerminada(intentosExitosos);
+        StartCoroutine(CargarEscenaDefensa());
+    }
+    private IEnumerator CargarEscenaDefensa() {
+        yield return new WaitForSeconds(2f); // Pausa dram√°tica
+
+        Debug.Log("üöÄ CARGANDO NIVEL1-DEFENSA...");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Nivel1-Defensa");
+    }
+    // M√©todo auxiliar para convertir string de attack selector en List<string> para comparaci√≥n
     private List<string> ConvertirSecuenciaStringALista(string secuencia) {
 
         List<string> listaNotas = new List<string>();
@@ -44,7 +86,7 @@ public class AttackManager : MonoBehaviour
                 notaActual = c.ToString();
             }
         }
-        // Guardar ˙ltima nota
+        // Guardar √∫ltima nota
         if (!string.IsNullOrEmpty(notaActual)) {
 
             listaNotas.Add(notaActual);
@@ -54,13 +96,11 @@ public class AttackManager : MonoBehaviour
     // Llamado desde AttackSelector
     public void IniciarAtaque(string secuencia) {
 
-
-
-        secuenciaObjetivo = ConvertirSecuenciaStringALista(secuencia);  //AQUÕ
+        secuenciaObjetivo = ConvertirSecuenciaStringALista(secuencia);  //AQU√ç
         secuenciaHeredada = secuencia;
         secuenciaJugador.Clear();
         ataqueActivo = true;
-        Debug.Log("°Ataque iniciado! Objetivo: [" + string.Join(", ", secuenciaObjetivo) + "]");
+        Debug.Log("¬°Ataque iniciado! Objetivo: [" + string.Join(", ", secuenciaObjetivo) + "]");
     }
     public void RegistrarNota(string nota) {
 
@@ -72,7 +112,7 @@ public class AttackManager : MonoBehaviour
         if (feedbackAudio != null && sonidoCorrecto != null)
             feedbackAudio.PlayOneShot(sonidoCorrecto);
 
-        // ComparaciÛn lista vs lista
+        // Comparaci√≥n lista vs lista
         bool coincideHastaAhora = true;
         for (int i = 0; i < secuenciaJugador.Count; i++) {
 
@@ -92,12 +132,17 @@ public class AttackManager : MonoBehaviour
     }
     void ExitoAtaque() {
         ataqueActivo = false;
-        Debug.Log("°ATAQUE EXITOSO! Secuencia: " + string.Join("", secuenciaJugador));
+        Debug.Log("¬°ATAQUE EXITOSO! Secuencia: " + string.Join("", secuenciaJugador));
     }
     void FalloAtaque() {
         ataqueActivo = false;
-        Debug.Log("°ATAQUE FALLIDO!");
+        Debug.Log("¬°ATAQUE FALLIDO!");
         if (feedbackAudio != null && sonidoError != null)
             feedbackAudio.PlayOneShot(sonidoError);
+    }
+    public void IniciarCronometro() {
+        tiempoRestante = 30f;
+        tiempoTerminado = false;
+        ActualizarUI();
     }
 }
