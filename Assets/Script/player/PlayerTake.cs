@@ -74,6 +74,16 @@ public class PlayerTake : MonoBehaviour
             if (tocaDiscos.getNotas().Count >= dificultad && cogido == false)
             {
                 Debug.Log("activar secuencia de ataque (comprobar si la secuencia esta bien o no)");
+                tocaDiscos.entregarNotas();
+                if (GameManager.instance.secuenciaCorrecta())
+                {
+                    Debug.Log("Secuencia correcta, activar ataque");
+                }
+                else
+                {
+                    Debug.Log("Secuencia incorrecta, pierde turno");
+                }
+                
             }
         }
     }

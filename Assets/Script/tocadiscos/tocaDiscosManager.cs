@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -56,20 +58,17 @@ public class tocaDiscosManager : MonoBehaviour
     }
     public void setNota(GameObject obj)
     {
+        
         nota = obj;
         añadirNota(nota);
         int index = notas.IndexOf(nota);
-        /*for(int i = 0; i < notas.Count ;i++)
-        {
-            index = i;
-            if (notas[i] == null)
-                notas[i].transform.SetParent(posicionesNotas[i]);
-        }*/
-        nota.transform.SetParent(posicionesNotas[index]);
+        ComprobarPosiciones();
+        /*nota.transform.SetParent(posicionesNotas[index]);
+
         Debug.Log("Nota " + index + " colocada: " + nota.tag);
-        nota.transform.position = posicionesNotas[index].position;
+        nota.transform.position = posicionesNotas[index].position;*/
         //nota.transform.localEulerAngles = new Vector3(0f, 0f, 69.336f);
-        switch (nota.tag)
+        /*switch (nota.tag)
             {
                 case "C":
                     nota.transform.localEulerAngles = new Vector3(270, 180, 0);
@@ -110,16 +109,39 @@ public class tocaDiscosManager : MonoBehaviour
                     nota.transform.localEulerAngles = new Vector3(270, 180, 0);
                     break;
 
-            }
-        Debug.Log("posicion instrumento: " + nota.transform.parent);
+            }*/
+        /*Debug.Log("posicion instrumento: " + nota.transform.parent);
         Debug.Log("angulo: " + nota.transform.eulerAngles);
-        Debug.Log("angulo local: " + nota.transform.localEulerAngles);
-
+        Debug.Log("angulo local: " + nota.transform.localEulerAngles);*/
+        
     }
 
     public List<GameObject> getNotas()
     {
         return notas;
+    }
+
+    public void entregarNotas()
+    {
+        GameManager.instance.setNotas(notas);
+    }
+     public void ComprobarPosiciones()
+    {
+        int posicion = 0;
+        for (int i = 0; i < notas.Count; i++)
+        {
+            Debug.Log("entro al for");
+            posicion = i;
+            int cantidadObjetos = GameObject.Find("toca discos/pos_ (" + i + ")").transform.childCount;
+            Debug.Log("cantidad objetos en posicion " + i + ": " + cantidadObjetos);
+            if (cantidadObjetos == 0)
+            {
+                notas[i].transform.SetParent(posicionesNotas[i]);
+                nota.transform.position = posicionesNotas[i].position;
+                Debug.Log("nueva posicion: " + i + "para: " + notas[i].tag);
+            }
+
+        }
     }
 
 }

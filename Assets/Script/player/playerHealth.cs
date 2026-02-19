@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     public int dañoKiko = 10;
     public int dañoCigala = 30;
     public int dañoFary = 60;
+    public bool atacado = false;
 
     // Metodo para detectar colisiones con enemigos
     void OnTriggerEnter(Collider other)
@@ -23,19 +24,29 @@ public class PlayerHealth : MonoBehaviour
         else if (other.gameObject.CompareTag("kiko"))
         {
             GameManager.instance.recibirDaño(dañoKiko);
+            atacado = true;
 
-        }else if (other.gameObject.CompareTag("cigala"))
+        }
+        else if (other.gameObject.CompareTag("cigala"))
         {
             GameManager.instance.recibirDaño(dañoCigala);
-            
-        }else if (other.gameObject.CompareTag("fary"))
+            atacado = true;
+
+        }
+        else if (other.gameObject.CompareTag("fary"))
         {
             GameManager.instance.recibirDaño(dañoFary);
+            atacado = true;
         }
-        invulnerable = true;
-        Debug.Log("Jugador ha recibido daño de: " + other.name);
-        StopCoroutine("delay");
-        StartCoroutine(delay());
+        if (atacado)
+        {
+            invulnerable = true;
+            Debug.Log("Jugador ha recibido daño de: " + other.tag);
+            StopCoroutine("delay");
+            StartCoroutine(delay());
+            atacado = false;
+        }
+        
     }
     // Coroutine para manejar el tiempo de invulnerabilidad
     IEnumerator delay()
