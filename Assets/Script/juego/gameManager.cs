@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
         else
         {
             vida -= daño;
+            Debug.Log("Jugador ha recibido " + daño + " de daño, vida restante: " + vida);
             recibiendoDaño = true;
             StopCoroutine("delay");
             StartCoroutine(delay());
@@ -56,10 +57,39 @@ public class GameManager : MonoBehaviour
     }
 
 
-    // Coroutine para manejar el tiempo de invulnerabilidad
+    // Coroutine para manejar el tiempo de animacion para que no se mueva
     IEnumerator delay()
     {
         yield return new WaitForSeconds(2.5f);
         recibiendoDaño = false;
+    }
+
+    public void reiniciarJuego()
+    {
+        vida = 100;
+        muerto = false;
+        MySceneManager.instance.LoadScene("MainMenu");
+    }
+    public void setNotas(List<GameObject> lista)
+    {
+        notas = lista;
+    }
+    public void setPartitura(List<GameObject> lista)
+    {
+        partitura = lista;
+    }
+
+    public bool secuenciaCorrecta()
+    {
+        for (int i = 0; i < partitura.Count; i++)
+        {
+            if (notas[i].tag != partitura[i].tag)
+            {
+                Debug.Log("Secuencia incorrecta en la posición " + i);
+                return false;
+            }
+        }
+        Debug.Log("Secuencia correcta");
+        return true;
     }
 }
