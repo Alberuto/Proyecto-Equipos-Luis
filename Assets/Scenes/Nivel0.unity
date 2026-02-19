@@ -1744,7 +1744,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &579113950
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2039,7 +2039,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &689394758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3980,7 +3980,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1212312339
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3988,7 +3988,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1212312338}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4565,7 +4565,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1530509037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4627,7 +4627,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 30
   m_TargetDisplay: 0
 --- !u!224 &1530509040
 RectTransform:
@@ -4800,7 +4800,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1824632150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4862,7 +4862,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &1824632153
 RectTransform:
@@ -4901,7 +4901,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1834987710
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4939,7 +4939,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 0.6852511, g: 0.8113208, b: 0.6314525, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5024,7 +5024,7 @@ MonoBehaviour:
   - "El primero de ellos ser\xE1 kiko un DJ con teclaDO\t\t\t\t"
   - "El segundo ser\xE1 un acolito que REza casi a diario sus lamentos y quejios
     folkloricos, el cigala\t\t"
-  - "Para rematar la faena tendras que lidiar con el fary y sobre todo con su torito
+  - "Para rematar la faena tendras que lidiar con MI fary y sobre todo con su torito
     bravo\t"
   - Suerte en tu aventura y esperamos que salgas victorioso de esta guerra musical.
   - "...Que la armonia del dodecafonismo te acompa\xF1e, la sinestesia de parsifall
@@ -5496,7 +5496,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2012820553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5558,7 +5558,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 20
   m_TargetDisplay: 0
 --- !u!224 &2012820556
 RectTransform:
@@ -5742,6 +5742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f98fb965006a9d94eacfbc805fcee4ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CanvasController
+  canvasNormal: {fileID: 689394757}
   canvasWin: {fileID: 1824632149}
   canvasFury: {fileID: 1530509036}
   canvasLose: {fileID: 2012820552}
@@ -5769,7 +5770,7 @@ SceneRoots:
   - {fileID: 543361237}
   - {fileID: 160274524}
   - {fileID: 689394761}
-  - {fileID: 1530509040}
   - {fileID: 1824632153}
   - {fileID: 2012820556}
+  - {fileID: 1530509040}
   - {fileID: 2041307017}

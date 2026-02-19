@@ -3,60 +3,84 @@ using UnityEngine.SceneManagement;
 
 public class CanvasController : MonoBehaviour {
 
-    [Header("Canvas Win")] 
-    [SerializeField] private GameObject canvasWin;     // Canvas tutorial fallado
+    [Header("Canvas Normal")]
+    [SerializeField] private GameObject canvasNormal; // primera vez
+
+    [Header("Canvas Win")]
+    [SerializeField] private GameObject canvasWin;     // Dodeca gana (tutorial fallado)
 
     [Header("Canvas Fury")]
-    [SerializeField] private GameObject canvasFury;          // Post-tutorial Fury
+    [SerializeField] private GameObject canvasFury;    // segunda parte tutorial
 
     [Header("Canvas Lose")]
-    [SerializeField] private GameObject canvasLose;          // Canvas tutorial completado
-
+    [SerializeField] private GameObject canvasLose;    // Tutorial completado (Fury WIN)
     void Start() {
-
-        // Ocultar todos inicialmente
         OcultarTodosCanvas();
+        // 🎯 LÓGICA PRIMERA EJECUCIÓN
+        if (!PlayerPrefs.HasKey("JuegoIniciado")) {
 
-        // Leer PlayerPrefs y activar correcto
-        if (PlayerPrefs.GetInt("FuryTutorialCompletado", 0) == 1) {
-            ActivarCanvasLose();
+            // PRIMERA VEZ → Canvas normal
+            PlayerPrefs.SetInt("JuegoIniciado", 1);
+            PlayerPrefs.Save();
+            ActivarCanvasNormal();
+            Debug.Log("🌟 PRIMERA EJECUCIÓN - Canvas Fury (normal)");
+        }
+        else if (PlayerPrefs.GetInt("FuryTutorialCompletado", 0) == 1) //1 parte
+        {
+            ActivarCanvasFury();  // Fury WIN
         }
         else if (PlayerPrefs.GetInt("FuryTutorialFallado", 0) == 1) {
-            ActivarCanvasWin();
+            ActivarCanvasWin();   // Dodeca gana
         }
-        else {
-            ActivarCanvasFury();
+        else if (PlayerPrefs.GetInt("Nivel0bCompletado", 0) ==1) {
+            ActivarCanvasLose();  // Normal (ya jugado) // tutorial completado
         }
     }
     private void OcultarTodosCanvas() {
+        if (canvasNormal) canvasNormal.SetActive(false);
         if (canvasWin) canvasWin.SetActive(false);
         if (canvasFury) canvasFury.SetActive(false);
         if (canvasLose) canvasLose.SetActive(false);
     }
+
     private void ActivarCanvasWin() {
         if (canvasWin) canvasWin.SetActive(true);
-        Debug.Log("📋 Canvas Principal activado");
+        Debug.Log("📋 Canvas Win Dodecafonismo activado");
     }
     private void ActivarCanvasFury() {
         if (canvasFury) canvasFury.SetActive(true);
-        PlayerPrefs.DeleteKey("FuryTutorialFallado"); //
-        Debug.Log("🔥 Canvas Fury activado - ¡Tutorial completado!");
+        PlayerPrefs.DeleteKey("FuryTutorialFallado");
+        Debug.Log("🔥 Canvas Fury (normal) activado");
+    }
+    private void ActivarCanvasNormal() {
+        if (canvasNormal) canvasNormal.SetActive(true);
+        PlayerPrefs.DeleteKey("FuryTutorialFallado");
+        Debug.Log("📋 Canvas NORMAL activado"); 
     }
     private void ActivarCanvasLose() {
         if (canvasLose) canvasLose.SetActive(true);
-        PlayerPrefs.DeleteKey("FuryTutorialCompletado"); // Limpia estado win
-        Debug.Log("😢 Canvas Lose activado");
+        PlayerPrefs.DeleteKey("FuryTutorialCompletado");
+        Debug.Log("✅ Canvas Lose (Fury WIN - Tutorial completado)");
     }
-    // Botones públicos
-    public void IrANivel0b() { // Botón Fury → Secuencias {
+    // Botones
+    public void IrANivel0b()  // Fury → Segunda parte
+    {
         UnityEngine.SceneManagement.SceneManager.LoadScene("Nivel0b");
     }
-    public void ReintentarTutorial() {  // Botón Lose → Tutorial otra vez
+
+    public void IrANivel1()   // Completa todo → Nivel 1
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Nivel1");
+    }
+
+    public void ReintentarTutorial() {
         PlayerPrefs.DeleteKey("FuryTutorialCompletado");
         PlayerPrefs.DeleteKey("FuryTutorialFallado");
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Nivel0");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Nivel0a");
     }
-    public void VolverMenuPrincipal() {
-        SceneManager.LoadScene("MainMenu");
+
+    public void MenuPrincipal()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
     }
 }
