@@ -20,9 +20,6 @@ public class AttackManager : MonoBehaviour {
     private float tiempoRestante = 30f;
     private bool tiempoTerminado = false;
 
-    /*[Header("Mapeo de notas")]
-    public string[] notasOrden = { "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B" }; Aluncinacion IA*/
-
     [Header("Audio")]
     private AudioSource feedbackAudio;
     public AudioClip sonidoCorrecto;
@@ -32,12 +29,14 @@ public class AttackManager : MonoBehaviour {
     [SerializeField] private CombatManager combatManager;
 
     void Start() {
+
         Debug.Log("🎸 AttackManager INICIADO");
         Debug.Log("🔊 AudioSource: " + (GetComponent<AudioSource>() != null));
         feedbackAudio = GetComponent<AudioSource>();
         IniciarCronometro();
     }
     void Update() {
+
         if (ataqueActivo && !tiempoTerminado) {
             tiempoRestante -= Time.deltaTime;
             ActualizarUI();
@@ -50,19 +49,21 @@ public class AttackManager : MonoBehaviour {
     private void ActualizarUI() {
 
         cronometroText.text = $"Tiempo: {tiempoRestante:F1}s";
-        multiplicadorText.text = $"Daño x{intentosExitosos}";
+        multiplicadorText.text = $"X {intentosExitosos}";
     }
     private void FinalizarAtaque() {
-        tiempoTerminado = true;
-        Debug.Log($"⏰ Tiempo terminado! Ataques exitosos: {intentosExitosos}");
-        combatManager.FaseAtaqueTerminada(intentosExitosos);
-        StartCoroutine(CargarEscenaDefensa());
-    }
-    private IEnumerator CargarEscenaDefensa() {
-        yield return new WaitForSeconds(2f); // Pausa dramática
 
-        Debug.Log("🚀 CARGANDO NIVEL1-DEFENSA...");
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Nivel1-Defensa");
+        tiempoTerminado = true;
+        int danoFinal = intentosExitosos * 10;
+
+        Debug.Log($"⏰ Tiempo terminado! Ataques exitosos: {intentosExitosos} secuencias → {danoFinal} daño");
+
+        PlayerPrefs.SetInt("Nivel1AtaqueDaño", danoFinal);
+        PlayerPrefs.SetInt("Nivel1IntentosExitosos", intentosExitosos);
+        PlayerPrefs.Save();
+
+        //combatManager.FaseAtaqueTerminada(intentosExitosos);
+        StartCoroutine(DecidirSiguienteFase());
     }
     // Método auxiliar para convertir string de attack selector en List<string> para comparación
     private List<string> ConvertirSecuenciaStringALista(string secuencia) {
@@ -104,7 +105,7 @@ public class AttackManager : MonoBehaviour {
     }
     public void RegistrarNota(string nota) {
 
-        if (!ataqueActivo) return;
+        if (!ataqueActivo || tiempoTerminado) return;
 
         secuenciaJugador.Add(nota);
         Debug.Log("Nota: " + nota + " | Progreso: [" + string.Join(", ", secuenciaJugador) + "]");
@@ -112,37 +113,54 @@ public class AttackManager : MonoBehaviour {
         if (feedbackAudio != null && sonidoCorrecto != null)
             feedbackAudio.PlayOneShot(sonidoCorrecto);
 
-        // Comparación lista vs lista
-        bool coincideHastaAhora = true;
+        bool coincideCompleta = secuenciaJugador.Count == secuenciaObjetivo.Count;
+        bool errorEnPosicion = false;
+
         for (int i = 0; i < secuenciaJugador.Count; i++) {
 
             if (secuenciaJugador[i] != secuenciaObjetivo[i]) {
-
-                coincideHastaAhora = false;
+                errorEnPosicion = true;
                 break;
             }
         }
-        if (!coincideHastaAhora) {
-            FalloAtaque();
+        if (coincideCompleta && !errorEnPosicion) {
+
+            // 🆕 ÉXITO SECUENCIA → Reiniciar para siguiente intento
+            intentosExitosos++;
+            Debug.Log($"✅ SECUENCIA {intentosExitosos} EXITOSA!");
+            ReiniciarSecuencia();  // ← NUEVA FUNCIÓN
             return;
         }
-        if (secuenciaJugador.Count == secuenciaObjetivo.Count) {
-            ExitoAtaque();
+        else if (errorEnPosicion) {
+
+            // 🆕 ERROR → Reiniciar secuencia actual
+            Debug.Log("❌ Error en posición!");
+            if (feedbackAudio != null && sonidoError != null)
+                feedbackAudio.PlayOneShot(sonidoError);
+            ReiniciarSecuencia();
         }
     }
-    void ExitoAtaque() {
-        ataqueActivo = false;
-        Debug.Log("¡ATAQUE EXITOSO! Secuencia: " + string.Join("", secuenciaJugador));
-    }
-    void FalloAtaque() {
-        ataqueActivo = false;
-        Debug.Log("¡ATAQUE FALLIDO!");
-        if (feedbackAudio != null && sonidoError != null)
-            feedbackAudio.PlayOneShot(sonidoError);
-    }
     public void IniciarCronometro() {
+
         tiempoRestante = 30f;
         tiempoTerminado = false;
         ActualizarUI();
+    }
+    private void ReiniciarSecuencia() {
+        secuenciaJugador.Clear(); // NO limpiamos secuenciaObjetivo (permanece igual)
+    }
+    private IEnumerator DecidirSiguienteFase() {
+
+        yield return new WaitForSeconds(1.5f);
+        // 🆕 Boss >50% vida → Defensa
+        // Boss ≤50% → Fury Mode + Lulu poción
+        if (combatManager.vidaBossActual > combatManager.vidaBossMax * 0.5f) {
+            Debug.Log("🛡️ Boss fuerte → Nivel1-Defensa");
+            SceneManager.LoadScene("Nivel1-Defensa");
+        }
+        else {
+            Debug.Log("🔥 Boss débil → Nivel1-Fury (Lulu poción)");
+            SceneManager.LoadScene("Nivel1-Fury");
+        }
     }
 }

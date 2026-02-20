@@ -2339,6 +2339,11 @@ MonoBehaviour:
   textoVidaJugador: {fileID: 799799289}
   textoVidaBoss: {fileID: 2076258742}
   attackManager: {fileID: 1737057615}
+  vidaJugadorMax: 100
+  vidaBossMax: 500
+  vidaJugadorActual: 100
+  vidaBossActual: 500
+  danoPorTurnoMax: 25
 --- !u!4 &534542925
 Transform:
   m_ObjectHideFlags: 0
@@ -3800,7 +3805,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -347, y: -193}
+  m_AnchoredPosition: {x: -157, y: -258}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &799799288
@@ -3831,7 +3836,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Jugador:'
+  m_text: ': Jugador'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5912,7 +5917,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 35, y: 275.8373}
+  m_AnchoredPosition: {x: -306, y: 230}
   m_SizeDelta: {x: 317.2749, y: 45.6745}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1438726952
@@ -6734,7 +6739,7 @@ MonoBehaviour:
   multiplicadorText: {fileID: 1997680496}
   sonidoCorrecto: {fileID: 8300000, guid: f69f4b591c5458f4696563621738952b, type: 3}
   sonidoError: {fileID: 8300000, guid: b27e67db581fabd4b99e4c9c1a5aa467, type: 3}
-  combatManager: {fileID: 0}
+  combatManager: {fileID: 534542924}
 --- !u!4 &1737057616
 Transform:
   m_ObjectHideFlags: 0
@@ -6786,7 +6791,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 343, y: -263}
+  m_AnchoredPosition: {x: 343, y: -255}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1794262151
@@ -7960,7 +7965,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -128.04865, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -7990,7 +7995,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 421.56012, y: 273}
+  m_AnchoredPosition: {x: 293, y: 230}
   m_SizeDelta: {x: 108.2121, y: 49.1365}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2003824753
@@ -8184,7 +8189,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 366, y: -193}
+  m_AnchoredPosition: {x: 174, y: -258}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2076258741
@@ -8215,7 +8220,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Boss
+  m_text: 'Boss:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8323,7 +8328,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -376, y: -264}
+  m_AnchoredPosition: {x: -376, y: -256}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2080420014

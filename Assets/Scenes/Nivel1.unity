@@ -2594,9 +2594,9 @@ MonoBehaviour:
   - "A este crust\xE1ceo siempre le gusto pagar bien... Suerte en tu camino a la
     liberacion de Elvis pero te recuerdo que siempre podras volver a empezar como
     en una escalera musical con retorno"
-  - La mia como respresentante apantojaDO es CDEFGFEDC, acuerdate porque podra ayudarte
-    en tu lucha final y de esta manera puede que tus enemigos tambien hayan sido
-    tus amigos en tu lucha contra el mal.
+  - La mia como respresentante apantojaDO es %CDEFGFEDC%, acuerdate porque podra
+    ayudarte en tu lucha final y de esta manera puede que tus enemigos tambien hayan
+    sido tus amigos en tu lucha contra el mal.
 --- !u!114 &820593659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2827,28 +2827,24 @@ MonoBehaviour:
   nombrePersonaje: Kiko
   estado: Normal
   lineas:
-  - "\xA1Elvis vive!\nEn el oscuro y desafinado pueblo de Churriana de la Vega, la
-    m\xFAsica est\xE1 en peligro. El Fari, l\xEDder \nsupremo de la antim\xFAsica,
-    ha secuestrado a Elvis Presley y lo mantiene prisionero en una mazmorra \nflamenca,
-    donde las buler\xEDas amenazan con borrar su legado de rock para siempre.\n"
-  - "Pero la resistencia sonora a\xFAn no ha sido derrotada. Con el poder del death
-    metal, el \ndodecafonismo y la m\xFAsica Wagneriana (cl\xE1sica), debes abrirte
-    camino a trav\xE9s de hordas de ataques enemigos \nr\xEDtmicamente cuadrados
-    para liberar a Elvis y restaurar el equilibrio musical.\nEl destino de la armon\xEDa
-    est\xE1 en tus manos."
-  - Bienvenido a batalla musical, antes de que te atrevas tan si quiera a derrotar
+  - Bienvenido a la batalla musical, antes de que te atrevas tan si quiera a derrotar
     a nuestro jefe supremo (El Fary) tendras que demostrar un minimo de ciertas capacidades
-    musicales, y yo soy el mayor de DOs de MIs hermanoS (OLe) conmigo aprenderas
-    tu primer conjunto de combinaciones de teclas a las que nuestro maestro es sensible.
+    musicales, y yo soy el mayor de DOs hermanos, conMIgo aprenderas tu primer conjunto
+    de combinaciones de teclas a las que nuestro maestro SOLo  es sensible  %CEG%
   - "Usaremos para ello la notacion Anglosajona que es la que te acompa\xF1a en el
-    teclaDO, puede que ya te haya dejado tu primera pista %CEG% con la que poder
-    hacer da\xF1o al jefe supremo ya que tus ataques clasicos y metal seran inservibles
-    ya que es inmune por ser supremo (yo solo lo soy al death metal)  "
-  - "Ahora te dejar\xE9 atacar primero insensato! Preparate para una lucha y preparate
-    para enterarte de como soy Yo de una vez por todas!"
+    teclaDO, puede que ya te haya dejado tu primera pista (%CEG%) entre tontos por
+    cierto, con la que poder hacer da\xF1o al jefe supremo ya que tus ataques clasicos
+    y metal seran inservibles ya que es inmune por ser supremo (yo solo lo soy al
+    death metal)  "
+  - "Ahora te dejar\xE9 atacar primero con tus riffs wagnerianos parsifaleados insensato!
+    Preparate para una lucha y preparate para enterarte de como soy Yo de una vez
+    por todas!"
   - "Tendras que introducir la secuencia correcta si quieres atacar con la maxima
-    efectividad, de lo contrario lo unico que lastimar\xE1s ser\xE1n mis oidos \xBFLo
-    has oido?"
+    efectividad, la mayor cantidad de veces, de lo contrario lo unico que lastimar\xE1s
+    ser\xE1n mis oidos \xBFLo has oido?"
+  - "Por cierto, de tanto beber a dodecaphonismo se le han olvidado los atajos del
+    teclado... Mu ha ha haaa, espero que te acuerdes aunque ah\xED va una pista estan
+    ordenados de mas graves F1 a mas agudos F12"
   - "\xBFQu\xE9 deseas estar m\xE1s all\xE1 de la farandula? Ahora veremos si estas
     listo para continuar..."
 --- !u!114 &886010494
@@ -4509,12 +4505,11 @@ MonoBehaviour:
   lineas:
   - 'Vaya vaya vaya con el maldito %CDEFG% ahora vas a probar lo que es bueno voy
     a empezar a usar mis ataques mas devastadores y no tendre piedad, '
-  - por fin te demostrare todo mi potencial y podras comprender porque "Asi soy yo"
-    respetado en el mundo entero, como la sidra del gaitero! Preparate por que no
-    tendre clemencia maldito %CDEFG%!
-  - ' Adelante Vinilos de oro del pasado presente acabad con el antes de que pueda
+  - 'por fin te demostrare todo mi potencial y podras comprender porque "Asi soy
+    yo" respetado en el mundo entero, como la sidra del gaitero! '
+  - Adelante Vinilos de oro del pasado presente acabad con el antes de que pueda
     rescatar a Elvis Pelvis y dejarnos a todos sin flow varados desarmonicamente
-    a merced del dodecafonismo.'
+    a merced del dodecafonismo.
 --- !u!114 &1476981497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5026,12 +5021,12 @@ MonoBehaviour:
   estado: Win
   lineas:
   - "Sabia que eras un ser insignificante e incapaz de derrotar al mejor DJ que ha
-    dado Espa\xF1a en su historia, eres un ser inmundo vacio de todo conocimiento
-    musical e incapaz de superar al menor de los 3 jefes de la discoteque.  "
+    dado Espa\xF1a en su historia, eres un ser inmundo, vac\xEDo de todo conocimiento
+    musical e incapaz de superar al menor de los 3 jefes de la discot\xE9que.  "
   - 'Siempre te quedara la opcion de volver a intentarlo, aunque quizas llegado a
     este punto deberias de plantearte si quieres seguir perdiendo el tiempo  %CDEFGFEDC% '
   - Llegados a este punto solo te quedan dos opciones. Sucumbir o volver a intentarlo.
-  - 'La decision esta en tus manos mente %CDEFGFEDC% '
+  - 'Nuestro futuro y el de Elvis Pelvis esta en tus manos '
 --- !u!114 &1853641417
 MonoBehaviour:
   m_ObjectHideFlags: 0

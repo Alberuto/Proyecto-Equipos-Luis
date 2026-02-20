@@ -14,11 +14,11 @@ public class CombatManager : MonoBehaviour {
     [SerializeField] private AttackManager attackManager;
 
     // Estado combate
-    private float vidaJugadorMax = 100f;
-    private float vidaBossMax = 500f;
-    private float vidaJugadorActual = 100f;
-    private float vidaBossActual = 500f;
-    private float danoPorTurnoMax = 25f; // Límite daño por turno
+    public float vidaJugadorMax = 100f;
+    public float vidaBossMax = 500f;
+    public float vidaJugadorActual = 100f;
+    public float vidaBossActual = 500f;
+    public float danoPorTurnoMax = 25f; // Límite daño por turno
 
     void Start() {
         InicializarUI();
@@ -42,7 +42,7 @@ public class CombatManager : MonoBehaviour {
             Debug.Log("🎉 ¡BOSS DERROTADO!");
         }
     }
-
+    /*
     public void FaseAtaqueTerminada(int ataquesExitosos) {
 
         Debug.Log($"🏆 Turno terminado. Ataques: {ataquesExitosos}");
@@ -62,17 +62,14 @@ public class CombatManager : MonoBehaviour {
         Debug.Log($"👹 Boss ataca: {danoBoss} daño");
         ActualizarUI();
 
-        if (vidaJugadorActual <= 0)
-        {
+        if (vidaJugadorActual <= 0) {
             Debug.Log("💀 ¡GAME OVER!");
         }
     }
+    private void ReiniciarTurno() {  // Reset AttackManager para nuevo turno
 
-    private void ReiniciarTurno() {
-
-        // Reset AttackManager para nuevo turno
         attackManager.GetComponent<AttackManager>().IniciarCronometro();
-    }
+    }*/
     private void InicializarUI() {
 
         vidaJugador.maxValue = vidaJugadorMax;
