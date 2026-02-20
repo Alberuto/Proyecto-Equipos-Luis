@@ -30,6 +30,8 @@ public class cogerInstrumento : MonoBehaviour
         player = playerObject.GetComponent<PlayerTake>();
         tocaDiscosObject = GameObject.FindGameObjectWithTag("tocaDiscos");
         tocaDiscos = tocaDiscosObject.GetComponent<tocaDiscosManager>();
+        // pruebas
+        dupeMax = 14;
     }
     private void Update()
     {
