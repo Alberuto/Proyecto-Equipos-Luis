@@ -87,6 +87,8 @@ public class AttackManagerSecuencia : MonoBehaviour {
         }
         else {
             // 🏆 NIVEL COMPLETO
+            PlayerPrefs.DeleteKey("FuryTutorialCompletado");
+            PlayerPrefs.DeleteKey("FuryTutorialFallado");
             PlayerPrefs.SetInt("Nivel0bCompletado", 1);
             PlayerPrefs.Save();
             FinSecuencia("🎉 ¡COMBO PERFECTO! Nivel 1 desbloqueado");
@@ -99,7 +101,8 @@ public class AttackManagerSecuencia : MonoBehaviour {
         if (audioSource && sonidoError) audioSource.PlayOneShot(sonidoError);
 
         if (vidasActuales <= 0) {
-            PlayerPrefs.SetInt("Nivel0bFallado", 1);
+            PlayerPrefs.DeleteKey("FuryTutorialCompletado");
+            PlayerPrefs.SetInt("FuryTutorialFallado", 1);
             PlayerPrefs.Save();
             FinSecuencia("💀 Sin vidas");
             StartCoroutine(volverNivel0());
