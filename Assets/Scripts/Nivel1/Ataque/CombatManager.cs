@@ -15,61 +15,29 @@ public class CombatManager : MonoBehaviour {
 
     // Estado combate
     public float vidaJugadorMax = 100f;
-    public float vidaBossMax = 500f;
+    public float vidaBossMax = 100f;
     public float vidaJugadorActual = 100f;
-    public float vidaBossActual = 500f;
-    public float danoPorTurnoMax = 25f; // Límite daño por turno
+    public float vidaBossActual = 100f;
 
     void Start() {
         InicializarUI();
         // attackManager ya está asignado en Inspector
     }
-    public void RecibirAtaque(int multiplicador) {
+    public void RecibirAtaque(int damageTotal) {
 
-        // Calcula daño: base 50 * multiplicador, limitado por turno
-        float danoBase = 50f;
-        float danoTotal = danoBase * multiplicador;
-        float danoAplicado = Mathf.Min(danoTotal, vidaBossActual, danoPorTurnoMax);
+        vidaBossActual -= damageTotal;
 
-        vidaBossActual -= danoAplicado;
-        vidaBossActual = Mathf.Max(0, vidaBossActual);
+        vidaBossActual = Mathf.Max(0, vidaBossActual); // para que no baje de 0
 
-        Debug.Log($"⚔️ Daño aplicado: {danoAplicado:F1} (x{multiplicador})");
+        Debug.Log($"⚔️ Daño aplicado: {damageTotal:F1}");
+
         ActualizarUI();
 
-        if (vidaBossActual <= 0)
-        {
+        if (vidaBossActual <= 0) {
+
             Debug.Log("🎉 ¡BOSS DERROTADO!");
         }
     }
-    /*
-    public void FaseAtaqueTerminada(int ataquesExitosos) {
-
-        Debug.Log($"🏆 Turno terminado. Ataques: {ataquesExitosos}");
-
-        // Fase del boss (daño al jugador)
-        AtacarJugador();
-
-        // Reset para siguiente turno
-        ReiniciarTurno();
-    }
-    private void AtacarJugador() {
-
-        float danoBoss = 25f; // Daño fijo del boss
-        vidaJugadorActual -= danoBoss;
-        vidaJugadorActual = Mathf.Max(0, vidaJugadorActual);
-
-        Debug.Log($"👹 Boss ataca: {danoBoss} daño");
-        ActualizarUI();
-
-        if (vidaJugadorActual <= 0) {
-            Debug.Log("💀 ¡GAME OVER!");
-        }
-    }
-    private void ReiniciarTurno() {  // Reset AttackManager para nuevo turno
-
-        attackManager.GetComponent<AttackManager>().IniciarCronometro();
-    }*/
     private void InicializarUI() {
 
         vidaJugador.maxValue = vidaJugadorMax;
