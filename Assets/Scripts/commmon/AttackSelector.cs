@@ -27,10 +27,12 @@ public class AttackSelector : MonoBehaviour {
     [Header("Clásico (4 ataques)")]
     public AudioClip[] audioClasico = new AudioClip[4];
     public string[] secuenciasClasico = new string[4];
+    public int[] damageClasico = new int[4];
 
     [Header("Death Metal (4 ataques)")]
     public AudioClip[] audioDeathMetal = new AudioClip[4];
     public string[] secuenciasDeathMetal = new string[4];
+    public int[] damageDeathMetal = new int[4];
 
     [Header("Dodecafonico (4 ataques)")]
     public AudioClip[] audioDodeca = new AudioClip[4];
@@ -38,6 +40,7 @@ public class AttackSelector : MonoBehaviour {
 
     private AudioSource audioSource;
     private string pistaActual;
+    private int damageBaseActual = 1;
 
     void Start() {
         audioSource = GetComponent<AudioSource>();
@@ -82,22 +85,25 @@ public class AttackSelector : MonoBehaviour {
         panel.SetActive(true);
     }
     void SeleccionarAtaqueClasico(int index) {
-        PlayAttack(audioClasico[index], secuenciasClasico[index]);
+        PlayAttack(audioClasico[index], secuenciasClasico[index], damageClasico[index]);
     }
     void SeleccionarAtaqueDeathMetal(int index) {
-        PlayAttack(audioDeathMetal[index], secuenciasDeathMetal[index]);
+        PlayAttack(audioDeathMetal[index], secuenciasDeathMetal[index],damageDeathMetal[index]);
     }
     void SeleccionarAtaqueDodeca(int index) {
-        PlayAttack(audioDodeca[index], secuenciasDodeca[index]);
+        PlayAttack(audioDodeca[index], secuenciasDodeca[index],5);
     }
-    void PlayAttack(AudioClip audio, string secuencia) {
+    void PlayAttack(AudioClip audio, string secuencia, int damage) {
+
         if (audio != null)
             audioSource.PlayOneShot(audio);
 
         pistaActual = secuencia;
+        damageBaseActual = damage;
+
         if (textoPista != null)
             textoPista.text = pistaActual;
-
+        
         ShowPanel(panelPista);
     }
     void OnEmpezarAtaque() {
@@ -107,7 +113,7 @@ public class AttackSelector : MonoBehaviour {
 
         AttackManager attackMgr = FindObjectOfType<AttackManager>();
         if (attackMgr != null) {
-            attackMgr.IniciarAtaque(pistaActual);
+            attackMgr.IniciarAtaque(pistaActual,damageBaseActual);
         }
     }
 }

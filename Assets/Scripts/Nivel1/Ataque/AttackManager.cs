@@ -9,6 +9,7 @@ public class AttackManager : MonoBehaviour {
     
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI cronometroText;
+    [SerializeField] private TextMeshProUGUI comboNombreText;
     [SerializeField] private TextMeshProUGUI multiplicadorText;
 
     [Header("Secuencia objetivo")]
@@ -27,6 +28,26 @@ public class AttackManager : MonoBehaviour {
 
     [Header("Combat")]
     [SerializeField] private CombatManager combatManager;
+
+    [Header("Flash")]
+    [SerializeField] private FlashEffect flashEffect;
+
+    private static readonly string[] nombresCombo = new string[] {
+        "Impacto inicial",       // 1
+        "Imparable",             // 2
+        "Demoledor",             // 3
+        "Brutal",                // 4
+        "Ritmo ardiente",        // 5
+        "Aplastante",            // 6
+        "Poder desatado",        // 7
+        "Legendario",            // 8
+        "Ejecución perfecta",    // 9
+        "Más allá del infinito", // 10
+        "Límite roto",           // 11
+        "Dominio supremo"        // 12
+    };
+
+    private int valorPuntosRiff = 1;
 
     void Start() {
 
@@ -50,19 +71,23 @@ public class AttackManager : MonoBehaviour {
 
         cronometroText.text = $"Tiempo: {tiempoRestante:F1}s";
         multiplicadorText.text = $"X {intentosExitosos}";
+        int nivel = Mathf.Clamp(intentosExitosos, 0, 12);
+        if (nivel <= 0)
+            comboNombreText.text = "";
+        else
+            comboNombreText.text = nombresCombo[nivel - 1];
     }
     private void FinalizarAtaque() {
 
         tiempoTerminado = true;
-        int danoFinal = intentosExitosos * 10;
+        ataqueActivo = false;
+        int danoFinal = intentosExitosos * valorPuntosRiff;
 
-        Debug.Log($"⏰ Tiempo terminado! Ataques exitosos: {intentosExitosos} secuencias → {danoFinal} daño");
+        Debug.Log($"⏰ Tiempo terminado! Ataques exitosos: {intentosExitosos} , (valor {valorPuntosRiff}) , secuencias → {danoFinal} daño");
 
-        PlayerPrefs.SetInt("Nivel1AtaqueDaño", danoFinal);
-        PlayerPrefs.SetInt("Nivel1IntentosExitosos", intentosExitosos);
-        PlayerPrefs.Save();
+        if (combatManager != null)
+            combatManager.RecibirAtaque(danoFinal);
 
-        //combatManager.FaseAtaqueTerminada(intentosExitosos);
         StartCoroutine(DecidirSiguienteFase());
     }
     // Método auxiliar para convertir string de attack selector en List<string> para comparación
@@ -95,12 +120,15 @@ public class AttackManager : MonoBehaviour {
         return listaNotas;
     }
     // Llamado desde AttackSelector
-    public void IniciarAtaque(string secuencia) {
+    public void IniciarAtaque(string secuencia, int damageBase) {
 
-        secuenciaObjetivo = ConvertirSecuenciaStringALista(secuencia);  //AQUÍ
+        valorPuntosRiff = damageBase;
+        secuenciaObjetivo = ConvertirSecuenciaStringALista(secuencia); 
         secuenciaHeredada = secuencia;
         secuenciaJugador.Clear();
         ataqueActivo = true;
+        intentosExitosos = 0; // reset combo x turno
+        ActualizarUI();
         Debug.Log("¡Ataque iniciado! Objetivo: [" + string.Join(", ", secuenciaObjetivo) + "]");
     }
     public void RegistrarNota(string nota) {
@@ -126,9 +154,14 @@ public class AttackManager : MonoBehaviour {
         if (coincideCompleta && !errorEnPosicion) {
 
             // 🆕 ÉXITO SECUENCIA → Reiniciar para siguiente intento
-            intentosExitosos++;
+            intentosExitosos = Mathf.Min(intentosExitosos + 1, 12);
+            // 🆕 FLASH COMBO
+            if (flashEffect != null) {
+                flashEffect.FlashCombo(intentosExitosos);
+            }
             Debug.Log($"✅ SECUENCIA {intentosExitosos} EXITOSA!");
             ReiniciarSecuencia();  // ← NUEVA FUNCIÓN
+            ActualizarUI();
             return;
         }
         else if (errorEnPosicion) {
