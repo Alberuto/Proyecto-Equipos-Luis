@@ -6,8 +6,15 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     
+    // daño jugador
+    private int metal = 10;
+    private int wagner = 30;
+    private int dodecafonico = 60;
+    private int ataque;
+
     // Vida del jugador y enemigos
-    public int vida = 100;
+    private int vidaMax = 100;
+    public int vida;
     public int vidaKiko = 30;
     public int vidaCigala = 60;
     public int vidaFary = 100;
@@ -34,22 +41,28 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        vida = vidaMax;
+        // Inicializar la vida del enemigo en la UI
+        UIManager.instance.ActualizarVidaEnemy(MySceneManager.instance.getEnemyActual());
         muerto = false;
     }
-
+    // Método para recibir daño del jugador, se llama desde el script de colisiones del jugador
     public void recibirDaño(int daño)
     {
         
         if (vida <= daño)
         {
+            vida = 0;
+            UIManager.instance.ActualizarVida();
             muerto = true;
-            Debug.Log("Jugador ha muerto");
+            //Debug.Log("Jugador ha muerto");
             MySceneManager.instance.LoadScene("GameOver");
         }
         else
         {
             vida -= daño;
-            Debug.Log("Jugador ha recibido " + daño + " de daño, vida restante: " + vida);
+            UIManager.instance.ActualizarVida();
+            //Debug.Log("Jugador ha recibido " + daño + " de daño, vida restante: " + vida);
             recibiendoDaño = true;
             StopCoroutine("delay");
             StartCoroutine(delay());
@@ -66,10 +79,11 @@ public class GameManager : MonoBehaviour
 
     public void reiniciarJuego()
     {
-        vida = 100;
+        vida = vidaMax;
         muerto = false;
         MySceneManager.instance.LoadScene("MainMenu");
     }
+    // Métodos para gestionar las notas y la partitura, se llaman desde el script de entrega de notas para actualizar las listas y desde el script de ataque para comprobar si la secuencia es correcta
     public void setNotas(List<GameObject> lista)
     {
         notas = lista;
@@ -78,7 +92,13 @@ public class GameManager : MonoBehaviour
     {
         partitura = lista;
     }
+    public void setAtaque(int daño)
+    {
+        ataque = daño;
+    }
 
+    // Método para comprobar si la secuencia de notas entregada por el jugador es correcta,
+    // se llama desde el script de entrega de notas cuando se han entregado suficientes notas para activar la secuencia de ataque
     public bool secuenciaCorrecta()
     {
         for (int i = 0; i < partitura.Count; i++)
@@ -90,6 +110,25 @@ public class GameManager : MonoBehaviour
             }
         }
         Debug.Log("Secuencia correcta");
+        inflingirDaño(MySceneManager.instance.getEnemyActual(), ataque);
         return true;
+    }
+
+    // Método para inflingir daño al enemigo actual, se llama desde el método secuenciaCorrecta si la secuencia es correcta
+    private void inflingirDaño(string enemy, int daño)
+    {
+        if (enemy == "kiko")
+        {
+            vidaKiko -= daño;
+        }
+        if (enemy == "cigala")
+        {
+            vidaCigala -= daño;
+        }
+        if (enemy == "fary")
+        {
+            vidaFary -= daño;
+        }
+        UIManager.instance.ActualizarVidaEnemy(enemy);
     }
 }
