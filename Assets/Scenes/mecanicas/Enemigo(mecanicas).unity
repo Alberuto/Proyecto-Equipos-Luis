@@ -446,6 +446,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4203431717216266379, guid: 9ef56c8a6123e3c4cb2de993fc875d63, type: 3}
+      propertyPath: dupeMax
+      value: 14
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 8288496300810929628, guid: 9ef56c8a6123e3c4cb2de993fc875d63, type: 3}
@@ -762,10 +766,6 @@ PrefabInstance:
     - target: {fileID: 966149600418967010, guid: 394bb1376569b4a48a3c4b99d03823c3, type: 3}
       propertyPath: m_Name
       value: PlayerTpose
-      objectReference: {fileID: 0}
-    - target: {fileID: 9140441701837000661, guid: 394bb1376569b4a48a3c4b99d03823c3, type: 3}
-      propertyPath: dificultad
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

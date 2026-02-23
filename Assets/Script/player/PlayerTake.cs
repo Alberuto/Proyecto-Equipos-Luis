@@ -64,6 +64,7 @@ public class PlayerTake : MonoBehaviour
                     eliminarInstrumento();
                     SetCoger(false);
                     SetInstrumentoEntregado(false);
+                    return;
                 }
                 else
                 {

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Unity.VisualScripting;
@@ -8,7 +9,8 @@ public class tocaDiscosManager : MonoBehaviour
 {
     [SerializeField] private List<Transform> posicionesNotas;
     private List<GameObject> notas = new List<GameObject>();
-    private GameObject nota;
+    //private GameObject nota;
+    private float timeDelayNota = 1f;
 
 
 
@@ -44,6 +46,9 @@ public class tocaDiscosManager : MonoBehaviour
                 {
                     int index = notas.IndexOf(nota);
                     Debug.Log("Nota " + index + " : " + nota.tag);
+                    //nota.GetComponent<AudioSource>().Play();
+                    StopCoroutine("delay");
+                    StartCoroutine(delay());
                 }
             }
         }
@@ -58,10 +63,8 @@ public class tocaDiscosManager : MonoBehaviour
     }
     public void setNota(GameObject obj)
     {
-        
-        nota = obj;
-        añadirNota(nota);
-        int index = notas.IndexOf(nota);
+        añadirNota(obj);
+        int index = notas.IndexOf(obj);
         ComprobarPosiciones();
         /*nota.transform.SetParent(posicionesNotas[index]);
 
@@ -125,7 +128,7 @@ public class tocaDiscosManager : MonoBehaviour
     {
         GameManager.instance.setNotas(notas);
     }
-     public void ComprobarPosiciones()
+    public void ComprobarPosiciones()
     {
         int posicion = 0;
         for (int i = 0; i < notas.Count; i++)
@@ -137,13 +140,74 @@ public class tocaDiscosManager : MonoBehaviour
             if (cantidadObjetos == 0)
             {
                 notas[i].transform.SetParent(posicionesNotas[i]);
-                nota.transform.position = posicionesNotas[i].position;
+                notas[i].transform.position = posicionesNotas[i].position;
                 Debug.Log("nueva posicion: " + i + "para: " + notas[i].tag);
+                colocaionTocadiscos(notas[i]);
             }
 
         }
     }
 
+    private void colocaionTocadiscos(GameObject instrumento)
+    {
+        switch (instrumento.tag)// - 5.960464e-08 => -1,4f =       - 0.149
+        {
+            case "C":
+                instrumento.transform.localEulerAngles = new Vector3(270, 270, 0);
+                instrumento.transform.localScale = new Vector3(0.000860747066f, 0.000641551218f, 0.00263507734f);
+                break;
+            case "C#":
+                instrumento.transform.localEulerAngles = new Vector3(180, -90, 0);
+                instrumento.transform.position = new Vector3(instrumento.transform.position.x, instrumento.transform.position.y - 0.4f, instrumento.transform.position.z - 1.4f);
+                instrumento.transform.localScale = new Vector3(0.00182493869f, 0.0042732046f, 0.00130204926f);
+                break;
+            case "D":
+                instrumento.transform.localEulerAngles = new Vector3(270, 90, 0);
+                instrumento.transform.position = new Vector3(instrumento.transform.position.x, instrumento.transform.position.y - 1.2f, instrumento.transform.position.z);
+                break;
+            case "D#":
+                instrumento.transform.localEulerAngles = new Vector3(270, 270, 0);
+                instrumento.transform.position = new Vector3(instrumento.transform.position.x, instrumento.transform.position.y - 0.4f, instrumento.transform.position.z);
+                break;
+            case "E":
+                instrumento.transform.localEulerAngles = new Vector3(0, 90, 0);
+                instrumento.transform.position = new Vector3(instrumento.transform.position.x, instrumento.transform.position.y - 0.3f, instrumento.transform.position.z);
+                instrumento.transform.localScale = new Vector3(0.0745163262f, 0.215892285f, 0.0772308931f);
+                break;
+            case "F":
+                instrumento.transform.localEulerAngles = new Vector3(0, 0, 0);
+                instrumento.transform.position = new Vector3(instrumento.transform.position.x, instrumento.transform.position.y + 0.3f, instrumento.transform.position.z);
+                break;
+            case "F#":
+                instrumento.transform.localEulerAngles = new Vector3(270, 90, 180);
+                instrumento.transform.position = new Vector3(instrumento.transform.position.x, instrumento.transform.position.y - 0.085f, instrumento.transform.position.z);
+                break;
+            case "G":
+                instrumento.transform.localEulerAngles = new Vector3(0, 0, 0);
+                instrumento.transform.position = new Vector3(instrumento.transform.position.x, instrumento.transform.position.y - 0.05f, instrumento.transform.position.z);
+                
+                break;
+            case "G#":
+                instrumento.transform.localEulerAngles = new Vector3(270, 180, 90);
+                break;
+            case "A":
+                instrumento.transform.localEulerAngles = new Vector3(270, 180, 0);
+                instrumento.transform.position = new Vector3(instrumento.transform.position.x, instrumento.transform.position.y + 0.3f, instrumento.transform.position.z);
+                break;
+            case "A#":
+                instrumento.transform.localEulerAngles = new Vector3(270, 0, 0);
+                instrumento.transform.position = new Vector3(instrumento.transform.position.x, instrumento.transform.position.y + 0.2f, instrumento.transform.position.z);
+                break;
+            case "B":
+                instrumento.transform.localEulerAngles = new Vector3(270, 0, 0);
+                instrumento.transform.localScale = new Vector3(9.99999975e-05f, 0.000227646044f, 0.000495513959f);
+                break;
+        }
+    }
+    IEnumerator delay()
+    {
+        yield return new WaitForSeconds(timeDelayNota);
+    }
 }
 
 
