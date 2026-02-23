@@ -85,9 +85,14 @@ public class AttackManager : MonoBehaviour {
 
         Debug.Log($"⏰ Tiempo terminado! Ataques exitosos: {intentosExitosos} , (valor {valorPuntosRiff}) , secuencias → {danoFinal} daño");
 
-        if (combatManager != null)
+        if (combatManager != null) {
+            Debug.Log("⚔️ CombatManager OK → RecibirAtaque()");
             combatManager.RecibirAtaque(danoFinal);
-
+        }
+        else { 
+            Debug.LogError("❌ CombatManager NO ASIGNADO en AttackManager!");
+        }
+        Debug.Log("▶️ INICIANDO DecidirSiguienteFase()");
         StartCoroutine(DecidirSiguienteFase());
     }
     // Método auxiliar para convertir string de attack selector en List<string> para comparación

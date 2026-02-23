@@ -2340,9 +2340,9 @@ MonoBehaviour:
   textoVidaBoss: {fileID: 2076258742}
   attackManager: {fileID: 1737057615}
   vidaJugadorMax: 100
-  vidaBossMax: 500
+  vidaBossMax: 100
   vidaJugadorActual: 100
-  vidaBossActual: 500
+  vidaBossActual: 100
 --- !u!4 &534542925
 Transform:
   m_ObjectHideFlags: 0
