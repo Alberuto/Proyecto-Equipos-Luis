@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     // Vida del jugador y enemigos
     private int vidaMax = 100;
     public int vida;
+    private bool furia = false;
     public int vidaKiko = 30;
     public int vidaCigala = 60;
     public int vidaFary = 100;
@@ -130,5 +131,14 @@ public class GameManager : MonoBehaviour
             vidaFary -= daño;
         }
         UIManager.instance.ActualizarVidaEnemy(enemy);
+    }
+    public bool isFuria()
+    {
+        return furia;
+    }
+    public void ModoFuria(bool estado)
+    {
+        furia = estado;
+        //Debug.Log("Modo furia " + estado);
     }
 }

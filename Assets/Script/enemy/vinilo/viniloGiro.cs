@@ -1,20 +1,30 @@
+using System.Collections;
+using System.Security.Cryptography;
 using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class viniloGiro : MonoBehaviour
 {
-    public Transform centro;
-    public float radio;
-    private float minRadio = 1f; // Radio mínimo para destruir el vinilo
-    public float velocidad = 40f;
-    private float aumentoVel = 10f;
-    public bool sentidoHorario = true;
+    private Transform centro;
+    private float radio;
+    private float minRadio = 1.5f; // Radio mínimo para destruir el vinilo
+    private float velocidad;
+    private float aumentoVel;
+    public bool sentidoHorario = true;// se puede cambiar en el inspector para que empiece en sentido antihorario
+    private bool cambioPosible = true;
     private float anguloActual;
-    public float alturaVinilo = 1f;
-    
+    private float alturaVinilo;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // velocidades iniciales aleatorias para cada vinilo para que no se muevan todos igual
+        velocidad = Random.Range(50f, 100f);
+        aumentoVel = Random.Range(10f, 30f);
+        
+        alturaVinilo = transform.position.y;
+        centro = GameObject.FindGameObjectWithTag("centro").transform;
         //lejos();
         // calculo la distancia al centro
         radio = Vector3.Distance(transform.position, centro.transform.position);
@@ -25,6 +35,25 @@ public class viniloGiro : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Random.Range(0,10) == 2 && cambioPosible)
+        {
+            cambioPosible = false;
+            sentidoHorario = !sentidoHorario; // Cambia el sentido de giro aleatoriamente
+            StopCoroutine("DelaySentido");
+            StartCoroutine(DelaySentido());
+        }
+        if (Random.Range(0,50) < 10)
+        {
+            if (GameManager.instance.isFuria())
+            {
+                aumentoVel = Random.Range(20f, 50f);
+            }
+            else
+            {
+                aumentoVel = Random.Range(-20f, 40f);
+            }
+        }
+        
         // calculo el nuevo angulo sumando la velocidad al angulo actual
         float deltaAngulo = velocidad * Mathf.Deg2Rad * Time.deltaTime * (sentidoHorario ? 1f : -1f);
         anguloActual += deltaAngulo;
@@ -42,6 +71,12 @@ public class viniloGiro : MonoBehaviour
         }
         velocidad += aumentoVel * Time.deltaTime; // Aumenta la velocidad con el tiempo para un giro más frenético
     }
+    IEnumerator DelaySentido()
+    {
+        yield return new WaitForSeconds(Random.Range(5.0f, 10.0f));
+        cambioPosible = true;
+    }
+
     // Método para saber la distancia al centro
     void lejos()
     {
