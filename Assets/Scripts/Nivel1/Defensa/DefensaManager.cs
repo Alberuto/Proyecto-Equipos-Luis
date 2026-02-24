@@ -1,12 +1,26 @@
 ﻿using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System;
 
 public class DefensaManager : MonoBehaviour {
 
+    [Header("Resumen Ataque")]
     [SerializeField] private GameObject canvasResumen;
     [SerializeField] private TextMeshProUGUI textoCombo, textoDamage, textoBossVida, textoJugadorVida;
-    [SerializeField] private CombatManager combatManager;
+
+    [Header("Sliders Vida")]
+    [SerializeField] private Slider sliderVidaJugador;
+    [SerializeField] private Slider sliderVidaBoss;
+
+    [Header("Tiempo de Defensa")]
+    [SerializeField] private float tiempoDefensaKiko = 25f;
+
+    [Header("Cronómetro Defensa")]
+    [SerializeField] private TextMeshProUGUI cronometroDefensa;
+
     public enum TipoCombo {
         Ninguno = 0,
         ImpactoInicial = 1,
@@ -20,28 +34,84 @@ public class DefensaManager : MonoBehaviour {
         EjecucionPerfecta = 9,
         MasAllaInfinito = 10,
         LimiteRoto = 11,
-        DominioSupremo = 12
+        DodecafonismoSupremo = 12
     }
+
+    private bool defensaIniciada = false;
+    private float tiempoDefensaRestante;
+    private bool cronometroActivo = false;
+
     void Start() {
         int combos = PlayerPrefs.GetInt("Nivel1IntentosExitosos", 0);
         int damage = PlayerPrefs.GetInt("Nivel1AtaqueDaño", 0);
+        float vidaJugador = PlayerPrefs.GetFloat("Nivel1VidaJugador", 100f);
+        float vidaBoss = PlayerPrefs.GetFloat("Nivel1VidaBoss", 100f);
         Debug.Log($"📊 Resumen Ataque: x{combos} combos, {damage} daño");
-        MostrarResumen(combos, damage);
+        MostrarResumen(combos, damage,vidaJugador,vidaBoss);
     }
-    void MostrarResumen(int combos, int damage) {
+    void Update() {
+        // 🆕 Solo cuenta SI defensa iniciada Y cronómetro activo
+        if (defensaIniciada && cronometroActivo && tiempoDefensaRestante > 0) {
+            tiempoDefensaRestante -= Time.deltaTime;
+            ActualizarCronometroUI();
+        }
+    }
+    private void ActualizarCronometroUI() {
+        if (cronometroDefensa != null) {
+            cronometroDefensa.text = $"Defensa: {tiempoDefensaRestante:F1}s";
+            cronometroDefensa.gameObject.SetActive(defensaIniciada);  // Oculto en resumen
+        }
+    }
+    void MostrarResumen(int combos, int damage,float vidaJugador, float vidaBoss) {
         canvasResumen.SetActive(true);
         TipoCombo tipoCombo = ObtenerTipoComboPorMultiplicador(combos);
-        textoCombo.text = $"Combo: x{combos} es {tipoCombo}";
-        textoDamage.text = $"Daño: {damage}";
-        textoBossVida.text = $"Boss: {combatManager.vidaBossActual:F0}/{combatManager.vidaBossMax}";
-        StartCoroutine(AutoCerrar(3f));
+        textoCombo.text = $"Combo x{combos} : {tipoCombo}";
+        textoDamage.text = $"Daño realizado con tu ultimo ataque: {damage}";
+        textoBossVida.text = $"Vida restante del boss: {vidaBoss:F0}/100";
+        textoJugadorVida.text = $"Vida restante del jugador: {vidaJugador:F0}/100";
+
+        if (sliderVidaJugador != null) {
+            sliderVidaJugador.maxValue = 100f;
+            sliderVidaJugador.value = vidaJugador;
+        }
+        if (sliderVidaBoss != null) {
+            sliderVidaBoss.maxValue = 100f;
+            sliderVidaBoss.value = vidaBoss;
+        }
+        StartCoroutine(AutoCerrar(5f));
     }
     IEnumerator AutoCerrar(float segundos) {
         yield return new WaitForSeconds(segundos);
         canvasResumen.SetActive(false);
+
+        tiempoDefensaRestante = tiempoDefensaKiko;      // ← 1. Reset 25s
+        cronometroActivo = true;                        // ← 2. Activar Update()
+        cronometroDefensa.gameObject.SetActive(true);
+
         Debug.Log("🛡️ FASE DEFENSA INICIADA");
+        KikoDefenseMusic musicKiko = FindObjectOfType<KikoDefenseMusic>();
+        if (musicKiko != null) {
+            musicKiko.ReproducirMusicaKiko();
+        }
         // Aquí: discos/monedas/torito del compañero
+        Debug.Log($"🛡️ FASE DEFENSA INICIADA - {tiempoDefensaKiko}s Kiko");
+        defensaIniciada = true;
+
+        // 🆕 TIMER 25s → NUEVO ATAQUE
+        yield return new WaitForSeconds(tiempoDefensaKiko);
+        FinalizarDefensa();
     }
+    private void FinalizarDefensa() {
+
+        Debug.Log("🏁 DEFENSA FINALIZADA → NUEVO ATAQUE");
+        // 🆕 Siguiente trozo Kiko
+        KikoDefenseMusic musicKiko = FindObjectOfType<KikoDefenseMusic>();
+        if (musicKiko != null) {
+            musicKiko.SiguienteTurnoKiko();
+        }
+        SceneManager.LoadScene("Nivel1-Ataque");
+    }
+
     private TipoCombo ObtenerTipoComboPorMultiplicador(int multiplicador) {
         return multiplicador switch {
             1 => TipoCombo.ImpactoInicial,
@@ -55,7 +125,7 @@ public class DefensaManager : MonoBehaviour {
             9 => TipoCombo.EjecucionPerfecta,
             10 => TipoCombo.MasAllaInfinito,
             11 => TipoCombo.LimiteRoto,
-            12 => TipoCombo.DominioSupremo,
+            12 => TipoCombo.DodecafonismoSupremo,
             _ => TipoCombo.Ninguno
         };
     }
