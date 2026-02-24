@@ -62,10 +62,10 @@ public class PlayerMovement : MonoBehaviour
             ControlMovimiento();
             SonidoPasos();
         }
-        
+
         //Debug.Log("Grounded= " + characterController.isGrounded);
 
-        StartCoroutine("delay");
+        //StartCoroutine("delay");
 
     }
 

@@ -13,7 +13,8 @@ public class UIManager : MonoBehaviour
     // variables para gestionar el estado de la partida
     private bool partida = true;
     private bool finPartida = false;
-    public int tiempoPartida = 120;
+    public int tiempoPartida = 120; // kiko como 30 segundos estan bien
+    public int tiempoActual;
 
     private void Awake()
     {
@@ -29,8 +30,9 @@ public class UIManager : MonoBehaviour
     }
     void Start()
     {
+        tiempoActual = tiempoPartida;
         // Inicializar el tiempo en la UI y la courutine del temporizador
-        tiempo.text = tiempoPartida.ToString();
+        tiempo.text = tiempoActual.ToString();
         StopCoroutine("Temporizador");
         StartCoroutine(Temporizador());
         // Inicializar la vida del jugador en la UI
@@ -75,7 +77,7 @@ public class UIManager : MonoBehaviour
         while (partida)
         {
             yield return new WaitForSeconds(1);
-            int tiempoActual = int.Parse(tiempo.text);
+            tiempoActual = int.Parse(tiempo.text);
             tiempoActual--;
             tiempo.text = tiempoActual.ToString();
             if (tiempoActual <= 0)

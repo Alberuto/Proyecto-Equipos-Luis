@@ -23,7 +23,7 @@ public class MySceneManager : MonoBehaviour
     }
     private void Start()
     {
-        // prueba
+        /*// prueba
         if (prueba == 0)
         {
             enemy("Kiko");
@@ -35,7 +35,8 @@ public class MySceneManager : MonoBehaviour
         if (prueba == 2)
         {
             enemy("Fary");
-        }
+        }*/
+        enemy("Nivel1-Defensa");
     }
     public void LoadScene(string sceneName)
     {
@@ -46,15 +47,15 @@ public class MySceneManager : MonoBehaviour
     private void enemy(string scene)
     {
         // cambiar el valor de los if cuando se sepan los nombres definitivos de as escenas, por ahora se usan los nombres de los enemigos para probar el funcionamiento
-        if (scene == "Kiko")
+        if (scene == "Nivel1-Defensa")
         {
             enemyActual = "kiko";
         }
-        else if (scene == "Cigala")
+        else if (scene == "Nivel2-Defensa")
         {
             enemyActual = "cigala";
         }
-        else if (scene == "Fary")
+        else if (scene == "Nivel3-Defensa")
         {
             enemyActual = "fary";
         }
