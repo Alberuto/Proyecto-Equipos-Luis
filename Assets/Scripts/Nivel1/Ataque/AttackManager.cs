@@ -148,9 +148,6 @@ public class AttackManager : MonoBehaviour {
         secuenciaJugador.Add(nota);
         Debug.Log("Nota: " + nota + " | Progreso: [" + string.Join(", ", secuenciaJugador) + "]");
 
-        if (feedbackAudio != null && sonidoCorrecto != null)
-            feedbackAudio.PlayOneShot(sonidoCorrecto);
-
         bool coincideCompleta = secuenciaJugador.Count == secuenciaObjetivo.Count;
         bool errorEnPosicion = false;
 
@@ -165,6 +162,10 @@ public class AttackManager : MonoBehaviour {
 
             // 🆕 ÉXITO SECUENCIA → Reiniciar para siguiente intento
             intentosExitosos = Mathf.Min(intentosExitosos + 1, 12);
+            //sonido acierto
+            if (feedbackAudio != null && sonidoCorrecto != null) {
+                feedbackAudio.PlayOneShot(sonidoCorrecto);  
+            }
             // 🆕 FLASH COMBO
             if (flashEffect != null) {
                 flashEffect.FlashCombo(intentosExitosos);
@@ -195,9 +196,17 @@ public class AttackManager : MonoBehaviour {
     private IEnumerator DecidirSiguienteFase() {
 
         yield return new WaitForSeconds(1.5f);
-        // 🆕 Boss >50% vida → Defensa
-        // Boss ≤50% → Fury Mode + Lulu poción
-        if (combatManager.vidaBossActual > combatManager.vidaBossMax * 0.5f) {
+        // 🆕 LEER PlayerPrefs en lugar de CombatManager
+        float vidaBossPersistente = PlayerPrefs.GetFloat("Nivel1VidaBoss", 100f);
+        float vidaBossMax = 100f;
+
+        Debug.Log($"🎯 Vida Boss PlayerPrefs: {vidaBossPersistente}/{vidaBossMax}");
+
+        if (vidaBossPersistente <= 0) {
+            Debug.Log("🎉 ¡BOSS DERROTADO! NIVEL 2");
+            SceneManager.LoadScene("Nivel2");
+        }
+        else if (vidaBossPersistente > vidaBossMax * 0.5f) {
             Debug.Log("🛡️ Boss fuerte → Nivel1-Defensa");
             SceneManager.LoadScene("Nivel1-Defensa");
         }

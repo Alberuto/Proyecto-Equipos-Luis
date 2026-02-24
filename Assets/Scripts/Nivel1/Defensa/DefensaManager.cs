@@ -11,9 +11,11 @@ public class DefensaManager : MonoBehaviour {
     [SerializeField] private GameObject canvasResumen;
     [SerializeField] private TextMeshProUGUI textoCombo, textoDamage, textoBossVida, textoJugadorVida;
 
-    [Header("Sliders Vida")]
+    [Header("Sliders Vida UI")]
     [SerializeField] private Slider sliderVidaJugador;
     [SerializeField] private Slider sliderVidaBoss;
+    [SerializeField] private TextMeshProUGUI textoVidaBossDefensa;
+    [SerializeField] private TextMeshProUGUI textoVidaJugadorDefensa;
 
     [Header("Tiempo de Defensa")]
     [SerializeField] private float tiempoDefensaKiko = 25f;
@@ -21,7 +23,11 @@ public class DefensaManager : MonoBehaviour {
     [Header("Cronómetro Defensa")]
     [SerializeField] private TextMeshProUGUI cronometroDefensa;
 
-    public enum TipoCombo {
+    private bool defensaIniciada = false;
+    private float tiempoDefensaRestante;
+    private bool cronometroActivo = false;
+    public enum TipoCombo
+    {
         Ninguno = 0,
         ImpactoInicial = 1,
         Imparable = 2,
@@ -36,11 +42,24 @@ public class DefensaManager : MonoBehaviour {
         LimiteRoto = 11,
         DodecafonismoSupremo = 12
     }
+    private TipoCombo ObtenerTipoComboPorMultiplicador(int multiplicador) {
 
-    private bool defensaIniciada = false;
-    private float tiempoDefensaRestante;
-    private bool cronometroActivo = false;
-
+        return multiplicador switch {
+            1 => TipoCombo.ImpactoInicial,
+            2 => TipoCombo.Imparable,
+            3 => TipoCombo.Demoledor,
+            4 => TipoCombo.Brutal,
+            5 => TipoCombo.RitmoArdiente,
+            6 => TipoCombo.Aplastante,
+            7 => TipoCombo.PoderDesatado,
+            8 => TipoCombo.Legendario,
+            9 => TipoCombo.EjecucionPerfecta,
+            10 => TipoCombo.MasAllaInfinito,
+            11 => TipoCombo.LimiteRoto,
+            12 => TipoCombo.DodecafonismoSupremo,
+            _ => TipoCombo.Ninguno
+        };
+    }
     void Start() {
         int combos = PlayerPrefs.GetInt("Nivel1IntentosExitosos", 0);
         int damage = PlayerPrefs.GetInt("Nivel1AtaqueDaño", 0);
@@ -87,7 +106,13 @@ public class DefensaManager : MonoBehaviour {
         tiempoDefensaRestante = tiempoDefensaKiko;      // ← 1. Reset 25s
         cronometroActivo = true;                        // ← 2. Activar Update()
         cronometroDefensa.gameObject.SetActive(true);
-
+        // 🆕 MOSTRAR textos DEFENSA
+        if (textoVidaBossDefensa != null) {
+            textoVidaBossDefensa.text = $"Boss: {PlayerPrefs.GetFloat("Nivel1VidaBoss", 100f):F0}/100";
+        }
+        if (textoVidaJugadorDefensa != null) {
+            textoVidaJugadorDefensa.text = $"Jugador: {PlayerPrefs.GetFloat("Nivel1VidaJugador", 100f):F0}/100";
+        }
         Debug.Log("🛡️ FASE DEFENSA INICIADA");
         KikoDefenseMusic musicKiko = FindObjectOfType<KikoDefenseMusic>();
         if (musicKiko != null) {
@@ -110,23 +135,5 @@ public class DefensaManager : MonoBehaviour {
             musicKiko.SiguienteTurnoKiko();
         }
         SceneManager.LoadScene("Nivel1-Ataque");
-    }
-
-    private TipoCombo ObtenerTipoComboPorMultiplicador(int multiplicador) {
-        return multiplicador switch {
-            1 => TipoCombo.ImpactoInicial,
-            2 => TipoCombo.Imparable,
-            3 => TipoCombo.Demoledor,
-            4 => TipoCombo.Brutal,
-            5 => TipoCombo.RitmoArdiente,
-            6 => TipoCombo.Aplastante,
-            7 => TipoCombo.PoderDesatado,
-            8 => TipoCombo.Legendario,
-            9 => TipoCombo.EjecucionPerfecta,
-            10 => TipoCombo.MasAllaInfinito,
-            11 => TipoCombo.LimiteRoto,
-            12 => TipoCombo.DodecafonismoSupremo,
-            _ => TipoCombo.Ninguno
-        };
     }
 }
