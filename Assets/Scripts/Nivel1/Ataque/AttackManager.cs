@@ -44,7 +44,7 @@ public class AttackManager : MonoBehaviour {
         "Ejecución perfecta",    // 9
         "Más allá del infinito", // 10
         "Límite roto",           // 11
-        "Dominio supremo"        // 12
+        "Dodecafonismo supremo"  // 12
     };
 
     private int valorPuntosRiff = 1;
@@ -92,6 +92,11 @@ public class AttackManager : MonoBehaviour {
         else { 
             Debug.LogError("❌ CombatManager NO ASIGNADO en AttackManager!");
         }
+        PlayerPrefs.SetInt("Nivel1IntentosExitosos", intentosExitosos);
+        PlayerPrefs.SetInt("Nivel1AtaqueDaño", danoFinal);
+        PlayerPrefs.SetFloat("Nivel1VidaJugador", combatManager.vidaJugadorActual);
+        PlayerPrefs.SetFloat("Nivel1VidaBoss", combatManager.vidaBossActual);
+        PlayerPrefs.Save();
         Debug.Log("▶️ INICIANDO DecidirSiguienteFase()");
         StartCoroutine(DecidirSiguienteFase());
     }

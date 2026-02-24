@@ -2448,14 +2448,15 @@ MonoBehaviour:
   estado: Win
   lineas:
   - Si no eres capaz de superar este tutorial no deberias ni si quiera plantearte
-    liberar a elvis de las garras de kiko, el cigala y el fary.
+    liberar a elvis de las garras de los truhanes de kiko, el cigala y el fary.
   - Te van a a hacer mixtos cuando te ataquen con sus discos de oro, su gratitud
-    y su torito bravo
+    y su torito bravo mientras te deleitan con sus letrillas
   - Siempre puedes volver a entrenar con este tutorial para mejorar tus capacidades
     y aprender las mecanicas del juego
-  - "Si no pensar\xE1s que este juego es una mierda cuando la realidad es que eres
-    lo que comunmente se conoce como manco"
-  - De hecho si quieres continuar deberas empezar desde el principio por decepcionante
+  - "Si no pensar\xE1s que este juego es una mierda cuando la realidad es que t\xFA
+    eres lo que comunmente se conoce como un manco"
+  - De hecho si quieres continuar deberas empezar desde el principio por ser un ser
+    decepcionante
 --- !u!114 &820593659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2698,13 +2699,16 @@ MonoBehaviour:
   - Bienvenido a batalla musical, antes de que te atrevas tan si quiera a derrotar
     a nuestro jefe supremo (El Fary) tendras que demostrar un minimo de ciertas capacidades
     musicales
-  - "Usaremos para ello la notacion Anglosajona que es la que te acompa\xF1a en el
-    teclado "
-  - "Ahora te dejar\xE9 ensayar primero! Preparate para un entrenamiento que te capacite
-    para liberar la tasca de faranduleros!"
+  - "Usaremos para ello la notacion Anglosajona que es como te voy a acompa\xF1ar
+    en el teclado del PC como dodecafonismo"
+  - "Las teclas ser\xE1n de F1 a F12, de mas grave a mas agudo como indica mi imagen."
+  - "Ahora te dejar\xE9 ensayar un poco primero! Preparate para un entrenamiento
+    que te capacite para liberar a la tasca de los faranduleros!"
   - "Tendras que introducir la tecla correcta si quieres progresar, de lo contrario
     lo unico que lastimar\xE1s ser\xE1n mis oidos y perder\xE1s una vida \xBFLo has
     entendido?"
+  - "Si te quedas sin vidas tendras que completar todos los niveles de nuevo, solo
+    ser\xE1n elegidos los que completen el casting"
   - "\xBFQu\xE9 deseas estar m\xE1s all\xE1 de la farandula? Ahora veremos si estas
     listo para la lucha..."
   - "El destino de la armon\xEDa est\xE1 en tus manos."
@@ -4233,12 +4237,12 @@ MonoBehaviour:
   lineas:
   - Vaya vaya vaya con el soldado candidato a unirse a los heroes de la avalancha
     contra los faranduleros
-  - "por fin estas haciendo progresos, a ver como te las apa\xF1as cuando no tengas
-    mi ayuda"
-  - Ahora vas  a tener que probar lanzar un ataque no solo vale con saber reconocer
-    las teclas
-  - preparate porque tendras que conocer tambien a parsifall, con ello no habra pistas
-    en pantalla sino objetos que a traves de sinestesia y logica deberas deducir.
+  - "\xA1Por fin estas haciendo progresos significativos, a ver como te las apa\xF1as
+    cuando no tengas mi ayuda!"
+  - Ahora vas  a tener que probar lanzar una secuencia simulada de ataque no solo
+    vale con saber reconocer las teclas
+  - "El objetivo es que sepas introducir las secuencias (Riffs) con las que podras
+    da\xF1ar a los adversarios"
 --- !u!114 &1476981497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5226,7 +5230,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2012820553
 MonoBehaviour:
   m_ObjectHideFlags: 0
