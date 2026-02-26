@@ -2351,7 +2351,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Nivel4
+          m_StringArgument: Nivel6-endGame
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &764744737
@@ -2968,7 +2968,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Nivel3-Ataque
+          m_StringArgument: MainMenu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &913149716
@@ -3238,7 +3238,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Nivel3-Ataque
+          m_StringArgument: Nivel5-Ataque
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1012415669
@@ -3508,7 +3508,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Nivel3-Ataque
+          m_StringArgument: Nivel5-Ataque
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1110999951
