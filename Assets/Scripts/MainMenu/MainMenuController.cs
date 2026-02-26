@@ -1,8 +1,16 @@
 ﻿using UnityEngine;
 
 public class MainMenuController : MonoBehaviour {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private void Awake() {
-        PlayerPrefs.DeleteAll();  // ← ÚNICA LÍNEA
+    private void Awake()    {
+        // GUARDAR nivel actual ANTES de borrar
+        int nivelActual = PlayerPrefs.GetInt("NivelActual", 1);
+
+        // BORRAR TODO
+        PlayerPrefs.DeleteAll();
+
+        // RESTAURAR nivel actual (indestructible)
+        PlayerPrefs.SetInt("NivelActual", nivelActual);
+        PlayerPrefs.Save();
+        Debug.Log($"🆕 MainMenu: Nivel guardado = {nivelActual}");
     }
 }
