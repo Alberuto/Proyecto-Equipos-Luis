@@ -12,10 +12,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Nivel0.unity
     guid: 5cd749b48955ab84e91a5e357a1ee403
   - enabled: 1
-    path: Assets/Scenes/Nivel0a.unity
+    path: Assets/Scenes/Nivel0-a.unity
     guid: b0c62e7ca409bdf43815a4c6c4c6990e
   - enabled: 1
-    path: Assets/Scenes/Nivel0b.unity
+    path: Assets/Scenes/Nivel0-a2.unity
     guid: 8ea1dbeb56c21d14885185ebb7f875e0
   - enabled: 1
     path: Assets/Scenes/Nivel1.unity
@@ -33,13 +33,46 @@ EditorBuildSettings:
     path: Assets/Scenes/Nivel2.unity
     guid: a53b88023a2b27648825d6b2d930852d
   - enabled: 1
-    path: Assets/Scenes/Nivel2-.unity
+    path: Assets/Scenes/Nivel2-a.unity
+    guid: 3b3ce7fa5dcf7e040869e3b1630d7a9e
+  - enabled: 1
+    path: Assets/Scenes/Nivel2-a2.unity
+    guid: 0662e2a86b02cb2478cdbe7ce25a994a
+  - enabled: 1
+    path: Assets/Scenes/Nivel3.unity
     guid: 575d47ecef5bd0a45abb52106eb46bbe
   - enabled: 1
-    path: Assets/Scenes/Nivel3-.unity
-    guid: 4ef64888d9a6d5548b486a30aa39ade1
+    path: Assets/Scenes/Nivel3-Ataque.unity
+    guid: 8b9944712cc974548915375fc14b2902
+  - enabled: 1
+    path: Assets/Scenes/Nivel3-Defensa.unity
+    guid: 65b3f6d201c5cea45a3c2217d820d1c7
+  - enabled: 1
+    path: Assets/Scenes/Nivel3-Fury.unity
+    guid: 9154adf9748fb7b41af179050a1dc74e
   - enabled: 1
     path: Assets/Scenes/Nivel4.unity
+    guid: 87afa76d777d6904ca873108a72c78be
+  - enabled: 1
+    path: Assets/Scenes/Nivel4-a.unity
+    guid: fdcd90d9ca5ebd2448c8406a92e8399c
+  - enabled: 1
+    path: Assets/Scenes/Nivel4-a2.unity
+    guid: c701141d4df434741a59911ed9789735
+  - enabled: 1
+    path: Assets/Scenes/Nivel5.unity
+    guid: 4ef64888d9a6d5548b486a30aa39ade1
+  - enabled: 1
+    path: Assets/Scenes/Nivel5-Ataque.unity
+    guid: 58631b152d607ca45b30901e6c2a4888
+  - enabled: 1
+    path: Assets/Scenes/Nivel5-Defensa.unity
+    guid: 65d37fb06044a494e9164dc3456b58f1
+  - enabled: 1
+    path: Assets/Scenes/Nivel5-Fury.unity
+    guid: 6aca15483b8ff3746bfa7539f93ec335
+  - enabled: 1
+    path: Assets/Scenes/Nivel6-endGame.unity
     guid: c40ce5b977e492d49b4f80eb79ed2604
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
