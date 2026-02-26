@@ -1,21 +1,15 @@
-using UnityEngine;
+Ôªøusing UnityEngine;
 
 public class LamparaController : MonoBehaviour {
 
     [SerializeField] private GameObject lamparaApagada;
     [SerializeField] private GameObject lamparaEncendida;
-    [SerializeField] private float distanciaRayo = 10f;
     [SerializeField] private LayerMask layerNotas = -1; // Layer "Notas"
 
     private bool estaEncendida = false;
-    private SecuenciaManager secuenciaManager;
 
-    void Start() {
-        secuenciaManager = FindObjectOfType<SecuenciaManager>();
-        lamparaEncendida.SetActive(false);
-    }
     void Update() {
-        if (Input.GetKeyDown(KeyCode.Space)){ // Tu botÛn
+        if (Input.GetKeyDown(KeyCode.Space)){ // Tu bot√≥n
             ToggleLampara();
         }
         if (estaEncendida) {
@@ -26,25 +20,18 @@ public class LamparaController : MonoBehaviour {
         estaEncendida = !estaEncendida;
         lamparaApagada.SetActive(!estaEncendida);
         lamparaEncendida.SetActive(estaEncendida);
-        Debug.Log(estaEncendida ? "?? L¡MPARA ON - Iluminando..." : "?? L¡MPARA OFF");
+        Debug.Log(estaEncendida ? "?? L√ÅMPARA ON - Iluminando..." : "?? L√ÅMPARA OFF");
     }
     void HacerRaycast() {
+        // ‚Üê Spotlight Range/Inspector controla distancia
         Ray rayo = new Ray(lamparaEncendida.transform.position, lamparaEncendida.transform.forward);
-        RaycastHit hit;
-
-        if (Physics.Raycast(rayo, out hit, distanciaRayo, layerNotas))
-        {
-            // ?? øEs una NOTA?
+        if (Physics.Raycast(rayo, out RaycastHit hit, layerNotas)) {
             NotaInteractiva nota = hit.collider.GetComponent<NotaInteractiva>();
-            if (nota != null)
-            {
-                Debug.Log($"?? Iluminada Nota: {nota.numeroNota}");
-                secuenciaManager.AgregarANotaIluminada(nota.numeroNota);
-
-                // Visual feedback
-                nota.IluminarTemporal();
+            if (nota != null) {
+                nota.Iluminar();
+                Debug.Log($"üéØ Nota iluminada: {nota.nombreNota}");
             }
         }
-        Debug.DrawRay(rayo.origin, rayo.direction * distanciaRayo, Color.yellow);
+        Debug.DrawRay(rayo.origin, rayo.direction * 50, Color.yellow); // Visual
     }
 }

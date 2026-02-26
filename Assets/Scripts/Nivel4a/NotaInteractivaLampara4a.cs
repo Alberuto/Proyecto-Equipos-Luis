@@ -1,10 +1,10 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-public class NotaInteractiva : MonoBehaviour {
+public class NotaInteractivaLampara4a : MonoBehaviour {
 
-    [Header("Nota Musical")]
-    public string nombreNota = "C";
-    
+    [Header("Nota Musical - FASE 1")]
+    public string nombreNota = "C";  // C, D, E, F...
+
     [SerializeField] private Material materialNormal;
     [SerializeField] private Material materialIluminado;
     private Renderer rend;
@@ -12,7 +12,7 @@ public class NotaInteractiva : MonoBehaviour {
     void Start() {
         rend = GetComponent<Renderer>();
         if (materialNormal == null) materialNormal = rend.material;
-        gameObject.layer = LayerMask.NameToLayer("Notas"); // Layer espec�fico
+        gameObject.layer = LayerMask.NameToLayer("Notas");
     }
     public void IluminarTemporal() {
         if (materialIluminado != null) {
@@ -21,19 +21,17 @@ public class NotaInteractiva : MonoBehaviour {
         }
     }
     void ResetMaterial() {
+
         rend.material = materialNormal;
     }
-    public void Iluminar() {
-        // Brilla 0.5s + llama SecuenciaManager
-        IluminarTemporal();
 
-        // ENCONTRAR SecuenciaManager y avisar
-        SecuenciaManager secuencia = FindObjectOfType<SecuenciaManager>();
+    // 🆕 ESPECÍFICO FASE 1: Notifica AttackManagerTutorial
+    public void Iluminar() {
+        IluminarTemporal();
+        SecuenciaManager4a secuencia = FindObjectOfType<SecuenciaManager4a>();
         if (secuencia != null) {
             secuencia.AgregarNota(nombreNota);
         }
-    }
-    void ResetColor() {
-        GetComponent<Renderer>().material.color = Color.white;
+        Debug.Log($"✨ Nota {nombreNota} iluminada - FASE 1");
     }
 }

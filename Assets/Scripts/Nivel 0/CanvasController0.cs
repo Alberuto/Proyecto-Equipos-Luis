@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CanvasController : MonoBehaviour {
+public class CanvasController0 : MonoBehaviour {
 
     [Header("Canvas Normal")]
     [SerializeField] private GameObject canvasNormal; // primera vez

@@ -12,6 +12,7 @@ public class sceneManager : MonoBehaviour {
         // 🆕 Extraer número del string "Nivel1", "Nivel2"...
         int siguienteNivel = ExtraerNumeroDeEscena(nombreEscena);
         // Guardar directamente el nivel desbloqueado
+        PlayerPrefs.DeleteAll(); // Limpiar todo para evitar conflictos con tutoriales anteriores
         PlayerPrefs.SetInt("NivelActual", siguienteNivel);
         PlayerPrefs.Save();
         Debug.Log($"🎉 Nivel {siguienteNivel - 1} completado → Desbloqueado hasta Nivel {siguienteNivel}");

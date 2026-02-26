@@ -1,37 +1,35 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 public class SecuenciaManager : MonoBehaviour {
 
-    public int[] secuenciaCorrecta = { 2, 1, 4, 3 }; // Ejemplo
-    private List<int> secuenciaJugador = new List<int>();
+    public string[] secuenciaCorrecta = { "D", "C", "F", "E" };
+
+    private List<string> secuenciaJugador = new List<string>();
+
     [SerializeField] private LamparaController lampara;
 
-    public void AgregarANotaIluminada(int numeroNota) {
-
-        secuenciaJugador.Add(numeroNota);
-        Debug.Log($"📝 Secuencia jugador: {string.Join(", ", secuenciaJugador)}");
-
-        // Comprobar si correcto
-        if (secuenciaJugador.Count == secuenciaCorrecta.Length) {
-
-            if (ComprobarSecuencia()) {
-                Debug.Log("✅ ¡SECUENCIA CORRECTA! Nivel avanzado");
-                lampara.gameObject.SetActive(false); // Quitar lámpara
-            }
-            else {
-                Debug.Log("❌ Secuencia incorrecta. Reiniciar");
-                ReiniciarSecuencia();
-            }
-        }
-    }
     bool ComprobarSecuencia() {
-        for (int i = 0; i < secuenciaCorrecta.Length; i++) {
-            if (secuenciaJugador[i] != secuenciaCorrecta[i]) return false;
-        }
-        return true;
+        return secuenciaJugador.SequenceEqual(secuenciaCorrecta);
     }
     void ReiniciarSecuencia() {
         secuenciaJugador.Clear();
+    }
+    public void AgregarNota(string nombreNota) {
+        secuenciaJugador.Add(nombreNota);
+        Debug.Log($"Nota {nombreNota} agregada. Secuencia: {string.Join(", ", secuenciaJugador)}");
+
+        if (secuenciaJugador.Count == secuenciaCorrecta.Length) {
+
+            if (ComprobarSecuencia())  {
+                Debug.Log("✅ ¡CORRECTO! → CompletarYAvanzar()");
+              //  FindObjectOfType<sceneManager>().CompletarYAvanzar("Nivel");
+            }
+            else {
+                Debug.Log("❌ Incorrecto");
+                ReiniciarSecuencia();
+            }
+        }
     }
 }
