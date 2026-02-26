@@ -1901,7 +1901,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &689394758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2207,7 +2207,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 160274523}
         m_TargetAssemblyTypeName: sceneManager, Assembly-CSharp
-        m_MethodName: CargarNivel
+        m_MethodName: CompletarYAvanzar
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

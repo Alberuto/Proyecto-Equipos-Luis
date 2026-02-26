@@ -2135,7 +2135,7 @@ GameObject:
   - component: {fileID: 764744737}
   - component: {fileID: 764744736}
   m_Layer: 5
-  m_Name: ButtonNextLvl
+  m_Name: ButtonExit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2979,7 +2979,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Nivel0b
+          m_StringArgument: Nivel0-a2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1012415669
@@ -3386,7 +3386,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Nivel0a
+          m_StringArgument: Nivel0-a
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1110999951
@@ -3649,7 +3649,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 160274523}
         m_TargetAssemblyTypeName: sceneManager, Assembly-CSharp
-        m_MethodName: CargarNivel
+        m_MethodName: CompletarYAvanzar
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5505,6 +5505,6 @@ SceneRoots:
   - {fileID: 160274524}
   - {fileID: 689394761}
   - {fileID: 1824632153}
-  - {fileID: 2012820556}
   - {fileID: 1530509040}
+  - {fileID: 2012820556}
   - {fileID: 2041307017}
