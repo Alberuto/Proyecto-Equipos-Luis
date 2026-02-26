@@ -13,6 +13,13 @@ public class PlayerHealth : MonoBehaviour
     public int dañoFary = 60;
     public bool atacado = false;
 
+    public void Start()
+    {
+        invulnerable = true;
+        StopCoroutine("delay");
+        StartCoroutine(delay(7.0f));
+    }
+
     // Metodo para detectar colisiones con enemigos
     void OnTriggerEnter(Collider other)
     {
@@ -43,15 +50,15 @@ public class PlayerHealth : MonoBehaviour
             invulnerable = true;
             Debug.Log("Jugador ha recibido daño de: " + other.tag);
             StopCoroutine("delay");
-            StartCoroutine(delay());
+            StartCoroutine(delay(invulnerableTime));
             atacado = false;
         }
         
     }
     // Coroutine para manejar el tiempo de invulnerabilidad
-    IEnumerator delay()
+    IEnumerator delay(float time)
     {
-        yield return new WaitForSeconds(invulnerableTime);
+        yield return new WaitForSeconds(time);
         invulnerable = false;
         Debug.Log("Jugador ya no es invulnerable");
     }

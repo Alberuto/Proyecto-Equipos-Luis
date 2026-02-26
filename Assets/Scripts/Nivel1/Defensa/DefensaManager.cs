@@ -61,12 +61,17 @@ public class DefensaManager : MonoBehaviour {
         };
     }
     void Start() {
+        
+        // reiniciar la vida pruebas
+        /*PlayerPrefs.SetFloat("Nivel1VidaJugador", 100f);
+        PlayerPrefs.SetFloat("Nivel1VidaBoss", 100f);*/
+
         int combos = PlayerPrefs.GetInt("Nivel1IntentosExitosos", 0);
         int damage = PlayerPrefs.GetInt("Nivel1AtaqueDaño", 0);
-        float vidaJugador = PlayerPrefs.GetFloat("Nivel1VidaJugador", 100f);
-        float vidaBoss = PlayerPrefs.GetFloat("Nivel1VidaBoss", 100f);
+        float vidaJugador = PlayerPrefs.GetFloat("Nivel1VidaJugador");
+        float vidaBoss = PlayerPrefs.GetFloat("Nivel1VidaBoss");
         Debug.Log($"📊 Resumen Ataque: x{combos} combos, {damage} daño");
-        MostrarResumen(combos, damage,vidaJugador,vidaBoss);
+        MostrarResumen(combos, damage, GameManager.instance.vidaPlayer, vidaBoss);
     }
     void Update() {
         // 🆕 Solo cuenta SI defensa iniciada Y cronómetro activo
@@ -74,6 +79,8 @@ public class DefensaManager : MonoBehaviour {
             tiempoDefensaRestante -= Time.deltaTime;
             ActualizarCronometroUI();
         }
+        // actuaiza la vida del personaje sin guardarla en el playerPrefs para que no vaya lento
+        textoVidaJugadorDefensa.text = $"Jugador: {GameManager.instance.vidaPlayer:F0}/100";
     }
     private void ActualizarCronometroUI() {
         if (cronometroDefensa != null) {
@@ -128,6 +135,9 @@ public class DefensaManager : MonoBehaviour {
     }
     private void FinalizarDefensa() {
 
+        // aqui se guarda en playerPrefs la vida del jugador despues de la fase de defensa la cual se calcula en el GameManager
+        PlayerPrefs.SetFloat("Nivel1VidaJugador", GameManager.instance.vidaPlayer);
+        
         Debug.Log("🏁 DEFENSA FINALIZADA → NUEVO ATAQUE");
         // 🆕 Siguiente trozo Kiko
         KikoDefenseMusic musicKiko = FindObjectOfType<KikoDefenseMusic>();

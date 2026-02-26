@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    
+    /*
     // daño jugador
     private int metal = 10;
     private int wagner = 30;
@@ -13,9 +13,9 @@ public class GameManager : MonoBehaviour
     private int ataque;
 
     // Vida del jugador y enemigos
-    private int vidaMax = 100;
-    public int vida;
-    private bool furia = false;
+    private int vidaMax = 100;*/
+    public float vidaPlayer;
+    /*private bool furia = false;
     public int vidaKiko = 30;
     public int vidaCigala = 60;
     public int vidaFary = 100;
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     // listas para las notas
     public List<GameObject> notas;
     public List<GameObject> partitura;
-
+    */
     // variables para animacion
     public bool recibiendoDaño = false;
     public bool muerto = false;
@@ -41,28 +41,30 @@ public class GameManager : MonoBehaviour
         }
     }
     private void Start()
-    {
-        vida = vidaMax;
+    {   
+        vidaPlayer = 100;
+        //vidaPlayer = PlayerPrefs.GetFloat("Nivel1VidaJugador", 100f);
+        /*
         // Inicializar la vida del enemigo en la UI
-        UIManager.instance.ActualizarVidaEnemy(MySceneManager.instance.getEnemyActual());
+        UIManager.instance.ActualizarVidaEnemy(MySceneManager.instance.getEnemyActual());*/
         muerto = false;
     }
-    // Método para recibir daño del jugador, se llama desde el script de colisiones del jugador
+    // Método para recibir daño del jugador, se llama desde el script de colisiones del jugador playerHealth
     public void recibirDaño(int daño)
     {
         
-        if (vida <= daño)
+        if (vidaPlayer <= daño)
         {
-            vida = 0;
-            UIManager.instance.ActualizarVida();
+            vidaPlayer = 0;
+            //UIManager.instance.ActualizarVida();
             muerto = true;
             //Debug.Log("Jugador ha muerto");
-            MySceneManager.instance.LoadScene("GameOver");
+            //MySceneManager.instance.LoadScene("GameOver");
         }
         else
         {
-            vida -= daño;
-            UIManager.instance.ActualizarVida();
+            vidaPlayer -= daño;
+            //UIManager.instance.ActualizarVida();
             //Debug.Log("Jugador ha recibido " + daño + " de daño, vida restante: " + vida);
             recibiendoDaño = true;
             StopCoroutine("delay");
@@ -80,10 +82,11 @@ public class GameManager : MonoBehaviour
 
     public void reiniciarJuego()
     {
-        vida = vidaMax;
+        vidaPlayer = PlayerPrefs.GetFloat("Nivel1VidaJugador");
         muerto = false;
-        MySceneManager.instance.LoadScene("MainMenu");
+        //MySceneManager.instance.LoadScene("MainMenu");
     }
+    /*
     // Métodos para gestionar las notas y la partitura, se llaman desde el script de entrega de notas para actualizar las listas y desde el script de ataque para comprobar si la secuencia es correcta
     public void setNotas(List<GameObject> lista)
     {
@@ -140,5 +143,5 @@ public class GameManager : MonoBehaviour
     {
         furia = estado;
         //Debug.Log("Modo furia " + estado);
-    }
+    }*/
 }

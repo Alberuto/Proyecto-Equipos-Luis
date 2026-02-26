@@ -36,7 +36,7 @@ public class UIManager : MonoBehaviour
         StopCoroutine("Temporizador");
         StartCoroutine(Temporizador());
         // Inicializar la vida del jugador en la UI
-        vida.text = "Vida: " + GameManager.instance.vida.ToString();
+        vida.text = "Vida: " + GameManager.instance.vidaPlayer.ToString();
 
     }
 
@@ -52,13 +52,13 @@ public class UIManager : MonoBehaviour
     // Metodo para actualizar la vida del jugador en la UI
     public void ActualizarVida()
     {
-        vida.text = "Vida: " + GameManager.instance.vida.ToString();
+        vida.text = "Vida: " + GameManager.instance.vidaPlayer.ToString();
     }
 
     // Metodo para actualizar la vida del enemigo en la UI dependiendo de cual sea el enemigo actual que se actualiza segun la escena
     public void ActualizarVidaEnemy(string enemy)
     {
-        if(enemy == "kiko")
+        /*if(enemy == "kiko")
         {
             vidaEnemy.text = "Vida Kiko: " + GameManager.instance.vidaKiko.ToString();
         }
@@ -69,7 +69,7 @@ public class UIManager : MonoBehaviour
         if(enemy == "fary")
         {
             vidaEnemy.text = "Vida Fary: " + GameManager.instance.vidaFary.ToString();
-        }
+        }*/
     }
 
     IEnumerator Temporizador()
