@@ -126,7 +126,7 @@ public class tocaDiscosManager : MonoBehaviour
 
     public void entregarNotas()
     {
-        GameManager.instance.setNotas(notas);
+        //GameManager.instance.setNotas(notas);
     }
     public void ComprobarPosiciones()
     {

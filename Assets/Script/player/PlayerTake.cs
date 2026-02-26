@@ -76,7 +76,7 @@ public class PlayerTake : MonoBehaviour
             {
                 Debug.Log("activar secuencia de ataque (comprobar si la secuencia esta bien o no)");
                 tocaDiscos.entregarNotas();
-                if (GameManager.instance.secuenciaCorrecta())
+                /*if (GameManager.instance.secuenciaCorrecta())
                 {
                     Debug.Log("Secuencia correcta, activar ataque");
                 }
@@ -84,7 +84,7 @@ public class PlayerTake : MonoBehaviour
                 {
                     Debug.Log("Secuencia incorrecta, pierde turno");
                 }
-                
+                */
             }
         }
     }
