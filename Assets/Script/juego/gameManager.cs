@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     // Vida del jugador y enemigos
     private int vidaMax = 100;*/
     public float vidaPlayer;
+    private int dificil = 12;
     /*private bool furia = false;
     public int vidaKiko = 30;
     public int vidaCigala = 60;
@@ -86,6 +87,11 @@ public class GameManager : MonoBehaviour
         recibiendoDaño = false;
     }
 
+    public void setDificultad(int cantidad)
+    {
+        dificil = cantidad;
+    }
+    public int getDificultad() {  return dificil; }
     public void reiniciarJuego()
     {
         vidaPlayer = PlayerPrefs.GetFloat("Nivel1VidaJugador");
