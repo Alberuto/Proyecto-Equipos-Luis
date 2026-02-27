@@ -21,6 +21,8 @@ public class cogerInstrumento : MonoBehaviour
     private bool cogido = false;
     // dupes del instrumento (se podria controllar en el gameManager) Las teclas cuentan como objeto dupe pero es para que suenen sus respecivos sonidos con el tag
     public int dupeMax = 4;
+    private GameObject parentObject;
+    private String nombrePadre = "";
     private Transform padre;
 
 
@@ -30,6 +32,9 @@ public class cogerInstrumento : MonoBehaviour
         player = playerObject.GetComponent<PlayerTake>();
         tocaDiscosObject = GameObject.FindGameObjectWithTag("tocaDiscos");
         tocaDiscos = tocaDiscosObject.GetComponent<tocaDiscosManager>();
+
+        //parentObject = GameObject.FindGameObjectWithTag("Instrumento");
+        
         // pruebas
         dupeMax = 14;
     }
@@ -65,49 +70,50 @@ public class cogerInstrumento : MonoBehaviour
                 }
                 cogido = true;
 
-
+                //Debug.Log("entre ifs");
 
                 GameObject[] objs = GameObject.FindGameObjectsWithTag(tag);
                 if (objs.Length < dupeMax)
                 {
+                    //Debug.Log("dupe hecho");
                     // Posicion para que se muestren donde estaban
                     switch (tag)
                     {
                         case "C":
-                            padre = GameObject.Find("Objetos escena/C").transform;
+                            padre = GameObject.Find("ObjetosConSonido/C").transform;
                             break;
                         case "C#":
-                            padre = GameObject.Find("Objetos escena/C#").transform;
+                            padre = GameObject.Find("ObjetosConSonido/C#").transform;
                             break;
                         case "D":
-                            padre = GameObject.Find("Objetos escena/D").transform;
+                            padre = GameObject.Find("ObjetosConSonido/D").transform;
                             break;
                         case "D#":
-                             padre = GameObject.Find("Objetos escena/D#").transform;
+                             padre = GameObject.Find("ObjetosConSonido/D#").transform;
                             break;
                         case "E":
-                            padre = GameObject.Find("Objetos escena/E").transform;
+                            padre = GameObject.Find("ObjetosConSonido/E").transform;
                             break;
                         case "F":
-                            padre = GameObject.Find("Objetos escena/F").transform;
+                            padre = GameObject.Find("ObjetosConSonido/F").transform;
                             break;
                         case "F#":
-                            padre = GameObject.Find("Objetos escena/F#").transform;
+                            padre = GameObject.Find("ObjetosConSonido/F#").transform;
                             break;
                         case "G":
-                            padre = GameObject.Find("Objetos escena/G").transform;
+                            padre = GameObject.Find("ObjetosConSonido/G").transform;
                             break;
                         case "G#":
-                            padre = GameObject.Find("Objetos escena/G#").transform;
+                            padre = GameObject.Find("ObjetosConSonido/G#").transform;
                             break;
                         case "A":
-                            padre = GameObject.Find("Objetos escena/A").transform;
+                            padre = GameObject.Find("ObjetosConSonido/A").transform;
                             break;
                         case "A#":
-                            padre = GameObject.Find("Objetos escena/A#").transform;
+                            padre = GameObject.Find("ObjetosConSonido/A#").transform;
                             break;
                         case "B":
-                            padre = GameObject.Find("Objetos escena/B").transform;
+                            padre = GameObject.Find("ObjetosConSonido/B").transform;
                             break;
 
                     }
@@ -168,7 +174,7 @@ public class cogerInstrumento : MonoBehaviour
                         break;
 
                 }
-                
+                //Debug.Log("colocado");
                 player.añadirInstrumento(this.gameObject);
 
             }

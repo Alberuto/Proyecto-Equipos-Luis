@@ -17,12 +17,13 @@ public class PlayerTake : MonoBehaviour
     private tocaDiscosManager tocaDiscos;
     private GameObject objetoCogido;
     public bool instrumentoEntregado = false;
-    public int dificultad = 12;
+    private int dificultad = 12;
 
     private void Start()
     {
         tocaDiscosObject = GameObject.FindGameObjectWithTag("tocaDiscos");
         tocaDiscos = tocaDiscosObject.GetComponent<tocaDiscosManager>();
+        dificultad = GameManager.getDificultad();
     }
     private void Update()
     {
