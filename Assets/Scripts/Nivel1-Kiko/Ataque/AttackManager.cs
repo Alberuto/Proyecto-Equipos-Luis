@@ -202,16 +202,22 @@ public class AttackManager : MonoBehaviour {
 
         Debug.Log($"🎯 Vida Boss PlayerPrefs: {vidaBossPersistente}/{vidaBossMax}");
 
-        if (vidaBossPersistente <= 0) {
+        if (vidaBossPersistente <= 0)
+        {
             Debug.Log("🎉 ¡BOSS DERROTADO! NIVEL 2");
-            SceneManager.LoadScene("Nivel2");
+            PlayerPrefs.SetInt("Nivel", 1);
+            SceneManager.LoadScene("Nivel1");
         }
-        else if (vidaBossPersistente > vidaBossMax * 0.5f) {
+        else if (vidaBossPersistente > 50f)
+        {
             Debug.Log("🛡️ Boss fuerte → Nivel1-Defensa");
             SceneManager.LoadScene("Nivel1-Defensa");
         }
+        else if (vidaBossPersistente <= 50f && (PlayerPrefs.GetInt("Fury", 0) == 0)) {
+            PlayerPrefs.SetInt("Fury", 1);
+            SceneManager.LoadScene("Nivel1");
+        }
         else {
-            Debug.Log("🔥 Boss débil → Nivel1-Fury (Lulu poción)");
             SceneManager.LoadScene("Nivel1-Fury");
         }
     }
