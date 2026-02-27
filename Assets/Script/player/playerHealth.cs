@@ -30,19 +30,19 @@ public class PlayerHealth : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("kiko"))
         {
-            GameManager.instance.recibirDaño(dañoKiko);
+            GameManager.instance.RecibirDamage(dañoKiko);
             atacado = true;
 
         }
         else if (other.gameObject.CompareTag("cigala"))
         {
-            GameManager.instance.recibirDaño(dañoCigala);
+            GameManager.instance.RecibirDamage(dañoCigala);
             atacado = true;
 
         }
         else if (other.gameObject.CompareTag("fary"))
         {
-            GameManager.instance.recibirDaño(dañoFary);
+            GameManager.instance.RecibirDamage(dañoFary);
             atacado = true;
         }
         if (atacado)
