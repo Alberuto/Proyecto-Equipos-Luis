@@ -23,7 +23,7 @@ public class PlayerTake : MonoBehaviour
     {
         tocaDiscosObject = GameObject.FindGameObjectWithTag("tocaDiscos");
         tocaDiscos = tocaDiscosObject.GetComponent<tocaDiscosManager>();
-        dificultad = GameManager.getDificultad();
+        //dificultad = GameManager.getDificultad();
     }
     private void Update()
     {
