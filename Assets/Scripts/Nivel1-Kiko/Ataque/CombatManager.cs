@@ -1,5 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CombatManager : MonoBehaviour {
@@ -45,6 +46,11 @@ public class CombatManager : MonoBehaviour {
         if (vidaBossActual <= 0) {
 
             Debug.Log("🎉 ¡BOSS DERROTADO!");
+        }
+        if (vidaJugadorActual <= 0)
+        {
+            PlayerPrefs.SetInt("Fallo", 1);
+            SceneManager.LoadScene("Nivel1");
         }
     }
     private void InicializarUI() {

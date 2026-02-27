@@ -16,9 +16,8 @@ public class CanvasControllerUniversal : MonoBehaviour
         GestionarEstadoCanvas();
     }
 
-    void GestionarEstadoCanvas()
-    {
-        // 🎯 PlayerPrefs gestionados por sceneManager
+    void GestionarEstadoCanvas() {
+        // 🎯 La carga de escenas esta gestionada por sceneManager los player prefs se gestionan en cada attack manager particular
 
         if (PlayerPrefs.GetInt($"Fallo", 0) == 1) {
             ActivarCanvasWin();
