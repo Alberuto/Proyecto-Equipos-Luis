@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -51,16 +52,18 @@ public class GameManager : MonoBehaviour
         muerto = false;
     }
     // Método para recibir daño del jugador, se llama desde el script de colisiones del jugador playerHealth
-    public void recibirDaño(int daño)
-    {
+    public void recibirDaño(int daño) {
         
-        if (vidaPlayer <= daño)
-        {
+        if (vidaPlayer <= daño) {
             vidaPlayer = 0;
             //UIManager.instance.ActualizarVida();
             muerto = true;
             //Debug.Log("Jugador ha muerto");
             //MySceneManager.instance.LoadScene("GameOver");
+            Time.timeScale = 0f; // Pausar el juego
+            yield return new WaitForSecondsRealtime(3f);
+            PlayerPrefs.SetInt("Fallo", 1);
+            SceneManager.LoadScene("Nivel1");
         }
         else
         {

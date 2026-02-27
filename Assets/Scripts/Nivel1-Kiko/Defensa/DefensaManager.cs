@@ -26,6 +26,7 @@ public class DefensaManager : MonoBehaviour {
     private bool defensaIniciada = false;
     private float tiempoDefensaRestante;
     private bool cronometroActivo = false;
+    float vidaJugador;
     public enum TipoCombo
     {
         Ninguno = 0,
@@ -68,7 +69,7 @@ public class DefensaManager : MonoBehaviour {
 
         int combos = PlayerPrefs.GetInt("Nivel1IntentosExitosos", 0);
         int damage = PlayerPrefs.GetInt("Nivel1AtaqueDaño", 0);
-        float vidaJugador = PlayerPrefs.GetFloat("Nivel1VidaJugador");
+        vidaJugador = PlayerPrefs.GetFloat("Nivel1VidaJugador");
         float vidaBoss = PlayerPrefs.GetFloat("Nivel1VidaBoss");
         Debug.Log($"📊 Resumen Ataque: x{combos} combos, {damage} daño");
         MostrarResumen(combos, damage, GameManager.instance.vidaPlayer, vidaBoss);
@@ -137,7 +138,15 @@ public class DefensaManager : MonoBehaviour {
 
         // aqui se guarda en playerPrefs la vida del jugador despues de la fase de defensa la cual se calcula en el GameManager
         PlayerPrefs.SetFloat("Nivel1VidaJugador", GameManager.instance.vidaPlayer);
-        
+
+        Debug.Log($"⏰ TIEMPO DEFENSA FINALIZADO - Vida Jugador: {GameManager.instance.vidaPlayer:F0}/100");
+        Debug.Log($"\n vidaJugador"+vidaJugador);
+
+        if (vidaJugador <= 0) {
+            PlayerPrefs.SetInt("Fallo", 1);
+            SceneManager.LoadScene("Nivel1");
+        }
+
         Debug.Log("🏁 DEFENSA FINALIZADA → NUEVO ATAQUE");
         // 🆕 Siguiente trozo Kiko
         KikoDefenseMusic musicKiko = FindObjectOfType<KikoDefenseMusic>();
