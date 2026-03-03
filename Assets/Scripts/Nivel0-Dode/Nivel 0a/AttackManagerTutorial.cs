@@ -94,7 +94,6 @@ public class AttackManagerTutorial : MonoBehaviour {
             if (notas.Count == 1) {        // Esta es la ÚLTIMA nota
                 FinTutorial("🎉 ¡PERFECTO! Tutorial completado"); 
                 PlayerPrefs.SetInt("FuryTutorialCompletado", 1); // GUARDAR COMPLETADO
-                PlayerPrefs.SetInt("FuryTutorialFallado", 0);
                 PlayerPrefs.Save();
                 StartCoroutine(VolverConFury());
                 return;
@@ -115,7 +114,6 @@ public class AttackManagerTutorial : MonoBehaviour {
 
             if (vidasActuales <= 0) { // GUARDAR FALLADO
                 PlayerPrefs.SetInt("FuryTutorialFallado", 1);
-                PlayerPrefs.SetInt("FuryTutorialCompletado", 0);
                 PlayerPrefs.Save();
                 FinTutorial("💀 Sin vidas");
                 StartCoroutine(VolverConFury());
