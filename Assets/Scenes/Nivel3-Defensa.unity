@@ -992,6 +992,64 @@ Transform:
   - {fileID: 302752971}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &627317286
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 627317288}
+  - component: {fileID: 627317287}
+  m_Layer: 0
+  m_Name: MusicManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &627317287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627317286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f055350f39d9b41998f83850423fc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DefenseMusicUniversal
+  Trozos:
+  - {fileID: 8300000, guid: 73e59e8b488a0ec48bc82dc47685c4c5, type: 3}
+  - {fileID: 8300000, guid: 02ef340ad0e198b46945ef3799188e79, type: 3}
+  - {fileID: 8300000, guid: 1548afc403f467047a6df5ada4872ed0, type: 3}
+  - {fileID: 8300000, guid: 831b02b84acf5ed439cd406217f26df4, type: 3}
+  - {fileID: 8300000, guid: 18ddce670426dcf41bcd0119688b0295, type: 3}
+  - {fileID: 8300000, guid: 30a8d14b220fdf346ad04b4ea3a43754, type: 3}
+  - {fileID: 8300000, guid: c59738fee7d48ec4b8fd060f293ef9f2, type: 3}
+  - {fileID: 8300000, guid: 43f8eb2f4936d5c45bbde76284a1d081, type: 3}
+  - {fileID: 8300000, guid: b70e86d91af8b0644807e0ae0ba71e98, type: 3}
+  - {fileID: 8300000, guid: 071e0f2ba8c4ed04c9a736c71130e123, type: 3}
+  - {fileID: 8300000, guid: c795888ac5436594fbdb1e3157b62693, type: 3}
+  - {fileID: 8300000, guid: f228a2d4abdc5604aa7c905c7b0c10f9, type: 3}
+  - {fileID: 8300000, guid: 76f56faaeaed81740af07187621fab91, type: 3}
+--- !u!4 &627317288
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627317286}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -17.60092, y: 16.48801, z: -11.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &902149638 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7963679289164546703, guid: ecbc83177b5202346a2b971a46211dff, type: 3}
@@ -1567,3 +1625,4 @@ SceneRoots:
   - {fileID: 1174992271}
   - {fileID: 1675711239}
   - {fileID: 554563379}
+  - {fileID: 627317288}
