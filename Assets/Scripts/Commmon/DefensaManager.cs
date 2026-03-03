@@ -18,7 +18,7 @@ public class DefensaManager : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI textoVidaJugadorDefensa;
 
     [Header("Tiempo de Defensa")]
-    [SerializeField] private float tiempoDefensaKiko = 25f;
+    [SerializeField] private float tiempoDefensaBoss = 25f;
 
     [Header("Cronómetro Defensa")]
     [SerializeField] private TextMeshProUGUI cronometroDefensa;
@@ -111,7 +111,7 @@ public class DefensaManager : MonoBehaviour {
         yield return new WaitForSeconds(segundos);
         canvasResumen.SetActive(false);
 
-        tiempoDefensaRestante = tiempoDefensaKiko;      // ← 1. Reset 25s
+        tiempoDefensaRestante = tiempoDefensaBoss;      // ← 1. Reset 25s
         cronometroActivo = true;                        // ← 2. Activar Update()
         cronometroDefensa.gameObject.SetActive(true);
         // 🆕 MOSTRAR textos DEFENSA
@@ -127,11 +127,11 @@ public class DefensaManager : MonoBehaviour {
             musicKiko.ReproducirMusicaKiko();
         }
         // Aquí: discos/monedas/torito del compañero
-        Debug.Log($"🛡️ FASE DEFENSA INICIADA - {tiempoDefensaKiko}s Kiko");
+        Debug.Log($"🛡️ FASE DEFENSA INICIADA - {tiempoDefensaBoss}s Kiko");
         defensaIniciada = true;
 
         // 🆕 TIMER 25s → NUEVO ATAQUE
-        yield return new WaitForSeconds(tiempoDefensaKiko);
+        yield return new WaitForSeconds(tiempoDefensaBoss);
         FinalizarDefensa();
     }
     private void FinalizarDefensa() {

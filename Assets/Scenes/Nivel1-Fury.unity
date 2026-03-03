@@ -2067,6 +2067,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8769949334041427452, guid: b0f75e75dd8c24d4b8300148649289f6, type: 3}
+      propertyPath: "da\xF1oFary"
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769949334041427452, guid: b0f75e75dd8c24d4b8300148649289f6, type: 3}
+      propertyPath: "da\xF1oKiko"
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769949334041427452, guid: b0f75e75dd8c24d4b8300148649289f6, type: 3}
+      propertyPath: "da\xF1oCigala"
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3653,12 +3665,12 @@ SceneRoots:
   - {fileID: 281047640}
   - {fileID: 543361237}
   - {fileID: 160274524}
-  - {fileID: 542139655395021918}
-  - {fileID: 4596457266733222913}
-  - {fileID: 197769146}
-  - {fileID: 3245010}
   - {fileID: 287641596}
   - {fileID: 940571130}
-  - {fileID: 1153809340}
+  - {fileID: 197769146}
+  - {fileID: 3245010}
   - {fileID: 1293413182}
+  - {fileID: 4596457266733222913}
+  - {fileID: 1153809340}
+  - {fileID: 542139655395021918}
   - {fileID: 839438167}
