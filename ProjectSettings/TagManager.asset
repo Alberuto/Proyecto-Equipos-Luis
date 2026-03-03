@@ -25,6 +25,7 @@ TagManager:
   - cigala
   - fary
   - centro
+  - linterna
   layers:
   - Default
   - TransparentFX
@@ -32,7 +33,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - notas
   - 
   - 
   - 
