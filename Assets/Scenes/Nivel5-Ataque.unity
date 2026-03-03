@@ -10545,6 +10545,8 @@ MonoBehaviour:
   sonidoError: {fileID: 8300000, guid: b27e67db581fabd4b99e4c9c1a5aa467, type: 3}
   combatManager: {fileID: 1819780790}
   flashEffect: {fileID: 947442566}
+  tiempoTotal: 150
+  nivelDificil: 1
 --- !u!82 &1973514221
 AudioSource:
   m_ObjectHideFlags: 0

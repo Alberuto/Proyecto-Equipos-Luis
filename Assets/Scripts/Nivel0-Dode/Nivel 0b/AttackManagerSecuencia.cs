@@ -10,6 +10,7 @@ public class AttackManagerSecuencia : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI secuenciaText;
     [SerializeField] private TextMeshProUGUI progresoText;
     [SerializeField] private TextMeshProUGUI vidasText;
+    [SerializeField] private TextMeshProUGUI tiempoText;
 
     [Header("Audio")]
     [SerializeField] private AudioSource audioSource;
@@ -114,6 +115,9 @@ public class AttackManagerSecuencia : MonoBehaviour {
     private void ActualizarUI() {
         progresoText.text = $"Progreso: {inputJugador.Count}/{secuenciaActual.Count}";
         vidasText.text = $"<color=red>♥ {vidasActuales}</color>";
+        if (tiempoText != null) {
+            tiempoText.text = $"Tiempo: {tiempoRestante:F1}s";
+        }
     }
     private void FinSecuencia(string motivo) {
         secuenciaText.text = $"<color=red>{motivo}</color>";

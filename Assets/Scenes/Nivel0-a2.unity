@@ -1378,11 +1378,12 @@ MonoBehaviour:
   secuenciaText: {fileID: 1997680496}
   progresoText: {fileID: 799799289}
   vidasText: {fileID: 2076258742}
+  tiempoText: {fileID: 1438726953}
   audioSource: {fileID: 1737057617}
   sonidoOK: {fileID: 8300000, guid: f69f4b591c5458f4696563621738952b, type: 3}
   sonidoError: {fileID: 8300000, guid: b27e67db581fabd4b99e4c9c1a5aa467, type: 3}
   sonidoCombo: {fileID: 8300000, guid: f69f4b591c5458f4696563621738952b, type: 3}
-  tiempoTotal: 300
+  tiempoTotal: 100
   vidasMax: 5
 --- !u!1 &1997680495
 GameObject:

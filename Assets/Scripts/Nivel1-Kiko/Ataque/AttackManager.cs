@@ -32,6 +32,10 @@ public class AttackManager : MonoBehaviour {
     [Header("Flash")]
     [SerializeField] private FlashEffect flashEffect;
 
+    [Header("Config")]
+    [SerializeField] private float tiempoTotal=30f;
+    [SerializeField] private bool nivelDificil = false;
+
     private static readonly string[] nombresCombo = new string[] {
         "Impacto inicial",       // 1
         "Imparable",             // 2
@@ -160,6 +164,11 @@ public class AttackManager : MonoBehaviour {
         }
         if (coincideCompleta && !errorEnPosicion) {
 
+            if (nivelDificil) {
+                // 🎯 NIVEL3-5: x12 DIRECTO (sin contar intentos)
+                intentosExitosos = 12;
+                Debug.Log("🔥 MODO DIFÍCIL → COMBO x12 FIJO!");
+            }
             // 🆕 ÉXITO SECUENCIA → Reiniciar para siguiente intento
             intentosExitosos = Mathf.Min(intentosExitosos + 1, 12);
             //sonido acierto
@@ -186,7 +195,7 @@ public class AttackManager : MonoBehaviour {
     }
     public void IniciarCronometro() {
 
-        tiempoRestante = 30f;
+        tiempoRestante = tiempoTotal;
         tiempoTerminado = false;
         ActualizarUI();
     }
