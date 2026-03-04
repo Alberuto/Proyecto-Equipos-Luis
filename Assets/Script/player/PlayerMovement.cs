@@ -21,7 +21,9 @@ public class PlayerMovement : MonoBehaviour
     // parametro para cuando esta inactivo el jugador poner una animacion diferente
     private bool inactivo = false;
     private float timeDelay = 20f;
-
+    // variables para animacion
+    public bool recibiendoDaño = false;
+    public bool muerto = false;
 
     private CharacterController characterController;
     [SerializeField] public PlayerHealth playerManager; 
@@ -53,19 +55,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if (characterController == null)
             return;
-        if (GameManager.instance.recibiendoDaño || GameManager.instance.muerto)
-        {
-            //Debug.Log("Jugador recibiendo daño o muerto, no se puede mover");
-        }
-        else
+        if (!recibiendoDaño || !muerto)
         {
             ControlMovimiento();
             SonidoPasos();
         }
 
-        //Debug.Log("Grounded= " + characterController.isGrounded);
 
-        //StartCoroutine("delay");
+        //StartCoroutine("inactivoDelay");
 
     }
 
@@ -134,7 +131,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    IEnumerator delay()
+    IEnumerator inactivoDelay()
     {
         yield return new WaitForSeconds(timeDelay);
         //Debug.LogError("Espera " + timeDelay + " segundos");

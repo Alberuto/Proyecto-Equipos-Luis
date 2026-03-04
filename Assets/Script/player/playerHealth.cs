@@ -13,8 +13,11 @@ public class PlayerHealth : MonoBehaviour
     public int dañoFary = 60;
     public bool atacado = false;
 
+    private PlayerMovement move;
+
     public void Start()
     {
+        move = GetComponent<PlayerMovement>();
         invulnerable = true;
         StopCoroutine("delay");
         StartCoroutine(delay(7.0f));
@@ -48,10 +51,14 @@ public class PlayerHealth : MonoBehaviour
         if (atacado)
         {
             invulnerable = true;
+            move.recibiendoDaño = true;
+            StopCoroutine("delay");
+            StartCoroutine(delay(2.5f));
             Debug.Log("Jugador ha recibido daño de: " + other.tag);
             StopCoroutine("delay");
             StartCoroutine(delay(invulnerableTime));
             atacado = false;
+            invulnerable = false;
         }
         
     }
@@ -59,7 +66,6 @@ public class PlayerHealth : MonoBehaviour
     IEnumerator delay(float time)
     {
         yield return new WaitForSeconds(time);
-        invulnerable = false;
-        Debug.Log("Jugador ya no es invulnerable");
+        //Debug.Log("Jugador ya no es invulnerable");
     }
 }

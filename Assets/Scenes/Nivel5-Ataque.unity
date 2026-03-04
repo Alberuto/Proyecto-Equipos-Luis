@@ -1194,9 +1194,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4469686296409132621, guid: f3407f2888221cb429c587a7fdf6ff94, type: 3}
       insertIndex: -1
       addedObject: {fileID: 762819208}
-    - targetCorrespondingSourceObject: {fileID: 370279064939967736, guid: f3407f2888221cb429c587a7fdf6ff94, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 672394520782324295, guid: f3407f2888221cb429c587a7fdf6ff94, type: 3}
       insertIndex: -1
       addedObject: {fileID: 942804600}
@@ -11987,6 +11984,10 @@ PrefabInstance:
     - target: {fileID: 3003240389209412388, guid: f241d62418d109c4989c95977d717180, type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3003240389209412388, guid: f241d62418d109c4989c95977d717180, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7369603831546536230, guid: f241d62418d109c4989c95977d717180, type: 3}
       propertyPath: m_LocalPosition.x

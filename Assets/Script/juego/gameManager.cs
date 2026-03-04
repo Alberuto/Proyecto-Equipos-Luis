@@ -27,9 +27,9 @@ public class GameManager : MonoBehaviour
     public List<GameObject> notas;
     public List<GameObject> partitura;
     */
-    // variables para animacion
-    public bool recibiendoDaño = false;
-    public bool muerto = false;
+    private GameObject playerObject;
+    private PlayerMovement player;
+
 
     private void Awake()
     {
@@ -50,15 +50,16 @@ public class GameManager : MonoBehaviour
         /*
         // Inicializar la vida del enemigo en la UI
         UIManager.instance.ActualizarVidaEnemy(MySceneManager.instance.getEnemyActual());*/
-        muerto = false;
+        playerObject = GameObject.FindGameObjectWithTag("Player");
+        player = playerObject.GetComponent<PlayerMovement>();
     }
     // Método para recibir daño del jugador, se llama desde el script de colisiones del jugador playerHealth
     public void RecibirDamage(int daño) {
         
         if (vidaPlayer <= daño) {
             vidaPlayer = 0;
+            player.muerto = true;
             //UIManager.instance.ActualizarVida();
-            muerto = true;
             //Debug.Log("Jugador ha muerto");
             //MySceneManager.instance.LoadScene("GameOver");
             StartCoroutine(GameOverConPausa());
@@ -68,9 +69,6 @@ public class GameManager : MonoBehaviour
             vidaPlayer -= daño;
             //UIManager.instance.ActualizarVida();
             //Debug.Log("Jugador ha recibido " + daño + " de daño, vida restante: " + vida);
-            recibiendoDaño = true;
-            StopCoroutine("delay");
-            StartCoroutine(delay());
         }
     }
 
@@ -90,12 +88,7 @@ public class GameManager : MonoBehaviour
         var m = Regex.Match(current, @"^Nivel\d+");
         return m.Success ? m.Value : current;
     }
-    // Coroutine para manejar el tiempo de animacion para que no se mueva
-    IEnumerator delay()
-    {
-        yield return new WaitForSeconds(2.5f);
-        recibiendoDaño = false;
-    }
+
 
     public void setDificultad(int cantidad)
     {
@@ -105,7 +98,6 @@ public class GameManager : MonoBehaviour
     public void reiniciarJuego()
     {
         vidaPlayer = PlayerPrefs.GetFloat("Nivel1VidaJugador");
-        muerto = false;
         //MySceneManager.instance.LoadScene("MainMenu");
     }
     /*
