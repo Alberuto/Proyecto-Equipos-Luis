@@ -13,8 +13,7 @@ public class cogerInstrumento2A : MonoBehaviour {
         dupeMax = 14;
     }
     private void Update() {
-        if (player?.espera == true && player.cogido == false)
-        {
+        if (player?.espera == true && player.cogido == false) {
             player.coger = false;
         }
     }
@@ -22,21 +21,18 @@ public class cogerInstrumento2A : MonoBehaviour {
 
         if (other.CompareTag("mano") && player?.coger == true && !player.cogido) {
             cogido = true;
-
             // 🆕 TUTORIAL 2A: Registrar objeto cogido
             AttackManagerTutorialObjetos2A tutorial = FindObjectOfType<AttackManagerTutorialObjetos2A>();
             if (tutorial != null) {
                 tutorial.RegistrarObjetoCogido(this.tag);
                 Debug.Log($"🎯 2A Tutorial: {this.tag} registrado");
             }
-
             // TU CÓDIGO EXISTENTE de duplicar y posicionar...
             GameObject[] objs = GameObject.FindGameObjectsWithTag(tag);
             if (objs.Length < dupeMax) {
                 Transform padre = GetPadrePorTag(tag);
                 if (padre) Instantiate(this, padre);
             }
-
             transform.SetParent(other.transform);
             SetPosicionMano(tag);
             player.añadirInstrumento(this.gameObject);

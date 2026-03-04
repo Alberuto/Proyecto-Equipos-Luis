@@ -32,8 +32,7 @@ public class AttackManagerTutorialObjetos2A : MonoBehaviour
     private bool tutorialActivo = false;
     private int objetosCogidosCorrectos = 0;  // ← CONTADOR SEGURO
 
-    void Start()
-    {
+    void Start() {
         nombreJugadorText.text = "Jugador";
         tiempoRestante = duracionTutorial;
         vidasActuales = vidasMax;
@@ -45,8 +44,7 @@ public class AttackManagerTutorialObjetos2A : MonoBehaviour
         Debug.Log("🚀 TUTORIAL OBJETOS 2A INICIADO! Necesitas 12 objetos");
     }
 
-    void Update()
-    {
+    void Update() {
         if (!tutorialActivo) return;
         tiempoRestante -= Time.deltaTime;
         if (tiempoRestante <= 0f)
@@ -57,24 +55,23 @@ public class AttackManagerTutorialObjetos2A : MonoBehaviour
         ActualizarUI();
     }
 
-    private void ElegirSiguienteNota()
-    {
-        if (indiceNotaActual >= secuenciaTutorial.Count)
-        {
+    private void ElegirSiguienteNota() {
+
+        if (indiceNotaActual >= secuenciaTutorial.Count) {
             return;  // ← NO completar aquí
         }
         notaObjetivoActual = secuenciaTutorial[indiceNotaActual];
         Debug.Log($"🎯 Objetivo {indiceNotaActual + 1}/12: {notaObjetivoActual}");
     }
 
-    public void RegistrarObjetoCogido(string tagObjeto)
-    {
+    public void RegistrarObjetoCogido(string tagObjeto) {
+
         if (!tutorialActivo) return;
 
         Debug.Log($"🎹 '{tagObjeto}' vs '{notaObjetivoActual}' ({indiceNotaActual + 1}/12)");
 
-        if (tagObjeto == notaObjetivoActual)
-        {
+        if (tagObjeto == notaObjetivoActual) {
+
             // ✅ OBJETO CORRECTO
             objetosCogidosCorrectos++;  // ← INCREMENTAR CONTADOR
             indiceNotaActual++;         // ← SIGUIENTE POSICIÓN
@@ -83,13 +80,11 @@ public class AttackManagerTutorialObjetos2A : MonoBehaviour
             Debug.Log($"✅ {tagObjeto} correcto! ({objetosCogidosCorrectos}/12)");
 
             // 🛑 SÓLO COMPLETAR DESPUÉS DE 12 OBJETOS
-            if (objetosCogidosCorrectos >= 12)
-            {
+            if (objetosCogidosCorrectos >= 12) {
                 Debug.Log("🏆 ¡12 OBJETOS CORRECTOS! TUTORIAL COMPLETADO!");
                 CompletarTutorial();
                 return;
             }
-
             ElegirSiguienteNota();  // ← Siguiente objetivo
         }
         else
