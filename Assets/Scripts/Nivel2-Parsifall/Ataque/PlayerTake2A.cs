@@ -1,30 +1,30 @@
 ﻿using UnityEngine;
-using NUnit.Framework;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class PlayerTake2A : MonoBehaviour
-{
+public class PlayerTake2A : MonoBehaviour {
+
     [Header("Controles")]
-    public bool coger = false;
-    public bool cogido = false;
+    public bool coger = false;      // E pulsado
+    public bool cogido = false;    // Ya tiene algo cogido
     public bool espera = false;
-    public bool instrumentoEntregado = false;
-
     private GameObject instrumentoActual;
     private float tiempoEspera = 2f;
     private float tiempoInicioEspera;
 
     void Update() {
-        // 🆕 LÍNEA 31 SIMPLIFICADA - SIN tocaDiscos
-        if (espera && !cogido) {
-            if (Time.time - tiempoInicioEspera > tiempoEspera) {
+        if (espera && !cogido)
+        {
+            if (Time.time - tiempoInicioEspera > tiempoEspera)
+            {
                 coger = false;
                 espera = false;
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.E))
+            coger = true;
+
+        if (Input.GetKeyUp(KeyCode.E))
+            coger = false;
     }
     public void añadirInstrumento(GameObject instrumento) {
         instrumentoActual = instrumento;
@@ -32,23 +32,46 @@ public class PlayerTake2A : MonoBehaviour
         espera = true;
         tiempoInicioEspera = Time.time;
     }
+
     public void eliminarInstrumento() {
         instrumentoActual = null;
         cogido = false;
         espera = false;
     }
-    // SIMPLIFICADO - SIN tocaDiscos
-    public GameObject getObjetoCogido() {
-        return instrumentoActual;
-    }
 
-    public bool InstrumentoEntregado() {
-        return instrumentoEntregado;
-    }
-    public void SetCoger(bool state) {
-        coger = state;
-    }
-    public void SetInstrumentoEntregado(bool state) {
-        instrumentoEntregado = state;
+    public GameObject getObjetoCogido() => instrumentoActual;
+    public bool InstrumentoEntregado() => false;
+    private void OnTriggerEnter(Collider other) {
+        // Solo notas (C, C#, D, etc.)
+        string[] notasValidas = {
+        "C", "C#", "D", "D#", "E", "F", "F#",
+        "G", "G#", "A", "A#", "B"
+    };
+
+        if (System.Array.IndexOf(notasValidas, other.tag) == -1)
+            return;
+
+        if (coger == false)
+            return;
+
+        if (cogido == true)
+            return;
+
+        Debug.Log("✅ AGARRANDO NOTA: " + other.tag);
+
+        // Suena la nota
+        NotaAgarrable nota = other.GetComponent<NotaAgarrable>();
+        if (nota != null)
+            nota.Activar();
+
+        // Registra la nota en el tutorial
+        AttackManagerTutorialObjetos2A tutorial = FindObjectOfType<AttackManagerTutorialObjetos2A>();
+        if (tutorial != null)
+            tutorial.RegistrarObjetoCogido(other.tag);
+
+        // El Player ahora lleva el objeto
+        añadirInstrumento(other.gameObject);
+        // Opcional: quitar el objeto de la escena
+        // Destroy(other.gameObject);
     }
 }

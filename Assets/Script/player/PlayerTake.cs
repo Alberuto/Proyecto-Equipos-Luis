@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,7 +30,7 @@ public class PlayerTake : MonoBehaviour
     private void Update()
     {
         // actualizar el estado de si hay un objeto cogido
-        //cogido = GetComponentInChildren<cogerInstrumento>().objetoCogido();
+       cogido = GetComponentInChildren<cogerInstrumento>().objetoCogido();
     }
 
     // funcion para cambiar el estado de coger al pulsar el boton(E por ahora)
