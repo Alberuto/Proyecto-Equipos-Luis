@@ -1,71 +1,81 @@
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    // Tiempo de invulnerabilidad despues de recibir da�o
-    private float invulnerableTime = 10.0f;
+    private float invulnerableTime = 5.0f;
     private bool invulnerable = false;
-
-    public int da�oKiko = 10;
-    public int da�oCigala = 30;
-    public int da�oFary = 60;
+    public int dañoKiko = 10;
+    public int dañoCigala = 30;
+    public int dañoFary = 60;
     public bool atacado = false;
-
     private PlayerMovement move;
 
-    public void Start()
+    void Start()
     {
         move = GetComponent<PlayerMovement>();
         invulnerable = true;
-        StopCoroutine("delay");
-        StartCoroutine(delay(7.0f));
+        StartCoroutine(InvulnerabilidadInicial(5.5f));
     }
 
-    // Metodo para detectar colisiones con enemigos
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log($"🔍 PlayerHealth hit: {other.tag}");
+
         if (invulnerable)
         {
-            Debug.Log("Jugador es invulnerable, no recibe da�o");
+            Debug.Log("Jugador es invulnerable");
             return;
         }
-        else if (other.gameObject.CompareTag("kiko"))
-        {
-            GameManager.instance.RecibirDamage(da�oKiko);
-            atacado = true;
 
-        }
-        else if (other.gameObject.CompareTag("cigala"))
+        // 🆕 DETERMINAR daño
+        int daño = 0;
+        if (other.CompareTag("kiko"))
         {
-            GameManager.instance.RecibirDamage(da�oCigala);
-            atacado = true;
+            daño = dañoKiko;
+        }
+        else if (other.CompareTag("cigala"))
+        {
+            daño = dañoCigala;
+        }
+        else if (other.CompareTag("fary"))
+        {
+            daño = dañoFary;
+        }
 
-        }
-        else if (other.gameObject.CompareTag("fary"))
+        if (daño > 0)
         {
-            GameManager.instance.RecibirDamage(da�oFary);
+            Debug.Log($"💥 DAÑO {other.tag}: {daño}");
+
+            // APLICO DAÑO
+            GameManager.instance.RecibirDamage(daño);
+
+            // INVULNERABILIDAD INMEDIATA
             atacado = true;
-        }
-        if (atacado)
-        {
             invulnerable = true;
-            move.recibiendoDa�o = true;
-            StopCoroutine("delay");
-            StartCoroutine(delay(2.5f));
-            Debug.Log("Jugador ha recibido da�o de: " + other.tag);
-            StopCoroutine("delay");
-            StartCoroutine(delay(invulnerableTime));
-            atacado = false;
-            invulnerable = false;
+            if (move != null) move.recibiendoDaño = true;
+
+            // 🆕 UNA SOLA CORUTINA
+            StopAllCoroutines();
+            StartCoroutine(Invulnerabilidad(invulnerableTime));
         }
-        
     }
-    // Coroutine para manejar el tiempo de invulnerabilidad
-    IEnumerator delay(float time)
+
+    IEnumerator InvulnerabilidadInicial(float tiempo)
     {
-        yield return new WaitForSeconds(time);
-        //Debug.Log("Jugador ya no es invulnerable");
+        yield return new WaitForSeconds(tiempo);
+        invulnerable = false;
+        Debug.Log("✅ Jugador vulnerable (inicio)");
+    }
+
+    IEnumerator Invulnerabilidad(float tiempo)
+    {
+        Debug.Log($"🛡️ Invulnerable por {tiempo}s");
+        yield return new WaitForSeconds(tiempo);
+
+        invulnerable = false;
+        atacado = false;
+        if (move != null) move.recibiendoDaño = false;
+        Debug.Log("✅ Jugador vulnerable otra vez");
     }
 }

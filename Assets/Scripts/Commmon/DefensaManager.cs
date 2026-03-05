@@ -27,6 +27,8 @@ public class DefensaManager : MonoBehaviour {
     private float tiempoDefensaRestante;
     private bool cronometroActivo = false;
     float vidaJugador;
+    KikoDefenseMusic musicKiko;
+
     public enum TipoCombo
     {
         Ninguno = 0,
@@ -62,7 +64,9 @@ public class DefensaManager : MonoBehaviour {
         };
     }
     void Start() {
-        
+        Debug.Log("🔍 [DEFENSA] Start() INICIO");
+        musicKiko = FindObjectOfType<KikoDefenseMusic>();  // ← UNA VEZ
+
         // reiniciar la vida pruebas
         /*PlayerPrefs.SetFloat("Nivel1VidaJugador", 100f);
         PlayerPrefs.SetFloat("Nivel1VidaBoss", 100f);*/
@@ -78,10 +82,12 @@ public class DefensaManager : MonoBehaviour {
         // 🆕 Solo cuenta SI defensa iniciada Y cronómetro activo
         if (defensaIniciada && cronometroActivo && tiempoDefensaRestante > 0) {
             tiempoDefensaRestante -= Time.deltaTime;
+            textoVidaJugadorDefensa.text = $"Jugador: {GameManager.instance.vidaPlayer:F0}/100";//try
+
             ActualizarCronometroUI();
         }
         // actuaiza la vida del personaje sin guardarla en el playerPrefs para que no vaya lento
-        textoVidaJugadorDefensa.text = $"Jugador: {GameManager.instance.vidaPlayer:F0}/100";
+        //textoVidaJugadorDefensa.text = $"Jugador: {GameManager.instance.vidaPlayer:F0}/100";
     }
     private void ActualizarCronometroUI() {
         if (cronometroDefensa != null) {
@@ -105,7 +111,7 @@ public class DefensaManager : MonoBehaviour {
             sliderVidaBoss.maxValue = 100f;
             sliderVidaBoss.value = vidaBoss;
         }
-        StartCoroutine(AutoCerrar(5f));
+        StartCoroutine(AutoCerrar(3f));
     }
     IEnumerator AutoCerrar(float segundos) {
         yield return new WaitForSeconds(segundos);
@@ -113,6 +119,7 @@ public class DefensaManager : MonoBehaviour {
 
         tiempoDefensaRestante = tiempoDefensaBoss;      // ← 1. Reset 25s
         cronometroActivo = true;                        // ← 2. Activar Update()
+        defensaIniciada = true;                       // ← 3. Marcar inicio defensa
         cronometroDefensa.gameObject.SetActive(true);
         // 🆕 MOSTRAR textos DEFENSA
         if (textoVidaBossDefensa != null) {
@@ -122,7 +129,6 @@ public class DefensaManager : MonoBehaviour {
             textoVidaJugadorDefensa.text = $"Jugador: {PlayerPrefs.GetFloat("Nivel1VidaJugador", 100f):F0}/100";
         }
         Debug.Log("🛡️ FASE DEFENSA INICIADA");
-        KikoDefenseMusic musicKiko = FindObjectOfType<KikoDefenseMusic>();
         if (musicKiko != null) {
             musicKiko.ReproducirMusicaKiko();
         }
@@ -149,7 +155,6 @@ public class DefensaManager : MonoBehaviour {
 
         Debug.Log("🏁 DEFENSA FINALIZADA → NUEVO ATAQUE");
         // 🆕 Siguiente trozo Kiko
-        KikoDefenseMusic musicKiko = FindObjectOfType<KikoDefenseMusic>();
         if (musicKiko != null) {
             musicKiko.SiguienteTurnoKiko();
         }

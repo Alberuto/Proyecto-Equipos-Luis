@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class MainMenuController : MonoBehaviour {
     private void Awake()    {
         // GUARDAR nivel actual ANTES de borrar
-        int nivelActual = PlayerPrefs.GetInt("NivelActual", 1);
+        int nivelActual = PlayerPrefs.GetInt("NivelActual", 0);
 
         // BORRAR TODO
         PlayerPrefs.DeleteAll();
@@ -15,7 +15,7 @@ public class MainMenuController : MonoBehaviour {
         Debug.Log($"🆕 MainMenu: Nivel guardado = {nivelActual}");
     }
     public void CargarNivelProgreso() {
-        int nivel = PlayerPrefs.GetInt("NivelActual", 1);
+        int nivel = PlayerPrefs.GetInt("NivelActual", 0);
         Debug.Log($"🚀 CONTINUAR → Nivel {nivel}");
 
         switch (nivel) {
