@@ -111,6 +111,10 @@ public class AttackManagerTutorial : MonoBehaviour {
 
             vidasActuales--;
             Debug.Log($"❌ Nota incorrecta. Vidas restantes: {vidasActuales}");
+            // cambio variable para no guardar el objeto "playerTake"
+
+            PlayerTake player = FindObjectOfType<PlayerTake>();
+            player.fallo = true;
 
             if (vidasActuales <= 0) { // GUARDAR FALLADO
                 PlayerPrefs.SetInt("FuryTutorialFallado", 1);

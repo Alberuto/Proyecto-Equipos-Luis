@@ -133,15 +133,15 @@ public class tocaDiscosManager : MonoBehaviour
         int posicion = 0;
         for (int i = 0; i < notas.Count; i++)
         {
-            Debug.Log("entro al for");
+            //Debug.Log("entro al for");
             posicion = i;
             int cantidadObjetos = GameObject.Find("toca discos/pos_ (" + i + ")").transform.childCount;
-            Debug.Log("cantidad objetos en posicion " + i + ": " + cantidadObjetos);
+            //Debug.Log("cantidad objetos en posicion " + i + ": " + cantidadObjetos);
             if (cantidadObjetos == 0)
             {
                 notas[i].transform.SetParent(posicionesNotas[i]);
                 notas[i].transform.position = posicionesNotas[i].position;
-                Debug.Log("nueva posicion: " + i + "para: " + notas[i].tag);
+                //Debug.Log("nueva posicion: " + i + "para: " + notas[i].tag);
                 colocaionTocadiscos(notas[i]);
             }
 

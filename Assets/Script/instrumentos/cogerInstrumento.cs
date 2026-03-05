@@ -1,4 +1,4 @@
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -69,6 +69,7 @@ public class cogerInstrumento : MonoBehaviour
                     tocaDiscos.eliminarNota(this.gameObject);
                 }
                 cogido = true;
+                player.InstrumentoCogido(true);
 
                 //Debug.Log("entre ifs");
 
@@ -175,8 +176,8 @@ public class cogerInstrumento : MonoBehaviour
 
                 }
                 //Debug.Log("colocado");
-                player.a�adirInstrumento(this.gameObject);
-
+                player.añadirInstrumento(this.gameObject);
+                
             }
         }
     }

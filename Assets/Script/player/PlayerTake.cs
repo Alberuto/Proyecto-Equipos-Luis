@@ -1,7 +1,8 @@
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.InputSystem;
 
 // script para gestionar la accion de coger y soltar objetos
@@ -17,6 +18,7 @@ public class PlayerTake : MonoBehaviour
     private tocaDiscosManager tocaDiscos;
     private GameObject objetoCogido;
     public bool instrumentoEntregado = false;
+    public bool fallo = false;
     private int dificultad = 12;
 
     private void Start()
@@ -28,7 +30,7 @@ public class PlayerTake : MonoBehaviour
     private void Update()
     {
         // actualizar el estado de si hay un objeto cogido
-        cogido = GetComponentInChildren<cogerInstrumento>().objetoCogido();
+        //cogido = GetComponentInChildren<cogerInstrumento>().objetoCogido();
     }
 
     // funcion para cambiar el estado de coger al pulsar el boton(E por ahora)
@@ -60,8 +62,26 @@ public class PlayerTake : MonoBehaviour
                     instrumentoEntregado = true;
                     // Debug.Log("Instrumento entregado: " + instrumentoEntregado);
 
-                    tocaDiscos.setNota(objetoCogido);
+                    // 🆕 TUTORIAL 2A: Registrar objeto cogido
+                    AttackManagerTutorial tutorial = FindObjectOfType<AttackManagerTutorial>();
+                    if (tutorial != null)
+                    {
+                        tutorial.RegistrarNotaJugador(objetoCogido.tag);
+                        Debug.Log($"🎯 2A Tutorial: {objetoCogido.tag} registrado");
+                    }
+                    //compruebo si falla la nota para no guadarla en el tocadiscos
+                    if (fallo)
+                    {
+                        Destroy(objetoCogido);
+                        Debug.Log("fallo");
+                        fallo = false;
+                    }
+                    else
+                    {
+                        tocaDiscos.setNota(objetoCogido);
+                    }
                     cogido = false;
+                    Debug.Log("cogido del player take: "+cogido);
                     eliminarInstrumento();
                     SetCoger(false);
                     SetInstrumentoEntregado(false);
@@ -89,7 +109,7 @@ public class PlayerTake : MonoBehaviour
             }
         }
     }
-    public void a�adirInstrumento(GameObject objeto)
+    public void añadirInstrumento(GameObject objeto)
     {
         objetoCogido = objeto;
     }
@@ -105,9 +125,9 @@ public class PlayerTake : MonoBehaviour
     {
         return objetoCogido;
     }
-    public bool InstrumentoCogido()
+    public void InstrumentoCogido(bool objeto)
     {
-        return cogido;
+        cogido = objeto;
     }
     public void SetCoger(bool valor)
     {
