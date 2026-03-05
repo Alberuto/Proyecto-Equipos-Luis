@@ -115,5 +115,10 @@ public class AttackSelector : MonoBehaviour {
         if (attackMgr != null) {
             attackMgr.IniciarAtaque(pistaActual,damageBaseActual);
         }
+        AttackManagerSecuencia3 attackMgr3 = FindObjectOfType<AttackManagerSecuencia3>();
+        if (attackMgr3 != null)
+        {
+            attackMgr3.IniciarAtaque(pistaActual, damageBaseActual);
+        }
     }
 }

@@ -52,13 +52,12 @@ public class PlayerHealth : MonoBehaviour
         {
             invulnerable = true;
             move.recibiendoDaño = true;
-            StopCoroutine("delay");
-            StartCoroutine(delay(2.5f));
+            StopCoroutine("delayAnimation");
+            StartCoroutine(delayAnimation());
             Debug.Log("Jugador ha recibido daño de: " + other.tag);
             StopCoroutine("delay");
             StartCoroutine(delay(invulnerableTime));
             atacado = false;
-            invulnerable = false;
         }
         
     }
@@ -66,6 +65,12 @@ public class PlayerHealth : MonoBehaviour
     IEnumerator delay(float time)
     {
         yield return new WaitForSeconds(time);
-        //Debug.Log("Jugador ya no es invulnerable");
+        Debug.Log("Jugador ya no es invulnerable");
+        invulnerable = false;
+    }
+    IEnumerator delayAnimation()
+    {
+        yield return new WaitForSeconds(2.5f);
+        Debug.Log("Jugador ya no es invulnerable");
     }
 }

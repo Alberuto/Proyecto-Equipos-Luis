@@ -63,12 +63,26 @@ public class PlayerTake : MonoBehaviour
                     // Debug.Log("Instrumento entregado: " + instrumentoEntregado);
 
                     // 🆕 TUTORIAL 2A: Registrar objeto cogido
-                    AttackManagerTutorial tutorial = FindObjectOfType<AttackManagerTutorial>();
-                    if (tutorial != null)
+                    AttackManagerTutorial tutorial2a = FindObjectOfType<AttackManagerTutorial>();
+                    if (tutorial2a != null)
                     {
-                        tutorial.RegistrarNotaJugador(objetoCogido.tag);
+                        tutorial2a.RegistrarNotaJugador(objetoCogido.tag);
                         Debug.Log($"🎯 2A Tutorial: {objetoCogido.tag} registrado");
                     }
+
+                    AttackManagerSecuenciaA2 tutorial2a2 = FindObjectOfType<AttackManagerSecuenciaA2>();
+                    if (tutorial2a2 != null)
+                    {
+                        tutorial2a2.RegistrarNotaJugador(objetoCogido.tag);
+                        Debug.Log($"🎯 2A2 Tutorial: {objetoCogido.tag} registrado");
+                    }
+                    AttackManagerSecuencia3 attackMgr = FindObjectOfType<AttackManagerSecuencia3>();
+                    if (attackMgr != null)
+                    {
+                        attackMgr.RegistrarNotaJugador(objetoCogido.tag);
+                        Debug.Log($"🎯 3 ataque: {objetoCogido.tag} registrado");
+                    }
+
                     //compruebo si falla la nota para no guadarla en el tocadiscos
                     if (fallo)
                     {
