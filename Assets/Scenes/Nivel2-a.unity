@@ -1693,8 +1693,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1737057616}
   - component: {fileID: 1737057614}
-  - component: {fileID: 1737057618}
   - component: {fileID: 1737057617}
+  - component: {fileID: 1737057618}
   m_Layer: 0
   m_Name: attackManagerTutorial
   m_TagString: Untagged
@@ -1920,14 +1920,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1737057613}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c03c1c6a912af64ab3a43ec01a656c1, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cf3216cf06f5e146982cccd4cd119ad, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AttackManagerTutorial
+  m_EditorClassIdentifier: Assembly-CSharp::AttackManagerTutorial2
   tiempoText: {fileID: 1438726953}
   notaObjetivoText: {fileID: 1997680496}
   nombreJugadorText: {fileID: 799799289}
   vidasText: {fileID: 2076258742}
-  audioSource: {fileID: 1737057617}
+  audioSource: {fileID: 1737057614}
   sonidoOK: {fileID: 8300000, guid: f69f4b591c5458f4696563621738952b, type: 3}
   sonidoError: {fileID: 8300000, guid: b27e67db581fabd4b99e4c9c1a5aa467, type: 3}
   duracionTutorial: 300

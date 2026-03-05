@@ -837,7 +837,7 @@ MonoBehaviour:
   sliderVidaBoss: {fileID: 301873362}
   textoVidaBossDefensa: {fileID: 1240144428}
   textoVidaJugadorDefensa: {fileID: 838669898}
-  tiempoDefensaKiko: 25
+  tiempoDefensaBoss: 25
   cronometroDefensa: {fileID: 156439083}
 --- !u!4 &287641596
 Transform:
@@ -2007,6 +2007,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 288075212283715561, guid: b0f75e75dd8c24d4b8300148649289f6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 474516230499666499, guid: b0f75e75dd8c24d4b8300148649289f6, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.5

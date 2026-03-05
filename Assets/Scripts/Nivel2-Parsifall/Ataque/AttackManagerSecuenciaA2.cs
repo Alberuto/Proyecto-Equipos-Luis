@@ -126,10 +126,10 @@ public class AttackManagerSecuenciaA2 : MonoBehaviour {
     }
     private IEnumerator VolverConVictoria() {
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene("Nivel0");
+        SceneManager.LoadScene("Nivel2");
     }
     private IEnumerator volverNivel0() {
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene("Nivel0");
+        SceneManager.LoadScene("Nivel2");
     }
 }

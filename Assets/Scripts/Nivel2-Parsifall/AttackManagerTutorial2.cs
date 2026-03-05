@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class AttackManagerTutorial : MonoBehaviour {
+public class AttackManagerTutorial2 : MonoBehaviour {
 
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI tiempoText;
@@ -70,7 +70,7 @@ public class AttackManagerTutorial : MonoBehaviour {
     private System.Collections.IEnumerator VolverConFury() {
         yield return new WaitForSeconds(2f); // Pausa victoria
         Debug.Log("🎸 Cargando Nivel0 + CanvasFury...");
-        SceneManager.LoadScene("Nivel0");
+        SceneManager.LoadScene("Nivel2");
         // CanvasFury se activa desde Nivel0 (ver abajo)
     }
     private void ActualizarUI() {
