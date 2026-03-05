@@ -55,10 +55,10 @@ public class PersonajeDialogo : MonoBehaviour {
             indice++;
             ActualizarTexto();
         }
-        else {
+        /*else {
             // Última línea , empezar pelea (solo en panel Normal / Fury, por ejemplo)
             EmpezarPelea();
-        }
+        }*/
     }
     // Llamar desde botón "Anterior" (opcional)
     public void AnteriorTexto() {
@@ -70,8 +70,8 @@ public class PersonajeDialogo : MonoBehaviour {
             ActualizarTexto();
         }
     }
-    public void EmpezarPelea() {
+    /*public void EmpezarPelea() {
         // Encuentra manager y va a ataque
         FindObjectOfType<Nivel1_Manager>().IrAtaque();
-    }
+    }*/
 }

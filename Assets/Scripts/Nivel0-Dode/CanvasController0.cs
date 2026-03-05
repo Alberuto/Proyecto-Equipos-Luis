@@ -33,6 +33,7 @@ public class CanvasController0 : MonoBehaviour {
             ActivarCanvasWin();   // Dodeca gana
         }
         else if (PlayerPrefs.GetInt("Nivel0bCompletado", 0) ==1) {
+           // PlayerPrefs.SetInt("NivelActual", 1);
             ActivarCanvasLose();  // Normal (ya jugado) // tutorial completado
         }
     }
