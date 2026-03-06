@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -20,11 +20,13 @@ public class toroMovement : MonoBehaviour
     // tiempo de vida del toro antes de entrar en rage
     public float tiempoVidaToro = 10.0f;
     // tiempo de rage del toro antes de desaparecer
-    public float tiempoRageToro = 10.0f;
+    public float tiempoRageToro = 5.0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //PlayerMovement player = FindObjectOfType<PlayerMovement>();
+        
         // se ubica en la posicion inicial el toro
         transform.position = posicionInicial.position;
         // invierte la rotacion del toro en el eje y por que si no te sigue de culo xd

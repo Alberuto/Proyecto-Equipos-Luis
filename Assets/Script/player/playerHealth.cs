@@ -28,7 +28,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (invulnerable)
         {
-            Debug.Log("Jugador es invulnerable, no recibe daño");
+            Debug.Log("Jugador es invulnerable, no recibe daño de "+other.name);
             return;
         }
         else if (other.gameObject.CompareTag("kiko"))

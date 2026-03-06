@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
         {
             vidaPlayer -= daño;
             //UIManager.instance.ActualizarVida();
-            //Debug.Log("Jugador ha recibido " + daño + " de daño, vida restante: " + vida);
+            Debug.Log("Jugador ha recibido " + daño + " de daño, vida restante: " + vidaPlayer);
         }
     }
 
