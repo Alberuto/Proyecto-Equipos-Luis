@@ -9,11 +9,14 @@ public class sceneManager : MonoBehaviour {
     }
     public void CompletarYAvanzar(string nombreEscena) {
 
-        // 🆕 Extraer número del string "Nivel1", "Nivel2"...
+        // 🆕 Extraer número del string "Nivel1", "Nivel2"... y el nombre del jugador para guardar el progreso
+        string nombreJugador = PlayerPrefs.GetString("NombreJugador", "Anónimo");
         int siguienteNivel = ExtraerNumeroDeEscena(nombreEscena);
         // Guardar directamente el nivel desbloqueado
         PlayerPrefs.DeleteAll(); // Limpiar todo para evitar conflictos con tutoriales anteriores
+
         PlayerPrefs.SetInt("NivelActual", siguienteNivel);
+        PlayerPrefs.SetString("NombreJugador", nombreJugador); // Restaurar nombre del jugador
         PlayerPrefs.Save();
         Debug.Log($"🎉 Nivel {siguienteNivel - 1} completado → Desbloqueado hasta Nivel {siguienteNivel}");
         SceneManager.LoadScene(nombreEscena);
