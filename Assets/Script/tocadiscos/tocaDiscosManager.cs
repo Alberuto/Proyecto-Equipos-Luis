@@ -24,7 +24,7 @@ public class tocaDiscosManager : MonoBehaviour
             if (player.InstrumentoEntregado())
             {
                 nota = player.getObjetoCogido();
-                añadirNota(nota);
+                aï¿½adirNota(nota);
                 foreach (var nota in notas)
                 {
                     nota.transform.SetParent(transform);
@@ -53,7 +53,7 @@ public class tocaDiscosManager : MonoBehaviour
             }
         }
     }
-    private void añadirNota(GameObject nota)
+    private void aÃ±adirNota(GameObject nota)
     {
         notas.Add(nota);
     }
@@ -63,7 +63,7 @@ public class tocaDiscosManager : MonoBehaviour
     }
     public void setNota(GameObject obj)
     {
-        añadirNota(obj);
+        aÃ±adirNota(obj);
         int index = notas.IndexOf(obj);
         ComprobarPosiciones();
         /*nota.transform.SetParent(posicionesNotas[index]);
@@ -212,8 +212,8 @@ public class tocaDiscosManager : MonoBehaviour
 
 
 /*
- 1º -0.5, 0.5
-                                                                               2º 0.5, 0.5
+ 1ï¿½ -0.5, 0.5
+                                                                               2ï¿½ 0.5, 0.5
  
  
  
@@ -222,6 +222,6 @@ public class tocaDiscosManager : MonoBehaviour
     -0.3, 0             -0.1, 0              0.1, 0              0.3, 0
          
     -0.3,-0.25          -0.1, -0.25          0.1, -0.25          0.3, -0.25
-                                                                            4º 0.5, -0.5
- 3º -0.5, -0.5
+                                                                            4ï¿½ 0.5, -0.5
+ 3ï¿½ -0.5, -0.5
  */

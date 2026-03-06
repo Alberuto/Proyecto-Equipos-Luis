@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private bool inactivo = false;
     private float timeDelay = 20f;
     // variables para animacion
-    public bool recibiendoDaño = false;
+    public bool recibiendoDaÃ±o = false;
     public bool muerto = false;
 
     private CharacterController characterController;
@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (characterController == null)
             return;
-        if (!recibiendoDaño || !muerto)
+        if (!recibiendoDaÃ±o || !muerto)
         {
             ControlMovimiento();
             SonidoPasos();

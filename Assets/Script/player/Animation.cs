@@ -44,8 +44,7 @@ public class Animation : MonoBehaviour
         animator.SetBool("salto", PlayerMovement.salto);
         animator.SetBool("suelo", characterController.isGrounded);
         //animator.SetBool("tiempo", PlayerMovement.inactivo);
-        animator.SetBool("daño", PlayerMovement.recibiendoDaño);
+        animator.SetBool("daÃ±o", PlayerMovement.recibiendoDaÃ±o);
         animator.SetBool("muerto", PlayerMovement.muerto);
     }
-
 }

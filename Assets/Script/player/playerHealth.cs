@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    // Tiempo de invulnerabilidad despues de recibir daño
+    // Tiempo de invulnerabilidad despues de recibir daï¿½o
     private float invulnerableTime = 10.0f;
     private bool invulnerable = false;
 
-    public int dañoKiko = 10;
-    public int dañoCigala = 30;
-    public int dañoFary = 60;
+    public int daÃ±oKiko = 10;
+    public int daÃ±oCigala = 30;
+    public int daÃ±oFary = 60;
     public bool atacado = false;
 
     private PlayerMovement move;
@@ -28,33 +28,33 @@ public class PlayerHealth : MonoBehaviour
     {
         if (invulnerable)
         {
-            Debug.Log("Jugador es invulnerable, no recibe daño de "+other.name);
+            Debug.Log("Jugador es invulnerable, no recibe daï¿½o de "+other.name);
             return;
         }
         else if (other.gameObject.CompareTag("kiko"))
         {
-            GameManager.instance.RecibirDamage(dañoKiko);
+            GameManager.instance.RecibirDamage(daÃ±oKiko);
             atacado = true;
 
         }
         else if (other.gameObject.CompareTag("cigala"))
         {
-            GameManager.instance.RecibirDamage(dañoCigala);
+            GameManager.instance.RecibirDamage(daÃ±oCigala);
             atacado = true;
 
         }
         else if (other.gameObject.CompareTag("fary"))
         {
-            GameManager.instance.RecibirDamage(dañoFary);
+            GameManager.instance.RecibirDamage(daÃ±oFary);
             atacado = true;
         }
         if (atacado)
         {
             invulnerable = true;
-            move.recibiendoDaño = true;
+            move.recibiendoDaÃ±o = true;
             StopCoroutine("delayAnimation");
             StartCoroutine(delayAnimation());
-            Debug.Log("Jugador ha recibido daño de: " + other.tag);
+            Debug.Log("Jugador ha recibido daï¿½o de: " + other.tag);
             StopCoroutine("delay");
             StartCoroutine(delay(invulnerableTime));
             atacado = false;
