@@ -2634,7 +2634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083b84e05449fa84bac2351befcbd6e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreManager
-  nombreJugador: "An\xF3nimo"
+  nombreJugador: 
   scoreTotal: 0
   nivelActual: 0
 --- !u!4 &1471021636

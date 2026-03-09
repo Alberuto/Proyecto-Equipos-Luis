@@ -4,7 +4,7 @@ public class ScoreManager : MonoBehaviour {
 
     public static ScoreManager Instance;
 
-    public string nombreJugador = "Anónimo";
+    public string nombreJugador;
     public int scoreTotal = 0;  // ← ACUMULA Nivel0 + Nivel1 + Nivel2
     public int nivelActual = 0;
 
@@ -23,7 +23,7 @@ public class ScoreManager : MonoBehaviour {
     }
     public void GuardarNombre(string nuevoNombre) {
         nombreJugador = nuevoNombre;
-        PlayerPrefs.SetString("NombreJugador", nombreJugador);
+        PlayerPrefs.SetString("NombreJugador", nuevoNombre);
         PlayerPrefs.Save();  // ← INMEDIATO al disco
         Debug.Log($"💾 Nombre guardado: '{nombreJugador}'");
     }
