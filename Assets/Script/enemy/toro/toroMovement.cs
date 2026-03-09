@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Diagnostics.Tracing;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -9,24 +10,30 @@ public class toroMovement : MonoBehaviour
     [SerializeField] public PlayerMovement player;
     // target para la posicion del jugador
     private Vector3 target;
+    private float offSetX;
+    private float offSetZ;
     // toro para la posicion del toro
     private Vector3 toro;
     [Header("spawn toro")]
     // posicion inicial del toro
     public Transform posicionInicial;
+    private bool activo = false;
     // velocidad del toro
     public float speed = 3.0f;
     [Header("vida util toro")]
     // tiempo de vida del toro antes de entrar en rage
-    public float tiempoVidaToro = 10.0f;
+    public float tiempoVidaToro = 19.0f;
     // tiempo de rage del toro antes de desaparecer
-    public float tiempoRageToro = 5.0f;
+    public float tiempoRageToro = 10.0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        activo = false;
         //PlayerMovement player = FindObjectOfType<PlayerMovement>();
-        
+        offSetZ = +Random.Range(0.0f, 1.0f);
+        offSetX = +Random.Range(0.0f, 1.0f);
+        Debug.Log(this.name + " offSetX = "+ offSetX + " , offSetZ = "+offSetZ);
         // se ubica en la posicion inicial el toro
         transform.position = posicionInicial.position;
         // invierte la rotacion del toro en el eje y por que si no te sigue de culo xd
@@ -41,17 +48,24 @@ public class toroMovement : MonoBehaviour
     {
         // mueve el toro hacia la posicion del jugador
         toro = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        target = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
-        transform.position = Vector3.MoveTowards(toro, target, speed * Time.deltaTime);
-        //transform.rotation = Quaternion.Inverse(transform.rotation);
-        transform.LookAt(target);
-        transform.localRotation = Quaternion.Euler(0, transform.localRotation.eulerAngles.y + 180, 0);
+        target = new Vector3(player.transform.position.x + offSetX, transform.position.y, player.transform.position.z+ offSetZ);
+        if (activo)
+        {
+            transform.position = Vector3.MoveTowards(toro, target, speed * Time.deltaTime);
+            //transform.rotation = Quaternion.Inverse(transform.rotation);
+            transform.LookAt(target);
+            transform.localRotation = Quaternion.Euler(0, transform.localRotation.eulerAngles.y + 180, 0);
+        }
+
+        
 
     }
 
     // Corrutina para manejar la vida del toro
     IEnumerator vidaToro()
     {
+        yield return new WaitForSeconds(4f);
+        activo = true;
         // espera el tiempo de vida del toro
         yield return new WaitForSeconds(tiempoVidaToro);
         // aumenta la velocidad del toro y espera el tiempo de rage antes de destruir el toro

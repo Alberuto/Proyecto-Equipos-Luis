@@ -24,7 +24,11 @@ public class PlayerTake : MonoBehaviour
     private void Start()
     {
         tocaDiscosObject = GameObject.FindGameObjectWithTag("tocaDiscos");
-        tocaDiscos = tocaDiscosObject.GetComponent<tocaDiscosManager>();
+        if (tocaDiscosObject != null)
+        {
+            tocaDiscos = tocaDiscosObject.GetComponent<tocaDiscosManager>();
+        }
+        
         //dificultad = GameManager.getDificultad();
     }
     private void Update()
@@ -82,6 +86,7 @@ public class PlayerTake : MonoBehaviour
                         attackMgr.RegistrarNotaJugador(objetoCogido.tag);
                         Debug.Log($"🎯 3 ataque: {objetoCogido.tag} registrado");
                     }
+                                       
 
                     //compruebo si falla la nota para no guadarla en el tocadiscos
                     if (fallo)
@@ -107,20 +112,24 @@ public class PlayerTake : MonoBehaviour
                 }
             }
             // comprobar si se han entregado suficientes instrumentos para activar la secuencia de ataque
-            if (tocaDiscos.getNotas().Count >= dificultad && cogido == false)
+            if (tocaDiscos != null)
             {
-                Debug.Log("activar secuencia de ataque (comprobar si la secuencia esta bien o no)");
-                tocaDiscos.entregarNotas();
-                /*if (GameManager.instance.secuenciaCorrecta())
+                if (tocaDiscos.getNotas().Count >= dificultad && cogido == false)
                 {
-                    Debug.Log("Secuencia correcta, activar ataque");
+                    Debug.Log("activar secuencia de ataque (comprobar si la secuencia esta bien o no)");
+                    tocaDiscos.entregarNotas();
+                    /*if (GameManager.instance.secuenciaCorrecta())
+                    {
+                        Debug.Log("Secuencia correcta, activar ataque");
+                    }
+                    else
+                    {
+                        Debug.Log("Secuencia incorrecta, pierde turno");
+                    }
+                    */
                 }
-                else
-                {
-                    Debug.Log("Secuencia incorrecta, pierde turno");
-                }
-                */
             }
+            
         }
     }
     public void añadirInstrumento(GameObject objeto)
