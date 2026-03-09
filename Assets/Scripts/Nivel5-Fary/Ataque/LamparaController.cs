@@ -69,6 +69,12 @@ public class LamparaController : MonoBehaviour {
                 attackMgr4a2.RegistrarNotaJugador(nota);
                 Debug.Log($"🎯 4a2 ataque: {nota} registrado");
             }
+            AttackManagerTutorial4 attackMgr4 = FindObjectOfType<AttackManagerTutorial4>();
+            if (attackMgr4 != null)
+            {
+                attackMgr4.RegistrarNotaJugador(nota);
+                Debug.Log($"🎯 4a2 ataque: {nota} registrado");
+            }
         }
         //Debug.DrawRay(rayo.origin, rayo.direction * 50, Color.yellow); // Visual
     }
