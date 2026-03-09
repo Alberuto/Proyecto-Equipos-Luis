@@ -20,13 +20,14 @@ public class MainMenuController : MonoBehaviour {
         string nombre = PlayerPrefs.GetString("NombreJugador", "Anónimo");
 
         // BORRAR TODO
-        PlayerPrefs.DeleteAll();
+        if (nivelActual == 0)
+            PlayerPrefs.DeleteAll();
 
         // RESTAURAR nivel actual (indestructible)
         PlayerPrefs.SetInt("NivelActual", nivelActual);
         PlayerPrefs.SetString("NombreJugador", nombre);
         PlayerPrefs.Save();
-
+        Debug.Log($"🔍 Awake restaurado - PlayerPrefs: '{PlayerPrefs.GetString("NombreJugador")}'");
         // 🔥 INICIALIZAR ScoreManager DESPUÉS de restaurar PlayerPrefs
         if (ScoreManager.Instance != null) {
             ScoreManager.Instance.Inicializar();
@@ -34,8 +35,7 @@ public class MainMenuController : MonoBehaviour {
         Debug.Log($"🆕 MainMenu: Nivel guardado = {nivelActual}");
     }
     public void CargarNivelProgreso() {
-        if (ScoreManager.Instance.nombreJugador == "Anónimo" ||
-            string.IsNullOrEmpty(ScoreManager.Instance.nombreJugador)) {
+        if (ScoreManager.Instance.nombreJugador == "Anónimo") {
             panelNombre.SetActive(true);  // ← Pedir nombre
         }
         else {
@@ -57,12 +57,22 @@ public class MainMenuController : MonoBehaviour {
     public void ConfirmarNombre() {
         string nombre = inputNombre.text;
         if (string.IsNullOrEmpty(nombre)) nombre = "Jugador 1";
-
         ScoreManager.Instance.nombreJugador = nombre;  // ← Persiste
+        ScoreManager.Instance.GuardarNombre(nombre);  // ← USAR ESTA FUNCIÓN
+        Debug.Log($"🔍 DESPUÉS ConfirmarNombre - PlayerPrefs: '{PlayerPrefs.GetString("NombreJugador")}'");  // ← AÑADIR
         inputNombre.text = "";  // Limpiar
         panelNombre.SetActive(false);
-
-        CargarNivelProgreso();  // ← Ahora sí carga
+        int nivel = PlayerPrefs.GetInt("NivelActual", 0);
+        Debug.Log($"🚀 CONTINUAR → Nivel {nivel}");
+        switch (nivel)  {
+            default: SceneManager.LoadScene("Nivel0"); break;
+             case 0: SceneManager.LoadScene("Nivel0"); break;
+             case 1: SceneManager.LoadScene("Nivel1"); break;
+             case 2: SceneManager.LoadScene("Nivel2"); break;
+             case 3: SceneManager.LoadScene("Nivel2"); break;
+             case 4: SceneManager.LoadScene("Nivel2"); break;
+             case 5: SceneManager.LoadScene("Nivel2"); break;
+        }
     }
     public void NuevaPartida() {
         PlayerPrefs.DeleteAll();
@@ -77,9 +87,14 @@ public class MainMenuController : MonoBehaviour {
     public void CerrarCanvasRanking() {
         panelRanking.SetActive(false);
     }
-    public void CerrarPanelNombre() { 
-        ConfirmarNombre();
-        panelNombre.SetActive(false); 
+    public void CerrarPanelNombre() {
+        string nombreInput = inputNombre.text.Trim();
+        string nombreUsar = string.IsNullOrEmpty(nombreInput)
+            ? "Jugador 1"
+            : nombreInput;
+        ScoreManager.Instance.GuardarNombre(nombreUsar);
+        panelNombre.SetActive(false);
+        CargarNivelProgreso();
     }
     //FASE 3: RANKING FUNCIONAL
     public void Ranking() {

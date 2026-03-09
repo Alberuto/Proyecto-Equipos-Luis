@@ -14,12 +14,12 @@ public class PianoInputManagerTutorial : MonoBehaviour{
     public List<PianoKey> teclas = new List<PianoKey>();
 
     [Header("Tutorial")]
-    public AttackManagerTutorial tutorialManager;
+    public AttackManagerTutorial0 tutorialManager;
 
     void Start() {
         // Auto-asignar si no está asignado
         if (tutorialManager == null)
-            tutorialManager = FindObjectOfType<AttackManagerTutorial>();
+            tutorialManager = FindObjectOfType<AttackManagerTutorial0>();
     }
 
     void Update() {
