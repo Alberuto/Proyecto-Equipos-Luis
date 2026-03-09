@@ -1957,6 +1957,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 370279064939967736, guid: f3407f2888221cb429c587a7fdf6ff94, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 370279064939967736, guid: f3407f2888221cb429c587a7fdf6ff94, type: 3}
       propertyPath: m_TagString
       value: G#
       objectReference: {fileID: 0}
@@ -4974,6 +4978,10 @@ PrefabInstance:
       value: sol
       objectReference: {fileID: 0}
     - target: {fileID: -6689036041284674117, guid: 6ca7c316757a7c44cb31b2d5ae7624f3, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 6ca7c316757a7c44cb31b2d5ae7624f3, type: 3}
       propertyPath: m_TagString
       value: G#
       objectReference: {fileID: 0}
@@ -5070,7 +5078,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.1, y: 0.1, z: 0.1}
+  m_Size: {x: 0.2, y: 0.2, z: 0.2}
   m_Center: {x: 0.01, y: -0.2, z: 0.02}
 --- !u!1001 &4037623550332502137
 PrefabInstance:
