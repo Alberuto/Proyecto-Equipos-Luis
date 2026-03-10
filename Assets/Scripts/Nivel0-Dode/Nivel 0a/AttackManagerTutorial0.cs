@@ -75,7 +75,7 @@ public class AttackManagerTutorial0 : MonoBehaviour {
     }
     private void ActualizarUI() {
         tiempoText.text = $"Tiempo: {tiempoRestante:F1}s";
-        vidasText.text = $"<color=red>♥ Vidas: {vidasActuales}/{vidasMax}";
+        vidasText.text = $"<color=red>♥ Vidas: {vidasActuales}/{vidasMax}</color>";
     }
     private void FinTutorial(string motivo) {
         tutorialActivo = false;
