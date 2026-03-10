@@ -3072,7 +3072,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Contin\xFAa Nivel 2"
+  m_text: "Contin\xFAa Nivel 3"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4388,7 +4388,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1729950838}
-  - component: {fileID: 1729950839}
+  - component: {fileID: 1729950840}
   m_Layer: 0
   m_Name: canvasManager
   m_TagString: Untagged
@@ -4411,7 +4411,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1729950839
+--- !u!114 &1729950840
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4420,9 +4420,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1729950836}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f98fb965006a9d94eacfbc805fcee4ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 3be19474386e0bb42bef3ec489abd378, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CanvasController0
+  m_EditorClassIdentifier: Assembly-CSharp::CanvasControllerUniversal
   canvasNormal: {fileID: 689394757}
   canvasWin: {fileID: 1824632149}
   canvasFury: {fileID: 1530509036}
@@ -5502,5 +5502,5 @@ SceneRoots:
   - {fileID: 1729950838}
   - {fileID: 689394761}
   - {fileID: 1824632153}
-  - {fileID: 2012820556}
   - {fileID: 1530509040}
+  - {fileID: 2012820556}

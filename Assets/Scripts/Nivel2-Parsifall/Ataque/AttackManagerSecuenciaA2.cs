@@ -88,12 +88,10 @@ public class AttackManagerSecuenciaA2 : MonoBehaviour {
         }
         else {
             // 🏆 NIVEL COMPLETO
-            PlayerPrefs.DeleteKey("FuryTutorialCompletado");
-            PlayerPrefs.DeleteKey("FuryTutorialFallado");
-            PlayerPrefs.SetInt("Nivel0bCompletado", 1);
+            PlayerPrefs.SetInt("Nivel", 1);
             PlayerPrefs.Save();
             FinSecuencia("🎉 ¡COMBO PERFECTO! Nivel 1 desbloqueado");
-            StartCoroutine(VolverConVictoria());
+            StartCoroutine(Volver());
         }
     }
     private void PerderVida() {
@@ -104,11 +102,10 @@ public class AttackManagerSecuenciaA2 : MonoBehaviour {
         if (audioSource && sonidoError) audioSource.PlayOneShot(sonidoError);
 
         if (vidasActuales <= 0) {
-            PlayerPrefs.DeleteKey("FuryTutorialCompletado");
-            PlayerPrefs.SetInt("FuryTutorialFallado", 1);
+            PlayerPrefs.SetInt("Fallo", 1);
             PlayerPrefs.Save();
             FinSecuencia("💀 Sin vidas");
-            StartCoroutine(volverNivel0());
+            StartCoroutine(Volver());
         }
         else {
             GenerarNuevaSecuencia();
@@ -124,11 +121,7 @@ public class AttackManagerSecuenciaA2 : MonoBehaviour {
     private void FinSecuencia(string motivo) {
         secuenciaText.text = $"<color=red>{motivo}</color>";
     }
-    private IEnumerator VolverConVictoria() {
-        yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene("Nivel2");
-    }
-    private IEnumerator volverNivel0() {
+    private IEnumerator Volver() {
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene("Nivel2");
     }

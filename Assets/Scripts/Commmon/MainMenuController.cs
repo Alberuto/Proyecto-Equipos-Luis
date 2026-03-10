@@ -20,7 +20,7 @@ public class MainMenuController : MonoBehaviour {
         string nombre = PlayerPrefs.GetString("NombreJugador", "Anónimo");
 
         // BORRAR TODO
-        if (nivelActual == 0)
+        //if (nivelActual == 0)
             PlayerPrefs.DeleteAll();
 
         // RESTAURAR nivel actual (indestructible)

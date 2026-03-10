@@ -67,10 +67,10 @@ public class PlayerTake : MonoBehaviour
                     // Debug.Log("Instrumento entregado: " + instrumentoEntregado);
 
                     // 🆕 TUTORIAL 2A: Registrar objeto cogido
-                    AttackManagerTutorial tutorial2a = FindObjectOfType<AttackManagerTutorial>();
+                    AttackManagerTutorialObjetos2A tutorial2a = FindObjectOfType<AttackManagerTutorialObjetos2A>();
                     if (tutorial2a != null)
                     {
-                        tutorial2a.RegistrarNotaJugador(objetoCogido.tag);
+                        tutorial2a.RegistrarObjetoCogido(objetoCogido.tag);
                         Debug.Log($"🎯 2A Tutorial: {objetoCogido.tag} registrado");
                     }
 

@@ -45,55 +45,49 @@ public class AttackManagerTutorialObjetos2A : MonoBehaviour {
     }
     void Update() {
         if (!tutorialActivo) return;
-        tiempoRestante -= Time.deltaTime;
+            tiempoRestante -= Time.deltaTime;
         if (tiempoRestante <= 0f) {
-
             tiempoRestante = 0f;
-            VolverConFracaso();
-            StartCoroutine(VolverConFracaso());
+            StartCoroutine(Volver());
         }
         ActualizarUI();
     }
-
     private void ElegirSiguienteNota() {
 
         if (indiceNotaActual >= secuenciaTutorial.Count) {
-            VolverConVictoria();
+            StartCoroutine(Volver());
         }
         notaObjetivoActual = secuenciaTutorial[indiceNotaActual];
         Debug.Log($"🎯 Objetivo {indiceNotaActual + 1}/12: {notaObjetivoActual}");
     }
 
     public void RegistrarObjetoCogido(string tagObjeto) {
+
         if (!tutorialActivo)
             return;
 
         Debug.Log($"🎹 '{tagObjeto}' vs '{notaObjetivoActual}' ({indiceNotaActual + 1}/12)");
 
-        if (tagObjeto == notaObjetivoActual)
-        {
+        if (tagObjeto == notaObjetivoActual)  {
             objetosCogidosCorrectos++;
             Debug.Log($"✅ {tagObjeto} correcto! ({objetosCogidosCorrectos}/12)");
 
             if (audioSource && sonidoOK)
                 audioSource.PlayOneShot(sonidoOK);
 
-            if (objetosCogidosCorrectos >= 12)
-            {
+            if (objetosCogidosCorrectos >= 12) {
                 Debug.Log("🏆 ¡12 OBJETOS CORRECTOS! TUTORIAL COMPLETADO!");
-                VolverConVictoria();
+                PlayerPrefs.SetInt($"Fury", 1);
+                StartCoroutine(Volver());
                 return;
             }
-
             indiceNotaActual++;
             ElegirSiguienteNota();
         }
-        else
-        {
+        else  {
             Debug.Log($"❌ {tagObjeto} ≠ {notaObjetivoActual}");
             PerderVida();
         }
-
         ActualizarUI();
     }
     private void PerderVida()  {
@@ -103,8 +97,8 @@ public class AttackManagerTutorialObjetos2A : MonoBehaviour {
         vidasActuales--;
 
         if (vidasActuales <= 0) {
-            VolverConFracaso();
-            StartCoroutine(VolverConFracaso());
+            PlayerPrefs.SetInt($"Fallo", 1);
+            StartCoroutine(Volver());
         }
         else {
             ElegirSiguienteNota();  // ← Empezar de nuevo desde C
@@ -113,7 +107,7 @@ public class AttackManagerTutorialObjetos2A : MonoBehaviour {
     }
     private void ActualizarUI()  {
         if (tiempoText) tiempoText.text = $"Tiempo: {tiempoRestante:F1}s";
-        if (vidasText) vidasText.text = $"<color=red>♥ Vidas: {vidasActuales}/{vidasMax}";
+        if (vidasText) vidasText.text = $"<color=red>♥ Vidas: {vidasActuales}/{vidasMax}</color>";
         if (nombreJugadorText) nombreJugadorText.text = $"Jugador";
 
         if (objetivoText)
@@ -121,18 +115,9 @@ public class AttackManagerTutorialObjetos2A : MonoBehaviour {
             objetivoText.text = $"2A Coge: <color=yellow>{notaObjetivoActual}</color> ({objetosCogidosCorrectos}/12)";
         }
     }
-    private IEnumerator VolverConVictoria() {
+    private IEnumerator Volver() {
 
         yield return new WaitForSeconds(2f);
-        PlayerPrefs.SetInt("Nivel0bCompletado", 1);
-        PlayerPrefs.Save();
         SceneManager.LoadScene("Nivel2");  // ← CanvasController0 gestiona
-    }
-    private IEnumerator VolverConFracaso() {
-
-        yield return new WaitForSeconds(2f);
-        PlayerPrefs.SetInt("Fallo", 1);
-        PlayerPrefs.Save();
-        SceneManager.LoadScene("Nivel2");  // ← Reintentar
     }
 }
