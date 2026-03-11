@@ -48,9 +48,9 @@ public class MainMenuController : MonoBehaviour {
                 case 0: SceneManager.LoadScene("Nivel0"); break;
                 case 1: SceneManager.LoadScene("Nivel1"); break;
                 case 2: SceneManager.LoadScene("Nivel2"); break;
-                case 3: SceneManager.LoadScene("Nivel2"); break;
-                case 4: SceneManager.LoadScene("Nivel2"); break;
-                case 5: SceneManager.LoadScene("Nivel2"); break;
+                case 3: SceneManager.LoadScene("Nivel3"); break;
+                case 4: SceneManager.LoadScene("Nivel4"); break;
+                case 5: SceneManager.LoadScene("Nivel5"); break;
             }
         }
     }
@@ -69,9 +69,9 @@ public class MainMenuController : MonoBehaviour {
              case 0: SceneManager.LoadScene("Nivel0"); break;
              case 1: SceneManager.LoadScene("Nivel1"); break;
              case 2: SceneManager.LoadScene("Nivel2"); break;
-             case 3: SceneManager.LoadScene("Nivel2"); break;
-             case 4: SceneManager.LoadScene("Nivel2"); break;
-             case 5: SceneManager.LoadScene("Nivel2"); break;
+             case 3: SceneManager.LoadScene("Nivel3"); break;
+             case 4: SceneManager.LoadScene("Nivel4"); break;
+             case 5: SceneManager.LoadScene("Nivel5"); break;
         }
     }
     public void NuevaPartida() {

@@ -35,7 +35,6 @@ public class AttackManagerTutorial4 : MonoBehaviour {
 
     void Start() {
         // Aquí puedes poner el nombre real
-        nombreJugadorText.text = "Jugador";
         tiempoRestante = duracionTutorial;
         vidasActuales = vidasMax;
         tutorialActivo = true;
