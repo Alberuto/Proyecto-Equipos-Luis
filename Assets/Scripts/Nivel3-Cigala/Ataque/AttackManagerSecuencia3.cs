@@ -137,7 +137,9 @@ public class AttackManagerSecuencia3 : MonoBehaviour {
         }
     }
     private void FinalizarAtaque() {
-        int danoFinal = 0;
+        int attackValue = PlayerPrefs.GetInt("AttackValue", 0); // 🆕 Leer valor base del ataque desde PlayerPrefs
+        int danoFinal = attackValue * 12; //heredar el valor del ataque base del attack selector y multiplicar por 12 combos
+
         Debug.Log($"⏰ Tiempo terminado! Ataques exitosos: secuencias → {danoFinal} daño");
         if (combatManager != null) {
             Debug.Log("⚔️ CombatManager OK → RecibirAtaque()");
