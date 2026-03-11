@@ -27,10 +27,14 @@ public class CombatManager : MonoBehaviour {
     }
     private void CargarEstadoNivel1() {
         // Si NO hay datos guardados → valores por defecto 100/100 jugador y boss
-        if (PlayerPrefs.HasKey("Nivel1VidaJugador")) {
+        if (PlayerPrefs.HasKey("Nivel1VidaJugador"))
+        {
             vidaJugadorActual = PlayerPrefs.GetFloat("Nivel1VidaJugador", vidaJugadorMax);
             vidaBossActual = PlayerPrefs.GetFloat("Nivel1VidaBoss", vidaBossMax);
             Debug.Log($"⚔️ CombatManager: Vida cargada J:{vidaJugadorActual} B:{vidaBossActual}");
+        }
+        else {
+            vidaJugadorActual = 100;
         }
     }
     public void RecibirAtaque(int damageTotal) {
