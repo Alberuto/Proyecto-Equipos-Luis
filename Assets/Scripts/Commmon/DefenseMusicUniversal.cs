@@ -4,7 +4,6 @@ public class DefenseMusicUniversal : MonoBehaviour {
 
     [Header("Trozos Musicales")]
     public AudioClip[] Trozos;
-
     private AudioSource audioSource;
     private int turnoDefensa = 0;
 
@@ -13,7 +12,6 @@ public class DefenseMusicUniversal : MonoBehaviour {
         turnoDefensa = PlayerPrefs.GetInt("TurnoDefensa", 0);
     }
     public void ReproducirMusica() {
-
         int indice = turnoDefensa % Trozos.Length;
         if (Trozos[indice] != null) {
             audioSource.clip = Trozos[indice];

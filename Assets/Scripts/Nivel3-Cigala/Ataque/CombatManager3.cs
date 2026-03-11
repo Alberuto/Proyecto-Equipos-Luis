@@ -38,6 +38,8 @@ public class CombatManager3 : MonoBehaviour {
         vidaBossActual -= damageTotal;
         vidaBossActual = Mathf.Max(0, vidaBossActual); // para que no baje de 0
         Debug.Log($"⚔️ Daño aplicado: {damageTotal:F1}");
+        PlayerPrefs.SetInt("VidaBoss", (int) vidaBossActual);
+
         ActualizarUI();
         if (vidaBossActual <= 0) {
             Debug.Log("🎉 ¡BOSS DERROTADO!");

@@ -117,8 +117,8 @@ public class AttackManagerSecuencia3 : MonoBehaviour {
     private IEnumerator DecidirSiguienteFase() {
         yield return new WaitForSeconds(1.5f);
         // 🆕 LEER PlayerPrefs en lugar de CombatManager
-        float vidaBossPersistente = PlayerPrefs.GetFloat("Nivel1VidaBoss", 100f);
-        float vidaBossMax = 100f;
+        float vidaBossPersistente = PlayerPrefs.GetFloat("VidaBoss", 100f);
+        float vidaBossMax = 100;
         Debug.Log($"🎯 Vida Boss PlayerPrefs: {vidaBossPersistente}/{vidaBossMax}");
         if (vidaBossPersistente <= 0) {
             Debug.Log("🎉 ¡BOSS DERROTADO! NIVEL 2");

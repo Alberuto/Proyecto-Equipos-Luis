@@ -111,9 +111,7 @@ public class AttackManager : MonoBehaviour {
         string notaActual = "";
 
         for (int i = 0; i < secuencia.Length; i++) {
-
             char c = secuencia[i];
-
             if (c == '#') {
                 notaActual += c;
             }
@@ -148,22 +146,18 @@ public class AttackManager : MonoBehaviour {
     public void RegistrarNota(string nota) {
 
         if (!ataqueActivo || tiempoTerminado) return;
-
         secuenciaJugador.Add(nota);
         Debug.Log("Nota: " + nota + " | Progreso: [" + string.Join(", ", secuenciaJugador) + "]");
-
         bool coincideCompleta = secuenciaJugador.Count == secuenciaObjetivo.Count;
         bool errorEnPosicion = false;
 
         for (int i = 0; i < secuenciaJugador.Count; i++) {
-
             if (secuenciaJugador[i] != secuenciaObjetivo[i]) {
                 errorEnPosicion = true;
                 break;
             }
         }
         if (coincideCompleta && !errorEnPosicion) {
-
             if (nivelDificil) {
                 // 🎯 NIVEL3-5: x12 DIRECTO (sin contar intentos)
                 intentosExitosos = 12;
@@ -185,7 +179,6 @@ public class AttackManager : MonoBehaviour {
             return;
         }
         else if (errorEnPosicion) {
-
             // 🆕 ERROR → Reiniciar secuencia actual
             Debug.Log("❌ Error en posición!");
             if (feedbackAudio != null && sonidoError != null)
@@ -194,7 +187,6 @@ public class AttackManager : MonoBehaviour {
         }
     }
     public void IniciarCronometro() {
-
         tiempoRestante = tiempoTotal;
         tiempoTerminado = false;
         ActualizarUI();
@@ -208,17 +200,14 @@ public class AttackManager : MonoBehaviour {
         // 🆕 LEER PlayerPrefs en lugar de CombatManager
         float vidaBossPersistente = PlayerPrefs.GetFloat("Nivel1VidaBoss", 100f);
         float vidaBossMax = 100f;
-
         Debug.Log($"🎯 Vida Boss PlayerPrefs: {vidaBossPersistente}/{vidaBossMax}");
 
-        if (vidaBossPersistente <= 0)
-        {
+        if (vidaBossPersistente <= 0) {
             Debug.Log("🎉 ¡BOSS DERROTADO! NIVEL 2");
             PlayerPrefs.SetInt("Nivel", 1);
             SceneManager.LoadScene("Nivel1");
         }
-        else if (vidaBossPersistente > 50f)
-        {
+        else if (vidaBossPersistente > 50f) {
             Debug.Log("🛡️ Boss fuerte → Nivel1-Defensa");
             SceneManager.LoadScene("Nivel1-Defensa");
         }
