@@ -102,8 +102,6 @@ public class AttackManagerSecuencia3 : MonoBehaviour {
         if (audioSource && sonidoError) 
             audioSource.PlayOneShot(sonidoError);
         if (vidasActuales <= 0) {
-            PlayerPrefs.SetInt("Fallo", 1);
-            PlayerPrefs.Save();
             FinalizarAtaque();
         }
     }
@@ -119,9 +117,17 @@ public class AttackManagerSecuencia3 : MonoBehaviour {
         // 🆕 LEER PlayerPrefs en lugar de CombatManager
         float vidaBossPersistente = PlayerPrefs.GetFloat("VidaBoss", 100f);
         float vidaBossMax = 100;
-        Debug.Log($"🎯 Vida Boss PlayerPrefs: {vidaBossPersistente}/{vidaBossMax}");
+        Debug.Log($"🎯 Vida Boss PlayerPrefs: vida persiste{vidaBossPersistente}/{vidaBossMax} vida bos max");
+        Debug.Log($"🎯 Vida Boss CombatManager: {combatManager.vidaBossActual}/{combatManager.vidaBossMax}");
+        Debug.Log($"🎯 Vida Jugador PlayerPrefs: {PlayerPrefs.GetFloat("VidaJugador", 100f)}/100");
+        Debug.Log($"🎯 Vida Jugador CombatManager: {combatManager.vidaJugadorActual}/{combatManager.vidaJugadorMax}");
+        Debug.Log($"🎯 Fury Status: {PlayerPrefs.GetInt("Fury", 0)} (0=No Fury, 1=Fury Activo)");
+        Debug.Log($"🎯 Fallo Status: {PlayerPrefs.GetInt("Fallo", 0)} (0=No Fallo, 1=Jugador Falló)");
+        Debug.Log($"🎯 Decisión de siguiente fase basada en vidaBossPersistente: {vidaBossPersistente} y Fury: {PlayerPrefs.GetInt("Fury", 0)}");
+
         if (vidaBossPersistente <= 0) {
             Debug.Log("🎉 ¡BOSS DERROTADO! NIVEL 2");
+            PlayerPrefs.SetInt("Nivel", 1);
             SceneManager.LoadScene("Nivel3");
         }
         else if (vidaBossPersistente > 50f) {
