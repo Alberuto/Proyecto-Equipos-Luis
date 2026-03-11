@@ -88,7 +88,7 @@ public class AttackManagerSecuenciaA2 : MonoBehaviour {
         }
         else {
             // 🏆 NIVEL COMPLETO
-            PlayerPrefs.SetInt("Nivel", 1);
+            PlayerPrefs.SetInt("Nivel", 1); //no se si esto hace que el nivel no se guarde y por eso se borra el progreso
             PlayerPrefs.Save();
             FinSecuencia("🎉 ¡COMBO PERFECTO! Nivel 1 desbloqueado");
             StartCoroutine(Volver());

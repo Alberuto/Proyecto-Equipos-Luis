@@ -117,14 +117,12 @@ public class AttackSelector : MonoBehaviour {
         }
         // escena coger objetos (2.A2 y 3)
         AttackManagerSecuencia3 attackMgr3 = FindObjectOfType<AttackManagerSecuencia3>();
-        if (attackMgr3 != null)
-        {
+        if (attackMgr3 != null) {
             attackMgr3.IniciarAtaque(pistaActual, damageBaseActual);
         }
         // escena de lulu (4.A2 y 5)
         AttackManagerSecuencia4 attackMgr4 = FindObjectOfType<AttackManagerSecuencia4>();
-        if (attackMgr4 != null)
-        {
+        if (attackMgr4 != null) {
             attackMgr4.IniciarAtaque(pistaActual, damageBaseActual);
         }
     }

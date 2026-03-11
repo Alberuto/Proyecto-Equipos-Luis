@@ -24,11 +24,11 @@ public class AttackManagerSecuencia3 : MonoBehaviour {
     private float tiempoRestante;
     private int vidasActuales;
 
-    // 🎵 SECUENCIA
-    private List<string> todasNotas = new List<string> { "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B" };
     private List<string> secuenciaActual = new List<string>();
     private List<string> inputJugador = new List<string>();
     private int faseActual = 1; // 1=2teclas, 2=3teclas, 3=4teclas
+
+    [SerializeField] private CombatManager3 combatManager;
 
     void Start() {
         audioSource = GetComponent<AudioSource>();
@@ -38,16 +38,14 @@ public class AttackManagerSecuencia3 : MonoBehaviour {
     }
     void Update() {
         tiempoRestante -= Time.deltaTime;
-        if (tiempoRestante <= 0) FinSecuencia("⏰ Tiempo agotado");
+        if (tiempoRestante <= 0) PerderVida(); // ("⏰ Tiempo agotado");
         ActualizarUI();
     }
     public void RegistrarNotaJugador(string nota) {
         inputJugador.Add(nota);
         Debug.Log($"🎹 [{string.Join("→", inputJugador)}] vs [{string.Join("→", secuenciaActual)}]");
-
         // Reproducir nota
         if (audioSource) audioSource.PlayOneShot(sonidoOK);
-
         // Verificar paso actual
         if (inputJugador.Count <= secuenciaActual.Count) {
 
@@ -56,7 +54,7 @@ public class AttackManagerSecuencia3 : MonoBehaviour {
                 if (inputJugador.Count == secuenciaActual.Count) {
                     Debug.Log("🏆 SECUENCIA COMPLETA!");
                     if (audioSource && sonidoCombo) audioSource.PlayOneShot(sonidoCombo);
-                    SiguienteFase();
+                    FinalizarAtaque();
                 }
             }
             else {
@@ -67,73 +65,46 @@ public class AttackManagerSecuencia3 : MonoBehaviour {
         ActualizarUI();
     }
     // Método auxiliar para convertir string de attack selector en List<string> para comparación
-    private List<string> ConvertirSecuenciaStringALista(string secuencia)
-    {
-
+    private List<string> ConvertirSecuenciaStringALista(string secuencia) {
         List<string> listaNotas = new List<string>();
         string notaActual = "";
-
-        for (int i = 0; i < secuencia.Length; i++)
-        {
-
+        for (int i = 0; i < secuencia.Length; i++) {
             char c = secuencia[i];
-
-            if (c == '#')
-            {
+            if (c == '#')  {
                 notaActual += c;
             }
-            else
-            {
+            else {
                 // Si hay nota anterior, la guardamos
-                if (!string.IsNullOrEmpty(notaActual))
-                {
-
+                if (!string.IsNullOrEmpty(notaActual)) {
                     listaNotas.Add(notaActual);
                 }
                 notaActual = c.ToString();
             }
         }
         // Guardar última nota
-        if (!string.IsNullOrEmpty(notaActual))
-        {
-
+        if (!string.IsNullOrEmpty(notaActual)) {
             listaNotas.Add(notaActual);
         }
         return listaNotas;
     }
     public void IniciarAtaque(string secuencia, int damageBase) {
         secuenciaActual.Clear();
-
         secuenciaActual = ConvertirSecuenciaStringALista(secuencia);
-
-
         inputJugador.Clear();
         secuenciaText.text = $"<color=yellow>FASE {faseActual}: {string.Join(" → ", secuenciaActual)}</color>";
         Debug.Log($"🎯 Nueva secuencia FASE {faseActual}: {string.Join("→", secuenciaActual)}");
-    }
-    private void SiguienteFase() {
-
-        // 🏆 NIVEL COMPLETO
-        PlayerPrefs.DeleteKey("FuryTutorialCompletado");
-        PlayerPrefs.DeleteKey("FuryTutorialFallado");
-        PlayerPrefs.SetInt("Nivel0bCompletado", 1);
-        PlayerPrefs.Save();
-        FinSecuencia("🎉 ¡COMBO PERFECTO! Nivel 1 desbloqueado");
-        StartCoroutine(VolverConVictoria());
     }
     private void PerderVida() {
         vidasActuales--;
         PlayerTake player = FindObjectOfType<PlayerTake>();
         player.fallo = true;
         inputJugador.Clear();
-        if (audioSource && sonidoError) audioSource.PlayOneShot(sonidoError);
-
+        if (audioSource && sonidoError) 
+            audioSource.PlayOneShot(sonidoError);
         if (vidasActuales <= 0) {
-            PlayerPrefs.DeleteKey("FuryTutorialCompletado");
-            PlayerPrefs.SetInt("FuryTutorialFallado", 1);
+            PlayerPrefs.SetInt("Fallo", 1);
             PlayerPrefs.Save();
-            FinSecuencia("💀 Sin vidas");
-            StartCoroutine(volverNivel0());
+            FinalizarAtaque();
         }
     }
     private void ActualizarUI() {
@@ -143,15 +114,42 @@ public class AttackManagerSecuencia3 : MonoBehaviour {
             tiempoText.text = $"Tiempo: {tiempoRestante:F1}s";
         }
     }
-    private void FinSecuencia(string motivo) {
-        secuenciaText.text = $"<color=red>{motivo}</color>";
+    private IEnumerator DecidirSiguienteFase() {
+        yield return new WaitForSeconds(1.5f);
+        // 🆕 LEER PlayerPrefs en lugar de CombatManager
+        float vidaBossPersistente = PlayerPrefs.GetFloat("Nivel1VidaBoss", 100f);
+        float vidaBossMax = 100f;
+        Debug.Log($"🎯 Vida Boss PlayerPrefs: {vidaBossPersistente}/{vidaBossMax}");
+        if (vidaBossPersistente <= 0) {
+            Debug.Log("🎉 ¡BOSS DERROTADO! NIVEL 2");
+            SceneManager.LoadScene("Nivel3");
+        }
+        else if (vidaBossPersistente > 50f) {
+            Debug.Log("🛡️ Boss fuerte → Nivel3-Defensa");
+            SceneManager.LoadScene("Nivel3-Defensa");
+        }
+        else if (vidaBossPersistente <= 50f && (PlayerPrefs.GetInt("Fury", 0) == 0)) {
+            PlayerPrefs.SetInt("Fury", 1);
+            SceneManager.LoadScene("Nivel3");
+        }
+        else {
+            SceneManager.LoadScene("Nivel3-Fury");
+        }
     }
-    private IEnumerator VolverConVictoria() {
-        yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene("Nivel0");
-    }
-    private IEnumerator volverNivel0() {
-        yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene("Nivel0");
+    private void FinalizarAtaque() {
+        int danoFinal = 0;
+        Debug.Log($"⏰ Tiempo terminado! Ataques exitosos: secuencias → {danoFinal} daño");
+        if (combatManager != null) {
+            Debug.Log("⚔️ CombatManager OK → RecibirAtaque()");
+            combatManager.RecibirAtaque(danoFinal);
+        }
+        else {
+            Debug.LogError("❌ CombatManager NO ASIGNADO en AttackManager!");
+        }
+        PlayerPrefs.SetInt("AtaqueDaño", danoFinal);
+        PlayerPrefs.SetFloat("VidaJugador", combatManager.vidaJugadorActual);
+        PlayerPrefs.SetFloat("VidaBoss", combatManager.vidaBossActual);
+        PlayerPrefs.Save();
+        StartCoroutine(DecidirSiguienteFase());
     }
 }

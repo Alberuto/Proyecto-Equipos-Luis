@@ -784,7 +784,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3003240389209412388, guid: f241d62418d109c4989c95977d717180, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7369603831546536230, guid: f241d62418d109c4989c95977d717180, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2965,7 +2965,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 626959638}
-  - component: {fileID: 626959637}
+  - component: {fileID: 626959639}
   m_Layer: 0
   m_Name: DefensaManager
   m_TagString: Untagged
@@ -2973,29 +2973,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &626959637
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 626959636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b43c4e2cc7cc7941b8ccf647d5801e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DefensaManager
-  canvasResumen: {fileID: 9918486}
-  textoCombo: {fileID: 873692617}
-  textoDamage: {fileID: 243192824}
-  textoBossVida: {fileID: 939751891}
-  textoJugadorVida: {fileID: 1225817119}
-  sliderVidaJugador: {fileID: 1437775444}
-  sliderVidaBoss: {fileID: 1687088163}
-  textoVidaBossDefensa: {fileID: 230343475}
-  textoVidaJugadorDefensa: {fileID: 1126953212}
-  tiempoDefensaBoss: 25
-  cronometroDefensa: {fileID: 2100280995}
 --- !u!4 &626959638
 Transform:
   m_ObjectHideFlags: 0
@@ -3011,6 +2988,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &626959639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626959636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 350bd6929fcf619448311fc9a8964b4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DefensaManager3
+  canvasResumen: {fileID: 9918486}
+  textoCombo: {fileID: 873692617}
+  textoDamage: {fileID: 243192824}
+  textoBossVida: {fileID: 939751891}
+  textoJugadorVida: {fileID: 1225817119}
+  sliderVidaJugador: {fileID: 1437775444}
+  sliderVidaBoss: {fileID: 1687088163}
+  textoVidaBossDefensa: {fileID: 230343475}
+  textoVidaJugadorDefensa: {fileID: 1126953212}
+  tiempoDefensaBoss: 40
+  cronometroDefensa: {fileID: 2100280995}
 --- !u!1 &627317286
 GameObject:
   m_ObjectHideFlags: 0
@@ -3021,6 +3021,7 @@ GameObject:
   m_Component:
   - component: {fileID: 627317288}
   - component: {fileID: 627317287}
+  - component: {fileID: 627317289}
   m_Layer: 0
   m_Name: MusicManager
   m_TagString: Untagged
@@ -3069,6 +3070,103 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &627317289
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627317286}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!64 &646029853
 MeshCollider:
   m_ObjectHideFlags: 0

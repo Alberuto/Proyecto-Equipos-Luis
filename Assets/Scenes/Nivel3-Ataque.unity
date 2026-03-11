@@ -7788,6 +7788,7 @@ MonoBehaviour:
   sonidoCombo: {fileID: 8300000, guid: f69f4b591c5458f4696563621738952b, type: 3}
   tiempoTotal: 60
   vidasMax: 3
+  combatManager: {fileID: 1906398707}
 --- !u!4 &1544327232
 Transform:
   m_ObjectHideFlags: 0
