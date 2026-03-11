@@ -26,7 +26,6 @@ public class NotaInteractiva : MonoBehaviour {
     public void Iluminar() {
         // Brilla 0.5s + llama SecuenciaManager
         IluminarTemporal();
-
         // ENCONTRAR SecuenciaManager y avisar
         SecuenciaManager secuencia = FindObjectOfType<SecuenciaManager>();
         if (secuencia != null) {

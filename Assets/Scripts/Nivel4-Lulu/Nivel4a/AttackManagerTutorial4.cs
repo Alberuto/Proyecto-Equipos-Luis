@@ -34,7 +34,6 @@ public class AttackManagerTutorial4 : MonoBehaviour {
     private bool tutorialActivo = false;
 
     void Start() {
-
         // Aquí puedes poner el nombre real
         nombreJugadorText.text = "Jugador";
         tiempoRestante = duracionTutorial;
@@ -47,7 +46,6 @@ public class AttackManagerTutorial4 : MonoBehaviour {
     void Update() {
 
         if (!tutorialActivo) return;
-
         tiempoRestante -= Time.deltaTime;
         if (tiempoRestante <= 0f) {
             tiempoRestante = 0f;
@@ -67,11 +65,9 @@ public class AttackManagerTutorial4 : MonoBehaviour {
             return;
         }
     }
-    private System.Collections.IEnumerator VolverConFury() {
-        yield return new WaitForSeconds(2f); // Pausa victoria
-        Debug.Log("🎸 Cargando Nivel0 + CanvasFury...");
+    private System.Collections.IEnumerator Volver() {
+        yield return new WaitForSeconds(1.25f); // Pausa victoria
         SceneManager.LoadScene("Nivel4");
-        // CanvasFury se activa desde Nivel0 (ver abajo)
     }
     private void ActualizarUI() {
         tiempoText.text = $"Tiempo: {tiempoRestante:F1}s";
@@ -93,9 +89,9 @@ public class AttackManagerTutorial4 : MonoBehaviour {
         if (nota == notaObjetivoActual) {  // Acierto
             if (notas.Count == 1) {        // Esta es la ÚLTIMA nota
                 FinTutorial("🎉 ¡PERFECTO! Tutorial completado"); 
-                PlayerPrefs.SetInt("FuryTutorialCompletado", 1); // GUARDAR COMPLETADO
+                PlayerPrefs.SetInt("Fury", 1); // GUARDAR COMPLETADO
                 PlayerPrefs.Save();
-                StartCoroutine(VolverConFury());
+                StartCoroutine(Volver());
                 return;
             }
             if (sonidoOK != null && audioSource != null)
@@ -117,10 +113,10 @@ public class AttackManagerTutorial4 : MonoBehaviour {
             player.fallo = true;
 
             if (vidasActuales <= 0) { // GUARDAR FALLADO
-                PlayerPrefs.SetInt("FuryTutorialFallado", 1);
+                PlayerPrefs.SetInt("Fallo", 1);
                 PlayerPrefs.Save();
                 FinTutorial("💀 Sin vidas");
-                StartCoroutine(VolverConFury());
+                StartCoroutine(Volver());
             }
         }
         ActualizarUI();

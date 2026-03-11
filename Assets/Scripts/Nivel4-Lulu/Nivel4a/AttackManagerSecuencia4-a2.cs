@@ -28,60 +28,47 @@ public class AttackManagerSecuencia4a2 : MonoBehaviour {
     private List<string> todasNotas = new List<string> { "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B" };
     private List<string> secuenciaActual = new List<string>();
     private List<string> inputJugador = new List<string>();
-    private int faseActual = 1; // 1=2teclas, 2=3teclas, 3=4teclas
-
-    void Start()
-    {
+    private int faseActual = 1;
+    void Start() {
         audioSource = GetComponent<AudioSource>();
         tiempoRestante = tiempoTotal;
         vidasActuales = vidasMax;
         GenerarNuevaSecuencia();
         ActualizarUI();
     }
-    void Update()
-    {
+    void Update() {
         tiempoRestante -= Time.deltaTime;
         if (tiempoRestante <= 0) FinSecuencia("⏰ Tiempo agotado");
         ActualizarUI();
     }
-    public void RegistrarNotaJugador(string nota)
-    {
+    public void RegistrarNotaJugador(string nota) {
         inputJugador.Add(nota);
         Debug.Log($"🎹 [{string.Join("→", inputJugador)}] vs [{string.Join("→", secuenciaActual)}]");
-
         // Reproducir nota
         if (audioSource) audioSource.PlayOneShot(sonidoOK);
-
         // Verificar paso actual
-        if (inputJugador.Count <= secuenciaActual.Count)
-        {
+        if (inputJugador.Count <= secuenciaActual.Count) {
 
-            if (inputJugador[^1] == secuenciaActual[inputJugador.Count - 1])
-            {
+            if (inputJugador[^1] == secuenciaActual[inputJugador.Count - 1]) {
                 Debug.Log("✅ Paso correcto!");
-                if (inputJugador.Count == secuenciaActual.Count)
-                {
+                if (inputJugador.Count == secuenciaActual.Count) {
                     Debug.Log("🏆 SECUENCIA COMPLETA!");
                     if (audioSource && sonidoCombo) audioSource.PlayOneShot(sonidoCombo);
                     SiguienteFase();
                 }
             }
-            else
-            {
+            else {
                 Debug.Log("❌ Paso incorrecto!");
                 PerderVida();
             }
         }
         ActualizarUI();
     }
-    private void GenerarNuevaSecuencia()
-    {
+    private void GenerarNuevaSecuencia() {
         secuenciaActual.Clear();
         int longitud = faseActual + 1; // Fase1=2, Fase2=3, Fase3=4
 
-        for (int i = 0; i < longitud; i++)
-        {
-
+        for (int i = 0; i < longitud; i++) {
             int index = Random.Range(0, todasNotas.Count);
             secuenciaActual.Add(todasNotas[index]);
         }
@@ -89,65 +76,46 @@ public class AttackManagerSecuencia4a2 : MonoBehaviour {
         secuenciaText.text = $"<color=yellow>FASE {faseActual}: {string.Join(" → ", secuenciaActual)}</color>";
         Debug.Log($"🎯 Nueva secuencia FASE {faseActual}: {string.Join("→", secuenciaActual)}");
     }
-    private void SiguienteFase()
-    {
+    private void SiguienteFase() {
 
-        if (faseActual < 3)
-        {
+        if (faseActual < 3) {
             faseActual++;
             GenerarNuevaSecuencia();
         }
-        else
-        {
-            // 🏆 NIVEL COMPLETO
-            PlayerPrefs.DeleteKey("FuryTutorialCompletado");
-            PlayerPrefs.DeleteKey("FuryTutorialFallado");
-            PlayerPrefs.SetInt("Nivel0bCompletado", 1);
+        else {
+            PlayerPrefs.SetInt("Nivel", 1);
             PlayerPrefs.Save();
-            FinSecuencia("🎉 ¡COMBO PERFECTO! Nivel 1 desbloqueado");
-            StartCoroutine(VolverConVictoria());
+            FinSecuencia("🎉 ¡COMBO PERFECTO! Nivel 5 desbloqueado");
+            StartCoroutine(Volver());
         }
     }
-    private void PerderVida()
-    {
+    private void PerderVida() {
         vidasActuales--;
         inputJugador.Clear();
         if (audioSource && sonidoError) audioSource.PlayOneShot(sonidoError);
 
-        if (vidasActuales <= 0)
-        {
-            PlayerPrefs.DeleteKey("FuryTutorialCompletado");
-            PlayerPrefs.SetInt("FuryTutorialFallado", 1);
+        if (vidasActuales <= 0) {
+            PlayerPrefs.SetInt("Fallo", 1);
             PlayerPrefs.Save();
             FinSecuencia("💀 Sin vidas");
-            StartCoroutine(volverNivel0());
+            StartCoroutine(Volver());
         }
-        else
-        {
+        else {
             GenerarNuevaSecuencia();
         }
     }
-    private void ActualizarUI()
-    {
+    private void ActualizarUI() {
         progresoText.text = $"Progreso: {inputJugador.Count}/{secuenciaActual.Count}";
         vidasText.text = $"<color=red>♥ {vidasActuales}</color>";
-        if (tiempoText != null)
-        {
+        if (tiempoText != null) {
             tiempoText.text = $"Tiempo: {tiempoRestante:F1}s";
         }
     }
-    private void FinSecuencia(string motivo)
-    {
+    private void FinSecuencia(string motivo) {
         secuenciaText.text = $"<color=red>{motivo}</color>";
     }
-    private IEnumerator VolverConVictoria()
-    {
-        yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene("Nivel2");
-    }
-    private IEnumerator volverNivel0()
-    {
-        yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene("Nivel2");
+    private IEnumerator Volver() {
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene("Nivel4");
     }
 }
