@@ -24,6 +24,8 @@ public class AttackManagerSecuencia5 : MonoBehaviour {
     private float tiempoRestante;
     private int vidasActuales;
 
+    [SerializeField] private CombatManager5 combatManager;
+
     // 🎵 SECUENCIA
     private List<string> todasNotas = new List<string> { "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B" };
     private List<string> secuenciaActual = new List<string>();
@@ -46,7 +48,8 @@ public class AttackManagerSecuencia5 : MonoBehaviour {
         Debug.Log($"🎹 [{string.Join("→", inputJugador)}] vs [{string.Join("→", secuenciaActual)}]");
 
         // Reproducir nota
-        if (audioSource) audioSource.PlayOneShot(sonidoOK);
+        if (audioSource) 
+            audioSource.PlayOneShot(sonidoOK);
 
         // Verificar paso actual
         if (inputJugador.Count <= secuenciaActual.Count) {
@@ -55,8 +58,9 @@ public class AttackManagerSecuencia5 : MonoBehaviour {
                 Debug.Log("✅ Paso correcto!");
                 if (inputJugador.Count == secuenciaActual.Count) {
                     Debug.Log("🏆 SECUENCIA COMPLETA!");
-                    if (audioSource && sonidoCombo) audioSource.PlayOneShot(sonidoCombo);
-                    SiguienteFase();
+                    if (audioSource && sonidoCombo) 
+                        audioSource.PlayOneShot(sonidoCombo);
+                    StartCoroutine(DecidirSiguienteFase());
                 }
             }
             else {
@@ -67,26 +71,21 @@ public class AttackManagerSecuencia5 : MonoBehaviour {
         ActualizarUI();
     }
     // Método auxiliar para convertir string de attack selector en List<string> para comparación
-    private List<string> ConvertirSecuenciaStringALista(string secuencia)
-    {
+    private List<string> ConvertirSecuenciaStringALista(string secuencia)  {
 
         List<string> listaNotas = new List<string>();
         string notaActual = "";
 
-        for (int i = 0; i < secuencia.Length; i++)
-        {
+        for (int i = 0; i < secuencia.Length; i++)  {
 
             char c = secuencia[i];
 
-            if (c == '#')
-            {
+            if (c == '#') {
                 notaActual += c;
             }
-            else
-            {
+            else {
                 // Si hay nota anterior, la guardamos
-                if (!string.IsNullOrEmpty(notaActual))
-                {
+                if (!string.IsNullOrEmpty(notaActual))   {
 
                     listaNotas.Add(notaActual);
                 }
@@ -94,8 +93,7 @@ public class AttackManagerSecuencia5 : MonoBehaviour {
             }
         }
         // Guardar última nota
-        if (!string.IsNullOrEmpty(notaActual))
-        {
+        if (!string.IsNullOrEmpty(notaActual)) {
 
             listaNotas.Add(notaActual);
         }
@@ -103,37 +101,21 @@ public class AttackManagerSecuencia5 : MonoBehaviour {
     }
     public void IniciarAtaque(string secuencia, int damageBase) {
         secuenciaActual.Clear();
-
         secuenciaActual = ConvertirSecuenciaStringALista(secuencia);
-
-
         inputJugador.Clear();
         secuenciaText.text = $"<color=yellow>FASE {faseActual}: {string.Join(" → ", secuenciaActual)}</color>";
         Debug.Log($"🎯 Nueva secuencia FASE {faseActual}: {string.Join("→", secuenciaActual)}");
-    }
-    private void SiguienteFase() {
-
-        // 🏆 NIVEL COMPLETO
-        PlayerPrefs.DeleteKey("FuryTutorialCompletado");
-        PlayerPrefs.DeleteKey("FuryTutorialFallado");
-        PlayerPrefs.SetInt("Nivel0bCompletado", 1);
-        PlayerPrefs.Save();
-        FinSecuencia("🎉 ¡COMBO PERFECTO! Nivel 1 desbloqueado");
-        StartCoroutine(VolverConVictoria());
     }
     private void PerderVida() {
         vidasActuales--;
         PlayerTake player = FindObjectOfType<PlayerTake>();
         player.fallo = true;
         inputJugador.Clear();
-        if (audioSource && sonidoError) audioSource.PlayOneShot(sonidoError);
+        if (audioSource && sonidoError) 
+            audioSource.PlayOneShot(sonidoError);
 
         if (vidasActuales <= 0) {
-            PlayerPrefs.DeleteKey("FuryTutorialCompletado");
-            PlayerPrefs.SetInt("FuryTutorialFallado", 1);
-            PlayerPrefs.Save();
-            FinSecuencia("💀 Sin vidas");
-            StartCoroutine(volverNivel0());
+            StartCoroutine(DecidirSiguienteFase());
         }
     }
     private void ActualizarUI() {
@@ -146,12 +128,34 @@ public class AttackManagerSecuencia5 : MonoBehaviour {
     private void FinSecuencia(string motivo) {
         secuenciaText.text = $"<color=red>{motivo}</color>";
     }
-    private IEnumerator VolverConVictoria() {
-        yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene("Nivel0");
-    }
-    private IEnumerator volverNivel0() {
-        yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene("Nivel0");
+    private IEnumerator DecidirSiguienteFase() {
+        yield return new WaitForSeconds(1.5f);
+        // 🆕 LEER PlayerPrefs en lugar de CombatManager
+        float vidaBossPersistente = PlayerPrefs.GetFloat("VidaBoss", 100f);
+        float vidaBossMax = 100;
+        Debug.Log($"🎯 Vida Boss PlayerPrefs: vida persiste{vidaBossPersistente}/{vidaBossMax} vida bos max");
+        Debug.Log($"🎯 Vida Boss CombatManager: {combatManager.vidaBossActual}/{combatManager.vidaBossMax}");
+        Debug.Log($"🎯 Vida Jugador PlayerPrefs: {PlayerPrefs.GetFloat("VidaJugador", 100f)}/100");
+        Debug.Log($"🎯 Vida Jugador CombatManager: {combatManager.vidaJugadorActual}/{combatManager.vidaJugadorMax}");
+        Debug.Log($"🎯 Fury Status: {PlayerPrefs.GetInt("Fury", 0)} (0=No Fury, 1=Fury Activo)");
+        Debug.Log($"🎯 Fallo Status: {PlayerPrefs.GetInt("Fallo", 0)} (0=No Fallo, 1=Jugador Falló)");
+        Debug.Log($"🎯 Decisión de siguiente fase basada en vidaBossPersistente: {vidaBossPersistente} y Fury: {PlayerPrefs.GetInt("Fury", 0)}");
+
+        if (vidaBossPersistente <= 0)  {
+            Debug.Log("🎉 ¡BOSS DERROTADO! NIVEL 2");
+            PlayerPrefs.SetInt("Nivel", 1);
+            SceneManager.LoadScene("Nivel5");
+        }
+        else if (vidaBossPersistente > 50f) {
+            Debug.Log("🛡️ Boss fuerte → Nivel3-Defensa");
+            SceneManager.LoadScene("Nivel5-Defensa");
+        }
+        else if (vidaBossPersistente <= 50f && (PlayerPrefs.GetInt("Fury", 0) == 0)) {
+            PlayerPrefs.SetInt("Fury", 1);
+            SceneManager.LoadScene("Nivel5");
+        }
+        else {
+            SceneManager.LoadScene("Nivel5-Fury");
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -36,22 +37,21 @@ public class CombatManager5 : MonoBehaviour {
     public void RecibirAtaque(int damageTotal) {
 
         vidaBossActual -= damageTotal;
-
         vidaBossActual = Mathf.Max(0, vidaBossActual); // para que no baje de 0
-
         Debug.Log($"⚔️ Daño aplicado: {damageTotal:F1}");
-
         ActualizarUI();
 
-        if (vidaBossActual <= 0) {
-
+        if (vidaBossActual <= 0)  {
+            PlayerPrefs.SetInt("Nivel", 1);
             Debug.Log("🎉 ¡BOSS DERROTADO!");
         }
-        if (vidaJugadorActual <= 0)
-        {
-            PlayerPrefs.SetInt("Fallo", 1);
-            SceneManager.LoadScene("Nivel1");
+        if (vidaBossActual <= 49) {
+            PlayerPrefs.SetInt("Fury", 1);
         }
+        if (vidaJugadorActual <= 0) {
+            PlayerPrefs.SetInt("Fallo", 1);
+        }
+        StartCoroutine(Volver());
     }
     private void InicializarUI() {
 
@@ -66,5 +66,9 @@ public class CombatManager5 : MonoBehaviour {
         vidaBoss.value = vidaBossActual;
         textoVidaJugador.text = $"Jugador: {vidaJugadorActual:F0}/{vidaJugadorMax}";
         textoVidaBoss.text = $"Boss: {vidaBossActual:F0}/{vidaBossMax}";
+    }
+    IEnumerator Volver() {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("Nivel5");
     }
 }
