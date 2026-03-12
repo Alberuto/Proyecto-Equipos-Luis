@@ -57,7 +57,7 @@ public class LamparaController : MonoBehaviour {
                 Debug.Log($"🎯 Nota iluminada: {nota}");
             }*/
             detectado = true;
-            AttackManagerSecuencia4 attackMgr = FindObjectOfType<AttackManagerSecuencia4>();
+            AttackManagerSecuencia5 attackMgr = FindObjectOfType<AttackManagerSecuencia5>();
             if (attackMgr != null)
             {
                 attackMgr.RegistrarNotaJugador(nota);

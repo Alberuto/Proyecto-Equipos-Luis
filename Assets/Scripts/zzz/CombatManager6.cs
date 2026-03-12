@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class CombatManager4 : MonoBehaviour {
+public class CombatManager6 : MonoBehaviour {
 
     [Header("Vida")]
     [SerializeField] private Slider vidaJugador;
@@ -12,7 +12,7 @@ public class CombatManager4 : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI textoVidaBoss;
 
     [Header("Referencias")]
-    [SerializeField] private AttackManagerSecuencia4 attackManager;
+    [SerializeField] private AttackManagerSecuencia6 attackManager;
 
     // Estado combate
     public float vidaJugadorMax = 100f;
@@ -21,40 +21,35 @@ public class CombatManager4 : MonoBehaviour {
     public float vidaBossActual = 100f;
 
     void Start() {
-        CargarEstadoNivel1();
+        CargarEstado();
         InicializarUI();
         // attackManager ya está asignado en Inspector
     }
-    private void CargarEstadoNivel1() {
+    private void CargarEstado() {
         // Si NO hay datos guardados → valores por defecto 100/100 jugador y boss
-        if (PlayerPrefs.HasKey("Nivel1VidaJugador")) {
-            vidaJugadorActual = PlayerPrefs.GetFloat("Nivel1VidaJugador", vidaJugadorMax);
-            vidaBossActual = PlayerPrefs.GetFloat("Nivel1VidaBoss", vidaBossMax);
+        if (PlayerPrefs.HasKey("VidaJugador")) {
+            vidaJugadorActual = PlayerPrefs.GetFloat("VidaJugador", vidaJugadorMax);
+            vidaBossActual = PlayerPrefs.GetFloat("VidaBoss", vidaBossMax);
             Debug.Log($"⚔️ CombatManager: Vida cargada J:{vidaJugadorActual} B:{vidaBossActual}");
         }
     }
     public void RecibirAtaque(int damageTotal) {
 
         vidaBossActual -= damageTotal;
-
         vidaBossActual = Mathf.Max(0, vidaBossActual); // para que no baje de 0
-
         Debug.Log($"⚔️ Daño aplicado: {damageTotal:F1}");
+        PlayerPrefs.SetInt("VidaBoss", (int) vidaBossActual);
 
         ActualizarUI();
-
         if (vidaBossActual <= 0) {
-
             Debug.Log("🎉 ¡BOSS DERROTADO!");
         }
-        if (vidaJugadorActual <= 0)
-        {
+        if (vidaJugadorActual <= 0) {
             PlayerPrefs.SetInt("Fallo", 1);
-            SceneManager.LoadScene("Nivel1");
+            SceneManager.LoadScene("Nivel5");
         }
     }
     private void InicializarUI() {
-
         vidaJugador.maxValue = vidaJugadorMax;
         vidaJugador.value = vidaJugadorActual;
         vidaBoss.maxValue = vidaBossMax;
