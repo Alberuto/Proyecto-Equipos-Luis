@@ -204,19 +204,12 @@ public class tocaDiscosManager : MonoBehaviour
                 break;
         }
     }
-    IEnumerator delay()
-    {
+    IEnumerator delay() {
         yield return new WaitForSeconds(timeDelayNota);
     }
 }
-
-
 /*
- 1º -0.5, 0.5
-                                                                               2º 0.5, 0.5
- 
- 
- 
+ 1º -0.5, 0.5                                                               2º 0.5, 0.5
     -0.3, 0.25          -0.1, 0.25           0.1, 0.25           0.3, 0.25
  
     -0.3, 0             -0.1, 0              0.1, 0              0.3, 0

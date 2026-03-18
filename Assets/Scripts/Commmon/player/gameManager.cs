@@ -43,9 +43,10 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void Start()
-    {   
-        vidaPlayer = 100;
+    private void Start() {
+        
+        vidaPlayer = PlayerPrefs.GetFloat("Nivel1VidaJugador", 100f);
+
         //vidaPlayer = PlayerPrefs.GetFloat("Nivel1VidaJugador", 100f);
         /*
         // Inicializar la vida del enemigo en la UI

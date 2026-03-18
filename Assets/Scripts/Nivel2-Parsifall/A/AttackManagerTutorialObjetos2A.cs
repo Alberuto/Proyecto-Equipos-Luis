@@ -26,7 +26,7 @@ public class AttackManagerTutorialObjetos2A : MonoBehaviour {
     };
 
     private int indiceNotaActual = 0;  // ← 0 a 11 (12 objetos)
-    private string notaObjetivoActual;
+    public string notaObjetivoActual;
     private float tiempoRestante;
     private int vidasActuales;
     private bool tutorialActivo = false;

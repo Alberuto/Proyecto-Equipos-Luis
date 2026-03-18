@@ -65,18 +65,16 @@ public class DefensaManager : MonoBehaviour {
     }
     void Start() {
         Debug.Log("🔍 [DEFENSA] Start() INICIO");
-        musicKiko = FindObjectOfType<KikoDefenseMusic>();  // ← UNA VEZ
-
-        // reiniciar la vida pruebas
-        /*PlayerPrefs.SetFloat("Nivel1VidaJugador", 100f);
-        PlayerPrefs.SetFloat("Nivel1VidaBoss", 100f);*/
-
+        musicKiko = FindObjectOfType<KikoDefenseMusic>();
         int combos = PlayerPrefs.GetInt("Nivel1IntentosExitosos", 0);
         int damage = PlayerPrefs.GetInt("Nivel1AtaqueDaño", 0);
-        vidaJugador = PlayerPrefs.GetFloat("Nivel1VidaJugador");
+        float vidaJugadorPersistente = PlayerPrefs.GetFloat("Nivel1VidaJugador");
         float vidaBoss = PlayerPrefs.GetFloat("Nivel1VidaBoss");
+
+        vidaJugador = vidaJugadorPersistente;
+
         Debug.Log($"📊 Resumen Ataque: x{combos} combos, {damage} daño");
-        MostrarResumen(combos, damage, GameManager.instance.vidaPlayer, vidaBoss);
+        MostrarResumen(combos, damage, vidaJugador, vidaBoss);
     }
     void Update() {
         // 🆕 Solo cuenta SI defensa iniciada Y cronómetro activo
