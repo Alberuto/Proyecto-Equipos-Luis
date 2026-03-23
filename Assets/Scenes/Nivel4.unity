@@ -2500,7 +2500,7 @@ MonoBehaviour:
   - "Te recordar\xE9 encantada los objetos de parsfiall para que puedas seguir intentandolo
     y como frenar a los toritos bravos"
   - "El dodecafonismo tampoco te ha abandonado del todo, siempre prevalecer\xE1 en
-    tu teclado"
+    tu teclado, al igual que parsifall en sus objetos inertes"
   - "Muchas veces es mejor si no has aprendido de que va este cometido volverlo a
     intentar desde el principio\t"
   - Hagas lo que hagas , gracias por haberlo intentado
@@ -2734,22 +2734,21 @@ MonoBehaviour:
   nombrePersonaje: Lulu
   estado: Normal
   lineas:
-  - Lo primero de todo darte la enhorabuena por haber derrotado al Cigala, estas
-    a punto de liberar a Elvis
+  - Lo primero de todo darte la enhorabuena por haber derrotado a Kiko y al Cigala,
+    estas a punto de liberar a Elvis
+  - ....Pero antes te espera el jefe de jefazos, MI fary....
   - "Siento decirte que la oscuridad de Parsifall se desvaneci\xF3 con el cigala,
-    como dodecaphonismo con Kiko"
+    al igual que el dodecaphonismo con Kiko, son batallas devastadoras"
   - "Al deteriorarse existe el riesgo de que el sonido que emiten sus objetos se
     desvanecieran con el para siempre\t"
   - "Sin estos objetos no podrias ejecutar los riffs con los que da\xF1ar a tus adversarios,
     y es aqui donde aparezco yo\t"
-  - Lulu, ser de luz que ha hecho un esfuerzo para mantener una copia de los sonidos
-    parseados por parsifall en este mundo
+  - "Lulu, ser de luz que ha hecho un esfuerzo para mantener una copia de los sonidos
+    parseados por parsifall en este mundo a trav\xE9s de la luz"
   - "Aunque el Parsifall est\xE9 muerto, no lo est\xE1 su mensaje, gracias a mi luz"
   - "Espero que puedas derrotar al fary y su/s torito/s bravos sirvi\xE9ndote de
     ella"
-  - Intentare detenerlos si me usas contra su campo visual
-  - "Y si no lo puedo conseguir al menos intentar\xE9 retrasarlos lo m\xE1ximo posible"
-  - Buena suerte en la batalla final de la guerra musical
+  - Buena suerte en la preparacion hacia la batalla final de la guerra musical
 --- !u!114 &886010494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4342,11 +4341,11 @@ MonoBehaviour:
   lineas:
   - Bien hecho estas consiguiendo superar con exito el entrenamiento final
   - Siento que me disperso como Dodecafonismo o Parsifall cada vez que introduces
-    un riff
+    un riff pero la causa liberadora merece la pena
   - "Espero poder aguantar toda la pelea ya que mi obligacion como ser de luz es
     luchar por la justicia suprema de M\xF3stoles"
   - Y va siendo hora que estos gandules abandonen el after infinito que se han montado
-    en un pueblo tan tranquilo como Churriana de la vega
+    en un pueblo tan tranquilo como es Churriana de la vega
   - Es que no solo tienen secuestrado a Elvis Pelvis sino a la familia del tabernero
     hipotecada porque llevan varios meses consumiendo sin pagar pese a la generosidad
     del Cigala
@@ -4897,13 +4896,14 @@ MonoBehaviour:
   nombrePersonaje: Lulu
   estado: Lose
   lineas:
-  - "Muy bien hecho, has superado el entreno y estas listo para enfrentarte al Fary\t"
-  - "Siento que volver\xE9 pronto a la luz de la que sal\xED, siento no poderte ser
-    m\xE1s de ayuda"
+  - "Muy bien hecho, has superado el entreno final y estas listo para enfrentarte
+    al Fary\t"
+  - "Siento que volver\xE9 pronto a la luz de la que sal\xED, y siento que ya no
+    podr\xE9 ser m\xE1s de ayuda"
   - Afortunadamente ya no te quedan mas enemigos a los que enfretar y estas a punto
-    de conseguir rescatar al elvis
-  - Gracias a la luz, a las tinieblas y a la musica has evitado ser derrotado por
-    estos seres faranduleros llenos de furia e ira
+    de conseguir rescatar al Elvis
+  - Gracias a la luz, a las tinieblas, al dodecafonismo y sobre todo a la musica
+    has evitado ser derrotado por estos seres faranduleros llenos de furia e ira
   - "...Que la armonia del dodecafonismo, la sinestesia de parsifall y mi luz te
     acompa\xF1enen para siempre..."
 --- !u!114 &1853641417

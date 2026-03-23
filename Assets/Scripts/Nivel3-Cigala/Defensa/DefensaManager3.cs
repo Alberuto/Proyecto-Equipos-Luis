@@ -34,7 +34,7 @@ public class DefensaManager3 : MonoBehaviour {
         int combos = 12; //en los niveles que se introduzca cogiendo o iluminando objetos siempre sera x12
         int damage = PlayerPrefs.GetInt("AtaqueDaño", 0);
         vidaJugador = PlayerPrefs.GetFloat("VidaJugador");
-        float vidaBoss = PlayerPrefs.GetFloat("VidaBoss");
+        float vidaBoss = PlayerPrefs.GetFloat("VidaBoss",100f);
         Debug.Log($"📊 Resumen Ataque: x{combos} combos, {damage} daño");
         MostrarResumen(combos, damage, GameManager.instance.vidaPlayer, vidaBoss);
     }
@@ -43,6 +43,7 @@ public class DefensaManager3 : MonoBehaviour {
         if (defensaIniciada && cronometroActivo && tiempoDefensaRestante > 0) {
             tiempoDefensaRestante -= Time.deltaTime;
             textoVidaJugadorDefensa.text = $"Jugador: {GameManager.instance.vidaPlayer:F0}/100";//try
+            textoVidaBossDefensa.text = $"Boss: {PlayerPrefs.GetFloat("VidaBoss",100f):F0}/100";
             ActualizarCronometroUI();
         }
     }
@@ -54,7 +55,7 @@ public class DefensaManager3 : MonoBehaviour {
     }
     void MostrarResumen(int combos, int damage,float vidaJugador, float vidaBoss) {
         canvasResumen.SetActive(true);
-        textoCombo.text = $"Combo x{combos}";
+        textoCombo.text = $"Combo x{combos} por recoger las notas parseadas";
         textoDamage.text = $"Daño realizado con tu ultimo ataque: {damage}";
         textoBossVida.text = $"Vida restante del boss: {vidaBoss:F0}/100";
         textoJugadorVida.text = $"Vida restante del jugador: {vidaJugador:F0}/100";

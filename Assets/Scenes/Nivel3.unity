@@ -764,7 +764,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Empezar Pelea
+  m_text: "Contin\xFAa la Pelea"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2482,16 +2482,18 @@ MonoBehaviour:
   nombrePersonaje: Cigala
   estado: Lose
   lineas:
-  - DOminaste C de Kiko, y ahora ya REzas tan bien el D Cigala.
+  - DOminaste C de Kiko, y ahora ya REzas tan bien el D Cigala. solo te queda en
+    el caMIno hacia (E)lvis, el Fary.
   - " \xA1Ve, insensato a enfretarte a nuestro jefe supremo! pero sino nos haces
     caso cuando te hemos hablado no podras vencerle facilmente %DEF#GAGF#ED%"
   - Nosotros no supimos unirnos y terminamos esclavizados por el sistema farandulero,
     porque sabe que juntos seriamos imparables...
-  - "El Fari me encomend\xF3 vigilar su antro y fracas\xE9. "
+  - "El Fari me encomend\xF3 vigilar su antro y fracas\xE9 dejando entrar a t\xF3
+    quisqui. "
   - "Mazmorras flamencas donde trileros borran todo rastro armornico: pop, flamenco,
     jazz, rock... Estan al borde de la extincion por la falta de La Uni\xF3n"
-  - ' Mi escalera con salto FArandulero Sostenido %DEF#GAGF#ED% puede herirle si
-    eres astuto. '
+  - 'Mi escalera con salto FArandulero Sostenido %DEF#GAGF#ED% puede herirle si eres
+    astuto. '
   - "Hordas r\xEDtmicamente cuadradas contra el fary y su torete caen ante el caos
     dodecaf\xF3nico y sus inmunidades a los ataques triviales que te sirvieron hasta
     este punto."
@@ -2731,9 +2733,10 @@ MonoBehaviour:
   - " El Fary me ha encomendado vigilar que nadie libere a ese b\xE1rbaro de Elvis.
     Mi defensa es impenetrable como las murallas de la Alhambra.  "
   - "Pero t\xFA... pareces diferente. \xBFCrees que puedes conmigo %DF#A% ?"
-  - "Te dar\xE9 una oportunidad de intentarlo, pero acabar\xE1s como el t\xEDo gilito."
-  - 'El Fary es inmune a todo menos a nuestras %pistas% y los jodidos dodecafonismos.
-    Yo solo sucumbo ante el poder del Death metal y obviamente del dodecafonismo. '
+  - "Te dar\xE9 una oportunidad de intentarlo, pero acabar\xE1s como el t\xEDo gilito.
+    \xA1\xA1Buceando entre monedas!!"
+  - 'El Fary es inmune a todo menos a nuestras %pistas% y los dodecafonismos. Yo
+    solo sucumbo ante el poder del Death metal '
   - "\xBFEst\xE1s listo? \xA1Ven, demu\xE9strame tu valor musical, insolente %DF#A%
     ! "
 --- !u!114 &886010494
@@ -4160,9 +4163,8 @@ MonoBehaviour:
   estado: Fury
   lineas:
   - "Ahora desplegar\xE9 todo mi potencial de generosidad tremenda y te inundare
-    de pesados oros, llenare tus bolsillos de monedas que impediran que te puedas
-    mover con tanta agilidad "
-  - " Desplegare todo mi potencial de ataque altruista sobre t\xED, te vas a enterar
+    de pesados oros, prep\xE1rate porque estoy dispuesto a enterrarte en riqueza "
+  - "Desplegare todo mi potencial de ataque altruista sobre t\xED, te vas a enterar
     de lo que es ser una persona \"Bi\xE9n pag\xE1\"!"
   - "\xA1Monedas asesinas! \xA1Duende m\xE1ximo! \xA1Buler\xEDas del infierno! \xA1Tangos
     mortales!  "
@@ -4859,16 +4861,18 @@ MonoBehaviour:
   nombrePersonaje: Cigala
   estado: Win
   lineas:
-  - "Lulu dodecafonista destruir\xEDa mi comp\xE1s "
-  - "Parsifal convocar\xEDa coros wagnerianos \xE9picos contra m\xED que junto con
-    Rajm\xE1ninov aplastar\xEDa con romanticismo tard\xEDo, porque no consiguen hacerme
-    mas que disfrutar. "
+  - Dodecafonismo mostro el camino a traves del teclaDO
+  - 'Parsifal te ayuda a combatir la ausencia del dodecaphonismo permitiendote REcoger
+    las notas parseadas en objetos '
+  - "Lulu te iluMInar\xE1 la senda del tiempo y el comp\xE1s para encender y revivir
+    el sonido perdido de los objetos por la perdida de parsifall"
   - 'Aqui te espero inutil : %DEF#GAGF#ED%'
   - "Kiko era el representate del teclaDO (C), yo REsisto (D) ataques cl\xE1sicos.
     Mis monedas vuelan como balas de plata. "
   - "Paquirr\xEDn invoca reggaet\xF3n flamenco corrupto, yo grito alterando tiempo-espacio
     jazz aflamenKO. "
-  - Dodecafonismos y Death Metal atraviesan mi defensa.  %DEF#GAGF#ED%
+  - "El fary te llevar\xE1 a los san FerMInes virtuales"
+  - "S\xF3lo el Death Metal atraviesan mi defensa arm\xF3nica y mel\xF3dica.  %DEF#GAGF#ED%"
 --- !u!114 &1853641417
 MonoBehaviour:
   m_ObjectHideFlags: 0

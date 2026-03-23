@@ -54,7 +54,7 @@ public class DefensaManager5 : MonoBehaviour {
     }
     void MostrarResumen(int combos, int damage,float vidaJugador, float vidaBoss) {
         canvasResumen.SetActive(true);
-        textoCombo.text = $"Combo x{combos}";
+        textoCombo.text = $"Combo x{combos} por iluminar las notas parseadas inertes";
         textoDamage.text = $"Daño realizado con tu ultimo ataque: {damage}";
         textoBossVida.text = $"Vida restante del boss: {vidaBoss:F0}/100";
         textoJugadorVida.text = $"Vida restante del jugador: {vidaJugador:F0}/100";

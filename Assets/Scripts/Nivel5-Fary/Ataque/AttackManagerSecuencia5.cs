@@ -26,8 +26,7 @@ public class AttackManagerSecuencia5 : MonoBehaviour {
 
     [SerializeField] private CombatManager5 combatManager;
 
-    // 🎵 SECUENCIA
-    private List<string> todasNotas = new List<string> { "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B" };
+    // 🎵 SECUENCIA    private List<string> todasNotas = new List<string> { "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B" };
     private List<string> secuenciaActual = new List<string>();
     private List<string> inputJugador = new List<string>();
     private int faseActual = 1; // 1=2teclas, 2=3teclas, 3=4teclas
@@ -40,7 +39,8 @@ public class AttackManagerSecuencia5 : MonoBehaviour {
     }
     void Update() {
         tiempoRestante -= Time.deltaTime;
-        if (tiempoRestante <= 0) FinSecuencia("⏰ Tiempo agotado");
+        if (tiempoRestante <= 0)
+            StartCoroutine(DecidirSiguienteFase());
         ActualizarUI();
     }
     public void RegistrarNotaJugador(string nota) {
@@ -72,29 +72,21 @@ public class AttackManagerSecuencia5 : MonoBehaviour {
     }
     // Método auxiliar para convertir string de attack selector en List<string> para comparación
     private List<string> ConvertirSecuenciaStringALista(string secuencia)  {
-
         List<string> listaNotas = new List<string>();
         string notaActual = "";
-
         for (int i = 0; i < secuencia.Length; i++)  {
-
             char c = secuencia[i];
-
             if (c == '#') {
                 notaActual += c;
             }
-            else {
-                // Si hay nota anterior, la guardamos
+            else { // Si hay nota anterior, la guardamos
                 if (!string.IsNullOrEmpty(notaActual))   {
-
                     listaNotas.Add(notaActual);
                 }
                 notaActual = c.ToString();
             }
-        }
-        // Guardar última nota
+        }// Guardar última nota
         if (!string.IsNullOrEmpty(notaActual)) {
-
             listaNotas.Add(notaActual);
         }
         return listaNotas;
@@ -113,7 +105,6 @@ public class AttackManagerSecuencia5 : MonoBehaviour {
         inputJugador.Clear();
         if (audioSource && sonidoError) 
             audioSource.PlayOneShot(sonidoError);
-
         if (vidasActuales <= 0) {
             StartCoroutine(DecidirSiguienteFase());
         }
@@ -125,12 +116,9 @@ public class AttackManagerSecuencia5 : MonoBehaviour {
             tiempoText.text = $"Tiempo: {tiempoRestante:F1}s";
         }
     }
-    private void FinSecuencia(string motivo) {
-        secuenciaText.text = $"<color=red>{motivo}</color>";
-    }
     private IEnumerator DecidirSiguienteFase() {
         yield return new WaitForSeconds(1.5f);
-        // 🆕 LEER PlayerPrefs en lugar de CombatManager
+        // 🆕 LEER PlayerPrefs en lugar de CombatManager REVISAR SI QUEDA SIN VIDAS
         float vidaBossPersistente = PlayerPrefs.GetFloat("VidaBoss", 100f);
         float vidaBossMax = 100;
         Debug.Log($"🎯 Vida Boss PlayerPrefs: vida persiste{vidaBossPersistente}/{vidaBossMax} vida bos max");

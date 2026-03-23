@@ -348,7 +348,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Empezar Pelea
+  m_text: Volver al Menu principal
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -936,7 +936,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Empezar Pelea
+  m_text: Continuar Pelea
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2945,16 +2945,16 @@ MonoBehaviour:
   lineas:
   - "\xA1YO SOY EL FARI! \xA1INMUNE TOTAL! Riffs Cl\xE1sicos, Death Metal, ... \xA1RID\xCDCULOS!
     Solo dodecafonismo y las pistas proveidas pueden lastimarme"
-  - "T\xFA a MI como jefe supremo impenetrable no podras ni tan siquiera lastimarme
-    si fueste un insensato %EG#B%. "
-  - "Paquirr\xEDn reggaetonero bastardo. Cigala un folklorico insensato que me Bebo
-    a diario. \xA1Mis sevillanas letales reflejan todo!"
+  - "T\xFA a MI como jefe supremo impenetrable no podras ni tan siquiera lastimarme,
+    has sido un completo insensato %EG#B%. "
+  - "Paquirr\xEDn reggaetonero basado. Cigala un folklorico insensato que me Bebo
+    a diario. \xA1MIs sevillanas letales reflejan todo!"
   - "Churriana de la Vega bajo mi antim\xFAsica. Elvis en mazmorras de buler\xEDas. 
     Ara\xF1ar\xE1s mi grandeza si llegas lejos y escuchaste bien a mis compa\xF1eros. "
-  - Preparate para sucumbir ante mi torito bravo
-  - "Leitmotivs wagnerianos, riffs death metal, Lulu, Parsifall.... TODO in\xFAtil.
-    Solo las pistas y los dodecafonismos supremos me hieren. \xA1As\xED soy yo, rey
-    eterno!"
+  - Preparate para sucumbir ante MI torito bravo
+  - "Leitmotivs wagnerianos, riffs death metal, Lulu, Parsifall, Dodecafonismo....
+    TODO in\xFAtil. Solo las pistas y los dodecafonismos supremos me hieren. \xA1As\xED
+    soy yo, rey eterno!"
 --- !u!114 &886010494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4343,7 +4343,7 @@ MonoBehaviour:
   lineas:
   - 'Vaya con el tipo indeleble, al final me has hecho enfurecer y todo. '
   - "Ahora chupar\xE9 MIs limones que suelo usar para los gin tonic y soltar\xE9
-    toda mi furia contra ti a traves de MI ganado."
+    toda mi furia contra ti a traves de MI ganado bravo."
   - "\xA1Limones asesinos al caj\xF3n flamenco!  \xA1Duende m\xE1ximo evocado! \xA1Coplas
     a la muerte de tu padre del infierno!  "
   - "\xA1Tangos inmortales! \xA1Por Fari, por flamenco eterno! maldito enano %EF#G#AB%,

@@ -764,7 +764,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Contin\xFAa Pelea"
+  m_text: "Contin\xFAa la Pelea"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2541,6 +2541,7 @@ MonoBehaviour:
   - La mia como respresentante apantojaDO es %CDEFGFEDC%, acuerdate porque podra
     ayudarte en tu lucha final y de esta manera puede que tus enemigos tambien hayan
     sido tus amigos en tu lucha contra el mal.
+  - 'Siento haber destrozado al dodecaphonismo en nuestra lucha. '
 --- !u!114 &820593659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2808,14 +2809,14 @@ MonoBehaviour:
   - Bienvenido a la batalla musical, antes de que te atrevas tan si quiera a derrotar
     a nuestro jefe supremo (El Fary) tendras que demostrar un minimo de ciertas capacidades
     musicales
-  - Yo soy el mayor de DOs hermanos, conMIgo aprenderas tu primer conjunto de combinaciones
+  - Soy el mayor de DOs hermanos, conMIgo aprenderas tu primer conjunto de combinaciones
     de teclas a las que nuestro maestro SOLo  es sensible  %CEG%
   - "Con estas pistas podr\xE1s hacer da\xF1o al jefe supremo ya que tus ataques
     clasicos y metal seran inservibles ya que es inmune por ser supremo (yo solo
     lo soy al death metal) "
   - "Usaremos para ello la notacion Anglosajona que es la que te acompa\xF1a en el
     teclaDO, puede que ya te haya dejado tu primera pista (%CEG%) entre tontos por
-    cierto,  "
+    cierto...."
   - "Ahora te dejar\xE9 atacar primero con tus riffs wagnerianos parsifaleados insensato!
     Preparate para una lucha y preparate para enterarte de como soy Yo de una vez
     por todas!"
@@ -4385,11 +4386,12 @@ MonoBehaviour:
   lineas:
   - 'Vaya vaya vaya con el maldito %CDEFG% ahora vas a probar lo que es bueno voy
     a empezar a usar mis ataques mas devastadores y no tendre piedad, '
-  - 'por fin te demostrare todo mi potencial y podras comprender porque "Asi soy
+  - 'Te demostrare por fin todo mi potencial y podras comprender porque "Asi soy
     yo" respetado en el mundo entero, como la sidra del gaitero! '
   - Adelante Vinilos de oro del pasado presente acabad con el antes de que pueda
     rescatar a Elvis Pelvis y dejarnos a todos sin flow varados desarmonicamente
     a merced del dodecafonismo.
+  - Preparate para languidecer
 --- !u!114 &1476981497
 MonoBehaviour:
   m_ObjectHideFlags: 0

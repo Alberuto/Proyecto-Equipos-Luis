@@ -2484,9 +2484,10 @@ MonoBehaviour:
   - "Veo que no has conseguido superar el entreno que te ayudar\xE1 a derrotar al
     cigala, aunque a\xFAn no es tarde para volverlo a intentar\t"
   - "Te recordar\xE9 encantadao como iba el asunto si decides no rendirte"
-  - "De lo contrario habremos fracasado y tendras que comenzar la guerra de nuevo
-    desde el principio si as\xED lo decides"
-  - "Muchas veces es mejor si no has aprendido de que va este cometido\t"
+  - "De lo contrario habremos fracasado y tendras que comenzar la batalla de nuevo,
+    o desde el principio la guerra si as\xED lo decides en los ajustes del menu principal"
+  - Muchas veces es mejor si no has aprendido todavia de que va el cometido de este
+    juego
   - Hagas lo que hagas , gracias por haberlo intentado
 --- !u!114 &820593659
 MonoBehaviour:
@@ -2719,13 +2720,14 @@ MonoBehaviour:
   estado: Normal
   lineas:
   - "Enhorabuena por haber derrotado a el se\xF1orito kiko rivera, siento comunicarte
-    que el dodecaphonismo ha resultado terriblemente herido\t"
+    que el dodecaphonismo ha resultado terriblemente herido como bien te adelant\xF3
+    kiko\t"
   - "Despues de la lucha y el trajin de teclas sus atajos se han desgastado tanto
     que se han borrado aunque siempre podras seguir recordandolo gracias a m\xED\t"
-  - "Al deteriorarse no puede ayudarte a emitir el sonido que permite ejecutar tus
-    riffs\t"
-  - "Sin estos sonidos no podrias seguir adelante, y aqui es donde aparezco yo para
-    ayudarte\t"
+  - Al deteriorarse no puede ayudarte ya a emitir los sonidos que permiten ejecutar
+    tus riffs musicales
+  - Sin estos sonidos no podrias seguir adelante, y aqui es donde aparezco yo para
+    ayudarte...
   - "Parsifall se\xF1or de las tinieblas y lo mundano, para ayudarte a parsear estos
     sonidos en objetos que puedas identificar para introducir los riffs a falta del
     dodecafonismo"
@@ -2734,7 +2736,8 @@ MonoBehaviour:
   - "El teclaDO, ser\xE1 C, y su alteracion el sintetizador, ser\xE1 C#"
   - "El REdoble (de tambor) ser\xE1 D y el REdoble sostenido por un penitonto ser\xE1
     D#"
-  - "Tu desdoblado desde tu punto de vista te llamas yo (o MI),  ergo ser\xE1s E"
+  - "T\xFA, desdoblado desde tu punto de vista te llamas yo (o MI),  ergo ser\xE1s
+    E"
   - "La FlAuta ser\xE1 F y su alteracion, la ocarina ser\xE1 F#"
   - Sol es el Sol (G) y su estado alterado G#
   - "VioLA ser\xE1 A y su version sostenida , el viol\xEDn, ser\xE1 A#"
@@ -4332,8 +4335,10 @@ MonoBehaviour:
   nombrePersonaje: Parsi
   estado: Fury
   lineas:
-  - Bien hecho estas consiguiendo derrotar al mismisimo cigala
-  - Siento que me derrito como el dodecafonismo cada vez que introduces un riff
+  - Bien hecho estas a un solo nivel de  luchar contra el mismisimo al mismisimo
+    cigala
+  - Siento que me derrito como el dodecafonismo cada vez que introduces un riff REcogiendo
+    los objetos parseados
   - Espero poder aguantar toda la pelea ya que mi cometido pese a ser un ser lugubre
     es luchar por la justicia
   - Y ya va siendo hora que estos gandules abandonen la taberna y paguen sus millonarias
@@ -4899,14 +4904,16 @@ MonoBehaviour:
   nombrePersonaje: Parsi
   estado: Lose
   lineas:
-  - "Muy bien hecho, has derrotado al cigala, ahora el que est\xE1 extenuado al igual
-    que el dodecaphonismo soy yo\t"
-  - "Siento que vuelvo a las tinieblas de las que sal\xED, siento no poderte ser
-    m\xE1s de ayuda"
-  - "Afortunadamente aun te queda la ayuda que te pueda brindar la buena de Lul\xFA"
+  - Muy bien hecho, has superado la preparacion de la lucha contra el cigala
+  - "Ahora el que est\xE1 extenuado al igual que antes el dodecaphonismo soy yo y
+    no se si podre seguir ayudandote despues de esta lucha"
+  - "Siento que vuelvo a las tinieblas de las que sal\xED, y pREsiento que no podr\xE9
+    ser m\xE1s de ayuda"
+  - "Afortunadamente aun te queda la ayuda que te pueda brindar la buena de Lul\xFA
+    (t\xFA ultima aliada)"
   - "Ella es mi ant\xEDtesis, la luz en contraste con la oscuridad"
   - Gracias a la luz podras evitar ser derrotado por estos seres tenebrosos y llenos
-    de furia e ira
+    de furia e ira y seguir introduciendo tus riffs
   - "...Que la armonia del dodecafonismo te acompa\xF1e, la sinestesia de parsifall
     y la luz de lul\xFA..."
 --- !u!114 &1853641417

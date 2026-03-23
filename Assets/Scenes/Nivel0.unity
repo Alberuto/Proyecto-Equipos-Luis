@@ -2486,7 +2486,7 @@ MonoBehaviour:
     y su torito bravo mientras te deleitan con sus letrillas
   - Siempre puedes volver a entrenar con este tutorial para mejorar tus capacidades
     y aprender las mecanicas del juego
-  - "Si no pensar\xE1s que este juego es una mierda cuando la realidad es que t\xFA
+  - "Si no pensar\xE1s que este juego es purriela cuando la realidad es que t\xFA
     eres lo que comunmente se conoce como un manco"
   - De hecho si quieres continuar deberas empezar desde el principio por ser un ser
     decepcionante
@@ -4302,7 +4302,7 @@ MonoBehaviour:
   nombrePersonaje: Dode
   estado: Fury
   lineas:
-  - Vaya vaya vaya con el soldado candidato a unirse a los heroes de la avalancha
+  - Vaya vaya vaya con el soldadito candidato a unirse a los heroes de la avalancha
     contra los faranduleros
   - "\xA1Por fin estas haciendo progresos significativos, a ver como te las apa\xF1as
     cuando no tengas mi ayuda!"
@@ -4310,6 +4310,7 @@ MonoBehaviour:
     vale con saber reconocer las teclas
   - "El objetivo es que sepas introducir las secuencias (Riffs) con las que podras
     da\xF1ar a los adversarios"
+  - Siento que me derrito cada vez que introduces tus secuencias a traves del teclaDO
 --- !u!114 &1476981497
 MonoBehaviour:
   m_ObjectHideFlags: 0

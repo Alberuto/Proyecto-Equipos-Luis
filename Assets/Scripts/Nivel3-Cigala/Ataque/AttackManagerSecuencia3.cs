@@ -38,7 +38,8 @@ public class AttackManagerSecuencia3 : MonoBehaviour {
     }
     void Update() {
         tiempoRestante -= Time.deltaTime;
-        if (tiempoRestante <= 0) PerderVida(); // ("⏰ Tiempo agotado");
+        if (tiempoRestante <= 0)
+            StartCoroutine(DecidirSiguienteFase());
         ActualizarUI();
     }
     public void RegistrarNotaJugador(string nota) {
@@ -64,7 +65,6 @@ public class AttackManagerSecuencia3 : MonoBehaviour {
         }
         ActualizarUI();
     }
-    // Método auxiliar para convertir string de attack selector en List<string> para comparación
     private List<string> ConvertirSecuenciaStringALista(string secuencia) {
         List<string> listaNotas = new List<string>();
         string notaActual = "";
@@ -73,15 +73,13 @@ public class AttackManagerSecuencia3 : MonoBehaviour {
             if (c == '#')  {
                 notaActual += c;
             }
-            else {
-                // Si hay nota anterior, la guardamos
+            else { // Si hay nota anterior, la guardamos
                 if (!string.IsNullOrEmpty(notaActual)) {
                     listaNotas.Add(notaActual);
                 }
                 notaActual = c.ToString();
             }
-        }
-        // Guardar última nota
+        }  // Guardar última nota
         if (!string.IsNullOrEmpty(notaActual)) {
             listaNotas.Add(notaActual);
         }
@@ -102,7 +100,7 @@ public class AttackManagerSecuencia3 : MonoBehaviour {
         if (audioSource && sonidoError) 
             audioSource.PlayOneShot(sonidoError);
         if (vidasActuales <= 0) {
-            FinalizarAtaque();
+            StartCoroutine(DecidirSiguienteFase()); 
         }
     }
     private void ActualizarUI() {

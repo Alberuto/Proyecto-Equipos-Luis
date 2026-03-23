@@ -37,6 +37,8 @@ public class AttackSelector : MonoBehaviour {
     [Header("Dodecafonico (4 ataques)")]
     public AudioClip[] audioDodeca = new AudioClip[4];
     public string[] secuenciasDodeca = new string[4];
+    public int[] damageDodecafonico = new int[4];
+
 
     private AudioSource audioSource;
     private string pistaActual;
@@ -93,8 +95,8 @@ public class AttackSelector : MonoBehaviour {
         PlayerPrefs.SetInt("AttackValue", damageClasico[index]);
     }
     void SeleccionarAtaqueDodeca(int index) {
-        PlayAttack(audioDodeca[index], secuenciasDodeca[index],5);
-        PlayerPrefs.SetInt("AttackValue", 5);
+        PlayAttack(audioDodeca[index], secuenciasDodeca[index], damageDodecafonico[index]);
+        PlayerPrefs.SetInt("AttackValue", damageDodecafonico[index]);
     }
     void PlayAttack(AudioClip audio, string secuencia, int damage) {
 

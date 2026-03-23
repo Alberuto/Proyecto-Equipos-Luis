@@ -337,13 +337,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: toca discos
       objectReference: {fileID: 0}
+    - target: {fileID: 975374017617906423, guid: cba1b0b791de49f45941a322c3ac4eac, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5223336446041665192, guid: cba1b0b791de49f45941a322c3ac4eac, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8453379643472226229, guid: cba1b0b791de49f45941a322c3ac4eac, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.01
+      value: -9.4
       objectReference: {fileID: 0}
     - target: {fileID: 8453379643472226229, guid: cba1b0b791de49f45941a322c3ac4eac, type: 3}
       propertyPath: m_LocalPosition.y
@@ -351,7 +355,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8453379643472226229, guid: cba1b0b791de49f45941a322c3ac4eac, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.27
+      value: 56.5
       objectReference: {fileID: 0}
     - target: {fileID: 8453379643472226229, guid: cba1b0b791de49f45941a322c3ac4eac, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2576,7 +2580,7 @@ MonoBehaviour:
   audioSource: {fileID: 1737057617}
   sonidoOK: {fileID: 8300000, guid: f69f4b591c5458f4696563621738952b, type: 3}
   sonidoError: {fileID: 8300000, guid: b27e67db581fabd4b99e4c9c1a5aa467, type: 3}
-  duracionTutorial: 120
+  duracionTutorial: 99
   vidasMax: 3
   notaObjetivoActual: 
 --- !u!4 &1846245897 stripped
