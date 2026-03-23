@@ -39,15 +39,18 @@ public class CombatManager3 : MonoBehaviour {
         vidaBossActual = Mathf.Max(0, vidaBossActual); // para que no baje de 0
         Debug.Log($"⚔️ Daño aplicado: {damageTotal:F1}");
         PlayerPrefs.SetInt("VidaBoss", (int) vidaBossActual);
-
         ActualizarUI();
-        if (vidaBossActual <= 0) {
+
+        //no se si comentar las siguientes lineas causaria algun problema, creo que no..../* */ 
+        /*
+         * if (vidaBossActual <= 0) {
             Debug.Log("🎉 ¡BOSS DERROTADO!");
         }
         if (vidaJugadorActual <= 0) {
             PlayerPrefs.SetInt("Fallo", 1);
             SceneManager.LoadScene("Nivel3");
-        }
+        }*
+         */
     }
     private void InicializarUI() {
         vidaJugador.maxValue = vidaJugadorMax;

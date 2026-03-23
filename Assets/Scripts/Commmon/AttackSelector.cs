@@ -92,7 +92,7 @@ public class AttackSelector : MonoBehaviour {
     }
     void SeleccionarAtaqueDeathMetal(int index) {
         PlayAttack(audioDeathMetal[index], secuenciasDeathMetal[index],damageDeathMetal[index]);
-        PlayerPrefs.SetInt("AttackValue", damageClasico[index]);
+        PlayerPrefs.SetInt("AttackValue", damageDeathMetal[index]);
     }
     void SeleccionarAtaqueDodeca(int index) {
         PlayAttack(audioDodeca[index], secuenciasDodeca[index], damageDodecafonico[index]);

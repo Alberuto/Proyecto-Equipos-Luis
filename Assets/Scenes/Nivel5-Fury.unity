@@ -663,7 +663,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 228983392}
-  - component: {fileID: 228983391}
+  - component: {fileID: 228983393}
   m_Layer: 0
   m_Name: DefensaManager
   m_TagString: Untagged
@@ -671,29 +671,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &228983391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 228983390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b43c4e2cc7cc7941b8ccf647d5801e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DefensaManager
-  canvasResumen: {fileID: 1326670792}
-  textoCombo: {fileID: 1943963431}
-  textoDamage: {fileID: 1484406018}
-  textoBossVida: {fileID: 353095305}
-  textoJugadorVida: {fileID: 1708353563}
-  sliderVidaJugador: {fileID: 682649581}
-  sliderVidaBoss: {fileID: 1524462519}
-  textoVidaBossDefensa: {fileID: 2078533568}
-  textoVidaJugadorDefensa: {fileID: 70765045}
-  tiempoDefensaBoss: 30
-  cronometroDefensa: {fileID: 549299469}
 --- !u!4 &228983392
 Transform:
   m_ObjectHideFlags: 0
@@ -709,6 +686,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1232779666}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &228983393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228983390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91f22595ddcadff45b184fa634d11802, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DefensaManager5
+  canvasResumen: {fileID: 1326670792}
+  textoCombo: {fileID: 1943963431}
+  textoDamage: {fileID: 1484406018}
+  textoBossVida: {fileID: 353095305}
+  textoJugadorVida: {fileID: 1708353563}
+  sliderVidaJugador: {fileID: 682649581}
+  sliderVidaBoss: {fileID: 1524462519}
+  textoVidaBossDefensa: {fileID: 2078533568}
+  textoVidaJugadorDefensa: {fileID: 70765045}
+  tiempoDefensaBoss: 30
+  cronometroDefensa: {fileID: 549299469}
 --- !u!1 &229876477
 GameObject:
   m_ObjectHideFlags: 0

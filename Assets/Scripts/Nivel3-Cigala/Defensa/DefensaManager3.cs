@@ -78,17 +78,17 @@ public class DefensaManager3 : MonoBehaviour {
         cronometroDefensa.gameObject.SetActive(true);
         // 🆕 MOSTRAR textos DEFENSA
         if (textoVidaBossDefensa != null) {
-            textoVidaBossDefensa.text = $"Boss: {PlayerPrefs.GetFloat("Nivel1VidaBoss", 100f):F0}/100";
+            textoVidaBossDefensa.text = $"Boss: {PlayerPrefs.GetFloat("VidaBoss", 100f):F0}/100";
         }
         if (textoVidaJugadorDefensa != null) {
-            textoVidaJugadorDefensa.text = $"Jugador: {PlayerPrefs.GetFloat("Nivel1VidaJugador", 100f):F0}/100";
+            textoVidaJugadorDefensa.text = $"Jugador: {PlayerPrefs.GetFloat("VidaJugador", 100f):F0}/100";
         }
         Debug.Log("🛡️ FASE DEFENSA INICIADA");
         if (musica != null) {
             musica.ReproducirMusica();
         }
         // Aquí: discos/monedas/torito del compañero
-        Debug.Log($"🛡️ FASE DEFENSA INICIADA - {tiempoDefensaBoss}s Kiko");
+        Debug.Log($"🛡️ FASE DEFENSA INICIADA - {tiempoDefensaBoss}s Cigala");
         defensaIniciada = true;
         // 🆕 TIMER 25s → NUEVO ATAQUE
         yield return new WaitForSeconds(tiempoDefensaBoss);

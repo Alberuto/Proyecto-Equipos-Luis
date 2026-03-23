@@ -60,6 +60,7 @@ public class AttackManagerSecuencia5 : MonoBehaviour {
                     Debug.Log("🏆 SECUENCIA COMPLETA!");
                     if (audioSource && sonidoCombo) 
                         audioSource.PlayOneShot(sonidoCombo);
+                    combatManager.RecibirAtaque(PlayerPrefs.GetInt("AttackValue"));
                     StartCoroutine(DecidirSiguienteFase());
                 }
             }
