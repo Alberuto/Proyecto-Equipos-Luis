@@ -873,7 +873,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.991699, y: 75}
+  m_AnchoredPosition: {x: 8.991699, y: -67}
   m_SizeDelta: {x: 907.8232, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &234310406
@@ -1448,7 +1448,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Mozart - Nocturno (2)
+  m_text: Mozart - Nocturno (3)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1974,7 +1974,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Beethoven - 5\xAA symphony (1)"
+  m_text: "Beethoven - 5\xAA symphony (2)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3235,7 +3235,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.9917, y: 218}
+  m_AnchoredPosition: {x: 8.9917, y: 76}
   m_SizeDelta: {x: 907.8232, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &765085148
@@ -4237,7 +4237,7 @@ MonoBehaviour:
   - GDCDGAGF#GA
   - GDGDGDGB
   - GF#BDB
-  damageClasico: 01000000040000000200000003000000
+  damageClasico: 02000000040000000300000001000000
   audioDeathMetal:
   - {fileID: 8300000, guid: b84474ea5e7a31045a59756f03d3d8c8, type: 3}
   - {fileID: 8300000, guid: 051aca9544f30b74e922eb2cc2063e2d, type: 3}
@@ -4259,6 +4259,7 @@ MonoBehaviour:
   - ED#C#GDFCF#AG#BA#
   - A#ACBDG#D#F#C#GFE
   - A#BG#AF#CFDGC#D#E
+  damageDodecafonico: 00000000000000000000000000000000
 --- !u!1 &947185388
 GameObject:
   m_ObjectHideFlags: 0
@@ -4630,7 +4631,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1081574409
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5444,7 +5445,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1313303488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6569,7 +6570,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Bizat - Carmen (4)
+  m_text: Bizat - Carmen (1)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7047,7 +7048,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.9917, y: -69}
+  m_AnchoredPosition: {x: 8.9917, y: -212}
   m_SizeDelta: {x: 907.8232, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1879027900
@@ -7189,7 +7190,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Wagner - Valkirias (3)
+  m_text: Wagner - Valkirias (4)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7684,7 +7685,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.9917, y: -212}
+  m_AnchoredPosition: {x: 8.9917, y: 216}
   m_SizeDelta: {x: 907.8232, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1946778149

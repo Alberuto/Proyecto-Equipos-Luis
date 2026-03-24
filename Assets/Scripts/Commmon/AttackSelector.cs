@@ -88,14 +88,18 @@ public class AttackSelector : MonoBehaviour {
     }
     void SeleccionarAtaqueClasico(int index) {
         PlayAttack(audioClasico[index], secuenciasClasico[index], damageClasico[index]);
+        Debug.Log($"🔥 Classic botón {index}: {secuenciasClasico[index]} daño {damageClasico[index]}");
+
         PlayerPrefs.SetInt("AttackValue", damageClasico[index]);
     }
     void SeleccionarAtaqueDeathMetal(int index) {
         PlayAttack(audioDeathMetal[index], secuenciasDeathMetal[index],damageDeathMetal[index]);
+        Debug.Log($"🔥 Death Metal botón {index}: {secuenciasDeathMetal[index]} daño {damageDeathMetal[index]}");
         PlayerPrefs.SetInt("AttackValue", damageDeathMetal[index]);
     }
     void SeleccionarAtaqueDodeca(int index) {
         PlayAttack(audioDodeca[index], secuenciasDodeca[index], damageDodecafonico[index]);
+        Debug.Log($"🔥 Dpodecaphonic botón {index}: {secuenciasDodeca[index]} daño {damageDodecafonico[index]}");
         PlayerPrefs.SetInt("AttackValue", damageDodecafonico[index]);
     }
     void PlayAttack(AudioClip audio, string secuencia, int damage) {
