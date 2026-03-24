@@ -68,6 +68,7 @@ public class CombatManager5 : MonoBehaviour {
         textoVidaBoss.text = $"Boss: {vidaBossActual:F0}/{vidaBossMax}";
     }
     IEnumerator Volver() {
+        PlayerPrefs.Save();
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene("Nivel5");
     }
