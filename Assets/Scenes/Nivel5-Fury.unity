@@ -576,6 +576,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 450373768}
     - target: {fileID: 7431234448812056614, guid: 9e82c319a53454c4bb188ab532296a1a, type: 3}
+      propertyPath: tiempoRageToro
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431234448812056614, guid: 9e82c319a53454c4bb188ab532296a1a, type: 3}
+      propertyPath: tiempoVidaToro
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431234448812056614, guid: 9e82c319a53454c4bb188ab532296a1a, type: 3}
       propertyPath: posicionInicial
       value: 
       objectReference: {fileID: 1962313189}
@@ -1912,6 +1920,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 450373768}
     - target: {fileID: 7431234448812056614, guid: 9e82c319a53454c4bb188ab532296a1a, type: 3}
+      propertyPath: tiempoRageToro
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431234448812056614, guid: 9e82c319a53454c4bb188ab532296a1a, type: 3}
+      propertyPath: tiempoVidaToro
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431234448812056614, guid: 9e82c319a53454c4bb188ab532296a1a, type: 3}
       propertyPath: posicionInicial
       value: 
       objectReference: {fileID: 658219054}
@@ -2935,6 +2951,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 450373768}
     - target: {fileID: 7431234448812056614, guid: 9e82c319a53454c4bb188ab532296a1a, type: 3}
+      propertyPath: tiempoRageToro
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431234448812056614, guid: 9e82c319a53454c4bb188ab532296a1a, type: 3}
+      propertyPath: tiempoVidaToro
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431234448812056614, guid: 9e82c319a53454c4bb188ab532296a1a, type: 3}
       propertyPath: posicionInicial
       value: 
       objectReference: {fileID: 278291289}
@@ -3004,6 +3028,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 450373768}
+    - target: {fileID: 7431234448812056614, guid: 9e82c319a53454c4bb188ab532296a1a, type: 3}
+      propertyPath: tiempoRageToro
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431234448812056614, guid: 9e82c319a53454c4bb188ab532296a1a, type: 3}
+      propertyPath: tiempoVidaToro
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 7431234448812056614, guid: 9e82c319a53454c4bb188ab532296a1a, type: 3}
       propertyPath: posicionInicial
       value: 
@@ -3430,6 +3462,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 450373768}
     - target: {fileID: 7431234448812056614, guid: 9e82c319a53454c4bb188ab532296a1a, type: 3}
+      propertyPath: tiempoRageToro
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431234448812056614, guid: 9e82c319a53454c4bb188ab532296a1a, type: 3}
+      propertyPath: tiempoVidaToro
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431234448812056614, guid: 9e82c319a53454c4bb188ab532296a1a, type: 3}
       propertyPath: posicionInicial
       value: 
       objectReference: {fileID: 1280266902}
@@ -3826,6 +3866,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 450373768}
+    - target: {fileID: 7431234448812056614, guid: 9e82c319a53454c4bb188ab532296a1a, type: 3}
+      propertyPath: tiempoRageToro
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431234448812056614, guid: 9e82c319a53454c4bb188ab532296a1a, type: 3}
+      propertyPath: tiempoVidaToro
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 7431234448812056614, guid: 9e82c319a53454c4bb188ab532296a1a, type: 3}
       propertyPath: posicionInicial
       value: 
