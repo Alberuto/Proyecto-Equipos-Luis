@@ -53,6 +53,13 @@ public class DefensaManager5 : MonoBehaviour {
             cronometroDefensa.gameObject.SetActive(defensaIniciada);  // Oculto en resumen
         }
     }
+    public void ActualizarUI() {
+        textoVidaJugadorDefensa.text = $"Jugador: {PlayerPrefs.GetFloat("VidaJugador", 100f):F0}/100";//try
+        textoVidaBossDefensa.text = $"Boss: {PlayerPrefs.GetFloat("VidaBoss", 100f):F0}/100";
+        sliderVidaJugador.value = PlayerPrefs.GetFloat("VidaJugador", 100f);
+        sliderVidaBoss.value = PlayerPrefs.GetFloat("VidaBoss", 100f);
+
+    }
     void MostrarResumen(int combos, int damage,float vidaJugador, float vidaBoss) {
         canvasResumen.SetActive(true);
         textoCombo.text = $"Combo x{combos} por iluminar las notas parseadas inertes";
@@ -98,14 +105,18 @@ public class DefensaManager5 : MonoBehaviour {
         PlayerPrefs.SetFloat("VidaJugador", GameManager.instance.vidaPlayer);
         Debug.Log($"⏰ TIEMPO DEFENSA FINALIZADO - Vida Jugador: {GameManager.instance.vidaPlayer:F0}/100");
         Debug.Log($"\n vidaJugador"+vidaJugador);
+        vidaJugador = GameManager.instance.vidaPlayer;
+
         if (vidaJugador <= 0) {
             PlayerPrefs.SetInt("Fallo", 1);
+            PlayerPrefs.Save();
             SceneManager.LoadScene("Nivel5");
         }
         Debug.Log("🏁 DEFENSA FINALIZADA → NUEVO ATAQUE");
         if (musica != null) {
             musica.SiguienteTurno();
         }
+        PlayerPrefs.Save();
         SceneManager.LoadScene("Nivel5-Ataque");
     }
 }

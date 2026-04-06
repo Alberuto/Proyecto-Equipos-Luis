@@ -14,6 +14,7 @@ public class CanvasControllerUniversal : MonoBehaviour
 
         OcultarTodosCanvas();
         GestionarEstadoCanvas();
+        Debug.Log($"Antes de cargar Nivel5: Nivel={PlayerPrefs.GetInt("Nivel", 0)} Fallo={PlayerPrefs.GetInt("Fallo", 0)} Fury={PlayerPrefs.GetInt("Fury", 0)} VidaBoss={PlayerPrefs.GetFloat("VidaBoss", 100f)}");
     }
 
     void GestionarEstadoCanvas() {

@@ -50,7 +50,6 @@ public class AttackManagerSecuencia5 : MonoBehaviour {
         // Reproducir nota
         if (audioSource) 
             audioSource.PlayOneShot(sonidoOK);
-
         // Verificar paso actual
         if (inputJugador.Count <= secuenciaActual.Count) {
 
@@ -71,7 +70,6 @@ public class AttackManagerSecuencia5 : MonoBehaviour {
         }
         ActualizarUI();
     }
-    // Método auxiliar para convertir string de attack selector en List<string> para comparación
     private List<string> ConvertirSecuenciaStringALista(string secuencia)  {
         List<string> listaNotas = new List<string>();
         string notaActual = "";
@@ -119,7 +117,6 @@ public class AttackManagerSecuencia5 : MonoBehaviour {
     }
     private IEnumerator DecidirSiguienteFase() {
         yield return new WaitForSeconds(1.5f);
-        // 🆕 LEER PlayerPrefs en lugar de CombatManager REVISAR SI QUEDA SIN VIDAS
         float vidaBossPersistente = PlayerPrefs.GetFloat("VidaBoss", 100f);
         float vidaBossMax = 100;
         Debug.Log($"🎯 Vida Boss PlayerPrefs: vida persiste{vidaBossPersistente}/{vidaBossMax} vida bos max");
@@ -133,6 +130,7 @@ public class AttackManagerSecuencia5 : MonoBehaviour {
         if (vidaBossPersistente <= 0)  {
             Debug.Log("🎉 ¡BOSS DERROTADO! NIVEL 2");
             PlayerPrefs.SetInt("Nivel", 1);
+            PlayerPrefs.Save();
             SceneManager.LoadScene("Nivel5");
         }
         else if (vidaBossPersistente > 50f) {
@@ -141,6 +139,7 @@ public class AttackManagerSecuencia5 : MonoBehaviour {
         }
         else if (vidaBossPersistente <= 50f && (PlayerPrefs.GetInt("Fury", 0) == 0)) {
             PlayerPrefs.SetInt("Fury", 1);
+            PlayerPrefs.Save();
             SceneManager.LoadScene("Nivel5");
         }
         else {
