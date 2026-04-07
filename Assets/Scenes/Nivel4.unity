@@ -844,6 +844,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 200746673}
   m_CullTransparentMesh: 1
+--- !u!1 &219594518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 219594519}
+  - component: {fileID: 219594520}
+  m_Layer: 0
+  m_Name: MusicManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &219594519
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219594518}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 984448986}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &219594520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219594518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f055350f39d9b41998f83850423fc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DefenseMusicUniversal
+  Trozos:
+  - {fileID: 8300000, guid: 58c4688a4941ab544900790a7bdc6f55, type: 3}
+  - {fileID: 8300000, guid: 0ef76b155b400144e9fb29d982dd11fe, type: 3}
+  - {fileID: 8300000, guid: a34e90386ff32d7489003265ef5df09b, type: 3}
+  - {fileID: 8300000, guid: b063c416e809b724db44ad904ea5aea3, type: 3}
+  - {fileID: 8300000, guid: 02c0f400309c55f4f8ad2748a4d4f387, type: 3}
+  - {fileID: 8300000, guid: 64ae9133258d11f49a9476193322dee5, type: 3}
+  - {fileID: 8300000, guid: 1aa8cccd80483a94ca9eef82d2e32612, type: 3}
+  - {fileID: 8300000, guid: 3272aab862dcd8f4aa5bd66123727972, type: 3}
+  - {fileID: 8300000, guid: 909d7353db0c5354cbb51fff42e38d57, type: 3}
+  - {fileID: 8300000, guid: fcd141e339c83a54f8dc765627f2e1a9, type: 3}
+  - {fileID: 8300000, guid: 34a63594fc0b54944b9c9824c5984441, type: 3}
+  - {fileID: 8300000, guid: 2c5cd29897d06f84abce0d6ef67e4196, type: 3}
+  - {fileID: 8300000, guid: 9730a7dc2084294479d7588dd12dc9b5, type: 3}
+  - {fileID: 8300000, guid: 6194c0287251f1c4f93b5fd62c520fb6, type: 3}
 --- !u!1 &270462830
 GameObject:
   m_ObjectHideFlags: 0
@@ -2989,6 +3048,7 @@ Transform:
   m_Children:
   - {fileID: 160274524}
   - {fileID: 270462832}
+  - {fileID: 219594519}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1012415666

@@ -954,6 +954,7 @@ Transform:
   m_Children:
   - {fileID: 160274524}
   - {fileID: 2041307017}
+  - {fileID: 1745159599}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &372482093
@@ -4451,6 +4452,68 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1745159598
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1745159599}
+  - component: {fileID: 1745159600}
+  m_Layer: 0
+  m_Name: MusicManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1745159599
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745159598}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 284788428}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1745159600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745159598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f055350f39d9b41998f83850423fc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DefenseMusicUniversal
+  Trozos:
+  - {fileID: 8300000, guid: 7060f5cff2427c7498ada617cc1f6e5b, type: 3}
+  - {fileID: 8300000, guid: 2b7aed9e70a50864895576f282ec5933, type: 3}
+  - {fileID: 8300000, guid: fb76a868be306254eb5d95788d63f8f3, type: 3}
+  - {fileID: 8300000, guid: f5f4f94bdc8e72f40bd4a296bda711c5, type: 3}
+  - {fileID: 8300000, guid: de49e252a9f800747b4a3cf7e13104d6, type: 3}
+  - {fileID: 8300000, guid: 965d28691b8f5ce44830a94da44f0547, type: 3}
+  - {fileID: 8300000, guid: d3c667c56adf9624f88c0dc22e1aea11, type: 3}
+  - {fileID: 8300000, guid: 84cc1b4a7f570c449830a686f4a20f31, type: 3}
+  - {fileID: 8300000, guid: 7236798b017cb1e49abf36b5bfc2f660, type: 3}
+  - {fileID: 8300000, guid: 9cebbe36a2281d7458f5f86b0b0d197f, type: 3}
+  - {fileID: 8300000, guid: a07d7ee6869d6f041bd39eab8b9ee335, type: 3}
+  - {fileID: 8300000, guid: 184619e606ab88f48a6402f4b8c75da7, type: 3}
+  - {fileID: 8300000, guid: c1b0b469da1956a42af50895a39ad4de, type: 3}
+  - {fileID: 8300000, guid: 46b43734a6c1c974eadda3a694b73140, type: 3}
+  - {fileID: 8300000, guid: 2dfbaf6a0a50c4a488b2618a6002a2d9, type: 3}
+  - {fileID: 8300000, guid: 1cd16d0331f08ca40a4a09f715510529, type: 3}
+  - {fileID: 8300000, guid: f3b7ce4716577e444869be13e89fb441, type: 3}
 --- !u!1 &1767801523
 GameObject:
   m_ObjectHideFlags: 0
