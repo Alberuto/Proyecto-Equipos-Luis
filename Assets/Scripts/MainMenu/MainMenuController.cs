@@ -87,6 +87,9 @@ public class MainMenuController : MonoBehaviour {
     public void CerrarCanvasRanking() {
         panelRanking.SetActive(false);
     }
+    public void CerrarCanvasSettings() {
+        canvasSettings.SetActive(false);
+    }
     public void CerrarPanelNombre() {
         string nombreInput = inputNombre.text.Trim();
         string nombreUsar = string.IsNullOrEmpty(nombreInput)
