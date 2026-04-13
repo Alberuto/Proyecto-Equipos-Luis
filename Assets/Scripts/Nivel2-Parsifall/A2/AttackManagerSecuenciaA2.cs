@@ -113,7 +113,7 @@ public class AttackManagerSecuenciaA2 : MonoBehaviour {
     }
     private void ActualizarUI() {
         progresoText.text = $"Progreso: {inputJugador.Count}/{secuenciaActual.Count}";
-        vidasText.text = $"<color=red>♥ {vidasActuales}</color>";
+        vidasText.text = $"<color=red>♥ Vidas Jugador: {vidasActuales}</color>";
         if (tiempoText != null) {
             tiempoText.text = $"Tiempo: {tiempoRestante:F1}s";
         }

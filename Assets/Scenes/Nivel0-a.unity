@@ -810,7 +810,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &799799287
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1098,11 +1098,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5245555829070232178, guid: 2616c39cfe3aeb24eb5976bb9ee54edd, type: 3}
       propertyPath: m_fontColor.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5245555829070232178, guid: 2616c39cfe3aeb24eb5976bb9ee54edd, type: 3}
       propertyPath: m_fontColor.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5245555829070232178, guid: 2616c39cfe3aeb24eb5976bb9ee54edd, type: 3}
       propertyPath: m_fontColor.r
@@ -1110,7 +1110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5245555829070232178, guid: 2616c39cfe3aeb24eb5976bb9ee54edd, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4278190335
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 8784859444714981715, guid: 2616c39cfe3aeb24eb5976bb9ee54edd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1737,8 +1737,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -373, y: 120}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -548.01434, y: 120}
+  m_SizeDelta: {x: 1010.5267, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2076258741
 CanvasRenderer:
@@ -1802,8 +1802,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1

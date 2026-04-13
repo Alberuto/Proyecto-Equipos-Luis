@@ -99,7 +99,10 @@ public class MainMenuController : MonoBehaviour {
         panelNombre.SetActive(false);
         CargarNivelProgreso();
     }
-    //FASE 3: RANKING FUNCIONAL
+    public void CerrarAPP() { 
+        Application.Quit();
+    }
+    //FASE 3: RANKING
     public void Ranking() {
         MostrarRanking();
     }
