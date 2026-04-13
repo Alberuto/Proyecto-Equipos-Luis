@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Text.RegularExpressions;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class CanvasControllerUniversal : MonoBehaviour
@@ -15,8 +16,15 @@ public class CanvasControllerUniversal : MonoBehaviour
         OcultarTodosCanvas();
         GestionarEstadoCanvas();
         Debug.Log($"Antes de cargar Nivel5: Nivel={PlayerPrefs.GetInt("Nivel", 0)} Fallo={PlayerPrefs.GetInt("Fallo", 0)} Fury={PlayerPrefs.GetInt("Fury", 0)} VidaBoss={PlayerPrefs.GetFloat("VidaBoss", 100f)}");
-    }
+        int numeroEscena = ObtenerNumeroEscena();
 
+        if (numeroEscena == 2 || numeroEscena == 4 || numeroEscena == 6) {
+            var musica = FindObjectOfType<DefenseMusicUniversalNPC>();
+            if (musica != null) {
+                musica.ReproducirMusica();
+            }
+        }
+    }
     void GestionarEstadoCanvas() {
         // 🎯 La carga de escenas esta gestionada por sceneManager los player prefs se gestionan en cada attack manager particular
 
@@ -44,5 +52,10 @@ public class CanvasControllerUniversal : MonoBehaviour
     private void ActivarCanvasWin() { if (canvasWin) canvasWin.SetActive(true); }
     private void ActivarCanvasFury() { if (canvasFury) canvasFury.SetActive(true); }
     private void ActivarCanvasLose() { if (canvasLose) canvasLose.SetActive(true); }
-
+    private int ObtenerNumeroEscena() {
+        string nombreEscena = SceneManager.GetActiveScene().name;
+        Match match = Regex.Match(nombreEscena, @"\d+");
+        Debug.Log("numero escena NPC" + int.Parse(match.Value));
+        return match.Success ? int.Parse(match.Value) : -1;
+    }
 }

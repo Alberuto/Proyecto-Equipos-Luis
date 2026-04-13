@@ -36,6 +36,10 @@ public class CanvasController0 : MonoBehaviour {
            // PlayerPrefs.SetInt("NivelActual", 1);
             ActivarCanvasLose();  // Normal (ya jugado) // tutorial completado
         }
+        var musica = FindObjectOfType<DefenseMusicUniversalNPC>();
+        if (musica != null)        {
+            musica.ReproducirMusica();
+        }
     }
     private void OcultarTodosCanvas() {
         if (canvasNormal) canvasNormal.SetActive(false);

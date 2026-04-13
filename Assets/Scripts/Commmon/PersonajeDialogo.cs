@@ -22,6 +22,11 @@ public class PersonajeDialogo : MonoBehaviour {
 
         CambiarEstado(); //AUTOMÁTICO al cargar escena
         ActualizarTexto(); // Mostrar primera línea
+        //iniciar musica
+        var musica = FindObjectOfType<DefenseMusicUniversal>();
+        if (musica != null) {
+            musica.ReproducirMusica();
+        }
     }
     public void CambiarEstado() {
 
