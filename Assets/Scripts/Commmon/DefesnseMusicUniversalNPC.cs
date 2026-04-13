@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class DefenseMusicUniversalNPC : MonoBehaviour {
 
@@ -6,40 +7,34 @@ public class DefenseMusicUniversalNPC : MonoBehaviour {
     public AudioClip[] Trozos;
     private AudioSource audioSource;
     private int turnoNPC = 0;
-    private float tiempoTrozo = 14f;  // Duración de cada trozo
-    private float tiempoRestanteTrozo;
 
     void Awake() {
         audioSource = GetComponent<AudioSource>();
         turnoNPC = PlayerPrefs.GetInt("TurnoNPC", 0);
-        tiempoRestanteTrozo = tiempoTrozo;
     }
     public void ReproducirMusica() {
+
+        if (Trozos == null || Trozos.Length == 0 || audioSource == null) 
+            return;
+
         int indice = turnoNPC % Trozos.Length;
-        if (Trozos[indice] != null) {
-            audioSource.clip = Trozos[indice];
-            audioSource.Play();
-            Debug.Log($"🎵 NPC Trozo {indice}");
-            tiempoRestanteTrozo = tiempoTrozo;
-        }
+        AudioClip clip = Trozos[indice];
+
+        if (clip == null) 
+            return;
+
+        audioSource.clip = clip;
+        audioSource.Play();
+        Debug.Log($"🎵 NPC Trozo {indice}");
+        StopAllCoroutines();
+        StartCoroutine(CambiarAlSiguienteCuandoTermine(clip));
     }
-    void Update() {
-        if (audioSource.isPlaying && tiempoRestanteTrozo > 0)    {
-            tiempoRestanteTrozo -= Time.deltaTime;
-            if (tiempoRestanteTrozo <= 0)  {
-                SiguienteTrozo();
-            }
-        }
-    }
-    void SiguienteTrozo() {
+    private IEnumerator CambiarAlSiguienteCuandoTermine(AudioClip clip)  {
+        double duracion = (double)clip.samples / clip.frequency;
+        yield return new WaitForSeconds((float)duracion);
         turnoNPC++;
         PlayerPrefs.SetInt("TurnoNPC", turnoNPC);
         PlayerPrefs.Save();
-        ReproducirMusica();  // Siguiente trozo
-    }
-    public void SiguienteTurno() {
-        turnoNPC++;
-        PlayerPrefs.SetInt("TurnoNPC", turnoNPC);
-        PlayerPrefs.Save();
+        ReproducirMusica();
     }
 }

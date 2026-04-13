@@ -388,8 +388,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 351454017}
-  - component: {fileID: 351454018}
   - component: {fileID: 351454019}
+  - component: {fileID: 351454020}
   m_Layer: 0
   m_Name: MusicManager
   m_TagString: Untagged
@@ -412,38 +412,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1549038511}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &351454018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 351454016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85f055350f39d9b41998f83850423fc0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DefenseMusicUniversal
-  Trozos:
-  - {fileID: 8300000, guid: abe4b46ed77dbd54c925de4a0bb924bf, type: 3}
-  - {fileID: 8300000, guid: 3ec6f00e0281fef41889c691a95dd254, type: 3}
-  - {fileID: 8300000, guid: 85ed7a8ef078ae14ea986dc51c9d7259, type: 3}
-  - {fileID: 8300000, guid: a67ac1137e9b6b04eb1a64b3458eaae8, type: 3}
-  - {fileID: 8300000, guid: 6e1a9500c656d50448ea929ff4754a18, type: 3}
-  - {fileID: 8300000, guid: c24f895d54b49ae48ac00fd39e0ae464, type: 3}
-  - {fileID: 8300000, guid: b1a8dcb3718fb1e4b9d57cb767e07b4e, type: 3}
-  - {fileID: 8300000, guid: c8a241c4e4ebd46499717d9358e7a52d, type: 3}
-  - {fileID: 8300000, guid: c39c6d0a78a1d614dac1c422e1bc4080, type: 3}
-  - {fileID: 8300000, guid: 51e5b6c0513c0d8489b8138c3d14af8e, type: 3}
-  - {fileID: 8300000, guid: 7b3ee8e2503167c4293a769f2c7c76a0, type: 3}
-  - {fileID: 8300000, guid: 0a854636428c81b49ba6da78270bb662, type: 3}
-  - {fileID: 8300000, guid: 997d0a096e6af19458d7dca627699b7e, type: 3}
-  - {fileID: 8300000, guid: cd78af5acafc6144993256830ea360f7, type: 3}
-  - {fileID: 8300000, guid: 0c7ebf497190d4940bd0b299ee6e541c, type: 3}
-  - {fileID: 8300000, guid: d1f52f85307108149b9d4dafa0450cd0, type: 3}
-  - {fileID: 8300000, guid: 966ac05049f134e439558bcfabcd886f, type: 3}
-  - {fileID: 8300000, guid: 6c5871d10a090134984433d1b3e53aaf, type: 3}
-  - {fileID: 8300000, guid: 6aec338f4bd936e47b5f2e35e8baf9c6, type: 3}
 --- !u!82 &351454019
 AudioSource:
   m_ObjectHideFlags: 0
@@ -541,6 +509,38 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &351454020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351454016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ab510d8125836d4798544bae787565f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DefenseMusicUniversalNPC
+  Trozos:
+  - {fileID: 8300000, guid: abe4b46ed77dbd54c925de4a0bb924bf, type: 3}
+  - {fileID: 8300000, guid: 3ec6f00e0281fef41889c691a95dd254, type: 3}
+  - {fileID: 8300000, guid: 85ed7a8ef078ae14ea986dc51c9d7259, type: 3}
+  - {fileID: 8300000, guid: a67ac1137e9b6b04eb1a64b3458eaae8, type: 3}
+  - {fileID: 8300000, guid: 6e1a9500c656d50448ea929ff4754a18, type: 3}
+  - {fileID: 8300000, guid: c24f895d54b49ae48ac00fd39e0ae464, type: 3}
+  - {fileID: 8300000, guid: b1a8dcb3718fb1e4b9d57cb767e07b4e, type: 3}
+  - {fileID: 8300000, guid: c8a241c4e4ebd46499717d9358e7a52d, type: 3}
+  - {fileID: 8300000, guid: c39c6d0a78a1d614dac1c422e1bc4080, type: 3}
+  - {fileID: 8300000, guid: 51e5b6c0513c0d8489b8138c3d14af8e, type: 3}
+  - {fileID: 8300000, guid: 7b3ee8e2503167c4293a769f2c7c76a0, type: 3}
+  - {fileID: 8300000, guid: 0a854636428c81b49ba6da78270bb662, type: 3}
+  - {fileID: 8300000, guid: 997d0a096e6af19458d7dca627699b7e, type: 3}
+  - {fileID: 8300000, guid: cd78af5acafc6144993256830ea360f7, type: 3}
+  - {fileID: 8300000, guid: 0c7ebf497190d4940bd0b299ee6e541c, type: 3}
+  - {fileID: 8300000, guid: d1f52f85307108149b9d4dafa0450cd0, type: 3}
+  - {fileID: 8300000, guid: 966ac05049f134e439558bcfabcd886f, type: 3}
+  - {fileID: 8300000, guid: 6c5871d10a090134984433d1b3e53aaf, type: 3}
+  - {fileID: 8300000, guid: 6aec338f4bd936e47b5f2e35e8baf9c6, type: 3}
 --- !u!1 &536510528
 GameObject:
   m_ObjectHideFlags: 0
@@ -1232,7 +1232,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 985816868}
-  - component: {fileID: 985816869}
+  - component: {fileID: 985816870}
   m_Layer: 0
   m_Name: MusicStarter
   m_TagString: Untagged
@@ -1255,7 +1255,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1549038511}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &985816869
+--- !u!114 &985816870
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1264,9 +1264,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 985816867}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87e4f61ba87316240aee3a9481024f29, type: 3}
+  m_Script: {fileID: 11500000, guid: 3be19474386e0bb42bef3ec489abd378, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MusicStarter
+  m_EditorClassIdentifier: Assembly-CSharp::CanvasControllerUniversal
+  canvasNormal: {fileID: 0}
+  canvasWin: {fileID: 0}
+  canvasFury: {fileID: 0}
+  canvasLose: {fileID: 0}
 --- !u!1 &1110999948
 GameObject:
   m_ObjectHideFlags: 0
