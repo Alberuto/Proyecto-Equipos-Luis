@@ -63,6 +63,10 @@ public class PlayerTake : MonoBehaviour
                 // comprobar si se pueden poner mas instrumentos en el tocadiscos
                 if (tocaDiscos.getNotas().Count < dificultad)
                 {
+                    NotaObjeto notaObj = objetoCogido.GetComponent<NotaObjeto>();
+                    if (notaObj != null)
+                        ReproducirNotaObjeto(notaObj);
+
                     instrumentoEntregado = true;
                     // Debug.Log("Instrumento entregado: " + instrumentoEntregado);
 
@@ -132,42 +136,41 @@ public class PlayerTake : MonoBehaviour
             
         }
     }
-    public void añadirInstrumento(GameObject objeto)
-    {
+    private void ReproducirNotaObjeto(NotaObjeto notaObj) {
+        AudioSource playerAudio = GetComponent<AudioSource>();
+        if (playerAudio != null && notaObj.notaClip != null) {
+            playerAudio.PlayOneShot(notaObj.notaClip);
+            Debug.Log($"🎵 Reproducido: {notaObj}");
+        }
+        else {
+            Debug.LogWarning("❌ Sin AudioSource en Player o sin notaClip");
+        }
+    }
+    public void añadirInstrumento(GameObject objeto) {
         objetoCogido = objeto;
     }
-    public void eliminarInstrumento()
-    {
-        if (objetoCogido != null)
-        {   
+    public void eliminarInstrumento() {
+        if (objetoCogido != null) {   
             objetoCogido = null;
         }
-        
     }
-    public GameObject getObjetoCogido()
-    {
+    public GameObject getObjetoCogido() {
         return objetoCogido;
     }
-    public void InstrumentoCogido(bool objeto)
-    {
+    public void InstrumentoCogido(bool objeto) {
         cogido = objeto;
     }
-    public void SetCoger(bool valor)
-    {
+    public void SetCoger(bool valor) {
         coger = valor;
     }
-    public bool InstrumentoEntregado()
-    {
+    public bool InstrumentoEntregado() {
         return instrumentoEntregado;
     }
-    public void SetInstrumentoEntregado(bool valor)
-    {
+    public void SetInstrumentoEntregado(bool valor) {
         instrumentoEntregado = valor;
     }
-
     // corrutina para esperar un tiempo para coger un objeto, sino coger se pone a false en el script cogerInstrumento la parte de Update
-    IEnumerator delay()
-    {
+    IEnumerator delay() {
         yield return new WaitForSeconds(timeDelay);
         //Debug.LogError("Espera " + timeDelay + " segundos");
         espera = true;

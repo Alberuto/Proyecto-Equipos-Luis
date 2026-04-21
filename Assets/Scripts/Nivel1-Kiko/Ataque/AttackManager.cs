@@ -77,9 +77,14 @@ public class AttackManager : MonoBehaviour {
         multiplicadorText.text = $"X {intentosExitosos}";
         int nivel = Mathf.Clamp(intentosExitosos, 0, 12);
         if (nivel <= 0)
+        {
             comboNombreText.text = "";
-        else
+        }
+        else {
             comboNombreText.text = nombresCombo[nivel - 1];
+            if (nivel == 12)
+                FinalizarAtaque();
+        }
     }
     private void FinalizarAtaque() {
 

@@ -2,17 +2,24 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class LamparaController : MonoBehaviour {
 
     [SerializeField] private GameObject lamparaApagada;
     [SerializeField] private GameObject lamparaEncendida;
     [SerializeField] private LayerMask layerNotas; // Layer "Notas"
+    [SerializeField] private AudioSource audioSource;
+
     private float distanciaRayo = 5f;
-
     private bool estaEncendida = false;
-
     private bool detectado = false;
+
+    void Awake() {
+        if (audioSource == null) {
+            audioSource = GetComponent<AudioSource>();
+        }
+    }
     void Update() {
         if (Input.GetKey(KeyCode.F)){ // Tu botón
             //ToggleLampara();
@@ -49,6 +56,7 @@ public class LamparaController : MonoBehaviour {
         if (Physics.Raycast(rayo, out RaycastHit hit, distanciaRayo, layerNotas)) {
             Debug.DrawRay(rayo.origin, rayo.direction * distanciaRayo, Color.green);
             string nota = hit.transform.tag;
+            detectado = true;
             /*NotaInteractiva nota = hit.collider.GetComponent<NotaInteractiva>();
             Debug.Log("nota: "+ nota);
             if (nota != null)
@@ -56,27 +64,37 @@ public class LamparaController : MonoBehaviour {
                 nota.Iluminar();
                 Debug.Log($"🎯 Nota iluminada: {nota}");
             }*/
-            detectado = true;
+
+            NotaObjeto notaObj = hit.transform.GetComponent<NotaObjeto>();
+
             AttackManagerSecuencia5 attackMgr = FindObjectOfType<AttackManagerSecuencia5>();
             if (attackMgr != null)
             {
                 attackMgr.RegistrarNotaJugador(nota);
                 Debug.Log($"🎯 5 ataque: {nota} registrado");
+                if (notaObj != null) {
+                    audioSource.PlayOneShot(notaObj.notaClip);
+                }
             }
             AttackManagerSecuencia4a2 attackMgr4a2 = FindObjectOfType<AttackManagerSecuencia4a2>();
-            if (attackMgr4a2 != null)
-            {
+            if (attackMgr4a2 != null) {
+
                 attackMgr4a2.RegistrarNotaJugador(nota);
                 Debug.Log($"🎯 4a2 ataque: {nota} registrado");
+                if (notaObj != null) {
+                    audioSource.PlayOneShot(notaObj.notaClip);
+                }
             }
             AttackManagerTutorial4 attackMgr4 = FindObjectOfType<AttackManagerTutorial4>();
-            if (attackMgr4 != null)
-            {
+            if (attackMgr4 != null) {
+
                 attackMgr4.RegistrarNotaJugador(nota);
                 Debug.Log($"🎯 4a2 ataque: {nota} registrado");
+                if (notaObj != null) {
+                    audioSource.PlayOneShot(notaObj.notaClip);
+                }
             }
         }
         //Debug.DrawRay(rayo.origin, rayo.direction * 50, Color.yellow); // Visual
     }
-    
 }

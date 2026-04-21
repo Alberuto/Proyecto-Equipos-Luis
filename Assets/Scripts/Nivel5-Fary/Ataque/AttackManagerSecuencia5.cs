@@ -14,7 +14,6 @@ public class AttackManagerSecuencia5 : MonoBehaviour {
 
     [Header("Audio")]
     [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip sonidoOK;
     [SerializeField] private AudioClip sonidoError;
     [SerializeField] private AudioClip sonidoCombo;
 
@@ -23,6 +22,9 @@ public class AttackManagerSecuencia5 : MonoBehaviour {
     [SerializeField] private int vidasMax = 3;
     private float tiempoRestante;
     private int vidasActuales;
+
+    [Header("Flash")]
+    [SerializeField] private FlashEffect flashEffect;
 
     [SerializeField] private CombatManager5 combatManager;
 
@@ -47,18 +49,22 @@ public class AttackManagerSecuencia5 : MonoBehaviour {
         inputJugador.Add(nota);
         Debug.Log($"🎹 [{string.Join("→", inputJugador)}] vs [{string.Join("→", secuenciaActual)}]");
 
-        // Reproducir nota
-        if (audioSource) 
-            audioSource.PlayOneShot(sonidoOK);
         // Verificar paso actual
         if (inputJugador.Count <= secuenciaActual.Count) {
 
             if (inputJugador[^1] == secuenciaActual[inputJugador.Count - 1]) {
                 Debug.Log("✅ Paso correcto!");
+                if (flashEffect != null)
+                {
+                    flashEffect.FlashCombo(1);
+                }
                 if (inputJugador.Count == secuenciaActual.Count) {
                     Debug.Log("🏆 SECUENCIA COMPLETA!");
                     if (audioSource && sonidoCombo) 
                         audioSource.PlayOneShot(sonidoCombo);
+                    if (flashEffect != null) {
+                        flashEffect.FlashCombo(6);
+                    }
                     combatManager.RecibirAtaque(PlayerPrefs.GetInt("AttackValue"));
                     StartCoroutine(DecidirSiguienteFase());
                 }
@@ -98,6 +104,9 @@ public class AttackManagerSecuencia5 : MonoBehaviour {
         Debug.Log($"🎯 Nueva secuencia FASE {faseActual}: {string.Join("→", secuenciaActual)}");
     }
     private void PerderVida() {
+        if (flashEffect != null)  {
+            flashEffect.FlashCombo(12);
+        }
         vidasActuales--;
         PlayerTake player = FindObjectOfType<PlayerTake>();
         player.fallo = true;
