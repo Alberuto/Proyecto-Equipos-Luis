@@ -21,6 +21,9 @@ public class AttackManagerTutorialObjetos2A : MonoBehaviour {
     [SerializeField] private float duracionTutorial = 120f;
     [SerializeField] private int vidasMax = 3;
 
+    [Header("Flash")]
+    [SerializeField] private FlashEffect flashEffect;
+
     private readonly List<string> secuenciaTutorial = new List<string> {
         "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"
     };
@@ -78,8 +81,14 @@ public class AttackManagerTutorialObjetos2A : MonoBehaviour {
             if (objetosCogidosCorrectos >= 12) {
                 Debug.Log("🏆 ¡12 OBJETOS CORRECTOS! TUTORIAL COMPLETADO!");
                 PlayerPrefs.SetInt($"Fury", 1);
+                if (flashEffect != null)
+                    flashEffect.FlashCombo(6);
                 StartCoroutine(Volver());
                 return;
+            }
+            else {
+                if (flashEffect != null) 
+                    flashEffect.FlashCombo(1);
             }
             indiceNotaActual++;
             ElegirSiguienteNota();
@@ -93,7 +102,8 @@ public class AttackManagerTutorialObjetos2A : MonoBehaviour {
     private void PerderVida()  {
         if (audioSource && sonidoError) 
             audioSource.PlayOneShot(sonidoError);
-
+        if (flashEffect != null) 
+            flashEffect.FlashCombo(12);
         vidasActuales--;
 
         if (vidasActuales <= 0) {

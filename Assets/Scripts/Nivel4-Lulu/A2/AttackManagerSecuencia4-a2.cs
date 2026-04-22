@@ -24,6 +24,9 @@ public class AttackManagerSecuencia4a2 : MonoBehaviour {
     private float tiempoRestante;
     private int vidasActuales;
 
+    [Header("Flash")]
+    [SerializeField] private FlashEffect flashEffect;
+
     // 🎵 SECUENCIA
     private List<string> todasNotas = new List<string> { "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B" };
     private List<string> secuenciaActual = new List<string>();
@@ -51,13 +54,22 @@ public class AttackManagerSecuencia4a2 : MonoBehaviour {
 
             if (inputJugador[^1] == secuenciaActual[inputJugador.Count - 1]) {
                 Debug.Log("✅ Paso correcto!");
-                if (inputJugador.Count == secuenciaActual.Count) {
+                if (inputJugador.Count == secuenciaActual.Count)
+                {
                     Debug.Log("🏆 SECUENCIA COMPLETA!");
+                    if (flashEffect != null)
+                        flashEffect.FlashCombo(6);
                     if (audioSource && sonidoCombo) audioSource.PlayOneShot(sonidoCombo);
                     SiguienteFase();
                 }
+                else {
+                    if (flashEffect != null)
+                        flashEffect.FlashCombo(1);
+                }
             }
             else {
+                if (flashEffect != null)
+                    flashEffect.FlashCombo(12);
                 Debug.Log("❌ Paso incorrecto!");
                 PerderVida();
             }

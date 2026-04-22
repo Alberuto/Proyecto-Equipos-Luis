@@ -11,6 +11,7 @@ public class AttackManager : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI cronometroText;
     [SerializeField] private TextMeshProUGUI comboNombreText;
     [SerializeField] private TextMeshProUGUI multiplicadorText;
+    [SerializeField] private TextMeshProUGUI ayudaSecuencia;
 
     [Header("Secuencia objetivo")]
     private string secuenciaHeredada = "";
@@ -142,6 +143,7 @@ public class AttackManager : MonoBehaviour {
         valorPuntosRiff = damageBase;
         secuenciaObjetivo = ConvertirSecuenciaStringALista(secuencia); 
         secuenciaHeredada = secuencia;
+        ayudaSecuencia.text = secuencia;
         secuenciaJugador.Clear();
         ataqueActivo = true;
         intentosExitosos = 0; // reset combo x turno

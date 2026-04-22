@@ -20,6 +20,9 @@ public class AttackManagerTutorial4 : MonoBehaviour {
     [SerializeField] private float duracionTutorial = 300f;
     [SerializeField] private int vidasMax = 5;
 
+    [Header("Flash")]
+    [SerializeField] private FlashEffect flashEffect;
+
     // Notas disponibles
     private readonly List<string> notas = new List<string> {
 
@@ -86,12 +89,19 @@ public class AttackManagerTutorial4 : MonoBehaviour {
 
      
         if (nota == notaObjetivoActual) {  // Acierto
-            if (notas.Count == 1) {        // Esta es la ÚLTIMA nota
-                FinTutorial("🎉 ¡PERFECTO! Tutorial completado"); 
+            if (notas.Count == 1)
+            {        // Esta es la ÚLTIMA nota
+                FinTutorial("🎉 ¡PERFECTO! Tutorial completado");
+                if (flashEffect != null)
+                    flashEffect.FlashCombo(6);
                 PlayerPrefs.SetInt("Fury", 1); // GUARDAR COMPLETADO
                 PlayerPrefs.Save();
                 StartCoroutine(Volver());
                 return;
+            }
+            else {
+                if (flashEffect != null)
+                    flashEffect.FlashCombo(1);
             }
             if (sonidoOK != null && audioSource != null)
                 audioSource.PlayOneShot(sonidoOK);
@@ -103,7 +113,8 @@ public class AttackManagerTutorial4 : MonoBehaviour {
             // Fallo
             if (sonidoError != null && audioSource != null)
                 audioSource.PlayOneShot(sonidoError);
-
+            if (flashEffect != null)
+                flashEffect.FlashCombo(12);
             vidasActuales--;
             Debug.Log($"❌ Nota incorrecta. Vidas restantes: {vidasActuales}");
             // cambio variable para no guardar el objeto "playerTake"
