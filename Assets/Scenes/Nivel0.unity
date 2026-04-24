@@ -2489,8 +2489,7 @@ MonoBehaviour:
     y aprender las mecanicas del juego
   - "Si no pensar\xE1s que este juego es purriela cuando la realidad es que t\xFA
     eres lo que comunmente se conoce como un manco"
-  - De hecho si quieres continuar deberas empezar desde el principio por ser un ser
-    decepcionante
+  - De hecho si quieres continuar deberas empezar desde el principio por ser decepcionante
 --- !u!114 &820593659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4992,6 +4991,8 @@ MonoBehaviour:
   - Suerte en tu aventura y esperamos que salgas victorioso de esta guerra musical.
   - "...Que la armonia del dodecafonismo te acompa\xF1e, la sinestesia de parsifall
     y la luz de lul\xFA..."
+  - "Siento tener que abandonarte, espero poder darte mi ultimo servicio contra kiko,
+    despues solo ser\xE9 el multiplicador de tus riffs"
 --- !u!114 &1853641417
 MonoBehaviour:
   m_ObjectHideFlags: 0

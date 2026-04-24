@@ -4,9 +4,9 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager2 : MonoBehaviour
 {
-    public static GameManager instance;
+    public static GameManager2 instance;
     /*
     // daño jugador
     private int metal = 10;
@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
     private void Start() {
 
        // if(vidaPlayer==null)
-            vidaPlayer = PlayerPrefs.GetFloat("Nivel1VidaJugador", 100f);
+            vidaPlayer = PlayerPrefs.GetFloat("VidaJugador", 100f);
 
         //vidaPlayer = PlayerPrefs.GetFloat("Nivel1VidaJugador", 100f);
         /*
@@ -54,6 +54,8 @@ public class GameManager : MonoBehaviour
         UIManager.instance.ActualizarVidaEnemy(MySceneManager.instance.getEnemyActual());*/
         playerObject = GameObject.FindGameObjectWithTag("Player");
         player = playerObject.GetComponent<PlayerMovement>();
+        PlayerPrefs.Save();
+
     }
     // Método para recibir daño del jugador, se llama desde el script de colisiones del jugador playerHealth
     public void RecibirDamage(int daño) {
@@ -101,7 +103,7 @@ public class GameManager : MonoBehaviour
     public int getDificultad() {  return dificil; }
     public void reiniciarJuego()
     {
-        vidaPlayer = PlayerPrefs.GetFloat("Nivel1VidaJugador");
+        vidaPlayer = PlayerPrefs.GetFloat("VidaJugador");
         //MySceneManager.instance.LoadScene("MainMenu");
     }
     /*

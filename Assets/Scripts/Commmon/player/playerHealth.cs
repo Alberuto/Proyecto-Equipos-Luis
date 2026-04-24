@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     // Tiempo de invulnerabilidad despues de recibir daño
-    private float invulnerableTime = 5.0f;
+    private float invulnerableTime = 3.0f;
     private bool invulnerable = false;
 
     public int dañoKiko = 10;
@@ -42,13 +42,13 @@ public class PlayerHealth : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("cigala"))
         {
-            GameManager.instance.RecibirDamage(dañoCigala);
+            GameManager2.instance.RecibirDamage(dañoCigala);
             atacado = true;
 
         }
         else if (other.gameObject.CompareTag("fary"))
         {
-            GameManager.instance.RecibirDamage(dañoFary);
+            GameManager2.instance.RecibirDamage(dañoFary);
             atacado = true;
             dm.ActualizarUI();
         }
@@ -74,7 +74,7 @@ public class PlayerHealth : MonoBehaviour
     }
     IEnumerator delayAnimation()
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(1f);
         Debug.Log("Jugador ya no es invulnerable");
     }
 }

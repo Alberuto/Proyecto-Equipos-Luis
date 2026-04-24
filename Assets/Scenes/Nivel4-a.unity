@@ -4736,7 +4736,7 @@ MonoBehaviour:
   audioSource: {fileID: 2030830029}
   sonidoOK: {fileID: 8300000, guid: f69f4b591c5458f4696563621738952b, type: 3}
   sonidoError: {fileID: 8300000, guid: b27e67db581fabd4b99e4c9c1a5aa467, type: 3}
-  duracionTutorial: 300
+  duracionTutorial: 99
   vidasMax: 5
   flashEffect: {fileID: 1479717674}
 --- !u!4 &2030830028

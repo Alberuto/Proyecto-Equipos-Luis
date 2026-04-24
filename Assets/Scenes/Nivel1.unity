@@ -2532,16 +2532,14 @@ MonoBehaviour:
   lineas:
   - 'Te vas a enterar cuando se lo diga a la Pantoja, te convertira en un marinero
     sin luces en menos que canta un gallo. '
-  - si ya te has enterado de quien soy yo, agarrate porque vienen curvas, te espera
+  - Si ya te has enterado de quien soy yo, agarrate porque vienen curvas, te espera
     el todo poderoso (literalmente) cigala con varios cientos de monedas con las
     que esta dispuesto a hacerte languidecer
   - "A este crust\xE1ceo siempre le gusto pagar bien... Suerte en tu camino a la
     liberacion de Elvis pero te recuerdo que siempre podras volver a empezar como
     en una escalera musical con retorno"
-  - La mia como respresentante apantojaDO es %CDEFGFEDC%, acuerdate porque podra
-    ayudarte en tu lucha final y de esta manera puede que tus enemigos tambien hayan
-    sido tus amigos en tu lucha contra el mal.
-  - 'Siento haber destrozado al dodecaphonismo en nuestra lucha. '
+  - "Siento haber destrozado al dodecaphonismo en nuestra lucha. Siempre te acompa\xF1ar\xE1
+    como un combo x12 "
 --- !u!114 &820593659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2809,23 +2807,16 @@ MonoBehaviour:
   - Bienvenido a la batalla musical, antes de que te atrevas tan si quiera a derrotar
     a nuestro jefe supremo (El Fary) tendras que demostrar un minimo de ciertas capacidades
     musicales
-  - Soy el mayor de DOs hermanos, conMIgo aprenderas tu primer conjunto de combinaciones
-    de teclas a las que nuestro maestro SOLo  es sensible  %CEG%
-  - "Con estas pistas podr\xE1s hacer da\xF1o al jefe supremo ya que tus ataques
-    clasicos y metal seran inservibles ya que es inmune por ser supremo (yo solo
-    lo soy al death metal) "
+  - "Cada uno de nosotros es sensible a un tipo de musica, yo a la cl\xE1sica, cigala
+    al death metal y el fary a los dodecafonismos"
   - "Usaremos para ello la notacion Anglosajona que es la que te acompa\xF1a en el
-    teclaDO, puede que ya te haya dejado tu primera pista (%CEG%) entre tontos por
-    cierto...."
+    teclado"
   - "Ahora te dejar\xE9 atacar primero con tus riffs wagnerianos parsifaleados insensato!
     Preparate para una lucha y preparate para enterarte de como soy Yo de una vez
     por todas!"
   - "Tendras que introducir la secuencia correcta si quieres atacar con la maxima
     efectividad, la mayor cantidad de veces, de lo contrario lo unico que lastimar\xE1s
     ser\xE1n mis oidos \xBFLo has oido?"
-  - "Por cierto, de tanto beber a dodecaphonismo se le han olvidado los atajos del
-    teclado... espero que te acuerdes aunque ah\xED va una pista estan ordenados
-    de  graves F1 a agudos F12"
   - "\xBFQu\xE9 deseas estar m\xE1s all\xE1 de la farandula? Ahora veremos si estas
     listo para continuar..."
 --- !u!114 &886010494
@@ -4384,8 +4375,8 @@ MonoBehaviour:
   nombrePersonaje: Kiko
   estado: Fury
   lineas:
-  - 'Vaya vaya vaya con el maldito %CDEFG% ahora vas a probar lo que es bueno voy
-    a empezar a usar mis ataques mas devastadores y no tendre piedad, '
+  - 'Vaya vaya vaya con el muchachito, ahora vas a probar lo que es bueno voy a empezar
+    a usar mis ataques mas devastadores y no tendre piedad, '
   - 'Te demostrare por fin todo mi potencial y podras comprender porque "Asi soy
     yo" respetado en el mundo entero, como la sidra del gaitero! '
   - Adelante Vinilos de oro del pasado presente acabad con el antes de que pueda
@@ -4905,8 +4896,8 @@ MonoBehaviour:
   - "Sabia que eras un ser insignificante e incapaz de derrotar al mejor DJ que ha
     dado Espa\xF1a en su historia, eres un ser inmundo, vac\xEDo de todo conocimiento
     musical "
-  - 'Siempre te quedara la opcion de volver a intentarlo, aunque quizas llegado a
-    este punto deberias de plantearte si quieres seguir perdiendo el tiempo  %CDEFGFEDC% '
+  - Siempre te quedara la opcion de volver a intentarlo, aunque quizas llegado a
+    este punto deberias de plantearte si quieres seguir perdiendo el tiempo.....
   - Llegados a este punto solo te quedan dos opciones. Sucumbir o volver a intentarlo.
   - 'Nuestro futuro y el de Elvis Pelvis esta en tus manos '
 --- !u!114 &1853641417

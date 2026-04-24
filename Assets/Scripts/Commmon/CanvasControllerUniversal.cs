@@ -39,6 +39,8 @@ public class CanvasControllerUniversal : MonoBehaviour
         }
         else {
             ActivarCanvasNormal();
+            PlayerPrefs.SetFloat("VidaJugador", 100f);
+            PlayerPrefs.Save();
         }
     }
     private void OcultarTodosCanvas() {

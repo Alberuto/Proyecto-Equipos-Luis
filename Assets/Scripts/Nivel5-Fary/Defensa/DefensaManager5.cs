@@ -25,7 +25,7 @@ public class DefensaManager5 : MonoBehaviour {
     private bool defensaIniciada = false;
     private float tiempoDefensaRestante;
     private bool cronometroActivo = false;
-    float vidaJugador;
+    float vidaJugador,vidaBoss;
     DefenseMusicUniversal musica;
 
     void Start() {
@@ -34,9 +34,9 @@ public class DefensaManager5 : MonoBehaviour {
         int combos = 12; //en los niveles que se introduzca cogiendo o iluminando objetos siempre sera x12
         int damage = PlayerPrefs.GetInt("AtaqueDaño", 0);
         vidaJugador = PlayerPrefs.GetFloat("VidaJugador");
-        float vidaBoss = PlayerPrefs.GetFloat("VidaBoss");
+        vidaBoss = PlayerPrefs.GetFloat("VidaBoss",100f);
         Debug.Log($"📊 Resumen Ataque: x{combos} combos, {damage} daño");
-        MostrarResumen(combos, damage, GameManager.instance.vidaPlayer, vidaBoss);
+        MostrarResumen(combos, damage, vidaJugador, vidaBoss);
     }
     void Update() {
         // 🆕 Solo cuenta SI defensa iniciada Y cronómetro activo
@@ -60,7 +60,7 @@ public class DefensaManager5 : MonoBehaviour {
         sliderVidaBoss.value = PlayerPrefs.GetFloat("VidaBoss", 100f);
 
     }
-    void MostrarResumen(int combos, int damage,float vidaJugador, float vidaBoss) {
+    void MostrarResumen(int combos, int damage, float vidaJugador, float vidaBoss) {
         canvasResumen.SetActive(true);
         textoCombo.text = $"Combo x{combos} por iluminar las notas parseadas inertes";
         textoDamage.text = $"Daño realizado con tu ultimo ataque: {damage}";
@@ -102,10 +102,9 @@ public class DefensaManager5 : MonoBehaviour {
         FinalizarDefensa();
     }
     private void FinalizarDefensa() {
-        PlayerPrefs.SetFloat("VidaJugador", GameManager.instance.vidaPlayer);
-        Debug.Log($"⏰ TIEMPO DEFENSA FINALIZADO - Vida Jugador: {GameManager.instance.vidaPlayer:F0}/100");
+        PlayerPrefs.SetFloat("VidaJugador", GameManager2.instance.vidaPlayer);
+        Debug.Log($"⏰ TIEMPO DEFENSA FINALIZADO - Vida Jugador: {GameManager2.instance.vidaPlayer:F0}/100");
         Debug.Log($"\n vidaJugador"+vidaJugador);
-        vidaJugador = GameManager.instance.vidaPlayer;
 
         if (vidaJugador <= 0) {
             PlayerPrefs.SetInt("Fallo", 1);
