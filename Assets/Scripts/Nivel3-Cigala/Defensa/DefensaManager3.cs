@@ -42,7 +42,9 @@ public class DefensaManager3 : MonoBehaviour {
         // 🆕 Solo cuenta SI defensa iniciada Y cronómetro activo
         if (defensaIniciada && cronometroActivo && tiempoDefensaRestante > 0) {
             tiempoDefensaRestante -= Time.deltaTime;
-            textoVidaJugadorDefensa.text = $"Jugador: {vidaJugador:F0}/100";//try
+            textoVidaJugadorDefensa.text = $"Jugador: {GameManager2.instance.vidaPlayer:F0}/100";//try
+            sliderVidaJugador.value = GameManager2.instance.vidaPlayer;
+
             textoVidaBossDefensa.text = $"Boss: {PlayerPrefs.GetFloat("VidaBoss",100f):F0}/100";
             ActualizarCronometroUI();
         }

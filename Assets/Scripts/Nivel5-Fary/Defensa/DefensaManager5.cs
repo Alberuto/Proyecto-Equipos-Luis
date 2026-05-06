@@ -43,7 +43,9 @@ public class DefensaManager5 : MonoBehaviour {
         if (defensaIniciada && cronometroActivo && tiempoDefensaRestante > 0) {
             tiempoDefensaRestante -= Time.deltaTime;
             textoVidaJugadorDefensa.text = $"Jugador: {PlayerPrefs.GetFloat("VidaJugador", 100f):F0}/100";//try
+            sliderVidaJugador.value = PlayerPrefs.GetFloat("VidaJugador", 100f);
             textoVidaBossDefensa.text = $"Boss: {PlayerPrefs.GetFloat("VidaBoss", 100f):F0}/100";
+            sliderVidaBoss.value = PlayerPrefs.GetFloat("VidaBoss", 100f);
             ActualizarCronometroUI();
         }
     }

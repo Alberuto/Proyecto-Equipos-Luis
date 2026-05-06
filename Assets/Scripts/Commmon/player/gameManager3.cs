@@ -4,9 +4,9 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager2 : MonoBehaviour {
+public class GameManager3 : MonoBehaviour {
 
-    public static GameManager2 instance;
+    public static GameManager3 instance;
 
     public float vidaPlayer;
     private int dificil = 12;

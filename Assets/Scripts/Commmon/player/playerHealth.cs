@@ -17,18 +17,30 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField]
     private DefensaManager5 dm;
+
     public void Start()
     {
         move = GetComponent<PlayerMovement>();
         dm = GetComponent<DefensaManager5>();
         invulnerable = true;
         StopCoroutine("delay");
-        StartCoroutine(delay(7.0f));
+        StartCoroutine(delay(3.0f));
     }
 
     // Metodo para detectar colisiones con enemigos
-    void OnTriggerEnter(Collider other)
-    {
+    void OnTriggerEnter(Collider other)  {
+
+        if (atacado)
+        {
+            invulnerable = true;
+            move.recibiendoDaño = true;
+            StopCoroutine("delayAnimation");
+            StartCoroutine(delayAnimation());
+            Debug.Log("Jugador ha recibido daño de: " + other.tag);
+            StopCoroutine("delay");
+            StartCoroutine(delay(invulnerableTime));
+            atacado = false;
+        }
         if (invulnerable)
         {
             Debug.Log("Jugador es invulnerable, no recibe daño de "+other.name);
@@ -48,21 +60,11 @@ public class PlayerHealth : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("fary"))
         {
-            GameManager2.instance.RecibirDamage(dañoFary);
+            GameManager3.instance.RecibirDamage(dañoFary);
             atacado = true;
-            dm.ActualizarUI();
+           // dm.ActualizarUI();
         }
-        if (atacado)
-        {
-            invulnerable = true;
-            move.recibiendoDaño = true;
-            StopCoroutine("delayAnimation");
-            StartCoroutine(delayAnimation());
-            Debug.Log("Jugador ha recibido daño de: " + other.tag);
-            StopCoroutine("delay");
-            StartCoroutine(delay(invulnerableTime));
-            atacado = false;
-        }
+        
         
     }
     // Coroutine para manejar el tiempo de invulnerabilidad

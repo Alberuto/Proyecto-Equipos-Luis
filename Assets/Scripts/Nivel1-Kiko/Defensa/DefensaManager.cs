@@ -81,6 +81,7 @@ public class DefensaManager : MonoBehaviour {
         if (defensaIniciada && cronometroActivo && tiempoDefensaRestante > 0) {
             tiempoDefensaRestante -= Time.deltaTime;
             textoVidaJugadorDefensa.text = $"Jugador: {GameManager.instance.vidaPlayer:F0}/100";//try
+            sliderVidaJugador.value = GameManager.instance.vidaPlayer;
 
             ActualizarCronometroUI();
         }

@@ -52,10 +52,15 @@ public class CombatManager5 : MonoBehaviour {
         ActualizarUI();
     }
     private void ActualizarUI()  {
-        vidaJugador.value = vidaJugadorActual;
+
+        /*vidaJugador.value = vidaJugadorActual;
         vidaBoss.value = vidaBossActual;
         textoVidaJugador.text = $"Jugador: {vidaJugadorActual:F0}/{vidaJugadorMax}";
-        textoVidaBoss.text = $"Boss: {vidaBossActual:F0}/{vidaBossMax}";
+        textoVidaBoss.text = $"Boss: {vidaBossActual:F0}/{vidaBossMax}";*/
+        textoVidaJugador.text = $"Jugador: {PlayerPrefs.GetFloat("VidaJugador", 100f):F0}/100";//try
+        vidaJugador.value = PlayerPrefs.GetFloat("VidaJugador", 100f);
+        textoVidaBoss.text = $"Boss: {PlayerPrefs.GetFloat("VidaBoss", 100f):F0}/100";
+        vidaBoss.value = PlayerPrefs.GetFloat("VidaBoss", 100f);
     }
     IEnumerator Volver() {
         yield return new WaitForSeconds(2f);

@@ -54,8 +54,7 @@ public class AttackManagerSecuencia5 : MonoBehaviour {
 
             if (inputJugador[^1] == secuenciaActual[inputJugador.Count - 1]) {
                 Debug.Log("✅ Paso correcto!");
-                if (flashEffect != null)
-                {
+                if (flashEffect != null) {
                     flashEffect.FlashCombo(1);
                 }
                 if (inputJugador.Count == secuenciaActual.Count) {
