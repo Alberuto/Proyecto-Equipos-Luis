@@ -2448,6 +2448,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6260144425645379108, guid: f241d62418d109c4989c95977d717180, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7369603831546536230, guid: f241d62418d109c4989c95977d717180, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.87279
@@ -2491,8 +2495,29 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3003240389209412388, guid: f241d62418d109c4989c95977d717180, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 612388943}
   m_SourcePrefab: {fileID: 100100000, guid: f241d62418d109c4989c95977d717180, type: 3}
+--- !u!1 &612388942 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3003240389209412388, guid: f241d62418d109c4989c95977d717180, type: 3}
+  m_PrefabInstance: {fileID: 612388941}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &612388943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612388942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9038f0da7b8e551419ff590109057d17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager2
+  vidaPlayer: 0
 --- !u!1 &619149262
 GameObject:
   m_ObjectHideFlags: 0
