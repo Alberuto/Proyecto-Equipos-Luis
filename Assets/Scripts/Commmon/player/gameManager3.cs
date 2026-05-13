@@ -23,13 +23,19 @@ public class GameManager3 : MonoBehaviour {
         else {
             Destroy(gameObject);
         }
+        if (!PlayerPrefs.HasKey("VidaJugador"))
+        {
+            PlayerPrefs.SetFloat("VidaJugador", 100f);
+            PlayerPrefs.Save();
+            Debug.Log("PlayerPrefs: VidaJugador inicializada a 100 (no existente).");
+        }
     }
     private void Start() {
-        //vidaPlayer = PlayerPrefs.GetFloat("VidaJugador", 100f);
-        vidaPlayer = 100;
+        vidaPlayer = PlayerPrefs.GetFloat("VidaJugador", 100f);
+       // vidaPlayer = 100;
         playerObject = GameObject.FindGameObjectWithTag("Player");
         player = playerObject.GetComponent<PlayerMovement>();
-        //PlayerPrefs.Save();
+        PlayerPrefs.Save();
     }
     // Método para recibir daño del jugador, se llama desde el script de colisiones del jugador playerHealth
     public void RecibirDamage(int daño) {

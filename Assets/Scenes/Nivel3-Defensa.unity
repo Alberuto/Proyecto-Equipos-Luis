@@ -2571,6 +2571,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3391997148727420703, guid: b0f75e75dd8c24d4b8300148649289f6, type: 3}
+      propertyPath: playerManager
+      value: 
+      objectReference: {fileID: 511246734}
     - target: {fileID: 8426371915395653005, guid: b0f75e75dd8c24d4b8300148649289f6, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2592,6 +2596,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0f75e75dd8c24d4b8300148649289f6, type: 3}
+--- !u!114 &511246734 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8769949334041427452, guid: b0f75e75dd8c24d4b8300148649289f6, type: 3}
+  m_PrefabInstance: {fileID: 511246733}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a82e2a14c1ea2a42b0ff6c633c4b9e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
 --- !u!1 &536510528
 GameObject:
   m_ObjectHideFlags: 0

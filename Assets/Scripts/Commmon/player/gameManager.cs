@@ -42,6 +42,11 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (!PlayerPrefs.HasKey("Nivel1VidaJugador"))  {
+            PlayerPrefs.SetFloat("Nivel1VidaJugador", 100f);
+            PlayerPrefs.Save();
+            Debug.Log("PlayerPrefs: VidaJugador inicializada a 100 (no existente).");
+        }
     }
     private void Start() {
 
