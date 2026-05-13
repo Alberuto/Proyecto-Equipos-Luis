@@ -42,8 +42,10 @@ public class DefensaManager5 : MonoBehaviour {
         // 🆕 Solo cuenta SI defensa iniciada Y cronómetro activo
         if (defensaIniciada && cronometroActivo && tiempoDefensaRestante > 0) {
             tiempoDefensaRestante -= Time.deltaTime;
-            textoVidaJugadorDefensa.text = $"Jugador: {PlayerPrefs.GetFloat("VidaJugador", 100f):F0}/100";//try
-            sliderVidaJugador.value = PlayerPrefs.GetFloat("VidaJugador", 100f);
+
+            textoVidaJugadorDefensa.text = $"Jugador: {GameManager3.instance.vidaPlayer:F0}/100";//try
+            sliderVidaJugador.value = GameManager3.instance.vidaPlayer;
+
             textoVidaBossDefensa.text = $"Boss: {PlayerPrefs.GetFloat("VidaBoss", 100f):F0}/100";
             sliderVidaBoss.value = PlayerPrefs.GetFloat("VidaBoss", 100f);
             ActualizarCronometroUI();
@@ -104,8 +106,8 @@ public class DefensaManager5 : MonoBehaviour {
         FinalizarDefensa();
     }
     private void FinalizarDefensa() {
-        PlayerPrefs.SetFloat("VidaJugador", GameManager2.instance.vidaPlayer);
-        Debug.Log($"⏰ TIEMPO DEFENSA FINALIZADO - Vida Jugador: {GameManager2.instance.vidaPlayer:F0}/100");
+        PlayerPrefs.SetFloat("VidaJugador", GameManager3.instance.vidaPlayer);
+        Debug.Log($"⏰ TIEMPO DEFENSA FINALIZADO - Vida Jugador: {GameManager3.instance.vidaPlayer:F0}/100");
         Debug.Log($"\n vidaJugador"+vidaJugador);
 
         if (vidaJugador <= 0) {
