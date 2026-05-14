@@ -4,8 +4,8 @@ using UnityEngine;
 
 // Script para gestionar las animaciones del jugador
 [RequireComponent(typeof(CharacterController))]
-public class Animation : MonoBehaviour
-{
+public class Animation : MonoBehaviour {
+
     [SerializeField] private PlayerMovement PlayerMovement;
     [SerializeField] private Animator animator;
     [SerializeField] private CharacterController characterController;
@@ -45,7 +45,12 @@ public class Animation : MonoBehaviour
         animator.SetBool("suelo", characterController.isGrounded);
         //animator.SetBool("tiempo", PlayerMovement.inactivo);
         animator.SetBool("daño", PlayerMovement.recibiendoDaño);
+        Invoke(nameof(QuitarAnimDaño), 0.5f);
         animator.SetBool("muerto", PlayerMovement.muerto);
     }
 
+    void QuitarAnimDaño()
+    {
+        this.gameObject.GetComponent<PlayerMovement>().recibiendoDaño = false;
+    }
 }

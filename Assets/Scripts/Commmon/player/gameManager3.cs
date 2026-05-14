@@ -19,9 +19,13 @@ public class GameManager3 : MonoBehaviour {
         if (instance == null) {
             instance = this;
             DontDestroyOnLoad(gameObject);
+            Debug.Log("existente");
+
         }
         else {
             Destroy(gameObject);
+            Debug.Log("(no existente).");
+
         }
         if (!PlayerPrefs.HasKey("VidaJugador"))
         {
@@ -29,10 +33,17 @@ public class GameManager3 : MonoBehaviour {
             PlayerPrefs.Save();
             Debug.Log("PlayerPrefs: VidaJugador inicializada a 100 (no existente).");
         }
+        else {
+            PlayerPrefs.SetFloat("VidaJugador", 100f);
+            PlayerPrefs.Save();
+            Debug.Log("PlayerPrefs: VidaJugador NO inicializada a 100 (existente).");
+
+        }
     }
     private void Start() {
         vidaPlayer = PlayerPrefs.GetFloat("VidaJugador", 100f);
-       // vidaPlayer = 100;
+        // vidaPlayer = 100;
+        Debug.Log("PlayerPrefs: VidaJugador inicializada a 100 (no existente).");
         playerObject = GameObject.FindGameObjectWithTag("Player");
         player = playerObject.GetComponent<PlayerMovement>();
         PlayerPrefs.Save();

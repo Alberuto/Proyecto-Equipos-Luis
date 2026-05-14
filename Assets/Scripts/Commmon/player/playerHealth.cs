@@ -64,8 +64,6 @@ public class PlayerHealth : MonoBehaviour
             atacado = true;
            // dm.ActualizarUI();
         }
-        
-        
     }
     // Coroutine para manejar el tiempo de invulnerabilidad
     IEnumerator delay(float time)

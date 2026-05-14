@@ -3139,6 +3139,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3003240389209412388, guid: f241d62418d109c4989c95977d717180, type: 3}
+      propertyPath: m_TagString
+      value: GameManager
+      objectReference: {fileID: 0}
     - target: {fileID: 6260144425645379108, guid: f241d62418d109c4989c95977d717180, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -3183,13 +3187,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6260144425645379108, guid: f241d62418d109c4989c95977d717180, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3003240389209412388, guid: f241d62418d109c4989c95977d717180, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1754400653}
     - targetCorrespondingSourceObject: {fileID: 3003240389209412388, guid: f241d62418d109c4989c95977d717180, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1754400654}
@@ -3199,19 +3201,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3003240389209412388, guid: f241d62418d109c4989c95977d717180, type: 3}
   m_PrefabInstance: {fileID: 1754400651}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1754400653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1754400652}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9038f0da7b8e551419ff590109057d17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameManager2
-  vidaPlayer: 0
 --- !u!114 &1754400654
 MonoBehaviour:
   m_ObjectHideFlags: 0
